@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK OOH Pricing 2026 | Loud! OOH</title>
+<meta name="description" content="Real out-of-home prices for every UK format — billboard, rail, airport, taxi, bus and more. Published openly, no markups.">
+<meta name="theme-color" content="#13325C">
+<script src="../../js/dc/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FFFFFF; color: #13325C; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #FE481B; text-decoration: none; }
+  a:hover { color: #d43a12; }
+  ::selection { background: #FE481B; color: #fff; }
+  .pricing-hero {
+    position: relative;
+    background: #163a6f;
+    background-image:
+      radial-gradient(220px 220px at 96% 18%, rgba(102, 86, 167, 0.22), rgba(102, 86, 167, 0) 72%),
+      radial-gradient(250px 250px at 2% 96%, rgba(102, 86, 167, 0.20), rgba(102, 86, 167, 0) 74%);
+    color: #fff;
+    overflow: hidden;
+  }
+  .pricing-hero::before{
+    content:'';
+    position:absolute;
+    inset:-14% -10% -10%;
+    background:
+      radial-gradient(360px 240px at 12% 16%, rgba(255,255,255,0.07), rgba(255,255,255,0)),
+      radial-gradient(320px 220px at 88% 82%, rgba(254,72,27,0.12), rgba(254,72,27,0));
+    transform: translate3d(0, var(--hero-bg-parallax, 0px), 0);
+    will-change: transform;
+    pointer-events:none;
+  }
+  .pricing-hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(7,23,51,0.12) 0%, rgba(7,23,51,0.22) 100%);
+    pointer-events:none;
+  }
+  .pricing-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    transform: translate3d(0, var(--hero-content-parallax, 0px), 0);
+    will-change: transform;
+  }
+  .pricing-hero-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 138, 112, 0.28);
+    background: rgba(18, 43, 79, 0.42);
+    color: rgba(255, 171, 149, 0.96);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    margin-bottom: 30px;
+  }
+  .pricing-kicker {
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,154,127,0.95);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .pricing-title {
+    margin: 0 0 26px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(54px, 7vw, 74px);
+    line-height: 1.02;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .pricing-title-solid,
+  .pricing-title-outline{ display:block; }
+  .pricing-title-solid{ color:#fff; }
+  .pricing-title-outline{
+    margin-top: 6px;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(254,72,27,0.92);
+    text-stroke: 2px rgba(254,72,27,0.92);
+    letter-spacing: -0.02em;
+  }
+  .pricing-subtitle {
+    margin: 0 auto 20px;
+    font-size: clamp(18px, 1.85vw, 24px);
+    line-height: 1.36;
+    color: rgba(220,228,240,0.94);
+    max-width: 640px;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  .pricing-meta {
+    margin: 0 auto 30px;
+    max-width: 620px;
+    font-size: 11px;
+    color: rgba(178,193,215,0.9);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+  .pricing-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom: 56px; }
+  .pricing-btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding: 15px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+    will-change: transform;
+  }
+  .pricing-btn-primary { background:#FE481B; color:#fff; border:1px solid #FE481B; box-shadow: 0 14px 34px rgba(254,72,27,0.26); }
+  .pricing-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(254,72,27,0.32); color:#fff; }
+  .pricing-btn-secondary { background: rgba(255,255,255,0.06); color:#fff; border:1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .pricing-btn-secondary:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.35); color:#fff; }
+  .pricing-stats {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    max-width: 1120px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 0;
+    overflow: hidden;
+    transform: translate3d(0, var(--hero-stats-parallax, 0px), 0);
+    will-change: transform;
+  }
+  .pricing-stat {
+    padding: 13px 12px 11px;
+    background: rgba(19,50,92,0.92);
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    text-align: center;
+  }
+  .pricing-stat-value { font-weight: 900; font-size: 34px; letter-spacing: -0.02em; color: #FE481B; line-height: 1.02; }
+  .pricing-stat-label { font-size: 13px; line-height: 1.35; color: rgba(236,241,250,0.92); margin-top: 4px; text-transform: none; letter-spacing: 0; }
+  .pricing-jump-wrap{
+    position: sticky;
+    top: 66px;
+    z-index: 60;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .pricing-jump-nav{
+    max-width: 1280px;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+  .pricing-jump-track{
+    position: relative;
+    min-width: 0;
+  }
+  .pricing-jump-track::before,
+  .pricing-jump-track::after{
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:8px;
+    width:24px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .pricing-jump-track::before{
+    left:0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(255,255,255,0));
+    transform: translate3d(calc(var(--jump-parallax, 0px) * -0.25), 0, 0);
+  }
+  .pricing-jump-track::after{
+    right:0;
+    background: linear-gradient(270deg, rgba(255,255,255,0.98), rgba(255,255,255,0));
+  }
+  .pricing-jump-scroll{
+    display:flex;
+    align-items:flex-end;
+    gap: 2px;
+    overflow-x:auto;
+    padding: 2px 12px 0;
+    scrollbar-width: thin;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid #e6ebf3;
+  }
+  .pricing-jump-scroll::-webkit-scrollbar{ height: 6px; }
+  .pricing-jump-scroll::-webkit-scrollbar-thumb{
+    background: rgba(145,161,185,0.45);
+    border-radius: 999px;
+  }
+  .pricing-tab{
+    position: relative;
+    flex: none;
+    scroll-snap-align: center;
+    padding: 14px 14px 12px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: color .22s ease, border-color .22s ease, transform .22s ease, text-shadow .22s ease;
+  }
+  .pricing-tab::after{
+    content:'';
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-2px;
+    height:3px;
+    background:#FE481B;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1);
+  }
+  .pricing-tab:hover{
+    color:#13325C !important;
+    border-bottom-color: rgba(254,72,27,0.25);
+    transform: translateY(-1px);
+    text-shadow: 0 0 0.01px currentColor;
+  }
+  .pricing-tab:active{
+    transform: translateY(0);
+  }
+  .pricing-tab.is-active{
+    color:#13325C !important;
+    background: transparent;
+    border-bottom-color: #FE481B;
+  }
+  .pricing-tab.is-active::after{
+    transform: scaleX(1);
+  }
+  .pricing-tab:focus-visible{
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(19,50,92,0.15);
+    border-bottom-color: rgba(254,72,27,0.6);
+  }
+  .pricing-section-kicker{
+    display:block;
+    font-weight:800;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:#FE481B;
+    margin:0 0 10px;
+  }
+  .pricing-section-title{
+    font-weight:900;
+    font-size:clamp(26px,3.8vw,40px);
+    line-height:1.02;
+    letter-spacing:-0.025em;
+    text-transform:uppercase;
+    color:#13325C;
+    margin:0 0 10px;
+  }
+  .pricing-section-sub{
+    font-size:15px;
+    line-height:1.65;
+    color:#4A596E;
+    margin:0 0 18px;
+    max-width:720px;
+  }
+  .pricing-section-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(19,50,92,0.18);
+    background: rgba(255,255,255,0.7);
+    color:#13325C;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .pricing-section-cta:hover{
+    transform: translateY(-1px);
+    border-color: rgba(19,50,92,0.28);
+    background: rgba(255,255,255,0.9);
+  }
+  .pricing-section-cta:active{ transform: translateY(0); }
+  .package-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    border-radius:999px;
+    padding:14px 20px;
+    font-weight:900;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border:2px solid rgba(19,50,92,0.55);
+    color:#13325C;
+    background: transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .package-cta:hover{
+    transform: translateY(-1px);
+    border-color: rgba(19,50,92,0.75);
+    background: rgba(19,50,92,0.04);
+  }
+  .package-cta:active{ transform: translateY(0); }
+  .package-cta.is-primary{
+    border-color:#FE481B;
+    background:#FE481B;
+    color:#fff;
+    box-shadow: 0 14px 34px rgba(254,72,27,0.22);
+  }
+  .package-cta.is-primary:hover{
+    background:#ff5a33;
+    border-color:#ff5a33;
+    box-shadow: 0 18px 44px rgba(254,72,27,0.28);
+  }
+  .package-card{
+    transform: translateY(0);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    will-change: transform;
+  }
+  .package-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 26px 60px rgba(19,50,92,0.14);
+  }
+  .package-card.is-dark:hover{
+    box-shadow: 0 28px 70px rgba(19,50,92,0.28);
+  }
+  .package-card:focus-within{
+    transform: translateY(-4px);
+    box-shadow: 0 22px 54px rgba(19,50,92,0.16);
+  }
+  .pricing-section-cta::after{
+    content:'→';
+    font-weight: 900;
+    letter-spacing: 0;
+    opacity: 0.9;
+    transform: translateX(0);
+    transition: transform .2s ease;
+  }
+  .pricing-section-cta:hover::after{ transform: translateX(2px); }
+  .pricing-section-cta.is-prompt{
+    border-color: rgba(254,72,27,0.35);
+    box-shadow: 0 10px 26px rgba(19,50,92,0.10);
+    animation: pricingCtaPulse 2.1s ease-in-out infinite;
+  }
+  .pricing-section-cta.is-prompt::after{
+    animation: pricingCtaNudge 1.4s ease-in-out infinite;
+  }
+  @keyframes pricingCtaPulse{
+    0%, 100% { transform: translateY(0); background: rgba(255,255,255,0.70); }
+    50% { transform: translateY(-1px); background: rgba(255,255,255,0.88); }
+  }
+  @keyframes pricingCtaNudge{
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+  .pricing-media{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #E4E8EF;
+    box-shadow: 0 16px 50px rgba(19,50,92,0.12);
+    background:#0f2547;
+  }
+  .pricing-media img{ width:100%; height:100%; display:block; object-fit:cover; }
+  .pricing-table-wrap{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #E4E8EF;
+    background:#fff;
+    box-shadow: 0 18px 46px rgba(19,50,92,0.10);
+  }
+  table.pricing-table{ width:100%; border-collapse:collapse; font-size:13.5px; min-width:920px; }
+  table.pricing-table thead th{
+    background:#13325C;
+    color:#fff;
+    text-align:left;
+    padding:13px 16px;
+    font-weight:900;
+    font-size:10px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    border-right:1px solid rgba(255,255,255,0.12);
+  }
+  table.pricing-table thead th:last-child{ border-right:none; }
+  table.pricing-table tbody td{
+    vertical-align:top;
+    padding:16px;
+    border-top:1px solid #EDEFF4;
+    border-right:1px solid #EDEFF4;
+  }
+  table.pricing-table tbody td:last-child{ border-right:none; }
+  .format-cell-title{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 6px; }
+  .format-cell-desc{ font-size:12px; line-height:1.45; color:#6b7a92; margin:0 0 10px; }
+  .format-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:800; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    padding:5px 9px; border-radius:999px;
+    border:1px solid #E4E8EF;
+    background:#F7F9FC;
+    color:#13325C;
+  }
+  .format-tag.tag-entry{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.08); color:#FE481B; }
+  .format-tag.tag-digital{ border-color: rgba(19,50,92,0.25); background: rgba(19,50,92,0.06); color:#13325C; }
+  .format-tag.tag-premium{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.10); color:#FE481B; }
+  .price-val{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 4px; }
+  .price-sub{ font-size:11.5px; color:#8593a8; margin:0; }
+  .notes-text{ font-size:12.5px; line-height:1.5; color:#6b7a92; }
+  .tip-strip{
+    margin-top:14px;
+    border-radius:16px;
+    border:1px solid rgba(254,72,27,0.18);
+    background: rgba(254,72,27,0.06);
+    padding:14px 16px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    color:#4A596E;
+    font-size:13px;
+    line-height:1.5;
+  }
+  .tip-strip strong{ color:#FE481B; }
+  .tip-strip a{ color:#FE481B; font-weight:800; }
+  .tip-strip a:hover{ color:#d43a12; }
+  @media (prefers-reduced-motion: reduce) {
+    .pricing-hero::before,
+    .pricing-hero-inner,
+    .pricing-stats,
+    .pricing-jump-track::before,
+    .pricing-jump-track::after {
+      transform: none !important;
+    }
+    .pricing-section-cta.is-prompt,
+    .pricing-section-cta.is-prompt::after{
+      animation: none !important;
+    }
+  }
+  @media (max-width: 720px) {
+    #top.pricing-hero { padding: 118px 16px 56px !important; }
+    .pricing-hero-inner { text-align: center; }
+    .pricing-actions { justify-content: center; gap: 10px; margin-bottom: 32px; }
+    .pricing-stats { grid-template-columns: repeat(2, 1fr); }
+    .pricing-hero-top { justify-content: center; }
+    .pricing-title {
+      font-size: clamp(40px, 10vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.8px;
+    }
+    .pricing-title-outline{
+      -webkit-text-stroke: 1.5px rgba(254,72,27,0.92);
+      text-stroke: 1.5px rgba(254,72,27,0.92);
+    }
+    .pricing-subtitle { margin-bottom: 16px; font-size: clamp(18px, 5vw, 24px); }
+    .pricing-meta { margin-bottom: 24px; font-size: 11px; line-height: 1.45; }
+    .pricing-stat-value { font-size: 28px; }
+    .pricing-stat-label { font-size: 13px; }
+    table.pricing-table{ min-width: 880px; }
+    .pricing-jump-wrap{
+      top: 62px;
+      padding: 6px 8px;
+    }
+    .pricing-jump-nav{
+      border-radius: 0;
+    }
+    .pricing-jump-track{
+      margin: 0 -4px;
+    }
+    .pricing-jump-track::before,
+    .pricing-jump-track::after{
+      width: 18px;
+    }
+    .pricing-jump-scroll{
+      padding: 2px 10px 0;
+    }
+    .pricing-tab{
+      padding: 12px 10px 10px;
+      font-size: 12px;
+    }
+    .package-card{
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    #packages-start{ padding: 42px 16px 14px !important; }
+    #packages-start > div:first-child{ margin-bottom: 16px !important; }
+    #packages-start > div:first-child h2{
+      font-size: clamp(24px, 7vw, 32px) !important;
+      line-height: 1.08 !important;
+    }
+    #packages-start > div:first-child p{
+      font-size: 14px !important;
+      line-height: 1.58 !important;
+      max-width: 100% !important;
+    }
+    #packages-start > div:first-child > div{
+      gap: 6px !important;
+      margin-top: 12px !important;
+    }
+    #packages-start > div:first-child a{
+      padding: 7px 10px !important;
+      font-size: 11px !important;
+    }
+    #packages-start > div:nth-child(2){
+      gap: 14px !important;
+      grid-template-columns: 1fr !important;
+    }
+    #packages-start > div:last-child{
+      margin-top: 16px !important;
+      padding-top: 14px !important;
+    }
+    #packages-start > div:last-child > div{
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+    section[id]{
+      padding: 40px 16px !important;
+      scroll-margin-top: 110px !important;
+    }
+    .pricing-table-wrap{
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(19,50,92,0.10);
+    }
+    table.pricing-table{ min-width: 760px; font-size: 13px; }
+    table.pricing-table thead th{ padding: 11px 12px; font-size: 9px; }
+    table.pricing-table tbody td{ padding: 12px; }
+    .tip-strip{
+      padding: 12px 13px;
+      font-size: 12px;
+      border-radius: 12px;
+    }
+    #cta{
+      padding: 50px 16px !important;
+      scroll-margin-top: 110px !important;
+    }
+    #cta h2{ font-size: clamp(26px, 8vw, 36px) !important; }
+    #cta p{ font-size: 15px !important; margin-bottom: 22px !important; }
+    #cta > div > div{
+      gap: 10px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    #cta > div > div a{
+      width: 100% !important;
+      text-align: center !important;
+      padding: 14px 14px !important;
+      font-size: 12px !important;
+    }
+    footer{ padding: 30px 16px !important; }
+  }
+  @media (max-width: 520px) {
+    #top.pricing-hero { padding: 106px 12px 50px !important; }
+    .pricing-hero-inner { max-width: 100%; }
+    .pricing-hero-top {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 8px 12px;
+      margin-bottom: 20px;
+    }
+    .pricing-title { margin-bottom: 16px; }
+    .pricing-subtitle { font-size: 17px; line-height: 1.35; max-width: 100%; }
+    .pricing-meta { font-size: 10px; margin-bottom: 18px; }
+    .pricing-actions { flex-direction: column; align-items: stretch; gap: 8px; }
+    .pricing-btn { width: 100%; padding: 13px 16px; font-size: 11.5px; }
+    .pricing-stats { grid-template-columns: 1fr 1fr; }
+    .pricing-stat { padding: 11px 8px 10px; }
+    .pricing-stat-value { font-size: 24px; }
+    .pricing-stat-label { font-size: 12px; }
+    .pricing-jump-wrap { top: 58px; padding: 5px 6px; }
+    .pricing-jump-scroll { padding: 3px 8px 4px; gap: 6px; }
+    .pricing-tab { font-size: 11.5px; padding: 11px 8px 9px; }
+    .pricing-section-title{ font-size: clamp(23px, 8.5vw, 32px); }
+    .pricing-section-sub{ font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+    .pricing-section-cta{
+      width: 100%;
+      justify-content: center;
+      font-size: 11px;
+      padding: 11px 12px;
+    }
+    .format-cell-title{ font-size: 13px; }
+    .format-cell-desc{ font-size: 11.5px; }
+  }
+</style>
+<script src="../../js/dc/image-slot.js"></script>
+</helmet>
+<template id="__bundler_thumbnail" data-bg-color="#13325C">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#13325C"/>
+    <text x="600" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="140" letter-spacing="-5" fill="#ffffff">LOUD<tspan fill="#FE481B">!</tspan></text>
+    <text x="600" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="42" letter-spacing="20" fill="#8ea3c4">OOH · PRICING</text>
+    <rect x="480" y="540" width="240" height="10" fill="#FE481B"/>
+  </svg>
+</template>
+<div style="position:relative;">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- HEADER (shared UX with Rail guide) -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../../" class="logo" aria-label="Loud! OOH home">
+        <img src="../../images/loud-ooh-logo.png" alt="" class="logo-img" width="680" height="214">
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <a href="../../" class="nav-link">Home</a>
+        <a href="#top" class="nav-link nav-active" aria-current="page">Pricing</a>
+        <a href="../" class="nav-link">Insights</a>
+        <a href="#cta" class="nav-link">Contact</a>
+        <a href="#cta" class="nav-cta">Get a plan</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="pricing-hero" style="{{ heroStyle }}">
+    <div class="pricing-hero-inner" id="main-content">
+      <div class="pricing-hero-top">UK Out-of-Home — Competitive Rate Card 2026</div>
+      <h1 class="pricing-title">
+        <span class="pricing-title-solid">Big brand</span>
+        <span class="pricing-title-outline">Exposure</span>
+      </h1>
+      <p class="pricing-subtitle">What will your budget actually buy? Real UK OOH pricing, no guesswork.</p>
+      <p class="pricing-meta">Media cost only (excl. VAT) · Standard 2-week cycle unless stated · Source: compiled market rate data 2026</p>
+      <div class="pricing-actions">
+        <a href="#cta" class="pricing-btn pricing-btn-primary">Get a free media plan</a>
+        <a href="#billboard" class="pricing-btn pricing-btn-secondary">Browse pricing ↓</a>
+      </div>
+    </div>
+    <div class="pricing-stats" aria-label="OOH headline stats">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+        <div class="pricing-stat">
+          <div class="pricing-stat-value">{{ st.v }}</div>
+          <div class="pricing-stat-label">{{ st.l }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- JUMP NAV -->
+  <nav class="pricing-jump-wrap" style="{{ jumpWrapStyle }}" aria-label="Pricing sections">
+    <div class="pricing-jump-nav">
+      <div class="pricing-jump-track">
+        <div class="pricing-jump-scroll">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
+            <a href="#{{ t.id }}" onClick="{{ t.onClick }}" class="pricing-tab {{ t.className }}" style="{{ t.style }}" data-tab-id="{{ t.id }}">{{ t.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PACKAGES -->
+  <section id="packages-start" style="scroll-margin-top:132px;max-width:1280px;margin:0 auto;padding:64px 28px 20px;">
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Not sure where to start?</div>
+      <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0 0 10px;color:#13325C;">Three real packages. Real prices. No quote required.</h2>
+      <p style="font-size:15px;line-height:1.6;color:#4A596E;max-width:720px;margin:0 auto 0;">If you&#8217;d rather not read the full rate card, here&#8217;s what your budget actually buys. Every package below is a genuine starting point we build from — not a teaser price.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;">
+        <a href="#pkg-starter" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Starter</a>
+        <a href="#pkg-local" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Local impact</a>
+        <a href="#pkg-city" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">City presence</a>
+        <a href="#billboard" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(254,72,27,0.28);background:rgba(254,72,27,0.06);color:#FE481B;font-weight:800;font-size:12px;">Detailed rate card ↓</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
+      <sc-for list="{{ packages }}" as="p" hint-placeholder-count="3">
+        <div id="{{ p.id }}" class="package-card {{ p.cardClass }}" style="{{ p.cardStyle }};border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%;">
+          <div>
+            <div style="{{ p.badgeStyle }}">{{ p.badge }}</div>
+            <div style="font-weight:900;font-size:22px;letter-spacing:-0.01em;margin:14px 0 2px;color:{{ p.titleColor }};text-transform:uppercase;">{{ p.name }}</div>
+            <div style="font-weight:900;font-size:32px;letter-spacing:-0.02em;color:#FE481B;line-height:1.05;margin-bottom:4px;">{{ p.price }}</div>
+            <div style="font-size:13px;color:{{ p.subColor }};margin:0 0 14px;">{{ p.per }}</div>
+            <ul style="list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;line-height:1.6;color:{{ p.bodyColor }};">
+              <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="4">
+                <li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                  <span style="color:#FE481B;font-size:13px;line-height:1.6;">✓</span>
+                  <span>{{ it }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+          <div style="margin-top:8px;">
+            <div style="font-size:13px;color:{{ p.subColor }};margin-bottom:10px;"><span style="font-weight:700;">Best for:</span> {{ p.best }}</div>
+            <a href="#cta" class="package-cta {{ p.ctaClass }}">Get this package</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin:22px auto 0;max-width:900px;padding-top:18px;border-top:1px solid #E4E8EF;">
+      <div style="font-size:14px;line-height:1.65;color:#6b7a92;text-align:center;">
+        Prices are realistic 2026 starting estimates and vary by location and availability. Want something between these, or a different format mix entirely? Tell us your budget and we'll build a plan around it. <strong style="color:#13325C;">No markup, ever.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT SECTIONS -->
+  <sc-for list="{{ sections }}" as="s" hint-placeholder-count="8">
+    <section id="{{ s.id }}" style="scroll-margin-top:132px;padding:56px 28px;background:{{ s.bg }};border-top:1px solid #EDEFF4;">
+      <div style="max-width:1180px;margin:0 auto;">
+        <div style="{{ s.headGridStyle }}">
+          <div>
+            <span class="pricing-section-kicker">{{ s.kicker }}</span>
+            <h2 class="pricing-section-title">{{ s.title }}</h2>
+            <p class="pricing-section-sub">{{ s.desc }}</p>
+            <sc-if value="{{ s.ctaLabel }}" hint-placeholder-val="{{ false }}">
+              <a class="pricing-section-cta {{ s.ctaClass }}" href="{{ s.ctaHref }}">{{ s.ctaLabel }}</a>
+            </sc-if>
+          </div>
+          <sc-if value="{{ s.showMedia }}" hint-placeholder-val="{{ true }}">
+            <div class="pricing-media" style="{{ s.mediaStyle }}">
+              <sc-if value="{{ s.hasImg }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ s.img }}" alt="{{ s.title }}">
+              </sc-if>
+              <sc-if value="{{ s.needsSlot }}" hint-placeholder-val="{{ false }}">
+                <image-slot id="{{ s.slotId }}" shape="rect" fit="cover" placeholder="{{ s.slotHint }}"></image-slot>
+              </sc-if>
+            </div>
+          </sc-if>
+        </div>
+
+        <sc-if value="{{ !s.isRegionalGrid }}" hint-placeholder-val="{{ true }}">
+          <div class="pricing-table-wrap" style="margin-top:22px;">
+            <div style="overflow-x:auto;">
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th style="width:38%;">{{ s.colFormat }}</th>
+                    <th style="width:21%;">{{ s.colA }}</th>
+                    <sc-if value="{{ s.showColB }}" hint-placeholder-val="{{ true }}">
+                      <th style="width:21%;">{{ s.colB }}</th>
+                    </sc-if>
+                    <sc-if value="{{ s.showNotes }}" hint-placeholder-val="{{ true }}">
+                      <th style="width:20%;">Notes</th>
+                    </sc-if>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="6">
+                    <tr style="{{ r.rowStyle }}">
+                      <td>
+                        <div class="format-cell-title">{{ r.title }}</div>
+                        <div class="format-cell-desc">{{ r.desc }}</div>
+                        <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}">
+                          <span class="format-tag {{ r.tagClass }}">{{ r.tag }}</span>
+                        </sc-if>
+                      </td>
+                      <td>
+                        <div class="price-val">{{ r.a }}</div>
+                        <div class="price-sub">{{ r.aSub }}</div>
+                      </td>
+                      <sc-if value="{{ s.showColB }}" hint-placeholder-val="{{ true }}">
+                        <td>
+                          <div class="price-val">{{ r.b }}</div>
+                          <div class="price-sub">{{ r.bSub }}</div>
+                        </td>
+                      </sc-if>
+                      <sc-if value="{{ s.showNotes }}" hint-placeholder-val="{{ true }}">
+                        <td class="notes-text">{{ r.note }}</td>
+                      </sc-if>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s.isRegionalGrid }}" hint-placeholder-val="{{ false }}">
+          <div class="pricing-table-wrap" style="margin-top:22px;">
+            <div style="overflow-x:auto;">
+              <table class="pricing-table" style="min-width:980px;">
+                <thead>
+                  <tr>
+                    <th style="width:25%;">City</th>
+                    <th style="width:25%;">48-sheet (2 wks)</th>
+                    <th style="width:25%;">City</th>
+                    <th style="width:25%;">48-sheet (2 wks)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="4">
+                    <sc-if value="{{ !r.isSummary }}" hint-placeholder-val="{{ true }}">
+                      <tr style="{{ r.rowStyle }}">
+                        <td><div class="format-cell-title" style="margin:0;">{{ r.leftCity }}</div></td>
+                        <td><div class="price-val" style="margin:0;">{{ r.leftPrice }}</div></td>
+                        <td><div class="format-cell-title" style="margin:0;">{{ r.rightCity }}</div></td>
+                        <td><div class="price-val" style="margin:0;">{{ r.rightPrice }}</div></td>
+                      </tr>
+                    </sc-if>
+                    <sc-if value="{{ r.isSummary }}" hint-placeholder-val="{{ false }}">
+                      <tr style="{{ r.rowStyle }}">
+                        <td colspan="4" style="padding:14px 16px;">
+                          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+                            <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#c7d3e6;">
+                              <span style="display:inline-flex;width:8px;height:8px;border-radius:999px;background:#FE481B;"></span>
+                              <span>{{ r.summaryLabel }}</span>
+                            </div>
+                            <div style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:rgba(254,72,27,0.16);border:1px solid rgba(254,72,27,0.4);font-weight:900;font-size:14px;line-height:1;color:#FE481B;">
+                              {{ r.summaryValue }}
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </sc-if>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s.hasTip }}" hint-placeholder-val="{{ true }}">
+          <div class="tip-strip">
+            <strong>Tip:</strong>
+            <div>{{ s.tipText }} <a href="#cta">Get a Free Media Plan →</a></div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+  </sc-for>
+
+  <!-- BUYING INTELLIGENCE -->
+  <section id="buying" style="scroll-margin-top:132px;background:#13325C;color:#fff;padding:60px 28px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:38px;">
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Buying intelligence</div>
+        <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0;">How to buy smarter</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+        <sc-for list="{{ buyingCards }}" as="b" hint-placeholder-count="2">
+          <div style="background:#0f2547;border:1px solid rgba(255,255,255,0.12);padding:28px 26px;">
+            <div style="font-weight:900;font-size:18px;color:#fff;margin-bottom:10px;">{{ b.h }}</div>
+            <div style="font-size:14.5px;line-height:1.65;color:#a7b7d1;">{{ b.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="scroll-margin-top:132px;background:#F7F9FC;padding:56px 28px;border-top:1px solid #EDEFF4;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:34px;">
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Common questions</div>
+        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0;">Pricing FAQ</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid #E4E8EF;padding:20px 22px;">
+            <div style="font-weight:800;font-size:15px;color:#13325C;margin-bottom:8px;">{{ q.h }}</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#4A596E;">{{ q.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S NOT INCLUDED -->
+  <section style="background:#fff;padding:56px 28px;border-top:1px solid #EDEFF4;">
+    <div style="max-width:1180px;margin:0 auto;display:grid;gap:34px;grid-template-columns:{{ notIncludedCols }};align-items:start;">
+      <div>
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Full transparency</div>
+        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0 0 14px;">What's not included</h2>
+        <p style="font-size:16px;line-height:1.6;color:#4A596E;margin:0;">Every price on this card is <strong style="color:#13325C;">media cost only</strong>. So there are no surprises, here's exactly what sits on top — the same for us as for every buyer in the market.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;">
+        <sc-for list="{{ notIncluded }}" as="n" hint-placeholder-count="4">
+          <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #EDEFF4;">
+            <div style="flex:none;font-weight:900;color:#FE481B;font-size:14px;width:120px;">{{ n.k }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#4A596E;">{{ n.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" style="scroll-margin-top:132px;background:#FE481B;color:#fff;padding:64px 28px;">
+    <div style="max-width:820px;margin:0 auto;text-align:center;">
+      <h2 style="font-weight:900;font-size:clamp(28px,4.5vw,46px);line-height:1.02;letter-spacing:-0.03em;text-transform:uppercase;margin:0 0 18px;">Ready to plan your campaign?</h2>
+      <p style="font-size:18px;line-height:1.55;color:#ffe4db;max-width:560px;margin:0 auto 32px;">Tell us your budget and your goal. We'll build a plan across the right formats — with the same open pricing you see here, and no media markup.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="mailto:hello@loudooh.co.uk" style="background:#13325C;color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;">Get your free plan</a>
+        <a href="mailto:hello@loudooh.co.uk" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">Contact us</a>
+        <a href="../../" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">View portfolio</a>
+      </div>
+      <div style="margin-top:26px;font-size:14px;color:#ffd7cb;">hello@loudooh.co.uk &nbsp;·&nbsp; 020 4514 9147 &nbsp;·&nbsp; No markups. No hidden fees.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0f2547;color:#8ea3c4;padding:44px 28px;">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <div style="display:flex;align-items:baseline;font-weight:900;font-size:22px;letter-spacing:-0.02em;color:#fff;">LOUD<span style="color:#FE481B;">!</span><span style="font-weight:700;font-size:12px;letter-spacing:0.26em;margin-left:8px;align-self:center;color:#8ea3c4;">OOH</span></div>
+      <div style="font-size:13px;">&copy; 2026 Loud! OOH Ltd &nbsp;·&nbsp; Registered in England &nbsp;·&nbsp; Bigger. Bolder. Louder.</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { active: 'billboard', narrow: false, jumpParallax: 0, heroBgParallax: 0, heroContentParallax: 0, heroStatsParallax: 0 };
+
+  componentDidMount() {
+    this._ids = ['billboard','underground','busstop','bus','airport','taxi','rail','regional','buying','faq'];
+    this._onResize = () => { const n = window.innerWidth < 860; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    window.addEventListener('resize', this._onResize, { passive: true });
+    this._onResize();
+    this._onScroll = () => {
+      let active = this.state.active;
+      for (const id of this._ids) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top - 150 <= 0) active = id; }
+      const y = window.scrollY || 0;
+      const jumpParallax = Math.min(34, Math.max(0, Math.round(y * 0.08)));
+      const hero = document.getElementById('top');
+      const heroHeight = hero ? hero.offsetHeight : 520;
+      const progress = Math.min(1, Math.max(0, y / heroHeight));
+      const heroBgParallax = Math.round(progress * 72);
+      const heroContentParallax = Math.round(progress * -24);
+      const heroStatsParallax = Math.round(progress * -12);
+      if (
+        active !== this.state.active ||
+        jumpParallax !== this.state.jumpParallax ||
+        heroBgParallax !== this.state.heroBgParallax ||
+        heroContentParallax !== this.state.heroContentParallax ||
+        heroStatsParallax !== this.state.heroStatsParallax
+      ) {
+        this.setState({ active, jumpParallax, heroBgParallax, heroContentParallax, heroStatsParallax });
+      }
+      if (active !== this.state.active) {
+        window.requestAnimationFrame(() => {
+          const tab = document.querySelector('[data-tab-id="' + active + '"]');
+          if (tab && tab.scrollIntoView) {
+            tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+
+  go(id) { return (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 118, behavior: 'smooth' }); }; }
+
+  renderVals() {
+    const narrow = this.state.narrow;
+    const stats = [
+      { v: '£1.49bn', l: 'UK OOH revenue 2025 record' },
+      { v: '67%', l: 'DOOH share of all OOH' },
+      { v: '£1.80', l: 'OOH ROI per £1 spent' },
+      { v: '79%', l: 'Ad recall at 30 days' },
+    ];
+
+    const tabDefs = [
+      ['billboard','Billboards'],
+      ['underground','London Underground'],
+      ['busstop','Bus Stops'],
+      ['bus','Bus Advertising'],
+      ['airport','Airport Advertising'],
+      ['taxi','Taxi Advertising'],
+      ['rail','Rail & Train Station Advertising'],
+      ['regional','Regional'],
+      ['buying','Buying Info'],
+      ['faq','FAQ'],
+    ];
+    const tabs = tabDefs.map(([id,label]) => {
+      const on = this.state.active === id;
+      return { label, onClick: this.go(id), style:
+        'color:' + (on ? '#13325C' : '#6b7a92') + ';',
+        id,
+        className: on ? 'is-active' : '' };
+    });
+
+    const packages = [
+      {
+        id: 'pkg-starter',
+        badge: 'Starter',
+        name: 'Starter',
+        price: '\u00a3325+',
+        per: '2-week campaign',
+        items: [
+          '1 billboard or 1 bus shelter',
+          'Site selection (depending on availability) & booking',
+          'Production & installation',
+        ],
+        best: 'Testing OOH for the first time',
+        primary: false,
+        dark: false,
+      },
+      {
+        id: 'pkg-local',
+        badge: 'Most booked',
+        name: 'Local impact',
+        price: '\u00a31,000\u2013\u00a32,000',
+        per: '2-week campaign',
+        items: [
+          '2 billboards',
+          '5 bus shelter sites or 15 rear bus panels',
+          'Site selection (depending on availability) & booking',
+          'Production & installation',
+          'Post-campaign report',
+        ],
+        best: 'A proper local launch or seasonal push',
+        primary: true,
+        dark: true,
+      },
+      {
+        id: 'pkg-city',
+        badge: 'City presence',
+        name: 'City presence',
+        price: '\u00a35,000\u2013\u00a310,000',
+        per: '2-week campaign',
+        items: [
+          '4 billboards',
+          '10 bus shelter sites',
+          '15 bus supersides, full city route',
+          'Or 1 cross-track poster, 10 4-sheets and 10 LEPs on the London Underground',
+          'Site selection & booking',
+          'Production & installation',
+          'Post-campaign report',
+          'Free AdVan for one day during your campaign',
+        ],
+        best: 'Multi-format campaigns with real reach',
+        primary: false,
+        dark: false,
+      },
+    ].map(p => ({
+      ...p,
+      ctaClass: p.primary ? 'is-primary' : '',
+      cardClass: p.dark ? 'is-dark' : '',
+      cardStyle: 'border:1px solid ' + (p.dark ? '#13325C' : '#E4E8EF') + ';background:' + (p.dark ? '#13325C' : '#fff') + ';padding:26px 26px 30px;'
+        + (p.dark ? 'box-shadow:0 18px 40px rgba(19,50,92,0.22);' : ''),
+      badgeStyle: 'display:inline-block;font-weight:800;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:5px 10px;'
+        + (p.dark ? 'background:#FE481B;color:#fff;' : 'background:#FFF0EC;color:#FE481B;'),
+      titleColor: p.dark ? '#fff' : '#13325C',
+      subColor: p.dark ? '#8ea3c4' : '#8593a8',
+      bodyColor: p.dark ? '#c7d3e6' : '#4A596E',
+    }));
+
+    const white = '#ffffff', zebra = '#F7F9FC';
+    const mkRows = (arr) => arr.map((r, i) => ({
+      ...r,
+      hasTag: !!r.tag,
+      rowStyle: r.rowStyle || ('background:' + (i % 2 ? zebra : white) + ';')
+    }));
+
+    const raw = [
+      {
+        id: 'billboard',
+        kicker: 'Roadside / Large format / Static & Digital',
+        title: 'Billboard advertising',
+        bg: '#fff',
+        img: '../../images/pricing/billboard-advertising-costs.jpeg',
+        needsSlot: false,
+        slotId: 'billboard-img',
+        slotHint: 'Drop a UK billboard photo (48-sheet / digital)',
+        desc: 'Prime locations | Mass reach | Unmissable impact. Advertising people see. Not scroll past.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'London (2 wks)',
+        colB: 'Regional (2 wks)',
+        showNotes: true,
+        rows: [
+          { title:'6-Sheet Static', desc:'Street-level panels on high streets & retail parks. Eye-level, personal. Adshel standard.', tag:'SME entry', tagClass:'tag-entry', a:'£400–£900', aSub:'per panel', b:'£300–£600', bSub:'per panel', note:'Most affordable fixed OOH. Bookable in targeted postcode clusters.' },
+          { title:'6-Sheet Digital DOOH', desc:'Animated creative, time-of-day scheduling, rotating copy. Fast to go live.', tag:'Digital', tagClass:'tag-digital', a:'£500–£800', aSub:'per week', b:'£400–£600', bSub:'per week', note:'Premium DOOH corridors (e.g. Oxford St) sold as synchronised networks.' },
+          { title:'48-Sheet Static', desc:'The bread-and-butter billboard. Dominant roadside presence. Most popular UK format.', tag:'Best value at scale', tagClass:'tag-entry', a:'£650–£1,000', aSub:'per panel', b:'£325–£600', bSub:'per panel', note:'London costs ~2–3× regional. Northern cities 40–45% below London.' },
+          { title:'48-Sheet Digital', desc:'Full-motion creative, data integration (weather, live feeds). Flexible booking.', tag:'Digital', tagClass:'tag-digital', a:'£1,000–£1,200', aSub:'per panel', b:'£500–£1,000', bSub:'per panel', note:'Share-of-loop pricing often available from ~£500 for regional screens.' },
+          { title:'96 Sheet Digital', desc:'Landmark-scale roadside. Maximum impact for major announcements and brand launches.', tag:'Premium', tagClass:'tag-premium', a:'£1,500+', aSub:'per panel', b:'£1,000+', bSub:'per panel', note:'Central London premium sites can be very high. Longer lead times.' },
+          { title:'Backlit / Illuminated', desc:'Vinyl on backlit unit. High-quality render, 24/7 visibility. Available in 48 or 96-sheet.', tag:'Premium', tagClass:'tag-premium', a:'£900+', aSub:'per panel', b:'£650+', bSub:'per panel', note:'Premium for night-time visibility uplift. Popular near transport hubs.' },
+        ],
+        hasTip: true,
+        tipText: 'Not sure which billboard size suits your budget? Request a free media plan.',
+      },
+      {
+        id: 'underground',
+        kicker: 'Transit — London Underground',
+        title: 'London Underground advertising',
+        bg: '#F7F9FC',
+        img: '../../images/pricing/London-Underground-Advertising.jpg',
+        needsSlot: false,
+        slotId: 'underground-img',
+        slotHint: 'Drop a London Underground advertising photo',
+        desc: '272 stations | 5M journeys/day | avg. 20-min dwell per journey. The most captive audiences in UK advertising.',
+        ctaLabel: 'Speak to an Underground Specialist',
+        ctaHref: '#cta',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'From (2 wks)',
+        colB: 'Zone 1 premium',
+        showNotes: true,
+        rows: [
+          { title:'Tube Car Panel (TCP)', desc:'Inside carriage, above seats. 20-min sustained exposure per journey. Booked by line.', tag:'Lowest entry point', tagClass:'tag-entry', a:'£10+', aSub:'per panel', b:'Line-based', bSub:'pricing', note:'Best for detailed messaging & long copy. Central Line: West Ruislip to Epping.' },
+          { title:'Escalator Panel (LEP/DEP)', desc:'Sequential panels along escalator runs. 30–80 sec dwell. Captive, unavoidable audience.', tag:'Strong ROI', tagClass:'tag-entry', a:'From £125', aSub:'per panel', b:'£300–£600+', bSub:'major interchange', note:'Highest recall rates in the Underground. Book runs for sequential storytelling.' },
+          { title:'4-Sheet Platform Poster', desc:'Along platform walls. Direct eye-line of all waiting passengers. 2–5 min natural dwell.', tag:'SME value', tagClass:'tag-entry', a:'From £300', aSub:'zones 4–6', b:'£400–£600', bSub:'Zone 1 stations', note:'Backlit, clean finish. Great brand awareness. Outer zones offer SME value.' },
+          { title:'16-Sheet Cross-Track', desc:'Opposite platform wall. Entire platform faces it. Large-format hero brand moment.', tag:'High impact', tagClass:'tag-premium', a:'From £1,000', aSub:'outer zones', b:'£1,500–£2,800', bSub:'Zone 1', note:'3-minute average platform dwell. Pairs well with car panels for frequency.' },
+          { title:'48-Sheet Cross-Track', desc:'Largest platform format. Unmissable credibility piece. Most popular large Underground format.', tag:'Premium', tagClass:'tag-premium', a:'£1,500', aSub:'by station', b:'£2,500–£5,000+', bSub:'Zone 1', note:'Credibility signal. Best for launches. Book months ahead at key stations.' },
+          { title:'Digital Escalator Panels / Ribbons', desc:'Full-motion capability. Runs on escalator banks. Daypart targeting. Programmatic buying available.', tag:'Digital', tagClass:'tag-digital', a:'From £15,750', aSub:'per week', b:'Premium', bSub:'negotiated', note:'Full-motion capability. Reserved for brand campaigns and product launches.' },
+          { title:'Station Domination / Takeover', desc:'Total brand experience across all surfaces. Key hubs: Oxford Circus, Waterloo, King’s Cross.', tag:'Premium', tagClass:'tag-premium', a:'From £15,000', aSub:'2-week period', b:'£50,000–£100,000+', bSub:'flagship stations', note:'Guaranteed social media amplification. Plan 3–6 months ahead.' },
+        ],
+      },
+      {
+        id: 'bus',
+        kicker: 'Transit / Mobile OOH',
+        title: 'Bus advertising',
+        bg: '#fff',
+        img: '../../images/pricing/Bus-Picture.jpg',
+        needsSlot: false,
+        slotId: 'bus-img',
+        slotHint: 'Drop a bus advertising photo (superside / wrap)',
+        desc: '20,000+ buses covering 95% of the UK. Mobile billboards that follow your audience through the city all day, every day.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'From (2 wks)',
+        colB: 'London premium',
+        showNotes: true,
+        rows: [
+          { title:'Bus Rear / Headliner', desc:'Back of bus. Faces following traffic. 48-sec average dwell in congestion. Mass reach.', tag:'Entry point', tagClass:'tag-entry', a:'From £60–£90', aSub:'per panel / regional', b:'£200–£600', bSub:'per week / London', note:'Reaches up to 71% of UK population in 2 weeks (national buy). CPT from £3.' },
+          { title:'Superside', desc:'Long horizontal panel on upper deck of double-decker. Eye-level for pedestrians.', tag:'Popular format', tagClass:'tag-entry', a:'£130–£275', aSub:'per bus (min 10)', b:'£300–£500+', bSub:'per bus / London', note:'Depot-based booking (not specific routes). Volume discounts at 20+ buses.' },
+          { title:'T-Side (Double-Decker)', desc:'Large side panel covering both decks. Bold street presence. Premium over superside.', tag:'High visibility', tagClass:'tag-premium', a:'£250–£500', aSub:'per bus (2 wks)', b:'£500–£900', bSub:'London routes', note:'Typical campaign: 10–30 buses for city coverage. Pairs well with 6-sheets.' },
+          { title:'Streetliner (Single-Decker)', desc:'Side panel on single-decker. Ideal for suburban, residential and high-street targeting.', tag:'', tagClass:'', a:'£180–£500', aSub:'per bus (2 wks)', b:'POA', bSub:'', note:'Pedestrian eye-level. Effective for neighbourhood-level or high-street campaigns.' },
+          { title:'Mega Rear', desc:'Full rear of bus. Largest rear format. Extended dwell time in slow urban traffic.', tag:'Premium', tagClass:'tag-premium', a:'£4,000+', aSub:'per year', b:'£4,000+', bSub:'London routes', note:'Usually annual contracts — lower effective monthly rate. Best for established brands.' },
+          { title:'Full Bus Wrap', desc:'Entire bus exterior branded. Unmissable moving billboard. Organic social generation.', tag:'Premium', tagClass:'tag-premium', a:'From £18,000', aSub:'per bus / year', b:'£10,000–£30,000', bSub:'per bus / 4 wks London', note:'Specialist installation often extra. TfL approval required for some fleets.' },
+          { title:'Bus Interior Panels', desc:'Inside the bus, above windows. Engages seated passengers on longer journeys.', tag:'', tagClass:'', a:'POA', aSub:'by route/line', b:'POA', bSub:'', note:'Lower cost than exterior. Good for longer copy. Often bundled with exterior buy.' },
+        ],
+      },
+      {
+        id: 'busstop',
+        kicker: 'Street furniture',
+        title: 'Bus stop advertising',
+        bg: '#F7F9FC',
+        img: '../../images/pricing/Bus-Stop-Picture-.jpg',
+        needsSlot: false,
+        slotId: 'busstop-img',
+        slotHint: 'Drop a UK bus shelter / street furniture ad photo',
+        desc: '20,000+ digital shelters across the UK. Eye-level, 2–4 min natural dwell. The sharpest postcode targeting in outdoor advertising.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'London (2 wks)',
+        colB: 'Regional (2 wks)',
+        showNotes: true,
+        rows: [
+          { title:'Static 6-Sheet (Adshel)', desc:'Standard bus shelter poster. Eye-level, close-up, natural dwell 2–4 min. Postcode-selectable.', tag:'SME recommended', tagClass:'tag-entry', a:'£400–£650', aSub:'per panel', b:'£300–£600', bSub:'per panel', note:'Strongest local targeting in OOH. Most cost-effective way to dominate a postcode.' },
+          { title:'Digital 6-Sheet DOOH', desc:'Animated creative, time-of-day targeting, weather-reactive. 4,000+ screens UK-wide.', tag:'Digital', tagClass:'tag-digital', a:'£650–£800', aSub:'per week', b:'£400–£650', bSub:'per week', note:'Packages of 100,000 plays from ~£5,000 nationally. Oxford St network synchronised.' },
+          { title:'Shelter wrap', desc:'Full branded shelter takeover. Immersive, experiential. Launch-campaign activation. Full shelter exterior.', tag:'Premium', tagClass:'tag-premium', a:'POA', aSub:'by location', b:'POA', bSub:'', note:'Experience closer to a special build. Generates organic social.' },
+        ],
+        hasTip: true,
+        tipText: 'Best value entry: start with static 6-sheet bus shelters for dominant local postcode coverage.',
+      },
+      {
+        id: 'airport',
+        kicker: 'Premium / travel audience',
+        title: 'Airport advertising',
+        bg: '#fff',
+        needsSlot: true,
+        slotId: 'airport-img',
+        slotHint: 'Drop an airport terminal advertising photo',
+        desc: 'High-income, high-dwell audiences through departures, security and arrivals. Premium environments with strong brand halo.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'Regional airport (2 wks)',
+        colB: 'Major hub premium',
+        showNotes: true,
+        rows: [
+          { title:'Digital 6-Sheet (D6)', desc:'Terminal circulation and gate areas.', tag:'Digital', tagClass:'tag-digital', a:'£295–£600', aSub:'per week', b:'£1,200+', bSub:'per week', note:'Best for fast rollout and multi-screen sequencing in terminals.' },
+          { title:'Static 6-Sheet', desc:'Classic backlit terminal poster network.', tag:'SME value', tagClass:'tag-entry', a:'£350–£700', aSub:'per panel', b:'£1,500+', bSub:'per panel', note:'Strong in regional terminals where dwell is high and clutter is lower.' },
+          { title:'Large format digital', desc:'Hero screens in departures, check-in and reclaim.', tag:'Premium', tagClass:'tag-premium', a:'£950+', aSub:'per week', b:'£5,000+', bSub:'per week', note:'Premium for Heathrow/Gatwick core zones; often sold as packages.' },
+          { title:'Roadside 48 (approach roads)', desc:'Capture traffic on approach and car park routes.', tag:'', tagClass:'', a:'£450+', aSub:'per panel', b:'£1,750+', bSub:'per panel', note:'Useful for frequency before terminal entry and after exit.' },
+          { title:'Terminal domination', desc:'Full takeover of a defined airport zone.', tag:'Premium', tagClass:'tag-premium', a:'POA', aSub:'regional by terminal', b:'£15,000+', bSub:'major hub', note:'High-impact launch format; typically planned well in advance.' },
+        ],
+      },
+      {
+        id: 'taxi',
+        kicker: 'Street / mobile OOH',
+        title: 'Taxi advertising',
+        bg: '#F7F9FC',
+        needsSlot: true,
+        slotId: 'taxi-img',
+        slotHint: 'Drop a black cab / taxi advertising photo',
+        desc: 'Premium city-centre movement with high-frequency urban exposure. Especially strong in London and major commuter zones.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'Regional / city',
+        colB: 'London premium',
+        showNotes: true,
+        rows: [
+          { title:'Superside panel', desc:'Long side panel along the cab body.', tag:'Entry point', tagClass:'tag-entry', a:'£175–£275', aSub:'per cab / 4 wks', b:'£395+', bSub:'per cab / 4 wks', note:'Great for city-centre frequency and route-based visibility.' },
+          { title:'Tip seats (interior)', desc:'Passenger-facing messaging in rear cabin.', tag:'', tagClass:'', a:'£40–£65', aSub:'per cab / 4 wks', b:'£85+', bSub:'per cab / 4 wks', note:'Good for detailed copy and QR-led performance campaigns.' },
+          { title:'Full livery wrap', desc:'Complete exterior wrap for total impact.', tag:'Premium', tagClass:'tag-premium', a:'£850+', aSub:'per cab / campaign', b:'£2,750+', bSub:'per cab / campaign', note:'Premium creative format often used for launches and social pickup.' },
+          { title:'Digital tops', desc:'Roof-mounted digital display inventory.', tag:'Digital', tagClass:'tag-digital', a:'POA', aSub:'by city', b:'£550+', bSub:'per unit', note:'GPS and daypart-driven inventory where available.' },
+          { title:'Branded hire', desc:'Dedicated branded cab booked by hour/day.', tag:'', tagClass:'', a:'£75+', aSub:'per hour', b:'£95+', bSub:'per hour', note:'Useful for events, activations and PR-led city moments.' },
+        ],
+      },
+      {
+        id: 'rail',
+        kicker: 'Transit / national rail',
+        title: 'Rail & Train Station advertising',
+        bg: '#fff',
+        needsSlot: true,
+        slotId: 'rail-img',
+        slotHint: 'Drop a UK rail station advertising photo',
+        desc: 'Commuter-frequency environment with strong ABC1 audiences and high repeat exposure across stations and train interiors.',
+        mediaStyle: 'aspect-ratio: 16/8;',
+        colFormat: 'Format',
+        colA: 'Regional (2 wks)',
+        colB: 'London termini',
+        showNotes: true,
+        rows: [
+          { title:'4/6-Sheet station posters', desc:'Platform and concourse backlit poster positions.', tag:'SME entry', tagClass:'tag-entry', a:'£250–£750', aSub:'per panel', b:'£750–£1,500', bSub:'per panel', note:'Most accessible station format; excellent for postcode-led frequency.' },
+          { title:'Digital 6-Sheet (D6)', desc:'Station screen networks with daypart targeting.', tag:'Digital', tagClass:'tag-digital', a:'£450–£1,200', aSub:'per week', b:'£1,200–£2,200', bSub:'per week', note:'Popular for commuter windows (AM/PM peaks) and tactical messaging.' },
+          { title:'48-Sheet station large format', desc:'Concourse hero format and key approach locations.', tag:'', tagClass:'', a:'£750–£2,000', aSub:'per panel', b:'£2,000–£4,500', bSub:'per panel', note:'Strong impact around high-footfall entrances and exits.' },
+          { title:'Traincards (interior)', desc:'Inside train carriage panel placements.', tag:'Entry point', tagClass:'tag-entry', a:'£75–£150', aSub:'per panel', b:'£150+', bSub:'per panel', note:'Long dwell environment suited to detail-heavy or response messaging.' },
+          { title:'Station domination / takeover', desc:'Multi-surface station-wide takeover packages.', tag:'Premium', tagClass:'tag-premium', a:'£2,500+', aSub:'per station', b:'£15,000+', bSub:'major termini', note:'Flagship launches; longer lead times and broader production scope.' },
+        ],
+      },
+      {
+        id: 'regional',
+        kicker: 'Regional pricing index — 48-sheet static, 2-week campaign, single site',
+        title: 'UK regional pricing',
+        bg: '#fff',
+        needsSlot: false,
+        showMedia: false,
+        slotId: 'regional-img',
+        slotHint: 'Drop a UK regional map / cities graphic',
+        desc: 'Northern cities are typically 40–45% below London rates — ideal for stretching campaign budgets.',
+        mediaStyle: 'aspect-ratio: 16/7;',
+        isRegionalGrid: true,
+        colFormat: 'City',
+        colA: '48-sheet (2 wks)',
+        colB: 'City',
+        showNotes: false,
+        showColB: true,
+        rows: [
+          { leftCity:'Central London', leftPrice:'£650+', rightCity:'Manchester', rightPrice:'£325+' },
+          { leftCity:'Birmingham', leftPrice:'£325+', rightCity:'Leeds', rightPrice:'£325+' },
+          { leftCity:'Liverpool', leftPrice:'£325+', rightCity:'Newcastle', rightPrice:'£325+' },
+          { leftCity:'Sheffield', leftPrice:'£325+', rightCity:'Bristol', rightPrice:'£325+' },
+          { isSummary:true, summaryLabel:'North vs London average:', summaryValue:'40–45% cheaper', rowStyle:'background:#13325C;color:#fff;' },
+        ],
+        hasTip: true,
+        tipText: 'Secondary city locations vs city centres stretch your budget further. Ask us about remnant inventory for heavily discounted last-minute space.',
+      },
+    ];
+
+    const sections = raw.map(s => ({
+      ...s,
+      hasImg: !!s.img,
+      needsSlot: !!s.needsSlot,
+      showNotes: s.showNotes !== false,
+      showColB: s.showColB !== false,
+      showMedia: s.showMedia !== false,
+      hasTip: !!s.hasTip,
+      ctaClass: (s.ctaLabel && this.state.active === s.id) ? 'is-prompt' : '',
+      headGridStyle: 'display:grid;gap:26px;align-items:start;grid-template-columns:' + (narrow ? '1fr' : '1fr') + ';',
+      mediaStyle: s.mediaStyle || 'aspect-ratio: 16/8;',
+      rows: mkRows(s.rows),
+    }));
+
+    const buyingCards = [
+      { h:'Transparency', d:'Every price on this page is media cost only. No booking fees, no media markup, and no hidden admin charges — the headline price is the price.' },
+      { h:'Minimum spend', d:'Campaigns typically start from \u00a31,000. Lite packages from \u00a31,125 suit local first buys; Standard and Pro packages scale from regional to national coverage.' },
+    ];
+    const faqs = [
+      { h:'Do prices include VAT and production?', d:'No. All prices shown are media cost only. VAT, printing/posting for classic formats, and creative artwork are quoted separately.' },
+      { h:'What is the difference between Lite and Standard?', d:'Lite is a shorter, lighter buy (typically 1 week or fewer locations). Standard is the two-week, higher-weight package most clients use for regional campaigns.' },
+      { h:'Can I mix formats in one campaign?', d:'Yes. Standard and Pro packages are built across multiple formats — billboards, bus, underground, and street furniture — depending on your audience and geography.' },
+      { h:'How quickly can a campaign go live?', d:'Digital formats can often book within 1\u20132 weeks. Classic print formats typically need 2\u20134 weeks for production and posting.' },
+    ];
+    const notIncluded = [
+      { k:'Production & printing', d:'Printing and posting of classic formats. Digital media carries no print cost.' },
+      { k:'Design & creative', d:'Artwork design is separate — bring your own or we can quote for it.' },
+      { k:'VAT', d:'All prices exclude VAT at the prevailing rate.' },
+      { k:'Specialist installation', d:'Non-standard builds, special builds, and bespoke installations are quoted separately.' },
+    ];
+    return {
+      stats, tabs, packages, sections, buyingCards, faqs, notIncluded,
+      heroStyle:
+        'padding:148px 28px 92px;'
+        + '--hero-bg-parallax:' + this.state.heroBgParallax + 'px;'
+        + '--hero-content-parallax:' + this.state.heroContentParallax + 'px;'
+        + '--hero-stats-parallax:' + this.state.heroStatsParallax + 'px;',
+      jumpWrapStyle: '--jump-parallax:' + this.state.jumpParallax + 'px;',
+      notIncludedCols: narrow ? '1fr' : '0.85fr 1.15fr',
+      navStyle: 'display:flex;align-items:center;gap:' + (narrow ? '10px' : '22px') + ';',
+      navLinkStyle: narrow ? 'display:none;' : 'color:#c7d3e6;font-weight:600;font-size:14px;',
+      navLinkPrimaryStyle: narrow ? 'display:none;' : 'color:#fff;font-weight:700;font-size:14px;border-bottom:2px solid #FE481B;padding-bottom:4px;',
+    };
+  }
+}
+</script>
+<script src="../../js/header.js"></script>
+</body>
+</html>
