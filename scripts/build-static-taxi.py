@@ -37,31 +37,29 @@ AUDIENCES = [
 ]
 
 FORMATS = [
-    ("Supersides", "Exterior", "Large panel along the lower side body between the wheel arches — the format most people picture. Highest pavement and adjacent-vehicle visibility at fleet scale. Production: printed vinyl, priced separately.", [("London", "£195 / cab / 4 wks"), ("Regional", "£110 / cab / 4 wks"), ("Min. fleet", "50 London · 25 regional")], "Brand awareness, product launches, moving city-centre presence."),
-    ("Full Wraps", "Exterior", "Entire exterior covered in branded vinyl. Done well: social photography, press, earned reach. Done poorly: expensive production with mediocre return. Production typically £800–£1,400 per cab extra.", [("London", "£495 / cab / 4 wks"), ("Regional", "£280 / cab / 4 wks"), ("Min. fleet", "25 London · 15 regional")], "Major brand moments where the taxi is the creative canvas."),
-    ("Rear Panels", "Exterior", "Static panel on the cab rear — in the eyeline of following traffic at lights and in slow traffic. Usually booked alongside supersides rather than standalone.", [("London", "£120 / cab / 4 wks"), ("Regional", "£70 / cab / 4 wks"), ("Bundle", "Often add-on to supersides")], "Extending reach on an existing superside campaign, simple brand or URL messaging."),
-    ("Roof Signs", "Exterior", "Illuminated roof panel visible from distance and at height — a different sightline from side and rear panels. Visible day and night.", [("London", "£85 / cab / 4 wks"), ("Regional", "£55 / cab / 4 wks"), ("Visibility", "Illuminated day and night")], "Brand name and logo where readability at distance matters."),
-    ("Tip Seat Panels", "Interior", "Fold-down tip seat panels facing the rear passenger. 15–20 minutes dwell. Highest recall rates of any taxi format — engagement quality, not impression volume.", [("London", "£65 / cab / 4 wks"), ("Regional", "£40 / cab / 4 wks"), ("Package", "Usually with partition panels")], "Detailed messaging, QR codes, apps, extended reading time."),
-    ("Partition Panels", "Interior", "Panels on the privacy partition and headrest cards — directly in passenger eyeline. Space for copy-led campaigns that exterior formats cannot carry.", [("London", "£75 / cab / 4 wks"), ("Regional", "£45 / cab / 4 wks"), ("Dwell", "15–20 min captive")], "Direct response, QR codes, detailed product information, brand storytelling."),
-    ("In-Cab Digital Screens", "Digital", "Touchscreen panels with rotating ads, news, and entertainment. Growing London fleet share. No print cost; creative updated remotely. Availability varies by city and operator.", [("London", "£45 / cab / wk"), ("Regional", "£30 / cab / wk"), ("Min. fleet", "50 cabs typical")], "Dynamic content, video, measurable engagement."),
+    ("Supersides", "Exterior", "Large panel along the lower side body between the wheel arches — the format most people picture. Highest pavement and adjacent-vehicle visibility at fleet scale. Production: printed vinyl, priced separately.", [("London", "from £395 / cab / 4 wks"), ("Regional", "£175–£275 / cab / 4 wks"), ("Min. fleet", "50 London · 25 regional")], "Brand awareness, product launches, moving city-centre presence."),
+    ("Full Livery Wraps", "Exterior", "Entire exterior covered in branded vinyl. Done well: social photography, press, earned reach. Done poorly: expensive production with mediocre return. Production typically £800–£1,400 per cab extra.", [("London", "from £2,750 / cab"), ("Regional", "from £850 / cab"), ("Unit", "Per cab / campaign")], "Major brand moments where the taxi is the creative canvas."),
+    ("Tip Seat Panels", "Interior", "Fold-down tip seat panels facing the rear passenger. 15–20 minutes dwell. Highest recall rates of any taxi format — engagement quality, not impression volume.", [("London", "from £85 / cab / 4 wks"), ("Regional", "£40–£65 / cab / 4 wks"), ("Package", "Often with other interior formats")], "Detailed messaging, QR codes, apps, extended reading time."),
+    ("Digital Tops", "Digital", "Roof-mounted digital display inventory with GPS and daypart options where available. A different sightline from side panels — visible above surrounding traffic.", [("London", "from £550 / unit"), ("Regional", "POA by city"), ("Availability", "Varies by operator")], "Brand name and logo where height and motion matter."),
+    ("Branded Hire", "Activation", "Dedicated branded cab booked by the hour or day for events, activations, and PR-led city moments — not a fleet media buy.", [("London", "from £95 / hour"), ("Regional", "from £75 / hour"), ("Use", "Events · launches · PR")], "Short-burst visibility around a specific moment or venue."),
+    ("Rear Panels", "Exterior", "Static panel on the cab rear — in the eyeline of following traffic at lights and in slow traffic. Usually booked alongside supersides rather than standalone.", [("Pricing", "On application"), ("Bundle", "Often add-on to supersides"), ("Best with", "Superside campaigns")], "Extending reach on an existing superside campaign, simple brand or URL messaging."),
+    ("Partition & in-cab", "Interior / digital", "Partition panels, headrest cards, and in-cab screens sit in passenger eyeline for the full journey. Availability and packaging vary by city and operator — priced with the media plan.", [("Pricing", "On application"), ("Dwell", "15–20 min captive"), ("Formats", "Print + digital screens")], "Direct response, QR codes, video, and copy-led campaigns."),
 ]
 
 RATE_CARD = [
-    ("Superside", "£195 / cab", "£110 / cab", "50 / 25", "Primary exterior format. High street visibility."),
-    ("Full wrap", "£495 / cab", "£280 / cab", "25 / 15", "Full exterior. Significant production extra."),
-    ("Rear panel", "£120 / cab", "£70 / cab", "50 / 25", "Often bundled with superside campaigns."),
-    ("Roof sign", "£85 / cab", "£55 / cab", "50 / 25", "Illuminated. Day and night visibility."),
-    ("Tip seat panel", "£65 / cab", "£40 / cab", "50 / 25", "Interior. 15–20 min passenger dwell."),
-    ("Partition panel", "£75 / cab", "£45 / cab", "50 / 25", "Interior. Detailed copy possible."),
-    ("In-cab digital screen", "£45 / cab / wk", "£30 / cab / wk", "50 / 25", "Digital. No print cost. Availability varies."),
+    ("Superside panel", "from £395 / cab / 4 wks", "£175–£275 / cab / 4 wks", "50 / 25", "Primary exterior format. High street visibility."),
+    ("Tip seats (interior)", "from £85 / cab / 4 wks", "£40–£65 / cab / 4 wks", "—", "Interior. 15–20 min passenger dwell."),
+    ("Full livery wrap", "from £2,750 / cab", "from £850 / cab", "—", "Per cab / campaign. Production extra."),
+    ("Digital tops", "from £550 / unit", "POA by city", "—", "Roof-mounted digital where available."),
+    ("Branded hire", "from £95 / hour", "from £75 / hour", "—", "Events, activations, and PR moments."),
 ]
 
 BUDGET_LEVELS = ["Entry", "Growth", "Scale", "Domination"]
 BUDGETS = [
-    ("Under £5,000", "Regional entry-point", "A 25-cab superside campaign in a regional UK city for four weeks — genuine branded fleet presence in Manchester, Birmingham, Edinburgh, or similar. London at this level is limited to a small fleet test."),
-    ("£5k – £20k", "London entry or regional multi-format", "50-cab London superside for four weeks at the lower end. At the higher end: multi-format regional (supersides plus interior) or 100-cab London superside with meaningful city-centre footprint."),
-    ("£20k – £60k", "Purposeful London or national fleet", "100–200-cab London superside over four to eight weeks. Or exterior plus interior on a smaller fleet. Or simultaneous London plus two or three regional cities."),
-    ("£60k+", "Fleet dominance", "500-cab London campaigns, full-wrap fleet programmes, or multi-city simultaneous activity. At this scale the branded fleet becomes a visible part of the city landscape — full wraps reliably generate earned media."),
+    ("Under £5,000", "Regional entry-point", "A small regional superside fleet for four weeks — genuine branded presence in Manchester, Birmingham, Edinburgh, or similar at the lower end of the rate card. London at this level is tip seats or a short branded-hire activation, not a meaningful exterior fleet."),
+    ("£5k – £20k", "London entry or regional multi-format", "25-cab London superside for four weeks at the lower end (~£10k media). At the higher end: multi-format regional (supersides plus interior) or a larger regional fleet with meaningful city-centre footprint."),
+    ("£20k – £60k", "Purposeful London or national fleet", "50–100-cab London superside over four to eight weeks. Or exterior plus interior on a smaller fleet. Or simultaneous London plus two or three regional cities. Full wraps start to enter the plan at this level."),
+    ("£60k+", "Fleet dominance", "200–500-cab London campaigns, full-wrap fleet programmes, or multi-city simultaneous activity. At this scale the branded fleet becomes a visible part of the city landscape — full wraps reliably generate earned media."),
 ]
 
 FACTOR_TAGS = ["Biggest lever", "Volume", "Package", "Timing", "Total cost"]
@@ -117,7 +115,7 @@ TIPS = [
 ]
 
 FAQS = [
-    ("How much does taxi advertising cost in the UK?", 'Based on the Loud! OOH 2026 rate card, London superside taxi advertising starts from £195 per cab per four weeks. A realistic entry-level London campaign of 50 cabs costs around £9,750 in media, plus print production. A full wrap on 25 London cabs starts from £12,375 in media plus £20,000–£35,000 in production. Regional supersides start from £110 per cab per four weeks — a 25-cab regional campaign from around £2,750 in media. See full pricing on our <a href="../pricing/#taxi">2026 rate card</a>.'),
+    ("How much does taxi advertising cost in the UK?", 'Based on the Loud! OOH 2026 rate card, London superside taxi advertising starts from £395 per cab per four weeks. A realistic entry-level London campaign of 25 cabs costs around £9,875 in media, plus print production; 50 cabs from around £19,750. A full livery wrap starts from £2,750 per London cab (campaign rate) plus £800–£1,400 production per cab. Regional supersides run £175–£275 per cab per four weeks — a 25-cab regional campaign from around £4,375–£6,875 in media. Tip seats start from £85 in London and £40–£65 regionally. See full pricing on our <a href="../pricing/#taxi">2026 rate card</a>.'),
     ("How many cabs do I need for a meaningful campaign?", "In London, 50 cabs is typically the minimum for visible city-centre presence. Below 50 cabs, the fleet is too small to generate consistent impressions across the city's commercial zones. In regional cities, 25 cabs is a workable minimum. For major London campaigns, 100–200 cabs is where the format really delivers at scale."),
     ("How long does a taxi campaign take to set up?", "Allow three to four weeks from brief to fleet live for superside and rear panel campaigns. Full wraps need four to six weeks minimum. Interior formats can move slightly faster — typically two to three weeks from artwork approval. Brief at least five weeks ahead of a specific launch date."),
     ("Is the London black cab audience really more affluent?", "Yes, consistently. Research puts the ABC1 share of London black cab users at 65–72%, significantly above the London average and well above the national average. Higher fares and the professional contexts in which black cabs are most commonly used naturally select for higher-income users."),
@@ -372,7 +370,7 @@ PAGE = f"""<!DOCTYPE html>
           <span class="hero-metric-label">London black cabs</span>
         </div>
         <div class="hero-metric">
-          <span class="hero-metric-value">£195</span>
+          <span class="hero-metric-value">£395</span>
           <span class="hero-metric-label">Supersides from</span>
         </div>
         <div class="hero-metric">
@@ -453,7 +451,7 @@ PAGE = f"""<!DOCTYPE html>
       <blockquote class="pull-quote">A taxi is not one audience. Plan exterior and interior as two distinct exposures — not a single format decision.</blockquote>
 
       <h2 id="formats" class="section-heading">Every format explained</h2>
-      <p class="section-lead">Seven formats across exterior, interior, and digital — what each one is, what it costs, and who it works for. Media costs per cab per four weeks unless stated; VAT and production excluded. Full detail in the <a href="#ratecard">2026 rate card</a> and on our <a href="../pricing/#taxi">pricing page</a>.</p>
+      <p class="section-lead">Formats across exterior, interior, and digital — what each one is, what it costs, and who it works for. Rate card figures match the <a href="../pricing/#taxi">pricing page</a>. Media costs per cab per four weeks unless stated; VAT and production excluded.</p>
       <div class="formats-grid" aria-label="Taxi advertising formats">
         {formats_html()}
       </div>
@@ -534,7 +532,7 @@ PAGE = f"""<!DOCTYPE html>
         </article>
         <article class="framework-card">
           <h3>Regional SME entry</h3>
-          <p>25-cab superside campaigns in Manchester or Edinburgh can be planned from £4,000–£6,000 total including production — genuinely accessible for city-specific businesses.</p>
+          <p>25-cab superside campaigns in Manchester or Edinburgh can be planned from around £6,000–£9,000 total including production — genuinely accessible for city-specific businesses.</p>
         </article>
         <article class="framework-card">
           <h3>Zone biasing in London</h3>
@@ -586,7 +584,7 @@ PAGE = f"""<!DOCTYPE html>
       </div>
 
       <h2 id="sme" class="section-heading">Is taxi advertising right for an SME?</h2>
-      <div class="callout"><strong>Straight answer:</strong> Taxi can work very well for smaller businesses with the right audience profile, particularly in regional cities where entry costs are manageable — a 25-cab superside in Manchester or Edinburgh can land between <strong>£4,000 and £6,000</strong> including production. London needs more commitment for meaningful scale, but it is not exclusively a large-brand format.</div>
+      <div class="callout"><strong>Straight answer:</strong> Taxi can work very well for smaller businesses with the right audience profile, particularly in regional cities where entry costs are manageable — a 25-cab superside in Manchester or Edinburgh typically lands between <strong>£6,000 and £9,000</strong> including production. London needs more commitment for meaningful scale, but it is not exclusively a large-brand format.</div>
       <div class="sme-grid">
         <article class="sme-card sme-yes">
           <h3 class="sme-title">When it makes sense</h3>
