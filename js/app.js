@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  var SECTIONS = ['numbers','audience','formats','ratecard','budgets','factors','effectiveness','stations','booking','sme','faq'];
   var progressFill = document.getElementById('progress-fill');
   var backToTop = document.getElementById('back-to-top');
   var bodyGrid = document.getElementById('body-grid');
@@ -9,6 +8,14 @@
   var mainNav = document.getElementById('main-nav');
   var tocLinks = document.querySelectorAll('.toc-link');
   var faqItems = document.querySelectorAll('.faq-item');
+
+  function getSections() {
+    return Array.prototype.map
+      .call(tocLinks, function (link) {
+        return link.getAttribute('data-section');
+      })
+      .filter(Boolean);
+  }
 
   function isNarrow() {
     return window.innerWidth < 920;
@@ -49,12 +56,13 @@
       backToTop.classList.toggle('is-visible', doc.scrollTop > 900);
     }
 
-    var active = SECTIONS[0];
+    var sections = getSections();
+    var active = sections[0] || '';
     var line = 140;
-    for (var i = 0; i < SECTIONS.length; i++) {
-      var section = document.getElementById(SECTIONS[i]);
+    for (var i = 0; i < sections.length; i++) {
+      var section = document.getElementById(sections[i]);
       if (section && section.getBoundingClientRect().top - line <= 0) {
-        active = SECTIONS[i];
+        active = sections[i];
       }
     }
 

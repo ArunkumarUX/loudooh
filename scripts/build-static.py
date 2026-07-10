@@ -488,13 +488,13 @@ PAGE = f"""<!DOCTYPE html>
           <div class="bar-row"><span class="bar-label">8 weeks</span><div class="bar-track"><div class="bar-fill bar-fill--muted" style="width:100%"></div></div><span class="bar-value">~80×</span></div>
         </div>
       </div>
-      <div class="split-insight" aria-label="Strengths and limitations">
-        <article class="split-insight-card split-insight-card--yes">
-          <h3 class="split-insight-title">Where it's strongest</h3>
+      <div class="sme-grid" aria-label="Strengths and limitations">
+        <article class="sme-card sme-yes">
+          <h3 class="sme-title">Where it's strongest</h3>
           <p>Recruitment performs exceptionally — you're addressing people during their commute to a job they may want to leave. Financial, professional and B2B brands benefit from the ABC1 concentration. And traincards, with 30–45 minutes of dwell, genuinely support direct response.</p>
         </article>
-        <article class="split-insight-card split-insight-card--no">
-          <h3 class="split-insight-title">What it doesn't do well</h3>
+        <article class="sme-card sme-no">
+          <h3 class="sme-title">What it doesn't do well</h3>
           <p>Rail reaches rail users, and rail users are not everyone. If your audience drives, works from home, or lives outside commuter catchments, station advertising will miss them. It's also weaker for cheap national reach — roadside delivers raw national coverage more cheaply. Note too that Mon and Fri commuter volumes remain measurably quieter post-pandemic; midweek-weighted digital reaches the modern pattern more efficiently.</p>
         </article>
       </div>

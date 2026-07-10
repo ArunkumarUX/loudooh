@@ -2,7 +2,7 @@
   'use strict';
 
   var KEEP_OPEN = ['ratecard', 'budgets', 'faq', 'sme'];
-  var BLOCK_TAGS = 'div,table,details,blockquote,ul,ol,.interactive-table,.stats-grid,.stat-cards,.key-insights,.audience-cards,.budget-tiers,.factor-cards,.tip-cards,.station-cards,.chart-panel,.verdict-card,.timeline,.formats-grid,.format-card,.sme-grid,.faq-list,.callout,.pull-quote,.guide-disclosure,.guide-header,.read-panels,.framework-cards,.split-insight,.info-block';
+  var BLOCK_TAGS = 'div,table,details,blockquote,ul,ol,.interactive-table,.stats-grid,.stat-cards,.key-insights,.audience-cards,.budget-tiers,.factor-cards,.tip-cards,.station-cards,.chart-panel,.verdict-card,.timeline,.formats-grid,.format-card,.sme-grid,.faq-list,.callout,.pull-quote,.guide-disclosure,.guide-header,.read-panels,.framework-cards,.info-block';
 
   function scrollToId(id, e) {
     var target = document.getElementById(id);
