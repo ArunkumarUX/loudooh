@@ -32,19 +32,19 @@ STATS = [
 
 AUDIENCES = [
     ("Commuters", "The frequency audience", "Travel the same stations at the same times every working day, so a campaign builds frequency automatically. Disproportionately professional and ABC1, concentrated on routes into London and major business centres. Peak 7–9:30am and 4:30–7pm on weekdays."),
-    ("Business travellers", "The intercity audience", "Professionals travelling to meetings and client visits, concentrated at the major termini and on primary intercity corridors. Longer dwell than commuters — a Euston–Manchester traveller typically spends 20–30 minutes in the station before departure."),
+    ("Business travellers", "The intercity audience", "Professionals travelling to meetings and client visits, concentrated at the major termini and on primary intercity corridors. Longer dwell than commuters - a Euston–Manchester traveller typically spends 20–30 minutes in the station before departure."),
     ("Leisure travellers", "The weekend audience", "Weekends and holidays shift stations towards families, day-trippers, event-goers and tourists. This audience dwells longer, moves slower and engages more with retail and food. A genuinely different audience from the weekday commuter flow."),
 ]
 
 FORMATS = [
-    ("6-Sheet Posters", "Print", "The workhorse format. Backlit panels on platforms, in ticket halls and at entrances — passengers waiting for a train are directly in front of them with nothing else demanding attention. Present at 1,000+ UK stations.", [("Regional", "£250–£750 / panel"), ("Major regional", "from £500 / panel"), ("London termini", "£750–£1,500 / panel")], "Frequency campaigns against commuters; local business targeting."),
+    ("6-Sheet Posters", "Print", "The workhorse format. Backlit panels on platforms, in ticket halls and at entrances - passengers waiting for a train are directly in front of them with nothing else demanding attention. Present at 1,000+ UK stations.", [("Regional", "£250–£750 / panel"), ("Major regional", "from £500 / panel"), ("London termini", "£750–£1,500 / panel")], "Frequency campaigns against commuters; local business targeting."),
     ("Digital 6-Sheets (D6)", "Digital", "The digital equivalent on station screen networks. Ads rotate on a timed loop with daypart targeting, no print cost, and creative changeable remotely mid-campaign. The fastest-growing segment of rail inventory.", [("Regional", "£450–£1,200 / wk"), ("Major regional", "from £800 / wk"), ("London termini", "£1,200–£2,200 / wk")], "Targeting specific commuter windows; brands needing creative flexibility."),
     ("48 & 96-Sheet Billboards", "Print", "Large format on station approaches, alongside tracks at platform ends, and on exterior walls. Trackside 48-sheets are seen from arriving and departing trains too, adding an on-train audience. Often surprisingly good value regionally.", [("Regional", "£750–£2,000 / panel"), ("Major regional", "from £1,500 / panel"), ("London termini", "£2,000–£4,500 / panel")], "Brand awareness at scale; creative that benefits from a large canvas."),
-    ("Large Format Digital", "Digital", "The premium station format. Full-motion screens above concourses, facing departure boards. When 500 people are staring at the boards, the screen beside them has their attention by default — among the most valuable OOH sites in the country.", [("Regional", "POA"), ("Major regional", "POA"), ("London termini", "POA")], "High-impact brand campaigns, launches, motion-led creative."),
+    ("Large Format Digital", "Digital", "The premium station format. Full-motion screens above concourses, facing departure boards. When 500 people are staring at the boards, the screen beside them has their attention by default - among the most valuable OOH sites in the country.", [("Regional", "POA"), ("Major regional", "POA"), ("London termini", "POA")], "High-impact brand campaigns, launches, motion-led creative."),
     ("Concourse & Experiential", "Experiential", "Floor-standing sites on main concourses for product displays, sampling and pop-ups. The larger termini have designated experiential zones with power and footfall in the tens of thousands daily. Puts your brand in the path of the audience.", [("Regional", "POA"), ("Major regional", "POA"), ("London termini", "POA")], "Product sampling, launches, brands that benefit from interaction."),
     ("Station Takeovers", "Domination", "Complete brand presence across a station: every panel, every screen, often wraps on barriers, floors and architecture. Takeovers at the major London termini generate press and social coverage in their own right.", [("Regional", "from £2,500 / station"), ("Major regional", "from £8,000 / station"), ("London termini", "from £15,000 / station")], "Major launches and brand moments; saturating a catchment."),
     ("Traincards (interior)", "Print", "Printed panels inside carriages, above windows and seats. Commuters sit facing them for a 30–45 minute journey, so traincards support longer copy and direct-response mechanics like QR codes. Sold in fleet packages.", [("Regional", "£75–£150 / panel"), ("London / premium", "from £150 / panel"), ("Typical fleet", "500–2,000 panels")], "Detailed messaging, recruitment, financial services, direct response."),
-    ("Train Exterior Wraps", "Domination", "Full or partial branding on the outside of trains — the train becomes a moving campaign across its whole route, seen at every station it calls at and every platform it passes. High production cost, priced on application.", [("Regional", "POA"), ("Major regional", "POA"), ("London termini", "POA")], "Major brand campaigns, tourism bodies, route-level partnerships."),
+    ("Train Exterior Wraps", "Domination", "Full or partial branding on the outside of trains - the train becomes a moving campaign across its whole route, seen at every station it calls at and every platform it passes. High production cost, priced on application.", [("Regional", "POA"), ("Major regional", "POA"), ("London termini", "POA")], "Major brand campaigns, tourism bodies, route-level partnerships."),
 ]
 
 RATE_CARD = [
@@ -63,8 +63,8 @@ BUDGET_LEVELS = ["Entry", "Growth", "Scale", "Domination"]
 BUDGETS = [
     ("Under £5,000", "Single-station local presence", "A handful of 6-sheet panels at a regional or local station, or a short D6 rotation at a major regional station. Genuinely useful for local businesses: your customers see you every day at the station they commute through, for two to four weeks. Local stations remain one of the most underpriced formats in UK outdoor."),
     ("£5k – £20k", "Meaningful station presence", "Multiple formats at a major regional station, a strong panel package at a London terminus, or traincards across part of a commuter fleet. A £12,000–£15,000 mix of concourse D6s and platform 6-sheets at Leeds or Manchester Piccadilly builds serious frequency with that city's commuters over a month."),
-    ("£20k – £60k", "Multi-station or premium terminus", "Coordinated campaigns across a commuter corridor, premium large-format digital at a London terminus, or traincards across a full fleet. At this level you can own the journey — home station, in-carriage dwell, and terminus panel — frequency almost no other OOH environment can replicate."),
-    ("£60k+", "Headline channel territory", "Station takeovers at major termini, multi-city campaigns, or train livery partnerships. Rail becomes a headline channel — takeovers at the London termini reliably earn press and social coverage on top of the paid audience."),
+    ("£20k – £60k", "Multi-station or premium terminus", "Coordinated campaigns across a commuter corridor, premium large-format digital at a London terminus, or traincards across a full fleet. At this level you can own the journey - home station, in-carriage dwell, and terminus panel - frequency almost no other OOH environment can replicate."),
+    ("£60k+", "Headline channel territory", "Station takeovers at major termini, multi-city campaigns, or train livery partnerships. Rail becomes a headline channel - takeovers at the London termini reliably earn press and social coverage on top of the paid audience."),
 ]
 
 FACTOR_TAGS = ["Biggest lever", "Placement", "Timing", "Frequency", "Total cost"]
@@ -106,11 +106,11 @@ STATION_CHART_LABELS = {
 TIP_TAGS = ["Concentration", "Dayparting", "Journey", "Midweek", "Measurement"]
 
 TIPS = [
-    ("Buy the station, not the network", "For most SMEs, concentrated presence at one or two well-chosen stations outperforms thin coverage across many. Frequency is the mechanism that makes rail work — own the platforms your audience stands on every day rather than renting a single panel at ten stations they might pass once."),
+    ("Buy the station, not the network", "For most SMEs, concentrated presence at one or two well-chosen stations outperforms thin coverage across many. Frequency is the mechanism that makes rail work - own the platforms your audience stands on every day rather than renting a single panel at ten stations they might pass once."),
     ("Use dayparting on digital formats", "If your audience is the morning commuter, buy the morning. D6 and large format digital scheduling lets you weight spend into peak windows and midweek days when modern commuter volumes are strongest."),
-    ("Combine platforms with traincards", "Platform panels get 12 minutes of station dwell. Traincards get 30 to 45 minutes of in-carriage dwell. Together they cover the full journey — awareness plus long-copy, QR-friendly format in one campaign."),
+    ("Combine platforms with traincards", "Platform panels get 12 minutes of station dwell. Traincards get 30 to 45 minutes of in-carriage dwell. Together they cover the full journey - awareness plus long-copy, QR-friendly format in one campaign."),
     ("Plan around the midweek commuter pattern", "Tuesday to Thursday is when commuter stations are fullest. Weight digital spend into those days, or time printed campaigns to launch on a Tuesday, to compound exposure over a multi-week run."),
-    ("Run digital search alongside rail", "Commuters see your panel on the platform and search on the train. Run paid search on branded and category terms during the campaign — branded search volume in Google Search Console is one of the cleanest proxies for whether the campaign is registering."),
+    ("Run digital search alongside rail", "Commuters see your panel on the platform and search on the train. Run paid search on branded and category terms during the campaign - branded search volume in Google Search Console is one of the cleanest proxies for whether the campaign is registering."),
 ]
 
 FAQS = [
@@ -352,7 +352,7 @@ PAGE = f"""<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rail Advertising in the UK | Loud! OOH Insights</title>
-  <meta name="description" content="The complete UK rail advertising buyer's guide — formats, 2026 pricing, station selection, and campaign planning from Loud! OOH.">
+  <meta name="description" content="The complete UK rail advertising buyer's guide - formats, 2026 pricing, station selection, and campaign planning from Loud! OOH.">
   <meta name="theme-color" content="#0E1E3C">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -382,7 +382,7 @@ PAGE = f"""<!DOCTYPE html>
       </div>
       <div class="badge">Buyer's Guide</div>
       <h1>Rail Advertising in the UK</h1>
-      <p class="hero-lead">A real guide to what it costs, what works, and whether it's right for your business. No forms, no vague ranges — just the numbers you need to decide.</p>
+      <p class="hero-lead">A real guide to what it costs, what works, and whether it's right for your business. No forms, no vague ranges - just the numbers you need to decide.</p>
       <div class="hero-meta">
         <div class="author">
           <div class="author-avatar">L!</div>
@@ -400,7 +400,7 @@ PAGE = f"""<!DOCTYPE html>
     </div>
     <div class="hero-image-wrap">
       <div class="hero-image" role="img" aria-label="UK station OOH advertising placeholder"></div>
-      <div class="hero-caption">A large-format digital screen on a London terminus concourse — the premium rail format.</div>
+      <div class="hero-caption">A large-format digital screen on a London terminus concourse - the premium rail format.</div>
     </div>
     <div class="hero-spacer"></div>
   </section>
@@ -415,8 +415,8 @@ PAGE = f"""<!DOCTYPE html>
 
     <article class="article">
       <div class="intro">
-        <p class="intro-lead">Rail advertising guides tend to be written by people who have never bought any. They tell you the network carries over a billion journeys a year, that commuters are attractive, that stations are high-impact — all true, none of it useful — then comes the contact form, because the actual prices are apparently a secret.</p>
-        <p>We plan and buy rail campaigns across the UK network, from single-station regional activity to multi-station London terminus takeovers. This guide covers the UK national rail market: railway stations and trains across the National Rail network. It includes every format, real 2026 pricing from the Loud! OOH rate card, how to choose between stations, and an honest answer to the question that matters — is this right for my business, and what will it genuinely cost?</p>
+        <p class="intro-lead">Rail advertising guides tend to be written by people who have never bought any. They tell you the network carries over a billion journeys a year, that commuters are attractive, that stations are high-impact - all true, none of it useful - then comes the contact form, because the actual prices are apparently a secret.</p>
+        <p>We plan and buy rail campaigns across the UK network, from single-station regional activity to multi-station London terminus takeovers. This guide covers the UK national rail market: railway stations and trains across the National Rail network. It includes every format, real 2026 pricing from the Loud! OOH rate card, how to choose between stations, and an honest answer to the question that matters - is this right for my business, and what will it genuinely cost?</p>
       </div>
 
       <h2 id="numbers" class="section-heading">First, the numbers that matter</h2>
@@ -424,11 +424,11 @@ PAGE = f"""<!DOCTYPE html>
       <div class="stats-grid">
         {stats_html()}
       </div>
-      <p>Two characteristics make rail genuinely distinctive. The first is <strong>dwell time</strong> — the average passenger spends around 12 minutes in the station per journey, considerably longer when trains are delayed. People waiting for a platform announcement stand still, facing the departure boards, in exactly the sightline where the best inventory sits.</p>
-      <p>The second is <strong>frequency</strong>. A season-ticket holder passes through the same station ten times a week — roughly 450 times a year. A well-placed campaign doesn't reach them once; it reaches them every working day for the entire period. Rail commuters also skew ABC1, with a strong concentration of professionals and above-average incomes.</p>
+      <p>Two characteristics make rail genuinely distinctive. The first is <strong>dwell time</strong> - the average passenger spends around 12 minutes in the station per journey, considerably longer when trains are delayed. People waiting for a platform announcement stand still, facing the departure boards, in exactly the sightline where the best inventory sits.</p>
+      <p>The second is <strong>frequency</strong>. A season-ticket holder passes through the same station ten times a week - roughly 450 times a year. A well-placed campaign doesn't reach them once; it reaches them every working day for the entire period. Rail commuters also skew ABC1, with a strong concentration of professionals and above-average incomes.</p>
 
       <h2 id="audience" class="section-heading">Who actually uses UK rail stations?</h2>
-      <p>A station is not one audience. It is a commuter audience in the morning peak, a business audience through the day, and a leisure audience at weekends. The best campaigns are planned against the specific segment that matters — not the headline footfall number.</p>
+      <p>A station is not one audience. It is a commuter audience in the morning peak, a business audience through the day, and a leisure audience at weekends. The best campaigns are planned against the specific segment that matters - not the headline footfall number.</p>
       <div class="audience-list">
         {audiences_html()}
       </div>
@@ -456,7 +456,7 @@ PAGE = f"""<!DOCTYPE html>
       <div class="source-note">Source: Loud! OOH 2026 Rate Card.</div>
 
       <h2 id="budgets" class="section-heading">What a campaign looks like by budget</h2>
-      <p class="section-lead">Individual panel prices only tell you so much. Here is what rail advertising actually looks like across total budgets — from local entry to full domination.</p>
+      <p class="section-lead">Individual panel prices only tell you so much. Here is what rail advertising actually looks like across total budgets - from local entry to full domination.</p>
       <div class="budget-tiers" aria-label="Campaigns by budget">
         {budgets_html()}
       </div>
@@ -466,14 +466,14 @@ PAGE = f"""<!DOCTYPE html>
       <div class="factor-cards" aria-label="Pricing factors">
         {factors_html()}
       </div>
-      <div class="callout"><strong>Duration rule:</strong> If the budget allows four weeks instead of two, take the four. Rail's strength is frequency against a repeating audience — longer campaigns disproportionately outperform short ones.</div>
+      <div class="callout"><strong>Duration rule:</strong> If the budget allows four weeks instead of two, take the four. Rail's strength is frequency against a repeating audience - longer campaigns disproportionately outperform short ones.</div>
 
       <h2 id="effectiveness" class="section-heading">Does it work? The honest answer.</h2>
-      <p class="section-lead">Rail's defining strength is repetition — the same commuter, the same panel, every working day.</p>
+      <p class="section-lead">Rail's defining strength is repetition - the same commuter, the same panel, every working day.</p>
       <div class="verdict-card">
         <span class="verdict-badge" aria-hidden="true">✓</span>
         <div>
-          <h3>Yes — if you need frequency against commuters</h3>
+          <h3>Yes - if you need frequency against commuters</h3>
           <p>A four-week campaign can deliver ~40 exposures to the same ABC1 audience, with ~12 minutes of dwell each time.</p>
         </div>
       </div>
@@ -491,17 +491,17 @@ PAGE = f"""<!DOCTYPE html>
       <div class="sme-grid" aria-label="Strengths and limitations">
         <article class="sme-card sme-yes">
           <h3 class="sme-title">Where it's strongest</h3>
-          <p>Recruitment performs exceptionally — you're addressing people during their commute to a job they may want to leave. Financial, professional and B2B brands benefit from the ABC1 concentration. And traincards, with 30–45 minutes of dwell, genuinely support direct response.</p>
+          <p>Recruitment performs exceptionally - you're addressing people during their commute to a job they may want to leave. Financial, professional and B2B brands benefit from the ABC1 concentration. And traincards, with 30–45 minutes of dwell, genuinely support direct response.</p>
         </article>
         <article class="sme-card sme-no">
           <h3 class="sme-title">What it doesn't do well</h3>
-          <p>Rail reaches rail users, and rail users are not everyone. If your audience drives, works from home, or lives outside commuter catchments, station advertising will miss them. It's also weaker for cheap national reach — roadside delivers raw national coverage more cheaply. Note too that Mon and Fri commuter volumes remain measurably quieter post-pandemic; midweek-weighted digital reaches the modern pattern more efficiently.</p>
+          <p>Rail reaches rail users, and rail users are not everyone. If your audience drives, works from home, or lives outside commuter catchments, station advertising will miss them. It's also weaker for cheap national reach - roadside delivers raw national coverage more cheaply. Note too that Mon and Fri commuter volumes remain measurably quieter post-pandemic; midweek-weighted digital reaches the modern pattern more efficiently.</p>
         </article>
       </div>
       <blockquote class="pull-quote">Rail advertising is the most efficient frequency-building format in UK outdoor for reaching commuters and city-centre audiences.</blockquote>
 
       <h2 id="stations" class="section-heading">Choosing the right stations</h2>
-      <p class="section-lead">Match the station to your audience — not just the biggest footfall number.</p>
+      <p class="section-lead">Match the station to your audience - not just the biggest footfall number.</p>
       <div class="chart-panel" aria-label="Station footfall chart">
         <div class="chart-panel-header">
           <h3 class="chart-title">Ten busiest managed stations</h3>
@@ -517,9 +517,9 @@ PAGE = f"""<!DOCTYPE html>
       <div class="source-note">Source: Office of Rail and Road station usage estimates, 2024-25.</div>
 
       <h2 id="booking" class="section-heading">The booking process</h2>
-      <p>Allow three to five weeks from brief to live for standard poster and D6 campaigns. Printed formats need artwork sign-off then print and posting (one to two weeks); digital can move faster once artwork is approved. Station dominations and train wraps need eight to twelve weeks minimum, and premium concourse screens at the London termini book ahead — particularly for autumn and new year.</p>
-      <p>Inventory is managed by a small number of media owners holding long-term concessions with Network Rail and the train operating companies. A multi-station campaign often involves multiple owners — booking through an agency consolidates that into one plan, one point of accountability, and better rates than individual direct bookings.</p>
-      <div class="callout"><strong>Compliance:</strong> all creative must comply with the CAP Code, and rail environments carry additional restrictions — notably around imagery that could be distressing in a rail context or mistaken for operational signage. Submit artwork for approval at least five working days before your start date.</div>
+      <p>Allow three to five weeks from brief to live for standard poster and D6 campaigns. Printed formats need artwork sign-off then print and posting (one to two weeks); digital can move faster once artwork is approved. Station dominations and train wraps need eight to twelve weeks minimum, and premium concourse screens at the London termini book ahead - particularly for autumn and new year.</p>
+      <p>Inventory is managed by a small number of media owners holding long-term concessions with Network Rail and the train operating companies. A multi-station campaign often involves multiple owners - booking through an agency consolidates that into one plan, one point of accountability, and better rates than individual direct bookings.</p>
+      <div class="callout"><strong>Compliance:</strong> all creative must comply with the CAP Code, and rail environments carry additional restrictions - notably around imagery that could be distressing in a rail context or mistaken for operational signage. Submit artwork for approval at least five working days before your start date.</div>
 
       <h2 id="sme" class="section-heading">Is rail right for an SME?</h2>
       <p>Straight answer: rail is one of the most SME-accessible premium formats in UK outdoor, provided you buy at the right level. Local and regional station advertising is genuinely affordable, and the frequency it builds against a defined catchment is something small businesses usually can't buy anywhere else at the price.</p>
@@ -561,7 +561,7 @@ PAGE = f"""<!DOCTYPE html>
     <div class="cta-inner">
       <div class="cta-label">Plan your campaign</div>
       <h2>See exactly what your rail campaign will cost</h2>
-      <p>We plan and buy rail advertising for SMEs and challenger brands across the UK. Open pricing, no media mark-up — you know what you're committing to before you commit to anything.</p>
+      <p>We plan and buy rail advertising for SMEs and challenger brands across the UK. Open pricing, no media mark-up - you know what you're committing to before you commit to anything.</p>
       <div class="cta-buttons">
         <a href="#" class="btn-primary">See the full rate card</a>
         <a href="#" class="btn-secondary">Talk to a planner</a>
