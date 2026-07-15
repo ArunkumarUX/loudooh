@@ -357,7 +357,7 @@ PAGE = f"""<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260715">
 </head>
 <body>
   <div id="progress-bar" aria-hidden="true"><div id="progress-fill"></div></div>
@@ -589,8 +589,8 @@ PAGE = f"""<!DOCTYPE html>
 
   <button type="button" id="back-to-top" aria-label="Back to top">↑</button>
 
-  <script src="js/tables.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/tables.js?v=20260715"></script>
+  <script src="js/app.js?v=20260715"></script>
 </body>
 </html>
 """
