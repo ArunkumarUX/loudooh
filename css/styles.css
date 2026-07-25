@@ -2750,14 +2750,33 @@ a.guide-list-item:hover {
   gap: 6px;
   overflow-x: auto;
   scrollbar-width: none;
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    transform 0.28s var(--ease-smooth),
+    opacity 0.22s ease,
+    visibility 0.22s;
+}
+
+.mobile-jump.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-jump::-webkit-scrollbar { display: none; }
 
 @media (max-width: 919px) {
   .mobile-jump { display: flex; }
-  body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
-  #back-to-top { bottom: calc(64px + env(safe-area-inset-bottom)); }
+  body.has-mobile-jump {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+  body.has-mobile-jump #back-to-top {
+    bottom: calc(64px + env(safe-area-inset-bottom));
+  }
   .mobile-jump-link {
     min-height: 44px;
     display: inline-flex;

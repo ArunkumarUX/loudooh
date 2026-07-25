@@ -108,6 +108,12 @@
     if (!jump) return;
 
     var links = jump.querySelectorAll('a[data-section]');
+    var gate =
+      document.querySelector('.guide-header') ||
+      document.getElementById('body-grid') ||
+      document.querySelector('h2.section-heading');
+    var lastActive = '';
+
     links.forEach(function (link) {
       link.addEventListener('click', function (e) {
         var id = link.getAttribute('data-section');
@@ -118,7 +124,28 @@
       });
     });
 
+    function isNarrow() {
+      return window.innerWidth < 920;
+    }
+
+    function shouldShowBar() {
+      if (!isNarrow()) return false;
+      if (!gate) return window.scrollY > 280;
+      // Enable bottom bar only after top guide jumps have scrolled off-screen
+      return gate.getBoundingClientRect().bottom < 12;
+    }
+
+    function setBarVisible(show) {
+      jump.classList.toggle('is-visible', show);
+      jump.setAttribute('aria-hidden', show ? 'false' : 'true');
+      document.body.classList.toggle('has-mobile-jump', show);
+    }
+
     function syncJump() {
+      var show = shouldShowBar();
+      setBarVisible(show);
+      if (!show) return;
+
       var sections = Array.prototype.map.call(links, function (l) {
         return document.getElementById(l.getAttribute('data-section'));
       }).filter(Boolean);
@@ -134,13 +161,16 @@
       links.forEach(function (link) {
         var on = link.getAttribute('data-section') === activeId;
         link.classList.toggle('is-active', on);
-        if (on) {
+        if (on && activeId !== lastActive) {
           link.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
         }
       });
+      lastActive = activeId || '';
     }
 
     window.addEventListener('scroll', syncJump, { passive: true });
+    window.addEventListener('resize', syncJump, { passive: true });
+    setBarVisible(false);
     syncJump();
   }
 
