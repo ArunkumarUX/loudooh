@@ -2395,12 +2395,24 @@ a.guide-list-item:hover {
 
 .format-card-price-label {
   color: var(--color-text-soft);
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .format-card-price-value {
   font-weight: 700;
   color: var(--color-navy);
   text-align: right;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 380px) {
+  .format-card-price-row {
+    flex-wrap: wrap;
+    gap: 2px 12px;
+  }
 }
 
 .format-card-price-value--accent {
