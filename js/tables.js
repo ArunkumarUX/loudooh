@@ -150,6 +150,7 @@
     var searchInput = toolbar.querySelector('.itable-search');
     var columnsWrap = toolbar.querySelector('.itable-columns');
     var openMobileIndex = 0;
+    var externalPredicate = null;
 
     if (enableColumns && headers.length > 3) {
       headers.forEach(function (h, i) {
@@ -247,7 +248,8 @@
       var visibleCount = 0;
       rows.forEach(function (row) {
         var text = row.cells.map(function (c) { return c.textContent; }).join(' ').toLowerCase();
-        var show = !q || text.indexOf(q) !== -1;
+        var matchesExternal = !externalPredicate || externalPredicate(row.el);
+        var show = matchesExternal && (!q || text.indexOf(q) !== -1);
         row.el.classList.toggle('is-filtered-out', !show);
         row.el.style.display = show ? '' : 'none';
         if (show) visibleCount++;
@@ -264,6 +266,7 @@
 
       rows.forEach(function (row, rowIndex) {
         var text = row.cells.map(function (c) { return c.textContent; }).join(' ').toLowerCase();
+        if (externalPredicate && !externalPredicate(row.el)) return;
         if (q && text.indexOf(q) === -1) return;
 
         var primary = row.cells[0] ? row.cells[0].textContent.trim() : 'Row ' + (rowIndex + 1);
@@ -345,6 +348,42 @@
       wrap.classList.toggle('is-mobile', isMobile());
       updateScrollState();
     }
+
+    function applyExternalFilter(predicate) {
+      externalPredicate = typeof predicate === 'function' ? predicate : null;
+      var q = searchInput.value.trim().toLowerCase();
+      var visibleCount = 0;
+      rows.forEach(function (row) {
+        var text = row.cells.map(function (c) { return c.textContent; }).join(' ').toLowerCase();
+        var show = (!externalPredicate || externalPredicate(row.el)) && (!q || text.indexOf(q) !== -1);
+        row.el.classList.toggle('is-filtered-out', !show);
+        row.el.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+      renderMobile(q);
+      hint.textContent = visibleCount + ' of ' + rows.length + ' rows';
+    }
+
+    function applyExternalOrder(order) {
+      if (!Array.isArray(order) || !order.length) return;
+      var orderIndex = {};
+      order.forEach(function (id, index) { orderIndex[id] = index; });
+      rows.sort(function (a, b) {
+        var aIndex = Object.prototype.hasOwnProperty.call(orderIndex, a.el.getAttribute('data-company-id')) ? orderIndex[a.el.getAttribute('data-company-id')] : order.length;
+        var bIndex = Object.prototype.hasOwnProperty.call(orderIndex, b.el.getAttribute('data-company-id')) ? orderIndex[b.el.getAttribute('data-company-id')] : order.length;
+        return aIndex - bIndex;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row.el); });
+      renderMobile(searchInput.value);
+    }
+
+    wrap.addEventListener('fdi:table-filter', function (event) {
+      applyExternalFilter(event.detail && event.detail.predicate);
+    });
+
+    wrap.addEventListener('fdi:table-order', function (event) {
+      applyExternalOrder(event.detail && event.detail.order);
+    });
 
     searchInput.addEventListener('input', function () {
       filterRows(searchInput.value);

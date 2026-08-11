@@ -16,3 +16,58 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Preferred insight slugs (301 from legacy paths)
+[[redirects]]
+  from = "/insights/airport"
+  to = "/insights/airport-advertising-costs-uk/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/airport/"
+  to = "/insights/airport-advertising-costs-uk/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/airport/*"
+  to = "/insights/airport-advertising-costs-uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/billboard-advertising-costs-uk"
+  to = "/insights/billboard-advertisingguide/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/billboard-advertising-costs-uk/"
+  to = "/insights/billboard-advertisingguide/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/leeds-billboard-cost-transparency-campaign"
+  to = "/insights/leeds-billboard-costtransparency-campaign/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/leeds-billboard-cost-transparency-campaign/"
+  to = "/insights/leeds-billboard-costtransparency-campaign/"
+  status = 301
+
+# Legacy pricing path alias used in footer copy
+[[redirects]]
+  from = "/pricing"
+  to = "/insights/pricing/"
+  status = 301
+
+[[redirects]]
+  from = "/pricing/"
+  to = "/insights/pricing/"
+  status = 301
+
+[[redirects]]
+  from = "/pricing/*"
+  to = "/insights/pricing/:splat"
+  status = 301
