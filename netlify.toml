@@ -37,6 +37,16 @@
   force = true
 
 [[redirects]]
+  from = "/insights/bus"
+  to = "/insights/bus-advertising-guide/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/bus/"
+  to = "/insights/bus-advertising-guide/"
+  status = 301
+
+[[redirects]]
   from = "/insights/billboard-advertising-costs-uk"
   to = "/insights/billboard-advertisingguide/"
   status = 301
