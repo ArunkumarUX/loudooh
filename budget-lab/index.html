@@ -3,1353 +3,424 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UK OOH Pricing 2026 | Loud! OOH</title>
-<meta name="description" content="Real out-of-home prices for every UK format - billboard, rail, airport, taxi, bus and more. Published openly, no markups.">
-<meta name="theme-color" content="#13325C">
-<script src="../../js/dc/support.js?v=20260715"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>OOH Budget Calculator UK | What Can Your Budget Buy? | Loud! OOH</title>
+<meta name="description" content="See what your OOH advertising budget could actually buy. Our AI-powered planner builds your plan from verified 2026 pricing across 8 key formats — reach, impressions and allocation in seconds. Free, no sign-up.">
+<link rel="canonical" href="https://www.loudooh.co.uk/budget-lab/">
+<meta property="og:title" content="OOH Budget Calculator UK | What Can Your Budget Buy? | Loud! OOH">
+<meta property="og:description" content="See what your OOH advertising budget could actually buy. AI-generated plans from verified 2026 pricing across 8 key formats. Instant results, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.loudooh.co.uk/budget-lab/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../css/styles.css?v=20260715">
-<style>
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #FFFFFF; color: #13325C; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #FE481B; text-decoration: none; }
-  a:hover { color: #d43a12; }
-  ::selection { background: #FE481B; color: #fff; }
-  .pricing-hero {
-    position: relative;
-    background: #163a6f;
-    background-image:
-      radial-gradient(220px 220px at 96% 18%, rgba(102, 86, 167, 0.22), rgba(102, 86, 167, 0) 72%),
-      radial-gradient(250px 250px at 2% 96%, rgba(102, 86, 167, 0.20), rgba(102, 86, 167, 0) 74%);
-    color: #fff;
-    overflow: hidden;
-  }
-  .pricing-hero::before{
-    content:'';
-    position:absolute;
-    inset:-14% -10% -10%;
-    background:
-      radial-gradient(360px 240px at 12% 16%, rgba(255,255,255,0.07), rgba(255,255,255,0)),
-      radial-gradient(320px 220px at 88% 82%, rgba(254,72,27,0.12), rgba(254,72,27,0));
-    transform: translate3d(0, var(--hero-bg-parallax, 0px), 0);
-    will-change: transform;
-    pointer-events:none;
-  }
-  .pricing-hero::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg, rgba(7,23,51,0.12) 0%, rgba(7,23,51,0.22) 100%);
-    pointer-events:none;
-  }
-  .pricing-hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-    transform: translate3d(0, var(--hero-content-parallax, 0px), 0);
-    will-change: transform;
-  }
-  .pricing-hero-top {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 9px 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 138, 112, 0.28);
-    background: rgba(18, 43, 79, 0.42);
-    color: rgba(255, 171, 149, 0.96);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    line-height: 1;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
-    margin-bottom: 30px;
-  }
-  .pricing-kicker {
-    display:inline-flex; align-items:center; gap:8px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,154,127,0.95);
-    font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-  .pricing-title {
-    margin: 0 0 26px;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 900;
-    font-size: clamp(54px, 7vw, 74px);
-    line-height: 1.02;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-  }
-  .pricing-title-solid,
-  .pricing-title-outline{ display:block; }
-  .pricing-title-solid{ color:#fff; }
-  .pricing-title-outline{
-    margin-top: 6px;
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(254,72,27,0.92);
-    text-stroke: 2px rgba(254,72,27,0.92);
-    letter-spacing: -0.02em;
-  }
-  .pricing-subtitle {
-    margin: 0 auto 20px;
-    font-size: clamp(18px, 1.85vw, 24px);
-    line-height: 1.36;
-    color: rgba(220,228,240,0.94);
-    max-width: 640px;
-    font-weight: 500;
-    text-wrap: balance;
-  }
-  .pricing-meta {
-    margin: 0 auto 30px;
-    max-width: 620px;
-    font-size: 11px;
-    color: rgba(178,193,215,0.9);
-    line-height: 1.5;
-    letter-spacing: 0.01em;
-  }
-  .pricing-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom: 56px; }
-  .pricing-btn {
-    display:inline-flex; align-items:center; justify-content:center;
-    padding: 15px 24px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
-    will-change: transform;
-  }
-  .pricing-btn-primary { background:#FE481B; color:#fff; border:1px solid #FE481B; box-shadow: 0 14px 34px rgba(254,72,27,0.26); }
-  .pricing-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(254,72,27,0.32); color:#fff; }
-  .pricing-btn-secondary { background: rgba(255,255,255,0.06); color:#fff; border:1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-  .pricing-btn-secondary:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.35); color:#fff; }
-  .pricing-stats {
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    max-width: 1120px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 0;
-    overflow: hidden;
-    transform: translate3d(0, var(--hero-stats-parallax, 0px), 0);
-    will-change: transform;
-  }
-  .pricing-stat {
-    padding: 13px 12px 11px;
-    background: rgba(19,50,92,0.92);
-    border-radius: 0;
-    border: 0;
-    box-shadow: none;
-    text-align: center;
-  }
-  .pricing-stat-value { font-weight: 900; font-size: 34px; letter-spacing: -0.02em; color: #FE481B; line-height: 1.02; }
-  .pricing-stat-label { font-size: 13px; line-height: 1.35; color: rgba(236,241,250,0.92); margin-top: 4px; text-transform: none; letter-spacing: 0; }
-  .pricing-jump-wrap{
-    position: sticky;
-    top: 66px;
-    z-index: 60;
-    padding: 6px 12px;
-    background: rgba(255,255,255,0.94);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .pricing-jump-nav{
-    max-width: 1280px;
-    margin: 0 auto;
-    border-radius: 0;
-  }
-  .pricing-jump-track{
-    position: relative;
-    min-width: 0;
-  }
-  .pricing-jump-track::before,
-  .pricing-jump-track::after{
-    content:'';
-    position:absolute;
-    top:0;
-    bottom:8px;
-    width:24px;
-    z-index:2;
-    pointer-events:none;
-  }
-  .pricing-jump-track::before{
-    left:0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(255,255,255,0));
-    transform: translate3d(calc(var(--jump-parallax, 0px) * -0.25), 0, 0);
-  }
-  .pricing-jump-track::after{
-    right:0;
-    background: linear-gradient(270deg, rgba(255,255,255,0.98), rgba(255,255,255,0));
-  }
-  .pricing-jump-scroll{
-    display:flex;
-    align-items:flex-end;
-    gap: 2px;
-    overflow-x:auto;
-    padding: 2px 12px 0;
-    scrollbar-width: thin;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    border-bottom: 1px solid #e6ebf3;
-  }
-  .pricing-jump-scroll::-webkit-scrollbar{ height: 6px; }
-  .pricing-jump-scroll::-webkit-scrollbar-thumb{
-    background: rgba(145,161,185,0.45);
-    border-radius: 999px;
-  }
-  .pricing-tab{
-    position: relative;
-    flex: none;
-    scroll-snap-align: center;
-    padding: 14px 14px 12px;
-    border: 0;
-    border-bottom: 3px solid transparent;
-    border-radius: 0;
-    background: transparent;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    transform: translateY(0);
-    transition: color .22s ease, border-color .22s ease, transform .22s ease, text-shadow .22s ease;
-  }
-  .pricing-tab::after{
-    content:'';
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-2px;
-    height:3px;
-    background:#FE481B;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform .22s cubic-bezier(.2,.8,.2,1);
-  }
-  .pricing-tab:hover{
-    color:#13325C !important;
-    border-bottom-color: rgba(254,72,27,0.25);
-    transform: translateY(-1px);
-    text-shadow: 0 0 0.01px currentColor;
-  }
-  .pricing-tab:active{
-    transform: translateY(0);
-  }
-  .pricing-tab.is-active{
-    color:#13325C !important;
-    background: transparent;
-    border-bottom-color: #FE481B;
-  }
-  .pricing-tab.is-active::after{
-    transform: scaleX(1);
-  }
-  .pricing-tab:focus-visible{
-    outline: none;
-    box-shadow: inset 0 0 0 1px rgba(19,50,92,0.15);
-    border-bottom-color: rgba(254,72,27,0.6);
-  }
-  .pricing-section-kicker{
-    display:block;
-    font-weight:800;
-    font-size:11px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:#FE481B;
-    margin:0 0 10px;
-  }
-  .pricing-section-title{
-    font-weight:900;
-    font-size:clamp(26px,3.8vw,40px);
-    line-height:1.02;
-    letter-spacing:-0.025em;
-    text-transform:uppercase;
-    color:#13325C;
-    margin:0 0 10px;
-  }
-  .pricing-section-sub{
-    font-size:15px;
-    line-height:1.65;
-    color:#4A596E;
-    margin:0 0 18px;
-    max-width:720px;
-  }
-  .pricing-section-cta{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    margin-top: 12px;
-    padding: 12px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(19,50,92,0.18);
-    background: rgba(255,255,255,0.7);
-    color:#13325C;
-    font-weight: 800;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: transform .2s ease, border-color .2s ease, background .2s ease;
-  }
-  .pricing-section-cta:hover{
-    transform: translateY(-1px);
-    border-color: rgba(19,50,92,0.28);
-    background: rgba(255,255,255,0.9);
-  }
-  .pricing-section-cta:active{ transform: translateY(0); }
-  .package-cta{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    border-radius:999px;
-    padding:14px 20px;
-    font-weight:900;
-    font-size:13px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    border:2px solid rgba(19,50,92,0.55);
-    color:#13325C;
-    background: transparent;
-    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-  }
-  .package-cta:hover{
-    transform: translateY(-1px);
-    border-color: rgba(19,50,92,0.75);
-    background: rgba(19,50,92,0.04);
-  }
-  .package-cta:active{ transform: translateY(0); }
-  .package-cta.is-primary{
-    border-color:#FE481B;
-    background:#FE481B;
-    color:#fff;
-    box-shadow: 0 14px 34px rgba(254,72,27,0.22);
-  }
-  .package-cta.is-primary:hover{
-    background:#ff5a33;
-    border-color:#ff5a33;
-    box-shadow: 0 18px 44px rgba(254,72,27,0.28);
-  }
-  .package-card{
-    transform: translateY(0);
-    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    will-change: transform;
-  }
-  .package-card:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 26px 60px rgba(19,50,92,0.14);
-  }
-  .package-card.is-dark:hover{
-    box-shadow: 0 28px 70px rgba(19,50,92,0.28);
-  }
-  .package-card:focus-within{
-    transform: translateY(-4px);
-    box-shadow: 0 22px 54px rgba(19,50,92,0.16);
-  }
-  .pricing-section-cta::after{
-    content:'→';
-    font-weight: 900;
-    letter-spacing: 0;
-    opacity: 0.9;
-    transform: translateX(0);
-    transition: transform .2s ease;
-  }
-  .pricing-section-cta:hover::after{ transform: translateX(2px); }
-  .pricing-section-cta.is-prompt{
-    border-color: rgba(254,72,27,0.35);
-    box-shadow: 0 10px 26px rgba(19,50,92,0.10);
-    animation: pricingCtaPulse 2.1s ease-in-out infinite;
-  }
-  .pricing-section-cta.is-prompt::after{
-    animation: pricingCtaNudge 1.4s ease-in-out infinite;
-  }
-  @keyframes pricingCtaPulse{
-    0%, 100% { transform: translateY(0); background: rgba(255,255,255,0.70); }
-    50% { transform: translateY(-1px); background: rgba(255,255,255,0.88); }
-  }
-  @keyframes pricingCtaNudge{
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(4px); }
-  }
-  .pricing-media{
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid #E4E8EF;
-    box-shadow: 0 16px 50px rgba(19,50,92,0.12);
-    background:#0f2547;
-  }
-  .pricing-media img{ width:100%; height:100%; display:block; object-fit:cover; }
-  .pricing-table-wrap{
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid #E4E8EF;
-    background:#fff;
-    box-shadow: 0 18px 46px rgba(19,50,92,0.10);
-  }
-  table.pricing-table{ width:100%; border-collapse:collapse; font-size:13.5px; min-width:920px; }
-  table.pricing-table thead th{
-    background:#13325C;
-    color:#fff;
-    text-align:left;
-    padding:13px 16px;
-    font-weight:900;
-    font-size:10px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    border-right:1px solid rgba(255,255,255,0.12);
-  }
-  table.pricing-table thead th:last-child{ border-right:none; }
-  table.pricing-table tbody td{
-    vertical-align:top;
-    padding:16px;
-    border-top:1px solid #EDEFF4;
-    border-right:1px solid #EDEFF4;
-  }
-  table.pricing-table tbody td:last-child{ border-right:none; }
-  .format-cell-title{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 6px; }
-  .format-cell-desc{ font-size:12px; line-height:1.45; color:#6b7a92; margin:0 0 10px; }
-  .format-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    font-weight:800; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
-    padding:5px 9px; border-radius:999px;
-    border:1px solid #E4E8EF;
-    background:#F7F9FC;
-    color:#13325C;
-  }
-  .format-tag.tag-entry{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.08); color:#FE481B; }
-  .format-tag.tag-digital{ border-color: rgba(19,50,92,0.25); background: rgba(19,50,92,0.06); color:#13325C; }
-  .format-tag.tag-premium{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.10); color:#FE481B; }
-  .price-val{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 4px; }
-  .price-sub{ font-size:11.5px; color:#8593a8; margin:0; }
-  .notes-text{ font-size:12.5px; line-height:1.5; color:#6b7a92; }
-  .tip-strip{
-    margin-top:14px;
-    border-radius:16px;
-    border:1px solid rgba(254,72,27,0.18);
-    background: rgba(254,72,27,0.06);
-    padding:14px 16px;
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-    color:#4A596E;
-    font-size:13px;
-    line-height:1.5;
-  }
-  .tip-strip strong{ color:#FE481B; }
-  .tip-strip a{ color:#FE481B; font-weight:800; }
-  .tip-strip a:hover{ color:#d43a12; }
-  @media (prefers-reduced-motion: reduce) {
-    .pricing-hero::before,
-    .pricing-hero-inner,
-    .pricing-stats,
-    .pricing-jump-track::before,
-    .pricing-jump-track::after {
-      transform: none !important;
-    }
-    .pricing-section-cta.is-prompt,
-    .pricing-section-cta.is-prompt::after{
-      animation: none !important;
-    }
-  }
-  @media (max-width: 720px) {
-    #top.pricing-hero { padding: 118px 16px 56px !important; }
-    .pricing-hero-inner { text-align: center; }
-    .pricing-actions { justify-content: center; gap: 10px; margin-bottom: 32px; }
-    .pricing-stats { grid-template-columns: repeat(2, 1fr); }
-    .pricing-hero-top { justify-content: center; }
-    .pricing-title {
-      font-size: clamp(40px, 10vw, 56px);
-      line-height: 1.04;
-      letter-spacing: -0.8px;
-    }
-    .pricing-title-outline{
-      -webkit-text-stroke: 1.5px rgba(254,72,27,0.92);
-      text-stroke: 1.5px rgba(254,72,27,0.92);
-    }
-    .pricing-subtitle { margin-bottom: 16px; font-size: clamp(18px, 5vw, 24px); }
-    .pricing-meta { margin-bottom: 24px; font-size: 11px; line-height: 1.45; }
-    .pricing-stat-value { font-size: 28px; }
-    .pricing-stat-label { font-size: 13px; }
-    table.pricing-table{ min-width: 880px; }
-    .pricing-jump-wrap{
-      top: 62px;
-      padding: 6px 8px;
-    }
-    .pricing-jump-nav{
-      border-radius: 0;
-    }
-    .pricing-jump-track{
-      margin: 0 -4px;
-    }
-    .pricing-jump-track::before,
-    .pricing-jump-track::after{
-      width: 18px;
-    }
-    .pricing-jump-scroll{
-      padding: 2px 10px 0;
-    }
-    .pricing-tab{
-      padding: 12px 10px 10px;
-      font-size: 12px;
-    }
-    .package-card{
-      transform: none !important;
-      box-shadow: none !important;
-    }
-    #packages-start{ padding: 42px 16px 14px !important; }
-    #packages-start > div:first-child{ margin-bottom: 16px !important; }
-    #packages-start > div:first-child h2{
-      font-size: clamp(24px, 7vw, 32px) !important;
-      line-height: 1.08 !important;
-    }
-    #packages-start > div:first-child p{
-      font-size: 14px !important;
-      line-height: 1.58 !important;
-      max-width: 100% !important;
-    }
-    #packages-start > div:first-child > div{
-      gap: 6px !important;
-      margin-top: 12px !important;
-    }
-    #packages-start > div:first-child a{
-      padding: 7px 10px !important;
-      font-size: 11px !important;
-    }
-    #packages-start > div:nth-child(2){
-      gap: 14px !important;
-      grid-template-columns: 1fr !important;
-    }
-    #packages-start > div:last-child{
-      margin-top: 16px !important;
-      padding-top: 14px !important;
-    }
-    #packages-start > div:last-child > div{
-      font-size: 13px !important;
-      line-height: 1.6 !important;
-    }
-    section[id]{
-      padding: 40px 16px !important;
-      scroll-margin-top: 110px !important;
-    }
-    .pricing-table-wrap{
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(19,50,92,0.10);
-    }
-    table.pricing-table{ min-width: 760px; font-size: 13px; }
-    table.pricing-table thead th{ padding: 11px 12px; font-size: 9px; }
-    table.pricing-table tbody td{ padding: 12px; }
-    .tip-strip{
-      padding: 12px 13px;
-      font-size: 12px;
-      border-radius: 12px;
-    }
-    #cta{
-      padding: 50px 16px !important;
-      scroll-margin-top: 110px !important;
-    }
-    #cta h2{ font-size: clamp(26px, 8vw, 36px) !important; }
-    #cta p{ font-size: 15px !important; margin-bottom: 22px !important; }
-    #cta > div > div{
-      gap: 10px !important;
-      flex-direction: column !important;
-      align-items: stretch !important;
-    }
-    #cta > div > div a{
-      width: 100% !important;
-      text-align: center !important;
-      padding: 14px 14px !important;
-      font-size: 12px !important;
-    }
-    footer{ padding: 30px 16px !important; }
-  }
-  @media (max-width: 520px) {
-    #top.pricing-hero { padding: 106px 12px 50px !important; }
-    .pricing-hero-inner { max-width: 100%; }
-    .pricing-hero-top {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      padding: 8px 12px;
-      margin-bottom: 20px;
-    }
-    .pricing-title { margin-bottom: 16px; }
-    .pricing-subtitle { font-size: 17px; line-height: 1.35; max-width: 100%; }
-    .pricing-meta { font-size: 10px; margin-bottom: 18px; }
-    .pricing-actions { flex-direction: column; align-items: stretch; gap: 8px; }
-    .pricing-btn { width: 100%; padding: 13px 16px; font-size: 11.5px; }
-    .pricing-stats { grid-template-columns: 1fr 1fr; }
-    .pricing-stat { padding: 11px 8px 10px; }
-    .pricing-stat-value { font-size: 24px; }
-    .pricing-stat-label { font-size: 12px; }
-    .pricing-jump-wrap { top: 58px; padding: 5px 6px; }
-    .pricing-jump-scroll { padding: 3px 8px 4px; gap: 6px; }
-    .pricing-tab { font-size: 11.5px; padding: 11px 8px 9px; }
-    .pricing-section-title{ font-size: clamp(23px, 8.5vw, 32px); }
-    .pricing-section-sub{ font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
-    .pricing-section-cta{
-      width: 100%;
-      justify-content: center;
-      font-size: 11px;
-      padding: 11px 12px;
-    }
-    .format-cell-title{ font-size: 13px; }
-    .format-cell-desc{ font-size: 11.5px; }
-  }
-</style>
-<script src="../../js/dc/image-slot.js?v=20260715"></script>
-</helmet>
-<template id="__bundler_thumbnail" data-bg-color="#13325C">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#13325C"/>
-    <text x="600" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="140" letter-spacing="-5" fill="#ffffff">LOUD<tspan fill="#FE481B">!</tspan></text>
-    <text x="600" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="42" letter-spacing="20" fill="#8ea3c4">OOH · PRICING</text>
-    <rect x="480" y="540" width="240" height="10" fill="#FE481B"/>
-  </svg>
-</template>
-<div style="position:relative;">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <!-- HEADER (shared UX with Rail guide) -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <a href="../../" class="logo" aria-label="Loud! OOH home">
-        <img src="../../images/loud-ooh-logo.png" alt="" class="logo-img" width="680" height="214">
-      </a>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <nav class="main-nav" id="main-nav" aria-label="Primary">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="#top" class="nav-link nav-active" aria-current="page">Pricing</a>
-        <a href="../" class="nav-link">Insights</a>
-        <a href="#cta" class="nav-link">Contact</a>
-        <a href="#cta" class="nav-cta">Get a plan</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="top" class="pricing-hero" style="{{ heroStyle }}">
-    <div class="pricing-hero-inner" id="main-content">
-      <div class="pricing-hero-top">UK Out-of-Home - Competitive Rate Card 2026</div>
-      <h1 class="pricing-title">
-        <span class="pricing-title-solid">Big Brand Exposure.</span>
-        <span class="pricing-title-outline">Not Big Agency Fees.</span>
-      </h1>
-      <p class="pricing-subtitle">What will your budget actually buy? Real UK OOH pricing, no guesswork.</p>
-      <p class="pricing-meta">Media cost only (excl. VAT) · Standard 2-week cycle unless stated · Source: compiled market rate data 2026</p>
-      <div class="pricing-actions">
-        <a href="#cta" class="pricing-btn pricing-btn-primary">Get a free media plan</a>
-        <a href="#billboard" class="pricing-btn pricing-btn-secondary">Browse pricing ↓</a>
-      </div>
-    </div>
-    <div class="pricing-stats" aria-label="OOH headline stats">
-      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
-        <div class="pricing-stat">
-          <div class="pricing-stat-value">{{ st.v }}</div>
-          <div class="pricing-stat-label">{{ st.l }}</div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-  <!-- JUMP NAV -->
-  <nav class="pricing-jump-wrap" style="{{ jumpWrapStyle }}" aria-label="Pricing sections">
-    <div class="pricing-jump-nav">
-      <div class="pricing-jump-track">
-        <div class="pricing-jump-scroll">
-          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
-            <a href="#{{ t.id }}" onClick="{{ t.onClick }}" class="pricing-tab {{ t.className }}" style="{{ t.style }}" data-tab-id="{{ t.id }}">{{ t.label }}</a>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- PACKAGES -->
-  <section id="packages-start" style="scroll-margin-top:132px;max-width:1280px;margin:0 auto;padding:64px 28px 20px;">
-    <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Not sure where to start?</div>
-      <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0 0 10px;color:#13325C;">Three real packages. Real prices. No quote required.</h2>
-      <p style="font-size:15px;line-height:1.6;color:#4A596E;max-width:720px;margin:0 auto 0;">If you&#8217;d rather not read the full rate card, here&#8217;s what your budget actually buys. Every package below is a genuine starting point we build from - not a teaser price.</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;">
-        <a href="#pkg-starter" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Starter</a>
-        <a href="#pkg-local" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Local impact</a>
-        <a href="#pkg-city" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">City presence</a>
-        <a href="#billboard" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(254,72,27,0.28);background:rgba(254,72,27,0.06);color:#FE481B;font-weight:800;font-size:12px;">Detailed rate card ↓</a>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
-      <sc-for list="{{ packages }}" as="p" hint-placeholder-count="3">
-        <div id="{{ p.id }}" class="package-card {{ p.cardClass }}" style="{{ p.cardStyle }};border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%;">
-          <div>
-            <div style="{{ p.badgeStyle }}">{{ p.badge }}</div>
-            <div style="font-weight:900;font-size:22px;letter-spacing:-0.01em;margin:14px 0 2px;color:{{ p.titleColor }};text-transform:uppercase;">{{ p.name }}</div>
-            <div style="font-weight:900;font-size:32px;letter-spacing:-0.02em;color:#FE481B;line-height:1.05;margin-bottom:4px;">{{ p.price }}</div>
-            <div style="font-size:13px;color:{{ p.subColor }};margin:0 0 14px;">{{ p.per }}</div>
-            <ul style="list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;line-height:1.6;color:{{ p.bodyColor }};">
-              <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="4">
-                <li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                  <span style="color:#FE481B;font-size:13px;line-height:1.6;">✓</span>
-                  <span>{{ it }}</span>
-                </li>
-              </sc-for>
-            </ul>
-          </div>
-          <div style="margin-top:8px;">
-            <div style="font-size:13px;color:{{ p.subColor }};margin-bottom:10px;"><span style="font-weight:700;">Best for:</span> {{ p.best }}</div>
-            <a href="#cta" class="package-cta {{ p.ctaClass }}">Get this package</a>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-    <div style="margin:22px auto 0;max-width:900px;padding-top:18px;border-top:1px solid #E4E8EF;">
-      <div style="font-size:14px;line-height:1.65;color:#6b7a92;text-align:center;">
-        Prices are realistic 2026 starting rates and vary by location and availability. Want something between these, or a different format mix entirely? Tell us your budget and we'll build a plan around it. <strong style="color:#13325C;">No markup, ever.</strong>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMAT SECTIONS -->
-  <sc-for list="{{ sections }}" as="s" hint-placeholder-count="8">
-    <section id="{{ s.id }}" style="scroll-margin-top:132px;padding:56px 28px;background:{{ s.bg }};border-top:1px solid #EDEFF4;">
-      <div style="max-width:1180px;margin:0 auto;">
-        <div style="{{ s.headGridStyle }}">
-          <div>
-            <span class="pricing-section-kicker">{{ s.kicker }}</span>
-            <h2 class="pricing-section-title">{{ s.title }}</h2>
-            <p class="pricing-section-sub">{{ s.desc }}</p>
-            <sc-if value="{{ s.ctaLabel }}" hint-placeholder-val="{{ false }}">
-              <a class="pricing-section-cta {{ s.ctaClass }}" href="{{ s.ctaHref }}">{{ s.ctaLabel }}</a>
-            </sc-if>
-          </div>
-          <sc-if value="{{ s.showMedia }}" hint-placeholder-val="{{ true }}">
-            <div class="pricing-media" style="{{ s.mediaStyle }}">
-              <sc-if value="{{ s.hasImg }}" hint-placeholder-val="{{ true }}">
-                <img src="{{ s.img }}" alt="{{ s.title }}">
-              </sc-if>
-              <sc-if value="{{ s.needsSlot }}" hint-placeholder-val="{{ false }}">
-                <image-slot id="{{ s.slotId }}" shape="rect" fit="cover" placeholder="{{ s.slotHint }}"></image-slot>
-              </sc-if>
-            </div>
-          </sc-if>
-        </div>
-
-        <sc-if value="{{ !s.isRegionalGrid }}" hint-placeholder-val="{{ true }}">
-          <div class="pricing-table-wrap" style="margin-top:22px;">
-            <div style="overflow-x:auto;">
-              <table class="pricing-table">
-                <thead>
-                  <tr>
-                    <th style="width:38%;">{{ s.colFormat }}</th>
-                    <th style="width:21%;">{{ s.colA }}</th>
-                    <sc-if value="{{ s.showColB }}" hint-placeholder-val="{{ true }}">
-                      <th style="width:21%;">{{ s.colB }}</th>
-                    </sc-if>
-                    <sc-if value="{{ s.showNotes }}" hint-placeholder-val="{{ true }}">
-                      <th style="width:20%;">Notes</th>
-                    </sc-if>
-                  </tr>
-                </thead>
-                <tbody>
-                  <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="6">
-                    <tr style="{{ r.rowStyle }}">
-                      <td>
-                        <div class="format-cell-title">{{ r.title }}</div>
-                        <div class="format-cell-desc">{{ r.desc }}</div>
-                        <sc-if value="{{ r.hasTag }}" hint-placeholder-val="{{ true }}">
-                          <span class="format-tag {{ r.tagClass }}">{{ r.tag }}</span>
-                        </sc-if>
-                      </td>
-                      <td>
-                        <div class="price-val">{{ r.a }}</div>
-                        <div class="price-sub">{{ r.aSub }}</div>
-                      </td>
-                      <sc-if value="{{ s.showColB }}" hint-placeholder-val="{{ true }}">
-                        <td>
-                          <div class="price-val">{{ r.b }}</div>
-                          <div class="price-sub">{{ r.bSub }}</div>
-                        </td>
-                      </sc-if>
-                      <sc-if value="{{ s.showNotes }}" hint-placeholder-val="{{ true }}">
-                        <td class="notes-text">{{ r.note }}</td>
-                      </sc-if>
-                    </tr>
-                  </sc-for>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ s.isRegionalGrid }}" hint-placeholder-val="{{ false }}">
-          <div class="pricing-table-wrap" style="margin-top:22px;">
-            <div style="overflow-x:auto;">
-              <table class="pricing-table" style="min-width:980px;">
-                <thead>
-                  <tr>
-                    <th style="width:25%;">City</th>
-                    <th style="width:25%;">48-sheet (2 wks)</th>
-                    <th style="width:25%;">City</th>
-                    <th style="width:25%;">48-sheet (2 wks)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="4">
-                    <sc-if value="{{ !r.isSummary }}" hint-placeholder-val="{{ true }}">
-                      <tr style="{{ r.rowStyle }}">
-                        <td><div class="format-cell-title" style="margin:0;">{{ r.leftCity }}</div></td>
-                        <td><div class="price-val" style="margin:0;">{{ r.leftPrice }}</div></td>
-                        <td><div class="format-cell-title" style="margin:0;">{{ r.rightCity }}</div></td>
-                        <td><div class="price-val" style="margin:0;">{{ r.rightPrice }}</div></td>
-                      </tr>
-                    </sc-if>
-                    <sc-if value="{{ r.isSummary }}" hint-placeholder-val="{{ false }}">
-                      <tr style="{{ r.rowStyle }}">
-                        <td colspan="4" style="padding:14px 16px;">
-                          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
-                            <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#c7d3e6;">
-                              <span style="display:inline-flex;width:8px;height:8px;border-radius:999px;background:#FE481B;"></span>
-                              <span>{{ r.summaryLabel }}</span>
-                            </div>
-                            <div style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:rgba(254,72,27,0.16);border:1px solid rgba(254,72,27,0.4);font-weight:900;font-size:14px;line-height:1;color:#FE481B;">
-                              {{ r.summaryValue }}
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </sc-if>
-                  </sc-for>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ s.hasTip }}" hint-placeholder-val="{{ true }}">
-          <div class="tip-strip">
-            <strong>Tip:</strong>
-            <div>{{ s.tipText }} <a href="#cta">Get a Free Media Plan →</a></div>
-          </div>
-        </sc-if>
-      </div>
-    </section>
-  </sc-for>
-
-  <!-- BUYING INTELLIGENCE -->
-  <section id="buying" style="scroll-margin-top:132px;background:#13325C;color:#fff;padding:60px 28px;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:38px;">
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Buying intelligence</div>
-        <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0;">How to buy smarter</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-        <sc-for list="{{ buyingCards }}" as="b" hint-placeholder-count="2">
-          <div style="background:#0f2547;border:1px solid rgba(255,255,255,0.12);padding:28px 26px;">
-            <div style="font-weight:900;font-size:18px;color:#fff;margin-bottom:10px;">{{ b.h }}</div>
-            <div style="font-size:14.5px;line-height:1.65;color:#a7b7d1;">{{ b.d }}</div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" style="scroll-margin-top:132px;background:#F7F9FC;padding:56px 28px;border-top:1px solid #EDEFF4;">
-    <div style="max-width:900px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:34px;">
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Common questions</div>
-        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0;">Pricing FAQ</h2>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
-          <div style="background:#fff;border:1px solid #E4E8EF;padding:20px 22px;">
-            <div style="font-weight:800;font-size:15px;color:#13325C;margin-bottom:8px;">{{ q.h }}</div>
-            <div style="font-size:14.5px;line-height:1.6;color:#4A596E;">{{ q.d }}</div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT'S NOT INCLUDED -->
-  <section style="background:#fff;padding:56px 28px;border-top:1px solid #EDEFF4;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;gap:34px;grid-template-columns:{{ notIncludedCols }};align-items:start;">
-      <div>
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Full transparency</div>
-        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0 0 14px;">What's not included</h2>
-        <p style="font-size:16px;line-height:1.6;color:#4A596E;margin:0;">Every price on this card is <strong style="color:#13325C;">media cost only</strong>. So there are no surprises, here's exactly what sits on top - the same for us as for every buyer in the market.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;">
-        <sc-for list="{{ notIncluded }}" as="n" hint-placeholder-count="4">
-          <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #EDEFF4;">
-            <div style="flex:none;font-weight:900;color:#FE481B;font-size:14px;width:120px;">{{ n.k }}</div>
-            <div style="font-size:14.5px;line-height:1.55;color:#4A596E;">{{ n.d }}</div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta" style="scroll-margin-top:132px;background:#FE481B;color:#fff;padding:64px 28px;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-      <h2 style="font-weight:900;font-size:clamp(28px,4.5vw,46px);line-height:1.02;letter-spacing:-0.03em;text-transform:uppercase;margin:0 0 18px;">Ready to plan your campaign?</h2>
-      <p style="font-size:18px;line-height:1.55;color:#ffe4db;max-width:560px;margin:0 auto 32px;">Tell us your budget and your goal. We'll build a plan across the right formats - with the same open pricing you see here, and no media markup.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-        <a href="mailto:hello@loudooh.co.uk" style="background:#13325C;color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;">Get your free plan</a>
-        <a href="mailto:hello@loudooh.co.uk" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">Contact us</a>
-        <a href="../../" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">View portfolio</a>
-      </div>
-      <div style="margin-top:26px;font-size:14px;color:#ffd7cb;">hello@loudooh.co.uk &nbsp;·&nbsp; 020 4514 9147 &nbsp;·&nbsp; No markups. No hidden fees.</div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="background:#0f2547;color:#8ea3c4;padding:44px 28px;">
-    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
-      <div style="display:flex;align-items:baseline;font-weight:900;font-size:22px;letter-spacing:-0.02em;color:#fff;">LOUD<span style="color:#FE481B;">!</span><span style="font-weight:700;font-size:12px;letter-spacing:0.26em;margin-left:8px;align-self:center;color:#8ea3c4;">OOH</span></div>
-      <div style="font-size:13px;">&copy; 2026 Loud! OOH Ltd &nbsp;·&nbsp; Registered in England &nbsp;·&nbsp; Bigger. Bolder. Louder.</div>
-    </div>
-  </footer>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
-class Component extends DCLogic {
-  state = { active: 'billboard', narrow: false, jumpParallax: 0, heroBgParallax: 0, heroContentParallax: 0, heroStatsParallax: 0 };
-
-  componentDidMount() {
-    this._ids = ['billboard','underground','busstop','bus','airport','taxi','rail','advan','regional','buying','faq'];
-    this._onResize = () => { const n = window.innerWidth < 860; if (n !== this.state.narrow) this.setState({ narrow: n }); };
-    window.addEventListener('resize', this._onResize, { passive: true });
-    this._onResize();
-    this._onScroll = () => {
-      let active = this.state.active;
-      for (const id of this._ids) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top - 150 <= 0) active = id; }
-      const y = window.scrollY || 0;
-      const jumpParallax = Math.min(34, Math.max(0, Math.round(y * 0.08)));
-      const hero = document.getElementById('top');
-      const heroHeight = hero ? hero.offsetHeight : 520;
-      const progress = Math.min(1, Math.max(0, y / heroHeight));
-      const heroBgParallax = Math.round(progress * 72);
-      const heroContentParallax = Math.round(progress * -24);
-      const heroStatsParallax = Math.round(progress * -12);
-      if (
-        active !== this.state.active ||
-        jumpParallax !== this.state.jumpParallax ||
-        heroBgParallax !== this.state.heroBgParallax ||
-        heroContentParallax !== this.state.heroContentParallax ||
-        heroStatsParallax !== this.state.heroStatsParallax
-      ) {
-        this.setState({ active, jumpParallax, heroBgParallax, heroContentParallax, heroStatsParallax });
-      }
-      if (active !== this.state.active) {
-        window.requestAnimationFrame(() => {
-          const tab = document.querySelector('[data-tab-id="' + active + '"]');
-          if (tab && tab.scrollIntoView) {
-            tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          }
-        });
-      }
-    };
-    window.addEventListener('scroll', this._onScroll, { passive: true });
-    this._onScroll();
-  }
-  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
-
-  go(id) { return (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 118, behavior: 'smooth' }); }; }
-
-  renderVals() {
-    const narrow = this.state.narrow;
-    const stats = [
-      { v: '£1.49bn', l: 'UK OOH revenue 2025 record' },
-      { v: '67%', l: 'DOOH share of all OOH' },
-      { v: '£1.80', l: 'OOH ROI per £1 spent' },
-      { v: '79%', l: 'Ad recall at 30 days' },
-    ];
-
-    const tabDefs = [
-      ['billboard','Billboards'],
-      ['underground','London Underground'],
-      ['busstop','Bus Stops'],
-      ['bus','Bus Advertising'],
-      ['airport','Airport Advertising'],
-      ['taxi','Taxi Advertising'],
-      ['rail','Rail & Train Station Advertising'],
-      ['advan','Digital AdVan Advertising'],
-      ['regional','Regional'],
-      ['buying','Buying Info'],
-      ['faq','FAQ'],
-    ];
-    const tabs = tabDefs.map(([id,label]) => {
-      const on = this.state.active === id;
-      return { label, onClick: this.go(id), style:
-        'color:' + (on ? '#13325C' : '#6b7a92') + ';',
-        id,
-        className: on ? 'is-active' : '' };
-    });
-
-    const packages = [
-      {
-        id: 'pkg-starter',
-        badge: 'Starter',
-        name: 'Starter',
-        price: '\u00a3325+',
-        per: '2-week campaign',
-        items: [
-          '1 billboard or 1 bus shelter',
-          'Site selection (depending on availability) & booking',
-          'Production & installation',
-        ],
-        best: 'Testing OOH for the first time',
-        primary: false,
-        dark: false,
-      },
-      {
-        id: 'pkg-local',
-        badge: 'Most booked',
-        name: 'Local impact',
-        price: '\u00a31,000\u2013\u00a32,000',
-        per: '2-week campaign',
-        items: [
-          '2 billboards',
-          '5 bus shelter sites or 15 rear bus panels',
-          'Site selection (depending on availability) & booking',
-          'Production & installation',
-          'Post-campaign report',
-        ],
-        best: 'A proper local launch or seasonal push',
-        primary: true,
-        dark: true,
-      },
-      {
-        id: 'pkg-city',
-        badge: 'City presence',
-        name: 'City presence',
-        price: '\u00a35,000\u2013\u00a310,000',
-        per: '2-week campaign',
-        items: [
-          '4 billboards',
-          '10 bus shelter sites',
-          '15 bus supersides, full city route',
-          'Or 1 cross-track poster, 10 4-sheets and 10 LEPs on the London Underground',
-          'Site selection & booking',
-          'Production & installation',
-          'Post-campaign report',
-          'Free AdVan for one day during your campaign',
-        ],
-        best: 'Multi-format campaigns with real reach',
-        primary: false,
-        dark: false,
-      },
-    ].map(p => ({
-      ...p,
-      ctaClass: p.primary ? 'is-primary' : '',
-      cardClass: p.dark ? 'is-dark' : '',
-      cardStyle: 'border:1px solid ' + (p.dark ? '#13325C' : '#E4E8EF') + ';background:' + (p.dark ? '#13325C' : '#fff') + ';padding:26px 26px 30px;'
-        + (p.dark ? 'box-shadow:0 18px 40px rgba(19,50,92,0.22);' : ''),
-      badgeStyle: 'display:inline-block;font-weight:800;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:5px 10px;'
-        + (p.dark ? 'background:#FE481B;color:#fff;' : 'background:#FFF0EC;color:#FE481B;'),
-      titleColor: p.dark ? '#fff' : '#13325C',
-      subColor: p.dark ? '#8ea3c4' : '#8593a8',
-      bodyColor: p.dark ? '#c7d3e6' : '#4A596E',
-    }));
-
-    const white = '#ffffff', zebra = '#F7F9FC';
-    const mkRows = (arr) => arr.map((r, i) => ({
-      ...r,
-      hasTag: !!r.tag,
-      rowStyle: r.rowStyle || ('background:' + (i % 2 ? zebra : white) + ';')
-    }));
-
-    const raw = [
-      {
-        id: 'billboard',
-        kicker: 'Roadside / Large format / Static & Digital',
-        title: 'Billboard advertising',
-        bg: '#fff',
-        img: '../../images/pricing/billboard-advertising-costs.jpeg',
-        needsSlot: false,
-        slotId: 'billboard-img',
-        slotHint: 'Drop a UK billboard photo (48-sheet / digital)',
-        desc: 'Prime locations | Mass reach | Unmissable impact. Advertising people see. Not scroll past.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'London (2 wks)',
-        colB: 'Regional (2 wks)',
-        showNotes: true,
-        rows: [
-          { title:'6-Sheet Static', desc:'Street-level panels on high streets & retail parks. Eye-level, personal. Adshel standard.', tag:'SME entry', tagClass:'tag-entry', a:'£400–£900', aSub:'per panel', b:'£300–£600', bSub:'per panel', note:'Most affordable fixed OOH. Bookable in targeted postcode clusters.' },
-          { title:'6-Sheet Digital DOOH', desc:'Animated creative, time-of-day scheduling, rotating copy. Fast to go live.', tag:'Digital', tagClass:'tag-digital', a:'£500–£800', aSub:'per week', b:'£400–£600', bSub:'per week', note:'Premium DOOH corridors (e.g. Oxford St) sold as synchronised networks.' },
-          { title:'48-Sheet Static', desc:'The bread-and-butter billboard. Dominant roadside presence. Most popular UK format.', tag:'Best value at scale', tagClass:'tag-entry', a:'£650–£1,000', aSub:'per panel', b:'£325–£600', bSub:'per panel', note:'London costs ~2–3× regional. Northern cities 40–45% below London.' },
-          { title:'48-Sheet Digital', desc:'Full-motion creative, data integration (weather, live feeds). Flexible booking.', tag:'Digital', tagClass:'tag-digital', a:'£1,000–£1,200', aSub:'per panel', b:'£500–£1,000', bSub:'per panel', note:'Share-of-loop pricing often available from ~£500 for regional screens.' },
-          { title:'96 Sheet Digital', desc:'Landmark-scale roadside. Maximum impact for major announcements and brand launches.', tag:'Premium', tagClass:'tag-premium', a:'£1,500+', aSub:'per panel', b:'£1,000+', bSub:'per panel', note:'Central London premium sites can be very high. Longer lead times.' },
-          { title:'Backlit / Illuminated', desc:'Vinyl on backlit unit. High-quality render, 24/7 visibility. Available in 48 or 96-sheet.', tag:'Premium', tagClass:'tag-premium', a:'£900+', aSub:'per panel', b:'£650+', bSub:'per panel', note:'Premium for night-time visibility uplift. Popular near transport hubs.' },
-        ],
-        hasTip: true,
-        tipText: 'Not sure which billboard size suits your budget? Request a free media plan.',
-      },
-      {
-        id: 'underground',
-        kicker: 'Transit - London Underground',
-        title: 'London Underground advertising',
-        bg: '#F7F9FC',
-        img: '../../images/pricing/London-Underground-Advertising.jpg',
-        needsSlot: false,
-        slotId: 'underground-img',
-        slotHint: 'Drop a London Underground advertising photo',
-        desc: '272 stations | 5M journeys/day | avg. 20-min dwell per journey. The most captive audiences in UK advertising.',
-        ctaLabel: 'Speak to an Underground Specialist',
-        ctaHref: '#cta',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'From (2 wks)',
-        colB: 'Zone 1 premium',
-        showNotes: true,
-        rows: [
-          { title:'Tube Car Panel (TCP)', desc:'Inside carriage, above seats. 20-min sustained exposure per journey. Booked by line.', tag:'Lowest entry point', tagClass:'tag-entry', a:'£10+', aSub:'per panel', b:'Line-based', bSub:'pricing', note:'Best for detailed messaging & long copy. Central Line: West Ruislip to Epping.' },
-          { title:'Escalator Panel (LEP/DEP)', desc:'Sequential panels along escalator runs. 30–80 sec dwell. Captive, unavoidable audience.', tag:'Strong ROI', tagClass:'tag-entry', a:'From £125', aSub:'per panel', b:'£300–£600+', bSub:'major interchange', note:'Highest recall rates in the Underground. Book runs for sequential storytelling.' },
-          { title:'4-Sheet Platform Poster', desc:'Along platform walls. Direct eye-line of all waiting passengers. 2–5 min natural dwell.', tag:'SME value', tagClass:'tag-entry', a:'From £300', aSub:'zones 4–6', b:'£400–£600', bSub:'Zone 1 stations', note:'Backlit, clean finish. Great brand awareness. Outer zones offer SME value.' },
-          { title:'16-Sheet Cross-Track', desc:'Opposite platform wall. Entire platform faces it. Large-format hero brand moment.', tag:'High impact', tagClass:'tag-premium', a:'From £1,000', aSub:'outer zones', b:'£1,500–£2,800', bSub:'Zone 1', note:'3-minute average platform dwell. Pairs well with car panels for frequency.' },
-          { title:'48-Sheet Cross-Track', desc:'Largest platform format. Unmissable credibility piece. Most popular large Underground format.', tag:'Premium', tagClass:'tag-premium', a:'£1,500', aSub:'by station', b:'£2,500–£5,000+', bSub:'Zone 1', note:'Credibility signal. Best for launches. Book months ahead at key stations.' },
-          { title:'Digital Escalator Panels / Ribbons', desc:'Full-motion capability. Runs on escalator banks. Daypart targeting. Programmatic buying available.', tag:'Digital', tagClass:'tag-digital', a:'From £15,750', aSub:'per week', b:'Premium', bSub:'negotiated', note:'Full-motion capability. Reserved for brand campaigns and product launches.' },
-          { title:'Station Domination / Takeover', desc:'Total brand experience across all surfaces. Key hubs: Oxford Circus, Waterloo, King’s Cross.', tag:'Premium', tagClass:'tag-premium', a:'From £15,000', aSub:'2-week period', b:'£50,000–£100,000+', bSub:'flagship stations', note:'Guaranteed social media amplification. Plan 3–6 months ahead.' },
-        ],
-      },
-      {
-        id: 'bus',
-        kicker: 'Transit / Mobile OOH',
-        title: 'Bus advertising',
-        bg: '#fff',
-        img: '../../images/pricing/Bus-Picture.jpg',
-        needsSlot: false,
-        slotId: 'bus-img',
-        slotHint: 'Drop a bus advertising photo (superside / wrap)',
-        desc: '20,000+ buses covering 95% of the UK. Mobile billboards that follow your audience through the city all day, every day.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'From (2 wks)',
-        colB: 'London premium',
-        showNotes: true,
-        rows: [
-          { title:'Bus Rear / Headliner', desc:'Back of bus. Faces following traffic. 48-sec average dwell in congestion. Mass reach.', tag:'Entry point', tagClass:'tag-entry', a:'From £60–£90', aSub:'per panel / regional', b:'£200–£600', bSub:'per week / London', note:'Reaches up to 71% of UK population in 2 weeks (national buy). CPT from £3.' },
-          { title:'Superside', desc:'Long horizontal panel on upper deck of double-decker. Eye-level for pedestrians.', tag:'Popular format', tagClass:'tag-entry', a:'£130–£275', aSub:'per bus (min 10)', b:'£300–£500+', bSub:'per bus / London', note:'Depot-based booking (not specific routes). Volume discounts at 20+ buses.' },
-          { title:'T-Side (Double-Decker)', desc:'Large side panel covering both decks. Bold street presence. Premium over superside.', tag:'High visibility', tagClass:'tag-premium', a:'£250–£500', aSub:'per bus (2 wks)', b:'£500–£900', bSub:'London routes', note:'Typical campaign: 10–30 buses for city coverage. Pairs well with 6-sheets.' },
-          { title:'Streetliner (Single-Decker)', desc:'Side panel on single-decker. Ideal for suburban, residential and high-street targeting.', tag:'', tagClass:'', a:'£180–£500', aSub:'per bus (2 wks)', b:'POA', bSub:'', note:'Pedestrian eye-level. Effective for neighbourhood-level or high-street campaigns.' },
-          { title:'Mega Rear', desc:'Full rear of bus. Largest rear format. Extended dwell time in slow urban traffic.', tag:'Premium', tagClass:'tag-premium', a:'£4,000+', aSub:'per year', b:'£4,000+', bSub:'London routes', note:'Usually annual contracts - lower effective monthly rate. Best for established brands.' },
-          { title:'Full Bus Wrap', desc:'Entire bus exterior branded. Unmissable moving billboard. Organic social generation.', tag:'Premium', tagClass:'tag-premium', a:'From £18,000', aSub:'per bus / year', b:'£10,000–£30,000', bSub:'per bus / 4 wks London', note:'Specialist installation often extra. TfL approval required for some fleets.' },
-          { title:'Bus Interior Panels', desc:'Inside the bus, above windows. Engages seated passengers on longer journeys.', tag:'', tagClass:'', a:'POA', aSub:'by route/line', b:'POA', bSub:'', note:'Lower cost than exterior. Good for longer copy. Often bundled with exterior buy.' },
-        ],
-      },
-      {
-        id: 'busstop',
-        kicker: 'Street furniture',
-        title: 'Bus stop advertising',
-        bg: '#F7F9FC',
-        img: '../../images/pricing/Bus-Stop-Picture-.jpg',
-        needsSlot: false,
-        slotId: 'busstop-img',
-        slotHint: 'Drop a UK bus shelter / street furniture ad photo',
-        desc: '20,000+ digital shelters across the UK. Eye-level, 2–4 min natural dwell. The sharpest postcode targeting in outdoor advertising.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'London (2 wks)',
-        colB: 'Regional (2 wks)',
-        showNotes: true,
-        rows: [
-          { title:'Static 6-Sheet (Adshel)', desc:'Standard bus shelter poster. Eye-level, close-up, natural dwell 2–4 min. Postcode-selectable.', tag:'SME recommended', tagClass:'tag-entry', a:'£400–£650', aSub:'per panel', b:'£300–£600', bSub:'per panel', note:'Strongest local targeting in OOH. Most cost-effective way to dominate a postcode.' },
-          { title:'Digital 6-Sheet DOOH', desc:'Animated creative, time-of-day targeting, weather-reactive. 4,000+ screens UK-wide.', tag:'Digital', tagClass:'tag-digital', a:'£650–£800', aSub:'per week', b:'£400–£650', bSub:'per week', note:'Packages of 100,000 plays from ~£5,000 nationally. Oxford St network synchronised.' },
-          { title:'Shelter wrap', desc:'Full branded shelter takeover. Immersive, experiential. Launch-campaign activation. Full shelter exterior.', tag:'Premium', tagClass:'tag-premium', a:'POA', aSub:'by location', b:'POA', bSub:'', note:'Experience closer to a special build. Generates organic social.' },
-        ],
-        hasTip: true,
-        tipText: 'Best value entry: start with static 6-sheet bus shelters for dominant local postcode coverage.',
-      },
-      {
-        id: 'airport',
-        kicker: 'Premium / travel audience',
-        title: 'Airport advertising',
-        bg: '#fff',
-        img: '../../images/pricing/Airport-Advertising.png',
-        needsSlot: false,
-        slotId: 'airport-img',
-        slotHint: 'Drop an airport terminal advertising photo',
-        desc: 'High-income, high-dwell audiences through departures, security and arrivals. Premium environments with strong brand halo.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'Regional airport (2 wks)',
-        colB: 'Major hub premium',
-        showNotes: true,
-        rows: [
-          { title:'Digital 6-Sheet (D6)', desc:'Terminal circulation and gate areas.', tag:'Digital', tagClass:'tag-digital', a:'£295–£600', aSub:'per week', b:'£1,200+', bSub:'per week', note:'Best for fast rollout and multi-screen sequencing in terminals.' },
-          { title:'Static 6-Sheet', desc:'Classic backlit terminal poster network.', tag:'SME value', tagClass:'tag-entry', a:'£350–£700', aSub:'per panel', b:'£1,500+', bSub:'per panel', note:'Strong in regional terminals where dwell is high and clutter is lower.' },
-          { title:'Large format digital', desc:'Hero screens in departures, check-in and reclaim.', tag:'Premium', tagClass:'tag-premium', a:'£950+', aSub:'per week', b:'£5,000+', bSub:'per week', note:'Premium for Heathrow/Gatwick core zones; often sold as packages.' },
-          { title:'Roadside 48 (approach roads)', desc:'Capture traffic on approach and car park routes.', tag:'', tagClass:'', a:'£450+', aSub:'per panel', b:'£1,750+', bSub:'per panel', note:'Useful for frequency before terminal entry and after exit.' },
-          { title:'Terminal domination', desc:'Full takeover of a defined airport zone.', tag:'Premium', tagClass:'tag-premium', a:'POA', aSub:'regional by terminal', b:'£15,000+', bSub:'major hub', note:'High-impact launch format; typically planned well in advance.' },
-        ],
-      },
-      {
-        id: 'taxi',
-        kicker: 'Street / mobile OOH',
-        title: 'Taxi advertising',
-        bg: '#F7F9FC',
-        needsSlot: true,
-        slotId: 'taxi-img',
-        slotHint: 'Drop a black cab / taxi advertising photo',
-        desc: 'Premium city-centre movement with high-frequency urban exposure. Especially strong in London and major commuter zones.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'Regional / city',
-        colB: 'London premium',
-        showNotes: true,
-        rows: [
-          { title:'Superside panel', desc:'Long side panel along the cab body.', tag:'Entry point', tagClass:'tag-entry', a:'£175–£275', aSub:'per cab / 4 wks', b:'£395+', bSub:'per cab / 4 wks', note:'Great for city-centre frequency and route-based visibility.' },
-          { title:'Tip seats (interior)', desc:'Passenger-facing messaging in rear cabin.', tag:'', tagClass:'', a:'£40–£65', aSub:'per cab / 4 wks', b:'£85+', bSub:'per cab / 4 wks', note:'Good for detailed copy and QR-led performance campaigns.' },
-          { title:'Full livery wrap', desc:'Complete exterior wrap for total impact.', tag:'Premium', tagClass:'tag-premium', a:'£850+', aSub:'per cab / campaign', b:'£2,750+', bSub:'per cab / campaign', note:'Premium creative format often used for launches and social pickup.' },
-          { title:'Digital tops', desc:'Roof-mounted digital display inventory.', tag:'Digital', tagClass:'tag-digital', a:'POA', aSub:'by city', b:'£550+', bSub:'per unit', note:'GPS and daypart-driven inventory where available.' },
-          { title:'Branded hire', desc:'Dedicated branded cab booked by hour/day.', tag:'', tagClass:'', a:'£75+', aSub:'per hour', b:'£95+', bSub:'per hour', note:'Useful for events, activations and PR-led city moments.' },
-        ],
-      },
-      {
-        id: 'rail',
-        kicker: 'Transit / national rail',
-        title: 'Rail & Train Station advertising',
-        bg: '#fff',
-        img: '../../images/pricing/Rail-Train-Station-Advertising.png',
-        needsSlot: false,
-        slotId: 'rail-img',
-        slotHint: 'Drop a UK rail station advertising photo',
-        desc: 'Commuter-frequency environment with strong ABC1 audiences and high repeat exposure across stations and train interiors.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'Regional (2 wks)',
-        colB: 'London termini',
-        showNotes: true,
-        rows: [
-          { title:'4/6-Sheet station posters', desc:'Platform and concourse backlit poster positions.', tag:'SME entry', tagClass:'tag-entry', a:'£250–£750', aSub:'per panel', b:'£750–£1,500', bSub:'per panel', note:'Most accessible station format; excellent for postcode-led frequency.' },
-          { title:'Digital 6-Sheet (D6)', desc:'Station screen networks with daypart targeting.', tag:'Digital', tagClass:'tag-digital', a:'£450–£1,200', aSub:'per week', b:'£1,200–£2,200', bSub:'per week', note:'Popular for commuter windows (AM/PM peaks) and tactical messaging.' },
-          { title:'48-Sheet station large format', desc:'Concourse hero format and key approach locations.', tag:'', tagClass:'', a:'£750–£2,000', aSub:'per panel', b:'£2,000–£4,500', bSub:'per panel', note:'Strong impact around high-footfall entrances and exits.' },
-          { title:'Traincards (interior)', desc:'Inside train carriage panel placements.', tag:'Entry point', tagClass:'tag-entry', a:'£75–£150', aSub:'per panel', b:'£150+', bSub:'per panel', note:'Long dwell environment suited to detail-heavy or response messaging.' },
-          { title:'Station domination / takeover', desc:'Multi-surface station-wide takeover packages.', tag:'Premium', tagClass:'tag-premium', a:'£2,500+', aSub:'per station', b:'£15,000+', bSub:'major termini', note:'Flagship launches; longer lead times and broader production scope.' },
-        ],
-      },
-      {
-        id: 'advan',
-        kicker: 'Mobile / digital OOH',
-        title: 'Digital AdVan advertising',
-        bg: '#F7F9FC',
-        img: '../../images/pricing/Digital-AdVan-Advertising.png',
-        needsSlot: false,
-        slotId: 'advan-img',
-        slotHint: 'Drop a digital AdVan advertising photo',
-        desc: 'A full-motion digital billboard on wheels. Route, daypart and postcode you choose - driver, fuel and GPS reporting included.',
-        mediaStyle: 'aspect-ratio: 16/8;',
-        colFormat: 'Format',
-        colA: 'Regional',
-        colB: 'London',
-        showNotes: true,
-        rows: [
-          { title:'Digital AdVan, single day', desc:'8-hour operating day. Route planned with you. GPS logs and photo proof included.', tag:'Fastest to street', tagClass:'tag-digital', a:'From £595', aSub:'per day', b:'From £695', bSub:'per day', note:'No print cost - creative is a file. Ideal for launches, openings and one-day moments.' },
-          { title:'Digital AdVan, 3-day burst', desc:'Concentrated multi-day presence around an event, store opening or campaign window.', tag:'Popular format', tagClass:'tag-entry', a:'From £1,595', aSub:'3 days', b:'From £1,895', bSub:'3 days', note:'Effective day rate drops vs single-day. Strong for match days and exhibition conquesting.' },
-          { title:'Digital AdVan, full week (5 days)', desc:'Week-long mobile domination with dayparted creative and route flexibility.', tag:'Best day rate', tagClass:'tag-premium', a:'From £2,495', aSub:'5 days', b:'From £2,995', bSub:'5 days', note:'From ~£499/day regionally. Best value when you need sustained street presence.' },
-          { title:'Static AdVan / AdBike', desc:'Budget mobile option for high-street and event targeting without LED screens.', tag:'Entry point', tagClass:'tag-entry', a:'From £395', aSub:'per day', b:'From £495', bSub:'per day', note:'Lower-cost mobile presence when full-motion digital is not required.' },
-          { title:'Multi-van convoy (2–5 vans)', desc:'Maximum spectacle - multiple vans working the same moment or city zone.', tag:'Premium', tagClass:'tag-premium', a:'POA', aSub:'by convoy size', b:'POA', bSub:'by convoy size', note:'High PR and social pickup. Plan routes and creative sequencing together.' },
-        ],
-        hasTip: true,
-        tipText: 'AdVans win on moments, not places. If your campaign is about a launch day, match day or store opening, this is usually the sharpest buy.',
-      },
-      {
-        id: 'regional',
-        kicker: 'Regional pricing index - 48-sheet static, 2-week campaign, single site',
-        title: 'UK regional pricing',
-        bg: '#fff',
-        needsSlot: false,
-        showMedia: false,
-        slotId: 'regional-img',
-        slotHint: 'Drop a UK regional map / cities graphic',
-        desc: 'Northern cities are typically 40–45% below London rates - ideal for stretching campaign budgets.',
-        mediaStyle: 'aspect-ratio: 16/7;',
-        isRegionalGrid: true,
-        colFormat: 'City',
-        colA: '48-sheet (2 wks)',
-        colB: 'City',
-        showNotes: false,
-        showColB: true,
-        rows: [
-          { leftCity:'Central London', leftPrice:'£650+', rightCity:'Manchester', rightPrice:'£325+' },
-          { leftCity:'Birmingham', leftPrice:'£325+', rightCity:'Leeds', rightPrice:'£325+' },
-          { leftCity:'Liverpool', leftPrice:'£325+', rightCity:'Newcastle', rightPrice:'£325+' },
-          { leftCity:'Sheffield', leftPrice:'£325+', rightCity:'Bristol', rightPrice:'£325+' },
-          { isSummary:true, summaryLabel:'North vs London average:', summaryValue:'40–45% cheaper', rowStyle:'background:#13325C;color:#fff;' },
-        ],
-        hasTip: true,
-        tipText: 'Secondary city locations vs city centres stretch your budget further. Ask us about remnant inventory for heavily discounted last-minute space.',
-      },
-    ];
-
-    const sections = raw.map(s => ({
-      ...s,
-      hasImg: !!s.img,
-      needsSlot: !!s.needsSlot,
-      showNotes: s.showNotes !== false,
-      showColB: s.showColB !== false,
-      showMedia: s.showMedia !== false,
-      hasTip: !!s.hasTip,
-      ctaClass: (s.ctaLabel && this.state.active === s.id) ? 'is-prompt' : '',
-      headGridStyle: 'display:grid;gap:26px;align-items:start;grid-template-columns:' + (narrow ? '1fr' : '1fr') + ';',
-      mediaStyle: s.mediaStyle || 'aspect-ratio: 16/8;',
-      rows: mkRows(s.rows),
-    }));
-
-    const buyingCards = [
-      { h:'Transparency', d:'Every price on this page is media cost only. No booking fees, no media markup, and no hidden admin charges - the headline price is the price.' },
-      { h:'Minimum spend', d:'Campaigns typically start from \u00a31,000. Lite packages from \u00a31,125 suit local first buys; Standard and Pro packages scale from regional to national coverage.' },
-    ];
-    const faqs = [
-      { h:'Do prices include VAT and production?', d:'No. All prices shown are media cost only. VAT, printing/posting for classic formats, and creative artwork are quoted separately.' },
-      { h:'What is the difference between Lite and Standard?', d:'Lite is a shorter, lighter buy (typically 1 week or fewer locations). Standard is the two-week, higher-weight package most clients use for regional campaigns.' },
-      { h:'Can I mix formats in one campaign?', d:'Yes. Standard and Pro packages are built across multiple formats - billboards, bus, underground, and street furniture - depending on your audience and geography.' },
-      { h:'How quickly can a campaign go live?', d:'Digital formats can often book within 1\u20132 weeks. Classic print formats typically need 2\u20134 weeks for production and posting.' },
-    ];
-    const notIncluded = [
-      { k:'Production & printing', d:'Printing and posting of classic formats. Digital media carries no print cost.' },
-      { k:'Design & creative', d:'Artwork design is separate - bring your own or we can quote for it.' },
-      { k:'VAT', d:'All prices exclude VAT at the prevailing rate.' },
-      { k:'Specialist installation', d:'Non-standard builds, special builds, and bespoke installations are quoted separately.' },
-    ];
-    return {
-      stats, tabs, packages, sections, buyingCards, faqs, notIncluded,
-      heroStyle:
-        'padding:148px 28px 92px;'
-        + '--hero-bg-parallax:' + this.state.heroBgParallax + 'px;'
-        + '--hero-content-parallax:' + this.state.heroContentParallax + 'px;'
-        + '--hero-stats-parallax:' + this.state.heroStatsParallax + 'px;',
-      jumpWrapStyle: '--jump-parallax:' + this.state.jumpParallax + 'px;',
-      notIncludedCols: narrow ? '1fr' : '0.85fr 1.15fr',
-      navStyle: 'display:flex;align-items:center;gap:' + (narrow ? '10px' : '22px') + ';',
-      navLinkStyle: narrow ? 'display:none;' : 'color:#c7d3e6;font-weight:600;font-size:14px;',
-      navLinkPrimaryStyle: narrow ? 'display:none;' : 'color:#fff;font-weight:700;font-size:14px;border-bottom:2px solid #FE481B;padding-bottom:4px;',
-    };
-  }
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"The OOH Budget Lab","applicationCategory":"BusinessApplication","operatingSystem":"Any browser","url":"https://www.loudooh.co.uk/budget-lab/","description":"An AI-powered OOH media planning calculator. Enter a budget, duration and objective and receive a transparent recommended format mix, indicative cost breakdown and audience delivery range, built from Loud! OOH's verified 2026 rate-card pricing.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Loud! OOH","url":"https://www.loudooh.co.uk/"}}
 </script>
-<script src="../../js/header.js?v=20260715"></script>
+<script type="application/ld+json" id="lo-faq-schema">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[]}
+</script>
+</head>
+<body>
+
+<nav class="bl-nav"><div class="bl-nav-inner">
+  <a class="bl-logo bl-nav-home" href="../">Loud<b>!</b>&nbsp;OOH <small>Budget Lab</small></a>
+  <div class="bl-nav-links">
+    <a class="is-active" href="#top">The OOH Budget Lab</a>
+    <a href="#formats">OOH Formats</a>
+    <a href="../insights/">Insights</a>
+    <a href="../">Home</a>
+    <a class="bl-nav-cta" href="#planner">Get My Plan</a>
+  </div>
+</div></nav>
+
+<!-- ================= HERO ================= -->
+<header class="bl-hero" id="top">
+  <div class="wrap bl-hero-grid">
+    <div class="bl-hero-copy">
+      <span class="eyebrow pill">Introducing</span>
+      <h1>The <em>OOH</em> Budget&nbsp;Lab</h1>
+      <p class="lead">The UK's most advanced OOH planning calculator. Our AI-powered planner turns your budget into a real media plan across 8 key formats — built from verified 2026 rate-card data, in seconds.</p>
+      <ul class="bl-checklist">
+        <li><span class="bl-check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.2 4.8 9 10 3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real market rates. Updated for 2026</li>
+        <li><span class="bl-check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.2 4.8 9 10 3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real audience data. Verified by Route</li>
+        <li><span class="bl-check"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.2 4.8 9 10 3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No fluff. Just real-world results</li>
+      </ul>
+      <div class="bl-hero-ctas">
+        <button type="button" class="btn btn-primary" id="bl-hero-start">Start Building My Plan <span class="arr">→</span></button>
+      </div>
+      <p class="bl-hero-note">100% free <i>•</i> No sign up <i>•</i> Instant results</p>
+    </div>
+
+    <!-- Interactive calculator -->
+    <div class="bl-lab" id="lab">
+      <div class="bl-lab-grid">
+        <div class="bl-lab-inputs">
+          <p class="bl-lab-step">Step 1 of 5</p>
+          <h2>Set your budget</h2>
+          <p class="cap">Enter your total budget and campaign time.</p>
+
+          <div class="bl-lab-field">
+            <div class="bl-lab-label"><span>Total budget (excl. VAT)</span><span class="bl-budget-value" id="hl-budget-out">£50,000</span></div>
+            <input type="range" class="bl-range" id="hl-budget" min="0" max="1000" value="500" step="1" aria-label="Campaign budget">
+            <div class="bl-range-ends"><span>£5,000</span><span>£500,000+</span></div>
+          </div>
+
+          <div class="bl-lab-field">
+            <div class="bl-lab-label"><span>Campaign duration</span></div>
+            <div class="bl-seg" id="hl-duration">
+              <button type="button" data-days="7">1 Week</button>
+              <button type="button" data-days="14" class="is-on">2 Weeks</button>
+              <button type="button" data-days="28">4 Weeks</button>
+              <button type="button" data-days="56">8 Weeks+</button>
+            </div>
+          </div>
+
+          <div class="bl-lab-field">
+            <div class="bl-lab-label"><span>Campaign goal</span></div>
+            <div class="bl-goals" id="hl-goals">
+              <button type="button" class="bl-goal is-on" data-obj="reach">Maximise Reach<small>Broadest audience</small></button>
+              <button type="button" class="bl-goal" data-obj="local">Local Dominance<small>Own one area</small></button>
+              <button type="button" class="bl-goal" data-obj="frequency">Frequency &amp; Impact<small>Repeat exposure</small></button>
+              <button type="button" class="bl-goal" data-obj="premium">Premium Impact<small>Stature &amp; fame</small></button>
+              <button type="button" class="bl-goal" data-obj="balanced">Balanced<small>Reach + reinforcement</small></button>
+            </div>
+            <a class="bl-goal-more" href="#planner">Full planner: geography, audience &amp; format levers →</a>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="hl-see-results">See My Results <span class="arr">→</span></button>
+        </div>
+
+        <div class="bl-lab-results">
+          <h3>Estimated results</h3>
+          <p class="cap">Based on your selections</p>
+          <hr>
+          <div class="bl-metrics">
+            <div class="bl-metric"><span>Potential Reach</span><b id="hl-reach" data-v="0">0</b><small>People</small></div>
+            <div class="bl-metric"><span>Total Impressions</span><b id="hl-impressions" data-v="0">0</b><small>OOH impacts</small></div>
+            <div class="bl-metric"><span>Avg. Frequency</span><b id="hl-frequency" data-v="0">0</b><small>Per person reached</small></div>
+          </div>
+          <div class="bl-donut-box">
+            <div class="bl-donut-wrap">
+              <svg viewBox="0 0 148 148" aria-hidden="true">
+                <circle cx="74" cy="74" r="56" fill="none" stroke="#E6EAF0" stroke-width="17"></circle>
+                <g id="hl-donut" transform="rotate(-90 74 74)"></g>
+              </svg>
+              <div class="bl-donut-center"><b id="hl-donut-total">£50,000</b><span>Total budget</span></div>
+            </div>
+            <div class="bl-legend" id="hl-legend"></div>
+          </div>
+          <p class="bl-lab-disclaimer">AI-generated estimate from Loud! OOH's verified 2026 rate-card data. Indicative planning figures, ex-VAT — not a guaranteed delivery or live quote.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TRUSTED STRIP ================= -->
+<section class="bl-trust reveal">
+  <div class="wrap bl-trust-inner">
+    <span class="bl-trust-label">Trusted by brands<br>and agencies</span>
+    <div class="bl-trust-brands">
+      <span class="bl-wordmark samsung">SAMSUNG</span>
+      <span class="bl-wordmark cocacola">Coca-Cola</span>
+      <span class="bl-wordmark tesco">TESCO</span>
+      <span class="bl-wordmark nhs">NHS</span>
+      <span class="bl-wordmark boohoo">boohoo</span>
+      <span class="bl-wordmark sainsburys">Sainsbury's</span>
+      <span class="bl-wordmark more">+ 250 more</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="bl-features">
+  <div class="wrap">
+    <div class="bl-section-center reveal">
+      <span class="eyebrow">Why the Budget Lab</span>
+      <h2>Plan smarter. Spend better. Get seen.</h2>
+      <p>The OOH Budget Lab takes the guesswork out of outdoor advertising. Our AI planner compares formats, understands impact and builds a plan that works — from the same verified 2026 pricing data our planners use.</p>
+    </div>
+    <div class="bl-feature-row">
+      <div class="bl-feature reveal">
+        <div class="bl-feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><path d="M8 7h8M8 11h8M8 15h3"/><path d="M14.5 15.5h2.5v2h-2.5z"/></svg></div>
+        <h3>Transparent pricing</h3>
+        <p>See real media costs for 8 OOH formats. No hidden fees, just the facts.</p>
+      </div>
+      <div class="bl-feature reveal">
+        <div class="bl-feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3 2.8-4.7 5.5-4.7s4.9 1.7 5.5 4.7"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15.7 14.6c2.5.2 4.3 1.8 4.8 4.4"/></svg></div>
+        <h3>Verified audience data</h3>
+        <p>Every estimate is backed by Route audience data and real-world insights.</p>
+      </div>
+      <div class="bl-feature reveal">
+        <div class="bl-feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 12h4M12 12h8M4 17h12M20 17h0"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="17" r="2"/></svg></div>
+        <h3>Instant comparisons</h3>
+        <p>Compare formats side by side and see what delivers most for your budget.</p>
+      </div>
+      <div class="bl-feature reveal">
+        <div class="bl-feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+        <h3>Built for real goals</h3>
+        <p>Choose your campaign goal and we'll tailor results to what matters most.</p>
+      </div>
+      <div class="bl-feature reveal">
+        <div class="bl-feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M8 10.5l4 4 4-4"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></div>
+        <h3>Download your plan</h3>
+        <p>Get a detailed breakdown of your plan to share with your team or client.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMATS ================= -->
+<section class="bl-formats" id="formats">
+  <div class="wrap">
+    <div class="bl-section-center reveal">
+      <span class="eyebrow">8 formats. Endless possibilities</span>
+      <h2>Explore every major OOH format</h2>
+      <p>From digital billboards to airport takeovers — every format is priced from our verified 2026 rate-card data and ready to drop into your plan.</p>
+    </div>
+    <div class="bl-formats-grid">
+      <a class="bl-fmt-card reveal" href="../insights/billboard-advertisingguide/">
+        <div class="bl-fmt-img"><img src="../images/billboard-advertising-costs.jpeg" alt="Digital billboard advertising in the UK" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="11" rx="1.5"/><path d="M12 15v5M8.5 20h7"/></svg>
+          <h3>Digital Billboards</h3>
+          <p>High impact. Premium locations. Massive reach.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/pricing/">
+        <div class="bl-fmt-img"><img src="../images/London-Underground-Advertising.jpg" alt="London Underground advertising" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/></svg>
+          <h3>London Underground</h3>
+          <p>Unmissable. 4M+ daily captive audience.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/taxi/">
+        <div class="bl-fmt-img"><img src="../images/taxi-advertising.jpg" alt="Taxi advertising on a London black cab" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3.5" y="11" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/></svg>
+          <h3>Taxis</h3>
+          <p>Always on. Reaching your audience across the city.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/pricing/">
+        <div class="bl-fmt-img"><img src="../images/projects/rail-advertising-uk.jpg" alt="Rail advertising at a UK station" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="2.5"/><path d="M6 10h12M9 17l-2 3.5M15 17l2 3.5"/><circle cx="9.5" cy="13.5" r=".8" fill="currentColor"/><circle cx="14.5" cy="13.5" r=".8" fill="currentColor"/></svg>
+          <h3>Rail</h3>
+          <p>National coverage. Big impact in key locations.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/bus-advertising-guide/">
+        <div class="bl-fmt-img"><img src="../images/Bus-Picture.jpg" alt="Full bus advertising on a UK bus" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M4 10h16"/><circle cx="8" cy="18" r="1.8"/><circle cx="16" cy="18" r="1.8"/></svg>
+          <h3>Buses</h3>
+          <p>High frequency. Across the UK's busiest routes.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/pricing/">
+        <div class="bl-fmt-img"><img src="../images/Bus-Stop-Picture-.jpg" alt="Bus stop advertising shelter" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 8h3a1 1 0 0 1 1 1v12"/><path d="M7 7h6M7 11h6"/></svg>
+          <h3>Bus Stops</h3>
+          <p>Targeted. Local. Right where people wait.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/pricing/">
+        <div class="bl-fmt-img"><img src="../images/projects/advan-campaigns.png" alt="Digital AdVan mobile billboard campaign" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 15V7a1.5 1.5 0 0 1 1.5-1.5h11A1.5 1.5 0 0 1 16.5 7v8"/><path d="M16.5 9h3l2 3v3h-5"/><circle cx="6.5" cy="17" r="1.8"/><circle cx="17.5" cy="17" r="1.8"/><path d="M8.3 15H15"/></svg>
+          <h3>Digital AdVans</h3>
+          <p>Mobile. Flexible. Targeted to where your audience is.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+      <a class="bl-fmt-card reveal" href="../insights/airport/">
+        <div class="bl-fmt-img"><img src="../images/airport-advertising.jpg" alt="Airport advertising in a UK terminal" loading="lazy"></div>
+        <div class="bl-fmt-body">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5 3 11l1.5-1.5L12 10l4.5-4.5a1.6 1.6 0 0 1 2.3 2.3L14.3 12l.5 7.5L13.3 21l-2.8-7.5z"/></svg>
+          <h3>Airports</h3>
+          <p>Premium locations. Captive audience. High impact.</p>
+          <span class="bl-fmt-link">See costs &amp; guide →</span>
+        </div>
+      </a>
+    </div>
+    <div class="bl-formats-cta reveal">
+      <a class="btn btn-primary" href="#planner">See All Formats &amp; Costs <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FULL AI PLANNER (engine.js) ================= -->
+<section class="bl-planner" id="planner">
+  <div class="wrap">
+    <div class="bl-section-head reveal">
+      <span class="eyebrow">The full 5-step planner</span>
+      <h2>Build your complete AI plan</h2>
+      <p>Take the hero estimate further. Add geography, audience and format levers and the planner generates a full allocation — format mix, media vs production vs installation, audience delivery range and the trade-offs you're making. Powered by our verified 2026 rate-card data.</p>
+    </div>
+
+    <div class="bl-calc reveal" id="bl-calc">
+      <div class="bl-steps" id="bl-steps"></div>
+
+      <!-- STEP 1 -->
+      <div class="bl-panel" data-step="1">
+        <div class="bl-panel-head">
+          <span class="bl-eyebrow">Step 1 of 5</span>
+          <h2>What's your budget?</h2>
+          <p>Tell us the number you're working with. We'll build a plan around it — not the other way round.</p>
+        </div>
+        <div class="bl-field">
+          <label class="bl-label" for="bl-budget">Budget (£)</label>
+          <div class="bl-budget-row"><span class="cur">£</span><input id="bl-budget" type="text" inputmode="numeric" value="10,000" aria-label="Budget in pounds"></div>
+          <div class="bl-budget-quick" id="bl-budget-quick"></div>
+        </div>
+        <div class="bl-field">
+          <label class="bl-label">Is this media-only, or an all-in campaign budget?</label>
+          <div class="bl-basis-toggle" id="bl-basis-toggle">
+            <button type="button" class="bl-toggle-btn is-on" data-basis="all-in">All-in campaign budget</button>
+            <button type="button" class="bl-toggle-btn" data-basis="media-only">Media only</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="bl-panel" data-step="2" hidden>
+        <div class="bl-panel-head">
+          <span class="bl-eyebrow">Step 2 of 5</span>
+          <h2>What are you trying to achieve?</h2>
+          <p>This is the single biggest factor in how we'd spend your budget — more than format, more than location.</p>
+        </div>
+        <div class="bl-card-grid" id="bl-objective-grid"></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="bl-panel" data-step="3" hidden>
+        <div class="bl-panel-head">
+          <span class="bl-eyebrow">Step 3 of 5</span>
+          <h2>Where is your audience?</h2>
+          <p>OOH works because it meets people in the physical world — geography changes both price and plan.</p>
+        </div>
+        <div class="bl-two-col">
+          <div class="bl-field">
+            <label class="bl-label" for="bl-geo">Geography</label>
+            <select class="bl-select" id="bl-geo">
+              <option value="uk">UK-wide</option>
+              <option value="london">London</option>
+              <option value="regional" selected>Regional</option>
+              <option value="named">Named city / area</option>
+            </select>
+          </div>
+          <div class="bl-field" id="bl-named-wrap" hidden>
+            <label class="bl-label" for="bl-named">City / area</label>
+            <input class="bl-select" id="bl-named" type="text" placeholder="e.g. Manchester, Leeds, Bristol…">
+          </div>
+        </div>
+        <div class="bl-field">
+          <label class="bl-label">Audience priority</label>
+          <div class="bl-radio-row" id="bl-audience-row"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="bl-panel" data-step="4" hidden>
+        <div class="bl-panel-head">
+          <span class="bl-eyebrow">Step 4 of 5</span>
+          <h2>How should we use the budget?</h2>
+          <p>A few more planning levers — campaign length, format leaning and how confident to be with pricing.</p>
+        </div>
+        <div class="bl-two-col">
+          <div class="bl-field">
+            <label class="bl-label" for="bl-duration">Campaign length</label>
+            <select class="bl-select" id="bl-duration">
+              <option value="1">1 day</option>
+              <option value="7">1 week</option>
+              <option value="14" selected>2 weeks</option>
+              <option value="28">4 weeks</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div class="bl-field" id="bl-custom-wrap" hidden>
+            <label class="bl-label" for="bl-custom-days">Custom length (days)</label>
+            <input class="bl-select" id="bl-custom-days" type="number" min="1" value="21">
+          </div>
+        </div>
+        <div class="bl-field">
+          <label class="bl-label">Format preference</label>
+          <div class="bl-radio-row" id="bl-format-pref-row"></div>
+        </div>
+        <div class="bl-field">
+          <label class="bl-label">Planning mode</label>
+          <div class="bl-radio-row" id="bl-planning-mode-row"></div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="bl-results" data-step="5" id="bl-results"></div>
+
+      <div class="bl-panel-nav" id="bl-nav-controls">
+        <button type="button" class="bl-btn bl-btn-ghost" id="bl-back" hidden>Back</button>
+        <button type="button" class="bl-btn bl-btn-primary" id="bl-next">Next</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING MATRIX ================= -->
+<section class="bl-matrix reveal">
+  <div class="wrap">
+    <div class="bl-section-head">
+      <span class="eyebrow">Full 2026 pricing matrix</span>
+      <h2>Every format, priced transparently</h2>
+      <p>The same verified data that powers the planner above — 43 formats across 8 categories, with media, production and installation shown separately. All prices ex-VAT and indicative; exact rates depend on site, availability and date.</p>
+    </div>
+    <div id="bl-matrix-body"></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="bl-faq reveal">
+  <div class="wrap">
+    <div class="bl-section-head">
+      <span class="eyebrow">Straight answers</span>
+      <h2>How we think about OOH budgets</h2>
+      <p>A first-person view from Loud! OOH on budgets, reach, frequency, formats and measurement — the thinking behind how the Budget Lab plans.</p>
+    </div>
+    <div id="bl-faq-list"></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="bl-cta-band reveal">
+  <img class="bg" src="../images/hero/piccadilly-circus-dooh.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="wrap bl-cta-inner">
+    <h2>Your budget. Your goals. <em>Your results.</em></h2>
+    <p>See exactly what your OOH budget can deliver — an AI-generated plan from verified 2026 pricing, built around your objective in seconds. Then talk to a real planner to make it live.</p>
+    <div class="bl-cta-actions">
+      <button type="button" class="btn btn-primary" id="bl-final-cta">Get My Plan <span class="arr">→</span></button>
+      <button type="button" class="btn btn-ghost" id="bl-final-start">Start Building</button>
+    </div>
+    <p class="bl-cta-note">100% free • No sign up • Instant results</p>
+  </div>
+</section>
+
+<footer class="bl-foot"><div class="wrap bl-foot-inner">
+  <div><a href="../">Loud! OOH</a> — UK out-of-home advertising, planned and bought with transparent pricing.</div>
+  <div class="bl-updated" id="bl-updated">Pricing data last reviewed 29 August 2026</div>
+</div></footer>
+
+<script>window.__BL_DATA__ = [{"id": "billboards-6-sheet-static", "category": "Billboards", "format": "6-Sheet Static", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 400, "londonHigh": 900, "regionalLow": 300, "regionalHigh": 600, "mid": 550, "production": 60, "installation": 45, "indicativeTotal": 655, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 25000, "impactsWeekHigh": 90000, "impactsCampaignLow": 50000, "impactsCampaignHigh": 180000, "impactConfidence": "Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Media only. Print/posting is separate. Strong for postcode clusters and local retail catchments.", "whyRecommend": "Low-entry fixed OOH with strong local targeting.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "billboards-6-sheet-digital", "category": "Billboards", "format": "6-Sheet Digital", "technology": "DOOH", "buyingUnit": "per panel", "campaignBasis": "1 week", "londonLow": 500, "londonHigh": 800, "regionalLow": 400, "regionalHigh": 600, "mid": 575, "production": 0, "installation": 0, "indicativeTotal": 575, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 30000, "impactsWeekHigh": 120000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 120000, "impactConfidence": "Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Creative must meet DOOH technical specifications.", "whyRecommend": "Flexible messaging, dayparting and fast changes.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "billboards-48-sheet-static", "category": "Billboards", "format": "48-Sheet Static", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 650, "londonHigh": 1000, "regionalLow": 325, "regionalHigh": 600, "mid": 644, "production": 150, "installation": 150, "indicativeTotal": 944, "costStatus": "Published", "source": "Loud! OOH pricing / billboard insight", "impactsWeekLow": 50000, "impactsWeekHigh": 250000, "impactsCampaignLow": 100000, "impactsCampaignHigh": 500000, "impactConfidence": "Low-Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Media only. Production and posting sit on top unless packaged.", "whyRecommend": "Best balance of scale, visibility and cost for regional campaigns.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "billboards-48-sheet-digital", "category": "Billboards", "format": "48-Sheet Digital", "technology": "DOOH", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 1000, "londonHigh": 1200, "regionalLow": 500, "regionalHigh": 1000, "mid": 925, "production": 0, "installation": 0, "indicativeTotal": 925, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 75000, "impactsWeekHigh": 350000, "impactsCampaignLow": 150000, "impactsCampaignHigh": 700000, "impactConfidence": "Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Share-of-loop can lower the entry point on some regional screens.", "whyRecommend": "Large canvas with digital flexibility and live-data options.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "billboards-96-sheet-digital", "category": "Billboards", "format": "96-Sheet Digital", "technology": "DOOH", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 1500, "londonHigh": 3000, "regionalLow": 1000, "regionalHigh": 2000, "mid": 1875, "production": 0, "installation": 0, "indicativeTotal": 1875, "costStatus": "Planning range", "source": "Loud! OOH pricing", "impactsWeekLow": 120000, "impactsWeekHigh": 600000, "impactsCampaignLow": 240000, "impactsCampaignHigh": 1200000, "impactConfidence": "Low-Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Premium sites can exceed the planning range. Confirm the exact screen.", "whyRecommend": "Landmark scale for launches and major announcements.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "billboards-backlit-illuminated", "category": "Billboards", "format": "Backlit / Illuminated", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 900, "londonHigh": 1800, "regionalLow": 650, "regionalHigh": 1200, "mid": 1138, "production": 300, "installation": 150, "indicativeTotal": 1588, "costStatus": "Planning range", "source": "Loud! OOH pricing", "impactsWeekLow": 60000, "impactsWeekHigh": 280000, "impactsCampaignLow": 120000, "impactsCampaignHigh": 560000, "impactConfidence": "Medium", "audienceContext": "Roadside traffic / pedestrian audience", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Backlit production depends on substrate and unit specification.", "whyRecommend": "Adds strong evening/night visibility.", "roles": ["reach", "local-visibility", "stature"], "strength": "Roadside scale and broad visibility", "specialist": false}, {"id": "airport-regional-6-sheet-static", "category": "Airport", "format": "Regional 6-Sheet Static", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 1500, "londonHigh": 3000, "regionalLow": 500, "regionalHigh": 1000, "mid": 1500, "production": 120, "installation": 70, "indicativeTotal": 1690, "costStatus": "Published + planning", "source": "Loud! OOH airport insight / pricing", "impactsWeekLow": 25000, "impactsWeekHigh": 100000, "impactsCampaignLow": 50000, "impactsCampaignHigh": 200000, "impactConfidence": "Medium", "audienceContext": "Terminal dwell and passenger movement", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Airport terminal media is site-specific. Print/posting is separate.", "whyRecommend": "Long dwell and a premium passenger environment at a relatively accessible entry price.", "roles": ["premium-audience", "dwell", "stature"], "strength": "Longer passenger dwell and premium environment", "specialist": false}, {"id": "airport-digital-6-sheet", "category": "Airport", "format": "Digital 6-Sheet", "technology": "DOOH", "buyingUnit": "per screen", "campaignBasis": "1 week", "londonLow": 1200, "londonHigh": 3200, "regionalLow": 295, "regionalHigh": 600, "mid": 1324, "production": 0, "installation": 0, "indicativeTotal": 1324, "costStatus": "Published + planning", "source": "Loud! OOH pricing / airport insight", "impactsWeekLow": 30000, "impactsWeekHigh": 140000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 140000, "impactConfidence": "Medium", "audienceContext": "Terminal dwell and passenger movement", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Schedule and terminal affect delivery.", "whyRecommend": "Digital flexibility in a high-dwell environment.", "roles": ["premium-audience", "dwell", "stature"], "strength": "Longer passenger dwell and premium environment", "specialist": false}, {"id": "airport-large-format-digital", "category": "Airport", "format": "Large-Format Digital", "technology": "DOOH", "buyingUnit": "per screen", "campaignBasis": "1 week", "londonLow": 5000, "londonHigh": 7500, "regionalLow": 950, "regionalHigh": 3000, "mid": 4113, "production": 0, "installation": 0, "indicativeTotal": 4113, "costStatus": "Published + planning", "source": "Loud! OOH airport pricing", "impactsWeekLow": 80000, "impactsWeekHigh": 450000, "impactsCampaignLow": 80000, "impactsCampaignHigh": 450000, "impactConfidence": "Low-Medium", "audienceContext": "Terminal dwell and passenger movement", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Premium terminal screens are highly site specific.", "whyRecommend": "Hero impact for premium brands and launches.", "roles": ["premium-audience", "dwell", "stature"], "strength": "Longer passenger dwell and premium environment", "specialist": false}, {"id": "airport-48-sheet-approach-road", "category": "Airport", "format": "48-Sheet / Approach Road", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 1750, "londonHigh": 3000, "regionalLow": 450, "regionalHigh": 1000, "mid": 1550, "production": 150, "installation": 0, "indicativeTotal": 1700, "costStatus": "Planning range", "source": "Loud! OOH planning", "impactsWeekLow": 50000, "impactsWeekHigh": 250000, "impactsCampaignLow": 100000, "impactsCampaignHigh": 500000, "impactConfidence": "Low-Medium", "audienceContext": "Terminal dwell and passenger movement", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Approach-road inventory is distinct from terminal inventory.", "whyRecommend": "Builds frequency before and after the terminal visit.", "roles": ["premium-audience", "dwell", "stature"], "strength": "Longer passenger dwell and premium environment", "specialist": false}, {"id": "airport-terminal-domination-takeover", "category": "Airport", "format": "Terminal Domination / Takeover", "technology": "Mixed", "buyingUnit": "per zone", "campaignBasis": "campaign", "londonLow": 15000, "londonHigh": 50000, "regionalLow": 10000, "regionalHigh": 25000, "mid": 25000, "production": 7000, "installation": 5000, "indicativeTotal": 37000, "costStatus": "Planning range", "source": "Loud! OOH airport insight / planning", "impactsWeekLow": 500000, "impactsWeekHigh": 3000000, "impactsCampaignLow": 500000, "impactsCampaignHigh": 3000000, "impactConfidence": "Low-Medium", "audienceContext": "Terminal dwell and passenger movement", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Bespoke production, approvals and access can materially change the final cost.", "whyRecommend": "Creates a complete brand environment rather than a single advert.", "roles": ["premium-audience", "dwell", "stature"], "strength": "Longer passenger dwell and premium environment", "specialist": true}, {"id": "taxi-superside-panel", "category": "Taxi", "format": "Superside Panel", "technology": "Static", "buyingUnit": "per taxi", "campaignBasis": "4 weeks", "londonLow": 395, "londonHigh": 800, "regionalLow": 175, "regionalHigh": 275, "mid": 411, "production": 90, "installation": 55, "indicativeTotal": 556, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 15000, "impactsWeekHigh": 70000, "impactsCampaignLow": 60000, "impactsCampaignHigh": 280000, "impactConfidence": "Medium", "audienceContext": "Urban mobile exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Fleet and city availability varies.", "whyRecommend": "High-frequency urban exposure with a strong moving canvas.", "roles": ["urban-mobility", "frequency", "proximity"], "strength": "Dense city exposure and moving media", "specialist": false}, {"id": "taxi-tip-seats-interior", "category": "Taxi", "format": "Tip Seats / Interior", "technology": "Static", "buyingUnit": "per taxi", "campaignBasis": "4 weeks", "londonLow": 85, "londonHigh": 180, "regionalLow": 40, "regionalHigh": 65, "mid": 93, "production": 45, "installation": 0, "indicativeTotal": 138, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 3000, "impactsWeekHigh": 15000, "impactsCampaignLow": 12000, "impactsCampaignHigh": 60000, "impactConfidence": "Low-Medium", "audienceContext": "Urban mobile exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Interior media gives passengers longer reading time.", "whyRecommend": "Good for detail, offers, QR codes and response-led creative.", "roles": ["urban-mobility", "frequency", "proximity"], "strength": "Dense city exposure and moving media", "specialist": false}, {"id": "taxi-full-livery-wrap", "category": "Taxi", "format": "Full Livery Wrap", "technology": "Static", "buyingUnit": "per taxi", "campaignBasis": "campaign", "londonLow": 2750, "londonHigh": 5000, "regionalLow": 850, "regionalHigh": 2000, "mid": 2650, "production": 600, "installation": 400, "indicativeTotal": 3650, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 20000, "impactsWeekHigh": 100000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 100000, "impactConfidence": "Low-Medium", "audienceContext": "Urban mobile exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Vehicle-grade vinyl and specialist fitting required.", "whyRecommend": "High visibility and strong potential for social/PR pickup.", "roles": ["urban-mobility", "frequency", "proximity"], "strength": "Dense city exposure and moving media", "specialist": false}, {"id": "taxi-digital-tops", "category": "Taxi", "format": "Digital Tops", "technology": "DOOH", "buyingUnit": "per taxi", "campaignBasis": "campaign", "londonLow": 550, "londonHigh": 1000, "regionalLow": 300, "regionalHigh": 700, "mid": 638, "production": 0, "installation": 0, "indicativeTotal": 638, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 5000, "impactsWeekHigh": 30000, "impactsCampaignLow": 5000, "impactsCampaignHigh": 30000, "impactConfidence": "Low-Medium", "audienceContext": "Urban mobile exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Inventory varies significantly by city and operator.", "whyRecommend": "Digital targeting and flexible messaging where inventory exists.", "roles": ["urban-mobility", "frequency", "proximity"], "strength": "Dense city exposure and moving media", "specialist": false}, {"id": "taxi-branded-taxi-hire", "category": "Taxi", "format": "Branded Taxi Hire", "technology": "Activation", "buyingUnit": "per hour", "campaignBasis": "activation", "londonLow": 95, "londonHigh": 150, "regionalLow": 75, "regionalHigh": 120, "mid": 110, "production": 0, "installation": 0, "indicativeTotal": 110, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 2000, "impactsWeekHigh": 10000, "impactsCampaignLow": 4000, "impactsCampaignHigh": 20000, "impactConfidence": "Low-Medium", "audienceContext": "Urban mobile exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Treat as an activation rather than a standard impression buy.", "whyRecommend": "Useful for launches, events and PR moments.", "roles": ["urban-mobility", "frequency", "proximity"], "strength": "Dense city exposure and moving media", "specialist": false}, {"id": "rail-4-6-sheet-station-poster", "category": "Rail", "format": "4/6-Sheet Station Poster", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 750, "londonHigh": 1500, "regionalLow": 250, "regionalHigh": 750, "mid": 813, "production": 65, "installation": 45, "indicativeTotal": 923, "costStatus": "Published + planning", "source": "Loud! OOH rail pricing", "impactsWeekLow": 30000, "impactsWeekHigh": 160000, "impactsCampaignLow": 60000, "impactsCampaignHigh": 320000, "impactConfidence": "Low-Medium", "audienceContext": "Station and carriage commuter/leisure journeys", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Exact station and audience make a major difference.", "whyRecommend": "Accessible route into commuter OOH with repeat exposure.", "roles": ["commuter-reach", "frequency", "dwell"], "strength": "Station and journey environments", "specialist": false}, {"id": "rail-digital-6-sheet-station", "category": "Rail", "format": "Digital 6-Sheet Station", "technology": "DOOH", "buyingUnit": "per screen", "campaignBasis": "1 week", "londonLow": 1200, "londonHigh": 2200, "regionalLow": 450, "regionalHigh": 1200, "mid": 1263, "production": 0, "installation": 0, "indicativeTotal": 1263, "costStatus": "Published + planning", "source": "Loud! OOH rail pricing", "impactsWeekLow": 40000, "impactsWeekHigh": 220000, "impactsCampaignLow": 40000, "impactsCampaignHigh": 220000, "impactConfidence": "Low-Medium", "audienceContext": "Station and carriage commuter/leisure journeys", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Delivery depends on screen network and schedule.", "whyRecommend": "Tactical AM/PM and multi-creative messaging.", "roles": ["commuter-reach", "frequency", "dwell"], "strength": "Station and journey environments", "specialist": false}, {"id": "rail-48-sheet-station", "category": "Rail", "format": "48-Sheet Station", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 2000, "londonHigh": 4500, "regionalLow": 750, "regionalHigh": 2000, "mid": 2313, "production": 275, "installation": 150, "indicativeTotal": 2738, "costStatus": "Published + planning", "source": "Loud! OOH rail pricing", "impactsWeekLow": 60000, "impactsWeekHigh": 300000, "impactsCampaignLow": 120000, "impactsCampaignHigh": 600000, "impactConfidence": "Low-Medium", "audienceContext": "Station and carriage commuter/leisure journeys", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Large-format production and posting are separate.", "whyRecommend": "Hero presence at major station locations.", "roles": ["commuter-reach", "frequency", "dwell"], "strength": "Station and journey environments", "specialist": false}, {"id": "rail-traincards-interior", "category": "Rail", "format": "Traincards / Interior", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 150, "londonHigh": 300, "regionalLow": 75, "regionalHigh": 150, "mid": 169, "production": 60, "installation": 30, "indicativeTotal": 259, "costStatus": "Published + planning", "source": "Loud! OOH rail pricing", "impactsWeekLow": 10000, "impactsWeekHigh": 70000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 140000, "impactConfidence": "Low-Medium", "audienceContext": "Station and carriage commuter/leisure journeys", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Longer dwell supports more detailed messaging.", "whyRecommend": "Useful for response-led and consideration campaigns.", "roles": ["commuter-reach", "frequency", "dwell"], "strength": "Station and journey environments", "specialist": false}, {"id": "rail-station-domination-takeover", "category": "Rail", "format": "Station Domination / Takeover", "technology": "Mixed", "buyingUnit": "per station", "campaignBasis": "campaign", "londonLow": 15000, "londonHigh": 30000, "regionalLow": 2500, "regionalHigh": 15000, "mid": 15625, "production": 4000, "installation": 3000, "indicativeTotal": 22625, "costStatus": "Planning range", "source": "Loud! OOH planning", "impactsWeekLow": 300000, "impactsWeekHigh": 2500000, "impactsCampaignLow": 300000, "impactsCampaignHigh": 2500000, "impactConfidence": "Low-Medium", "audienceContext": "Station and carriage commuter/leisure journeys", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Bespoke station production and access requirements apply.", "whyRecommend": "Flagship presence for launches and major moments.", "roles": ["commuter-reach", "frequency", "dwell"], "strength": "Station and journey environments", "specialist": true}, {"id": "bus-rear-headliner", "category": "Bus", "format": "Rear / Headliner", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "2 weeks", "londonLow": 200, "londonHigh": 600, "regionalLow": 60, "regionalHigh": 90, "mid": 238, "production": 60, "installation": 40, "indicativeTotal": 338, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 15000, "impactsWeekHigh": 70000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 140000, "impactConfidence": "Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Static media normally needs print/posting.", "whyRecommend": "Efficient way to build street-level frequency.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-superside", "category": "Bus", "format": "Superside", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "2 weeks", "londonLow": 300, "londonHigh": 500, "regionalLow": 130, "regionalHigh": 275, "mid": 301, "production": 90, "installation": 50, "indicativeTotal": 441, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 20000, "impactsWeekHigh": 90000, "impactsCampaignLow": 40000, "impactsCampaignHigh": 180000, "impactConfidence": "Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Minimum quantities can apply regionally.", "whyRecommend": "Good pedestrian-level visibility and city coverage.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-t-side", "category": "Bus", "format": "T-Side", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "2 weeks", "londonLow": 500, "londonHigh": 900, "regionalLow": 250, "regionalHigh": 500, "mid": 538, "production": 120, "installation": 60, "indicativeTotal": 718, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 25000, "impactsWeekHigh": 120000, "impactsCampaignLow": 50000, "impactsCampaignHigh": 240000, "impactConfidence": "Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Usually stronger as a multi-bus package.", "whyRecommend": "Large moving canvas with strong street presence.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-streetliner", "category": "Bus", "format": "Streetliner", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "2 weeks", "londonLow": 250, "londonHigh": 700, "regionalLow": 180, "regionalHigh": 500, "mid": 408, "production": 100, "installation": 60, "indicativeTotal": 568, "costStatus": "Planning range", "source": "Loud! OOH pricing", "impactsWeekLow": 15000, "impactsWeekHigh": 80000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 160000, "impactConfidence": "Low-Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "London price is route/fleet dependent.", "whyRecommend": "Useful for suburban and high-street targeting.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-mega-rear", "category": "Bus", "format": "Mega Rear", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "annual", "londonLow": 4000, "londonHigh": 8000, "regionalLow": 4000, "regionalHigh": 8000, "mid": 6000, "production": 300, "installation": 0, "indicativeTotal": 6300, "costStatus": "Planning range", "source": "Loud! OOH planning", "impactsWeekLow": 50000, "impactsWeekHigh": 220000, "impactsCampaignLow": 2600000, "impactsCampaignHigh": 11440000, "impactConfidence": "Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Annual/long-term commitment. Do not compare directly with a 2-week buy.", "whyRecommend": "Long-term brand ownership on a moving asset.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-full-bus-wrap", "category": "Bus", "format": "Full Bus Wrap", "technology": "Static", "buyingUnit": "per bus", "campaignBasis": "4 weeks", "londonLow": 10000, "londonHigh": 30000, "regionalLow": 18000, "regionalHigh": 22000, "mid": 20000, "production": 1250, "installation": 900, "indicativeTotal": 22150, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 40000, "impactsWeekHigh": 250000, "impactsCampaignLow": 160000, "impactsCampaignHigh": 1000000, "impactConfidence": "Low-Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Specialist vinyl, installation and removal required.", "whyRecommend": "Maximum vehicle visibility for launches and brand fame.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-interior-panels", "category": "Bus", "format": "Interior Panels", "technology": "Static", "buyingUnit": "per route", "campaignBasis": "2 weeks", "londonLow": 500, "londonHigh": 1500, "regionalLow": 350, "regionalHigh": 1000, "mid": 838, "production": 110, "installation": 0, "indicativeTotal": 948, "costStatus": "Planning range", "source": "Loud! OOH planning", "impactsWeekLow": 10000, "impactsWeekHigh": 80000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 160000, "impactConfidence": "Low-Medium", "audienceContext": "Route frequency and roadside exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Media is route/fleet dependent and often packaged.", "whyRecommend": "Longer passenger dwell supports more detailed creative.", "roles": ["mobility", "frequency", "street-presence"], "strength": "Repeated exposure along routes", "specialist": false}, {"id": "bus-stops-6-sheet-static", "category": "Bus Stops", "format": "6-Sheet Static", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 400, "londonHigh": 650, "regionalLow": 300, "regionalHigh": 600, "mid": 488, "production": 60, "installation": 45, "indicativeTotal": 593, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 25000, "impactsWeekHigh": 90000, "impactsCampaignLow": 50000, "impactsCampaignHigh": 180000, "impactConfidence": "Medium", "audienceContext": "High-street / local dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Media only. Print/posting is separate.", "whyRecommend": "Excellent local targeting and natural passenger dwell.", "roles": ["local-targeting", "frequency", "dwell"], "strength": "Catchment and eye-level proximity", "specialist": false}, {"id": "bus-stops-6-sheet-digital", "category": "Bus Stops", "format": "6-Sheet Digital", "technology": "DOOH", "buyingUnit": "per screen", "campaignBasis": "1 week", "londonLow": 650, "londonHigh": 800, "regionalLow": 400, "regionalHigh": 650, "mid": 625, "production": 0, "installation": 0, "indicativeTotal": 625, "costStatus": "Published", "source": "Loud! OOH pricing", "impactsWeekLow": 30000, "impactsWeekHigh": 120000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 120000, "impactConfidence": "Medium", "audienceContext": "High-street / local dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Packages may be sold by plays or screen time.", "whyRecommend": "Local targeting plus digital flexibility.", "roles": ["local-targeting", "frequency", "dwell"], "strength": "Catchment and eye-level proximity", "specialist": false}, {"id": "bus-stops-shelter-wrap-takeover", "category": "Bus Stops", "format": "Shelter Wrap / Takeover", "technology": "Special build", "buyingUnit": "per shelter", "campaignBasis": "campaign", "londonLow": 1500, "londonHigh": 5000, "regionalLow": 1000, "regionalHigh": 4000, "mid": 2875, "production": 2500, "installation": 2000, "indicativeTotal": 7375, "costStatus": "Planning range", "source": "Loud! OOH planning", "impactsWeekLow": 30000, "impactsWeekHigh": 180000, "impactsCampaignLow": 30000, "impactsCampaignHigh": 180000, "impactConfidence": "Low-Medium", "audienceContext": "High-street / local dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Bespoke site, materials, operator approval and installation.", "whyRecommend": "High-impact local presence around a specific catchment.", "roles": ["local-targeting", "frequency", "dwell"], "strength": "Catchment and eye-level proximity", "specialist": true}, {"id": "digital-advans-digital-advan-1-day", "category": "Digital AdVans", "format": "Digital AdVan - 1 Day", "technology": "DOOH", "buyingUnit": "per day", "campaignBasis": "1 day", "londonLow": 695, "londonHigh": 1200, "regionalLow": 595, "regionalHigh": 900, "mid": 848, "production": 0, "installation": 0, "indicativeTotal": 848, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 20000, "impactsWeekHigh": 100000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 100000, "impactConfidence": "Low-Medium", "audienceContext": "Mobile route and event exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Route and timing are part of the media plan.", "whyRecommend": "Ideal for launches, openings, match days and events.", "roles": ["tactical", "event", "pr"], "strength": "Moment-led route and timing", "specialist": false}, {"id": "digital-advans-digital-advan-3-days", "category": "Digital AdVans", "format": "Digital AdVan - 3 Days", "technology": "DOOH", "buyingUnit": "per 3 days", "campaignBasis": "3 days", "londonLow": 1895, "londonHigh": 3000, "regionalLow": 1595, "regionalHigh": 2400, "mid": 2223, "production": 0, "installation": 0, "indicativeTotal": 2223, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 60000, "impactsWeekHigh": 300000, "impactsCampaignLow": 180000, "impactsCampaignHigh": 900000, "impactConfidence": "Low-Medium", "audienceContext": "Mobile route and event exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Sustained route coverage.", "whyRecommend": "Concentrated burst without committing to a full week.", "roles": ["tactical", "event", "pr"], "strength": "Moment-led route and timing", "specialist": false}, {"id": "digital-advans-digital-advan-5-days", "category": "Digital AdVans", "format": "Digital AdVan - 5 Days", "technology": "DOOH", "buyingUnit": "per 5 days", "campaignBasis": "5 days", "londonLow": 2995, "londonHigh": 4500, "regionalLow": 2495, "regionalHigh": 3600, "mid": 3398, "production": 0, "installation": 0, "indicativeTotal": 3398, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 100000, "impactsWeekHigh": 500000, "impactsCampaignLow": 500000, "impactsCampaignHigh": 2500000, "impactConfidence": "Low-Medium", "audienceContext": "Mobile route and event exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Best used with a defined route strategy.", "whyRecommend": "Sustained mobile presence across a campaign week.", "roles": ["tactical", "event", "pr"], "strength": "Moment-led route and timing", "specialist": false}, {"id": "digital-advans-electric-digital-advan", "category": "Digital AdVans", "format": "Electric Digital AdVan", "technology": "DOOH", "buyingUnit": "per day", "campaignBasis": "1 day", "londonLow": 1500, "londonHigh": 2000, "regionalLow": 1500, "regionalHigh": 2000, "mid": 1750, "production": 0, "installation": 0, "indicativeTotal": 1750, "costStatus": "Published + planning", "source": "Loud! OOH pricing", "impactsWeekLow": 20000, "impactsWeekHigh": 100000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 100000, "impactConfidence": "Low-Medium", "audienceContext": "Mobile route and event exposure", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Availability depends on EV fleet and route.", "whyRecommend": "Useful for clean-air-zone access or an environmental campaign story.", "roles": ["tactical", "event", "pr"], "strength": "Moment-led route and timing", "specialist": false}, {"id": "london-underground-tube-car-panel", "category": "London Underground", "format": "Tube Car Panel", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 10, "londonHigh": 40, "regionalLow": 10, "regionalHigh": 30, "mid": 23, "production": 20, "installation": 10, "indicativeTotal": 53, "costStatus": "Published + planning", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 10000, "impactsWeekHigh": 60000, "impactsCampaignLow": 20000, "impactsCampaignHigh": 120000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Very low media entry point, but exact line/inventory matters.", "whyRecommend": "Repeated commuter exposure with longer journey dwell.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-escalator-panel-lep-dep", "category": "London Underground", "format": "Escalator Panel LEP/DEP", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 300, "londonHigh": 600, "regionalLow": 125, "regionalHigh": 300, "mid": 331, "production": 65, "installation": 45, "indicativeTotal": 441, "costStatus": "Published", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 20000, "impactsWeekHigh": 120000, "impactsCampaignLow": 40000, "impactsCampaignHigh": 240000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Sequential panels work best with a visual story.", "whyRecommend": "Strong sequential exposure while passengers travel the escalator.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-digital-6-sheet", "category": "London Underground", "format": "Digital 6-Sheet", "technology": "DOOH", "buyingUnit": "per screen", "campaignBasis": "1 week", "londonLow": 550, "londonHigh": 900, "regionalLow": 400, "regionalHigh": 650, "mid": 625, "production": 0, "installation": 0, "indicativeTotal": 625, "costStatus": "Published + planning", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 40000, "impactsWeekHigh": 220000, "impactsCampaignLow": 40000, "impactsCampaignHigh": 220000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Scheduling affects delivery.", "whyRecommend": "Digital flexibility in a captive transport environment.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-4-sheet-platform-poster", "category": "London Underground", "format": "4-Sheet Platform Poster", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 400, "londonHigh": 600, "regionalLow": 300, "regionalHigh": 450, "mid": 438, "production": 45, "installation": 40, "indicativeTotal": 523, "costStatus": "Published", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 30000, "impactsWeekHigh": 180000, "impactsCampaignLow": 60000, "impactsCampaignHigh": 360000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Print/posting is separate unless packaged.", "whyRecommend": "Strong eye-line platform exposure at a lower entry price.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-16-sheet-cross-track", "category": "London Underground", "format": "16-Sheet Cross-Track", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 1500, "londonHigh": 2800, "regionalLow": 1000, "regionalHigh": 1800, "mid": 1775, "production": 120, "installation": 60, "indicativeTotal": 1955, "costStatus": "Published", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 50000, "impactsWeekHigh": 300000, "impactsCampaignLow": 100000, "impactsCampaignHigh": 600000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Large-format print and posting required.", "whyRecommend": "Hero platform presence for launches and awareness.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-48-sheet-cross-track", "category": "London Underground", "format": "48-Sheet Cross-Track", "technology": "Static", "buyingUnit": "per panel", "campaignBasis": "2 weeks", "londonLow": 2500, "londonHigh": 5000, "regionalLow": 1500, "regionalHigh": 3000, "mid": 3000, "production": 275, "installation": 150, "indicativeTotal": 3425, "costStatus": "Published", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 80000, "impactsWeekHigh": 450000, "impactsCampaignLow": 160000, "impactsCampaignHigh": 900000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Book high-demand stations early.", "whyRecommend": "Flagship static Underground impact.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-digital-escalator-ribbon", "category": "London Underground", "format": "Digital Escalator / Ribbon", "technology": "DOOH", "buyingUnit": "per week", "campaignBasis": "1 week", "londonLow": 15750, "londonHigh": 30000, "regionalLow": 15750, "regionalHigh": 25000, "mid": 23125, "production": 0, "installation": 0, "indicativeTotal": 23125, "costStatus": "Published + planning", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 300000, "impactsWeekHigh": 2000000, "impactsCampaignLow": 300000, "impactsCampaignHigh": 2000000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "No physical print. Premium inventory.", "whyRecommend": "High-end motion environment for major launches.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": false}, {"id": "london-underground-station-domination-takeover", "category": "London Underground", "format": "Station Domination / Takeover", "technology": "Mixed", "buyingUnit": "per station", "campaignBasis": "2 weeks", "londonLow": 50000, "londonHigh": 100000, "regionalLow": 15000, "regionalHigh": 50000, "mid": 53750, "production": 4000, "installation": 4000, "indicativeTotal": 61750, "costStatus": "Published + planning", "source": "Loud! OOH pricing / Underground insight", "impactsWeekLow": 300000, "impactsWeekHigh": 2500000, "impactsCampaignLow": 600000, "impactsCampaignHigh": 5000000, "impactConfidence": "Low-Medium", "audienceContext": "Station, platform, escalator and carriage dwell", "impactCaveat": "Indicative planning range only. Exact impacts, reach and frequency should come from Route or the relevant operator/site data. DOOH varies by schedule, loop, share of voice and screen operation.", "customerNote": "Bespoke production, approvals and access can materially change cost.", "whyRecommend": "Complete station brand ownership.", "roles": ["frequency", "commuter-reach", "dwell", "stature"], "strength": "High-density transport environment", "specialist": true}];</script>
+<script src="hero.js"></script>
+<script src="engine.js"></script>
 </body>
 </html>
