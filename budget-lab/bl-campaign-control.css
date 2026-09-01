@@ -438,6 +438,10 @@
 @keyframes blCampaignSpin { to { transform: rotate(360deg); } }
 
 /* Mobile */
+.bl-mobile-campaign-strip {
+  display: none;
+}
+
 .bl-campaign-mobile-pill {
   display: none;
   width: 100%;
@@ -515,12 +519,37 @@
   color: var(--lai-purple);
 }
 
-@media (max-width: 900px) {
+.bl-campaign-sheet-done {
+  display: none;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: #ff4a00;
+  color: #fff;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .bl-campaign-sheet-done {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
   .bl-campaign-bar-shell,
   .bl-campaign-panels { display: none; }
   .bl-campaign-mobile-pill { display: block; }
   .bl-campaign-sheet { display: block; }
   .bl-campaign-loc-layout { grid-template-columns: 1fr; }
+
+  body.bl-sheet-open {
+    overflow: hidden;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

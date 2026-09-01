@@ -394,7 +394,18 @@ body.is-planning .bl-filter-chip.is-on {
   margin: 0; flex-shrink: 0; padding: 8px 12px; border-radius: 999px;
   background: rgba(10, 31, 61, 0.04); font-size: 11px; font-weight: 700; color: var(--navy); white-space: nowrap;
 }
-.bl-lab-mix-lux .bl-lab-donut-row { margin: 0; padding: 18px 16px; border-radius: 16px; }
+.bl-lab-mix-lux .bl-lab-donut-row {
+  margin: 0;
+  padding: 18px 16px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#hl-mix-panel .bl-lab-donut-lux::before {
+  display: none;
+}
 
 .bl-lab-ai-panel {
   padding: 22px 20px 18px; border-radius: 22px;
@@ -1290,10 +1301,10 @@ body.is-planning .bl-ref-below {
 .bl-lab-mix-goal {
   display: inline-flex;
   margin-top: 8px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(255, 74, 0, 0.1);
-  border: 1px solid rgba(255, 74, 0, 0.22);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   color: var(--orange);
   font-size: 10px;
   font-weight: 700;
@@ -1503,13 +1514,14 @@ body.is-planning .bl-ref-below {
   .bl-campaign-bar {
     flex-direction: column;
     width: 100%;
-    gap: 0;
+    gap: var(--bl-sidebar-field-gap, 12px);
   }
 
   /* Sidebar uses bl-ref-mockup.css for field spacing — do not zero gap here. */
   .bl-ref-search-wrap .bl-campaign-bar {
     flex-direction: column;
     width: 100%;
+    gap: var(--bl-sidebar-field-gap, 12px);
   }
 
   .bl-sidebar-card .bl-campaign-seg {
@@ -1763,11 +1775,21 @@ body.is-planning .bl-ref-below {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  body.is-planning .bl-ref-search-wrap {
+  body.is-planning .bl-ref-search-wrap:not(.bl-ref-search-wrap--source) {
     padding: 10px 16px 12px;
     background: linear-gradient(180deg, rgba(10, 31, 61, 0.97) 0%, rgba(10, 31, 61, 0.92) 100%);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+  }
+
+  @media (max-width: 1024px) {
+    body.is-planning .bl-ref-search-wrap--source {
+      display: none !important;
+    }
+
+    body.is-planning .bl-ref-hero-band {
+      overflow: hidden !important;
+    }
   }
 }
 

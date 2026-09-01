@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="bl-lab-planning.css">
 <link rel="stylesheet" href="bl-summary.css?v=5">
 <link rel="stylesheet" href="bl-actions.css?v=6">
-<link rel="stylesheet" href="bl-ref-mockup.css?v=42">
+<link rel="stylesheet" href="bl-ref-mockup.css?v=47">
 <link rel="preload" as="image" href="../images/hero/piccadilly-circus-dooh.jpg" fetchpriority="high">
 <link rel="stylesheet" href="bl-lab-landing.css?v=28">
 <link rel="stylesheet" href="bl-lab-mock-preview.css?v=22">
@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="bl-ref-panel-bg.css?v=4">
 <link rel="stylesheet" href="bl-reveal.css?v=6">
-<link rel="stylesheet" href="bl-responsive.css?v=21">
+<link rel="stylesheet" href="bl-responsive.css?v=27">
 <link rel="stylesheet" href="bl-audit-fixes.css?v=1">
 <link rel="stylesheet" href="bl-plan-pdf.css?v=8">
 <link rel="stylesheet" href="bl-pdf-export.css?v=1">
@@ -293,7 +293,32 @@ main.bl-ref-page,
       <p class="bl-ref-powered"><span class="bl-ref-spark" aria-hidden="true">✦</span> Powered by Loud AI</p>
     </div>
   </div>
-  <div class="bl-ref-search-wrap">
+
+  <div class="bl-mobile-campaign-strip" id="hl-mobile-campaign-strip">
+    <p class="bl-mobile-campaign-eyebrow">Campaign settings</p>
+    <button type="button" class="bl-campaign-mobile-pill" id="hl-mobile-pill" aria-expanded="false" aria-controls="hl-campaign-sheet">
+      <span class="bl-mobile-pill-label">Edit budget &amp; targeting</span>
+      <span class="bl-mobile-pill-summary" id="hl-mobile-pill-summary">London · £50K · 2 weeks · Reach</span>
+    </button>
+    <div class="bl-campaign-sheet" id="hl-campaign-sheet" aria-hidden="true">
+      <div class="bl-campaign-sheet-backdrop" id="hl-sheet-backdrop"></div>
+      <div class="bl-campaign-sheet-body">
+        <div class="bl-campaign-sheet-handle" aria-hidden="true"></div>
+        <div class="bl-campaign-sheet-tabs" id="hl-sheet-tabs">
+          <button type="button" class="bl-campaign-sheet-tab is-on" data-panel="budget">Budget</button>
+          <button type="button" class="bl-campaign-sheet-tab" data-panel="duration">Duration</button>
+          <button type="button" class="bl-campaign-sheet-tab" data-panel="location">Location</button>
+          <button type="button" class="bl-campaign-sheet-tab" data-panel="objective">Objective</button>
+          <button type="button" class="bl-campaign-sheet-tab" data-panel="audience">Audience</button>
+          <button type="button" class="bl-campaign-sheet-tab" data-panel="advanced">Advanced</button>
+        </div>
+        <div class="bl-campaign-sheet-content" id="hl-sheet-content"></div>
+        <button type="button" class="bl-campaign-sheet-done" id="hl-sheet-done">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bl-ref-search-wrap bl-ref-search-wrap--source">
     <div class="bl-ref-hero bl-ref-hero--sidebar">
       <header class="bl-sidebar-brand" aria-label="Loud AI Calculator">
         <img class="bl-sidebar-brand-logo" src="../images/loud-ooh-logo-light.png" alt="Loud!" width="680" height="214">
@@ -507,27 +532,6 @@ main.bl-ref-page,
       </details>
 
       <span class="visually-hidden" id="hl-bar-budget">£50,000</span>
-
-      <!-- The empty #hl-panel-budget placeholder is gone: the mobile sheet
-           clones the real budget card from the rail (clonePanel special-cases
-           "budget" to #hl-sidebar-budget), so there is one budget control. -->
-
-      <button type="button" class="bl-campaign-mobile-pill" id="hl-mobile-pill" aria-expanded="false">£50k · 2 weeks · London · Reach</button>
-
-      <div class="bl-campaign-sheet" id="hl-campaign-sheet" aria-hidden="true">
-        <div class="bl-campaign-sheet-backdrop" id="hl-sheet-backdrop"></div>
-        <div class="bl-campaign-sheet-body">
-          <div class="bl-campaign-sheet-handle" aria-hidden="true"></div>
-          <div class="bl-campaign-sheet-tabs" id="hl-sheet-tabs">
-            <button type="button" class="bl-campaign-sheet-tab is-on" data-panel="budget">Budget</button>
-            <button type="button" class="bl-campaign-sheet-tab" data-panel="duration">Duration</button>
-            <button type="button" class="bl-campaign-sheet-tab" data-panel="location">Location</button>
-            <button type="button" class="bl-campaign-sheet-tab" data-panel="objective">Objective</button>
-            <button type="button" class="bl-campaign-sheet-tab" data-panel="audience">Audience</button>
-          </div>
-          <div class="bl-campaign-sheet-content" id="hl-sheet-content"></div>
-        </div>
-      </div>
 
       <p class="bl-sidebar-brief visually-hidden" id="hl-sidebar-brief" aria-live="polite">London · £50,000 · 2 weeks · Maximise Reach</p>
       <div class="bl-campaign-live visually-hidden" id="hl-campaign-live" aria-hidden="true"></div>

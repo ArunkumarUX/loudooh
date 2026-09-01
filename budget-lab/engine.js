@@ -335,6 +335,10 @@ function wireNav(){}
 /* "Advanced settings" from anywhere on the page opens the rail's disclosure
    and puts it in front of the reader — one destination, one name. */
 window.blGoToStep = function(){
+  if(window.innerWidth <= 1024 && window.__BL_OPEN_CAMPAIGN_SHEET__){
+    window.__BL_OPEN_CAMPAIGN_SHEET__("advanced");
+    return;
+  }
   var adv = document.getElementById("hl-advanced");
   if(!adv) return;
   adv.open = true;

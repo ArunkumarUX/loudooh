@@ -161,77 +161,11 @@
   }
 }
 
-/* ---------- 9. campaign controls: tablet card, phone pill ----------
-   #hl-campaign-bar is an Airbnb pill on desktop. An earlier overflow fix
-   stacked it with display:flex !important at ≤1024px, which undid the phone
-   hide rule and turned border-radius:999px into a giant white oval that
-   clipped Duration / Audience. Stack as a rounded card on tablet only;
-   on phones hide the shell and use the compact pill + sheet. */
-@media (max-width: 1024px) and (min-width: 901px) {
-  .bl-sidebar-settings-fields,
-  .bl-campaign-bar,
-  #hl-campaign-bar,
-  .bl-campaign-bar-shell,
-  #hl-campaign-shell {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    gap: 4px !important;
-  }
-  .bl-campaign-bar-shell,
-  #hl-campaign-shell {
-    border-radius: 20px !important;
-    padding: 6px !important;
-    overflow: hidden;
-  }
-  .bl-campaign-accordion-item,
-  .bl-sidebar-field,
-  .bl-campaign-seg,
-  .bl-campaign-seg--field {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    border-radius: 14px !important;
-  }
-  .bl-campaign-seg::after { display: none !important; }
-  .bl-ref-search-wrap,
-  .bl-campaign-control,
-  #hl-campaign-control,
-  .bl-sidebar-settings { max-width: 100% !important; min-width: 0 !important; }
-}
-
+/* ---------- 9. phone layout tweaks (campaign pill is in §15 at ≤1024) */
 @media (max-width: 900px) {
-  .bl-campaign-bar-shell,
-  #hl-campaign-shell,
-  .bl-campaign-panels {
-    display: none !important;
-  }
-  .bl-campaign-mobile-pill {
-    display: block !important;
-    white-space: normal;
-    line-height: 1.35;
-    text-align: left;
-    padding: 14px 16px;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  .bl-campaign-sheet { display: block !important; }
-  .bl-campaign-control,
-  #hl-campaign-control,
-  .bl-ref-search-wrap,
-  .bl-sidebar-settings {
-    max-width: 100% !important;
-    min-width: 0 !important;
-  }
-
   html, body {
     overflow-x: clip;
   }
-  .bl-ref-search-wrap,
   .bl-ref-hero-band {
     padding-left: 16px;
     padding-right: 16px;
@@ -413,6 +347,12 @@
   .bl-results{ padding-top:96px; }
 }
 
+@media (max-width: 1024px) {
+  .bl-results {
+    padding-top: 0 !important;
+  }
+}
+
 .bl-ref-lab-wrap .bl-mock-forecast-card,
 .bl-ref-lab-wrap .bl-mock-metrics-deck {
   background: #fff !important;
@@ -428,7 +368,7 @@
 
 .bl-mock-metrics-deck .bl-mock-delta-up {
   color: #156b34 !important;
-  background: #e8f5ec !important;
+  background: transparent !important;
 }
 
 @media (max-width: 720px) {
@@ -445,5 +385,323 @@
 
   .bl-mock-results-head--forecast {
     margin-bottom: 12px;
+  }
+}
+
+/* ---------- 15. stacked/tablet campaign UX — pill + sheet (source rail hidden) */
+@media (max-width: 1024px) {
+  .bl-ref-hero-band {
+    padding: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    position: sticky;
+    top: var(--lo-chrome-h, 72px);
+    z-index: 200;
+  }
+
+  body.is-planning .bl-ref-hero-band {
+    top: var(--lo-chrome-h, 72px) !important;
+    z-index: 200 !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .bl-ref-hero-band .bl-campaign-bar-shell,
+  #hl-campaign-shell {
+    display: none !important;
+  }
+
+  .bl-ref-hero--mobile {
+    padding: 14px 16px 6px !important;
+  }
+
+  .bl-ref-hero--mobile .bl-ref-powered {
+    margin-bottom: 0;
+  }
+
+  .bl-mobile-campaign-strip {
+    display: block;
+    padding: 0 16px 14px;
+    position: relative;
+    z-index: 12;
+  }
+
+  .bl-mobile-campaign-eyebrow {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .bl-ref-search-wrap--source {
+    display: none !important;
+  }
+
+  .bl-campaign-mobile-pill {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    text-align: left !important;
+    color: #0a1f3d !important;
+    background: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22) !important;
+    cursor: pointer;
+  }
+
+  .bl-campaign-mobile-pill::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ff4a00;
+    border-bottom: 2px solid #ff4a00;
+    transform: translateY(-60%) rotate(-45deg);
+  }
+
+  .bl-mobile-pill-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ff4a00;
+    line-height: 1.2;
+  }
+
+  .bl-mobile-pill-summary {
+    display: block;
+    padding-right: 18px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #0a1f3d;
+  }
+
+  .bl-campaign-mobile-pill[aria-expanded="true"] {
+    border-color: rgba(255, 74, 0, 0.45) !important;
+    box-shadow: 0 10px 28px rgba(255, 74, 0, 0.18) !important;
+  }
+
+  body.is-planning .bl-mobile-campaign-strip {
+    position: sticky;
+    top: var(--lo-chrome-h, 72px);
+    z-index: 201;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    background: linear-gradient(180deg, rgba(10, 31, 61, 0.98) 0%, rgba(10, 31, 61, 0.94) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  body.is-planning .bl-ref-hero--mobile {
+    display: none !important;
+  }
+
+  .bl-campaign-sheet:not(.is-open) {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .bl-campaign-sheet.is-open {
+    visibility: visible !important;
+    z-index: 220 !important;
+  }
+
+  .bl-campaign-sheet-body {
+    max-height: min(92vh, 760px) !important;
+    padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .bl-campaign-sheet-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 12px;
+  }
+
+  .bl-campaign-sheet-tabs {
+    flex-shrink: 0;
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .bl-campaign-sheet-tab {
+    min-height: 40px;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+  }
+
+  .bl-campaign-sheet-content .bl-sidebar-budget-card,
+  .bl-campaign-sheet-content .bl-campaign-panel-head--sidebar,
+  .bl-campaign-sheet-content .bl-campaign-panel-head--flyout,
+  .bl-campaign-sheet-content .bl-adv-intro {
+    color: #0a1f3d !important;
+  }
+
+  .bl-campaign-sheet-content .bl-campaign-aud-row,
+  .bl-campaign-sheet-content .bl-campaign-picker-row,
+  .bl-campaign-sheet-content .bl-campaign-opt,
+  .bl-campaign-sheet-content .bl-campaign-obj-card,
+  .bl-campaign-sheet-content .bl-campaign-loc-item {
+    color: #0a1f3d !important;
+    background: #f7f8fa !important;
+    border: 1px solid rgba(10, 31, 61, 0.08) !important;
+    border-radius: 12px !important;
+  }
+
+  .bl-campaign-sheet-content .bl-campaign-aud-row.is-on,
+  .bl-campaign-sheet-content .bl-campaign-picker-row.is-on,
+  .bl-campaign-sheet-content .bl-campaign-opt.is-on,
+  .bl-campaign-sheet-content .bl-campaign-obj-card.is-on,
+  .bl-campaign-sheet-content .bl-campaign-loc-item.is-on {
+    background: rgba(255, 74, 0, 0.08) !important;
+    border-color: rgba(255, 74, 0, 0.35) !important;
+  }
+
+  .bl-campaign-sheet-content .bl-campaign-option-meta,
+  .bl-campaign-sheet-content .bl-campaign-loc-text small {
+    color: rgba(10, 31, 61, 0.55) !important;
+  }
+
+  .bl-campaign-sheet-content .bl-sidebar-budget-display input {
+    color: #0a1f3d !important;
+  }
+
+  main.bl-ref-page,
+  .bl-ref-lab-wrap.is-explore {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .bl-results {
+    padding-top: 0 !important;
+  }
+
+  .bl-ref-lab-wrap {
+    padding-top: 8px !important;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1025px) {
+  .bl-mobile-campaign-strip {
+    display: none !important;
+  }
+
+  /* Desktop: compact format mix only — Loud AI stays in the left sidebar */
+  #hl-plan-hub {
+    display: block !important;
+    margin: 0 0 12px;
+  }
+
+  #hl-ai-experiment {
+    display: none !important;
+  }
+
+  #hl-explore {
+    gap: 12px;
+  }
+
+  #hl-mix-panel.bl-lab-mix-lux {
+    margin: 0;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(10, 31, 61, 0.08);
+    background: #fff;
+    box-shadow: 0 16px 48px -32px rgba(10, 31, 61, 0.14);
+  }
+
+  #hl-mix-panel .bl-lab-mix-head {
+    margin-bottom: 14px;
+    align-items: center;
+  }
+
+  #hl-mix-panel .bl-lab-mix-head h3 {
+    font-size: clamp(16px, 1.4vw, 18px);
+  }
+
+  #hl-mix-panel .bl-lab-mix-summary {
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+
+  #hl-mix-panel .bl-lab-donut-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 0 !important;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  #hl-mix-panel .bl-donut-wrap-lux {
+    flex: 0 0 96px;
+    width: 96px;
+    height: 96px;
+  }
+
+  #hl-mix-panel .bl-donut-wrap-lux svg {
+    width: 96px;
+    height: 96px;
+  }
+
+  #hl-mix-panel .bl-donut-wrap-lux::before {
+    inset: 8px;
+  }
+
+  #hl-mix-panel .bl-donut-center b {
+    font-size: 14px;
+  }
+
+  #hl-mix-panel .bl-donut-center span {
+    font-size: 9px;
+  }
+
+  #hl-mix-panel .bl-lab-legend-lux {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 14px;
+    align-content: center;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #hl-mix-panel .bl-lab-legend-lux .bl-legend-row {
+    padding: 5px 0;
+  }
+
+  #hl-mix-panel .bl-lab-legend-lux .bl-legend-total {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(10, 31, 61, 0.06);
   }
 }

@@ -3,7 +3,8 @@
   "use strict";
 
   var heroBand = document.querySelector(".bl-ref-hero-band");
-  var searchWrap = document.querySelector(".bl-ref-search-wrap");
+  var searchWrap = document.querySelector(".bl-ref-search-wrap:not(.bl-ref-search-wrap--source)");
+  var mobileStrip = document.getElementById("hl-mobile-campaign-strip");
   var labWrap = document.querySelector(".bl-ref-lab-wrap");
   var results = document.getElementById("hl-results");
   var planning = false;
@@ -40,7 +41,11 @@
     planning = on;
     document.body.classList.toggle("is-planning", on);
     if (heroBand) heroBand.classList.toggle("is-compact", on);
-    if (searchWrap) searchWrap.classList.toggle("is-sticky", on);
+    if (window.innerWidth <= 1024) {
+      if (mobileStrip) mobileStrip.classList.toggle("is-sticky", on);
+    } else if (searchWrap) {
+      searchWrap.classList.toggle("is-sticky", on);
+    }
     if (labWrap) labWrap.classList.toggle("is-explore", on);
 
     var nav = navEl();

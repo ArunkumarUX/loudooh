@@ -66,7 +66,11 @@ function syncBar(){
     var dur = DUR_LABELS[s.days] || "2 weeks";
     var loc = GEO_LABELS[s.geo] || "London";
     var obj = (OBJ_LABELS[s.objective] || "Reach").replace("Maximise ", "");
-    b.pill.textContent = loc + " · " + bud + " · " + dur + " · " + obj;
+    var summary = loc + " · " + bud + " · " + dur + " · " + obj;
+    b.pill.setAttribute("aria-label", "Campaign settings: " + summary);
+    var sumEl = document.getElementById("hl-mobile-pill-summary");
+    if(sumEl) sumEl.textContent = summary;
+    else b.pill.textContent = summary;
   }
   syncPanelSelections(s);
 }
@@ -170,6 +174,10 @@ function scrollExpandedIntoView(id){
 }
 
 function open(id){
+  if(isMobileSheet() && window.__BL_OPEN_CAMPAIGN_SHEET__){
+    window.__BL_OPEN_CAMPAIGN_SHEET__(id);
+    return;
+  }
   closeGen++;
   if(openPanel === id){
     close();
@@ -459,6 +467,10 @@ function wireDesktop(){
   });
 }
 
+function isMobileSheet(){
+  return window.innerWidth <= 1024;
+}
+
 function wireMobile(){
   var sheet = document.getElementById("hl-campaign-sheet");
   var content = document.getElementById("hl-sheet-content");
@@ -466,18 +478,26 @@ function wireMobile(){
   if(!sheet || !content || !pill) return;
 
   function clonePanel(id){
-    var src = id === "budget"
-      ? document.getElementById("hl-sidebar-budget")
-      : document.getElementById("hl-panel-" + id);
+    var src;
+    if(id === "budget"){
+      src = document.getElementById("hl-sidebar-budget");
+    } else if(id === "advanced"){
+      var adv = document.getElementById("hl-advanced");
+      src = adv ? adv.querySelector(".bl-adv-body") : null;
+    } else {
+      src = document.getElementById("hl-panel-" + id);
+    }
     if(!src) return;
     content.innerHTML = src.innerHTML;
     wireSheetPanel();
   }
 
   function openSheet(panel){
+    if(!isMobileSheet()) return;
     sheet.classList.add("is-open");
     sheet.setAttribute("aria-hidden", "false");
     pill.setAttribute("aria-expanded", "true");
+    document.body.classList.add("bl-sheet-open");
     document.querySelectorAll(".bl-campaign-sheet-tab").forEach(function(t){
       t.classList.toggle("is-on", t.getAttribute("data-panel") === panel);
     });
@@ -488,15 +508,44 @@ function wireMobile(){
     sheet.classList.remove("is-open");
     sheet.setAttribute("aria-hidden", "true");
     pill.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("bl-sheet-open");
   }
 
-  pill.addEventListener("click", function(){ openSheet("budget"); });
+  window.__BL_OPEN_CAMPAIGN_SHEET__ = openSheet;
+
+  pill.addEventListener("click", function(){
+    if(sheet.classList.contains("is-open")) closeSheet();
+    else openSheet("budget");
+  });
   document.getElementById("hl-sheet-backdrop").addEventListener("click", closeSheet);
+  var doneBtn = document.getElementById("hl-sheet-done");
+  if(doneBtn) doneBtn.addEventListener("click", closeSheet);
   document.getElementById("hl-sheet-tabs").addEventListener("click", function(e){
     var tab = e.target.closest("[data-panel]");
     if(!tab) return;
     openSheet(tab.getAttribute("data-panel"));
   });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && sheet.classList.contains("is-open")) closeSheet();
+  });
+
+  window.addEventListener("resize", function(){
+    if(!isMobileSheet() && sheet.classList.contains("is-open")) closeSheet();
+  });
+
+  function proxyField(cloneRoot, sourceRoot, attr){
+    if(!cloneRoot || !sourceRoot) return;
+    cloneRoot.querySelectorAll("[" + attr + "]").forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        var val = btn.getAttribute(attr);
+        var orig = sourceRoot.querySelector("[" + attr + '="' + val + '"]');
+        if(orig) orig.click();
+        syncBar();
+      });
+    });
+  }
 
   function wireSheetPanel(){
     var root = content;
@@ -507,6 +556,18 @@ function wireMobile(){
         hero = getHero();
         if(!hero) return;
         apply({budget: hero.sliderToBudget(parseFloat(slider.value))}, false);
+      });
+    }
+    var budgetInput = root.querySelector("#hl-budget-input");
+    if(budgetInput){
+      budgetInput.id = "hl-budget-input-sheet";
+      budgetInput.addEventListener("change", function(){
+        hero = getHero();
+        if(!hero) return;
+        var raw = this.value.replace(/[^0-9]/g, "");
+        var n = parseInt(raw, 10);
+        if(!n || n < 1000) return;
+        apply({budget: Math.min(500000, n)}, false);
       });
     }
     root.querySelectorAll("[data-budget]").forEach(function(btn){
@@ -534,6 +595,9 @@ function wireMobile(){
         apply({audience: btn.getAttribute("data-aud")}, false);
       });
     });
+    proxyField(root.querySelector("#bl-basis-toggle"), document.getElementById("bl-basis-toggle"), "data-basis");
+    proxyField(root.querySelector("#bl-format-pref-row"), document.getElementById("bl-format-pref-row"), "data-val");
+    proxyField(root.querySelector("#bl-planning-mode-row"), document.getElementById("bl-planning-mode-row"), "data-val");
   }
 }
 

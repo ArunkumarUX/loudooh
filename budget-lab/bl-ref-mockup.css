@@ -15,7 +15,7 @@
   --bl-calc-gutter: clamp(20px, 2.2vw, 28px);
   --bl-calc-top: 20px;
   --bl-sidebar-section-gap: 14px;
-  --bl-sidebar-field-gap: 14px;
+  --bl-sidebar-field-gap: 12px;
   --bl-sidebar-field-h: 52px;
   --bl-sidebar-stack-gap: 14px;
 }
@@ -203,7 +203,10 @@
     padding: 0;
     margin: 0;
   }
+}
 
+/* Tablet only: stack campaign fields in the rail. Phones use pill + sheet. */
+@media (max-width: 1024px) and (min-width: 901px) {
   .bl-ref-search-wrap .bl-campaign-bar-shell {
     flex: 0 0 auto;
     min-height: 0;
@@ -225,6 +228,9 @@
     box-shadow: none !important;
     padding: 0 !important;
   }
+}
+
+@media (max-width: 1024px) {
 
   .bl-sidebar-ai {
     flex: 0 0 auto;
@@ -339,8 +345,6 @@
       font-size: 1.5rem;
     }
   }
-
-  #hl-plan-hub { display: none !important; }
 
   .bl-lab-explore {
     display: grid;
@@ -1637,8 +1641,9 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
-  padding: 3px 7px;
-  border-radius: 4px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .bl-mock-kpi-card .bl-mock-delta {
@@ -1647,17 +1652,17 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 
 .bl-mock-metrics-deck .bl-mock-delta-up {
   color: #156b34;
-  background: #e8f5ec;
+  background: transparent;
 }
 
 .bl-mock-metrics-deck .bl-mock-delta-down {
   color: #b91c1c;
-  background: #fef2f2;
+  background: transparent;
 }
 
 .bl-mock-metrics-deck .bl-mock-delta-flat {
   color: #ff4a00;
-  background: #fff1ea;
+  background: transparent;
 }
 
 .bl-mock-delta-up { color: var(--bl-mock-green); }
@@ -1723,7 +1728,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 
   #hl-explore-card,
   .bl-ref-lab-wrap .bl-lab-explore-card {
-    padding: 16px 14px 14px !important;
+    padding: 16px !important;
     border-radius: 16px !important;
   }
 
@@ -2490,7 +2495,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 }
 
 .bl-ref-lab-wrap.is-explore {
-  padding-bottom: calc(24px + var(--bl-explore-plan-foot-h, 56px));
+  padding-bottom: calc(20px + var(--bl-explore-plan-foot-h, 56px));
 }
 
 @media (max-width: 1024px) {
@@ -2753,6 +2758,18 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
     padding: 0;
   }
 
+  .bl-ref-search-wrap .bl-sidebar-settings-fields,
+  .bl-ref-search-wrap #hl-campaign-bar,
+  .bl-ref-search-wrap .bl-campaign-bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bl-sidebar-field-gap, 12px);
+  }
+
+  .bl-ref-search-wrap .bl-adv,
+  .bl-ref-search-wrap #hl-advanced {
+    margin-top: var(--bl-sidebar-field-gap, 12px);
+  }
   .bl-ref-search-wrap .bl-campaign-accordion-item,
   .bl-ref-search-wrap .bl-sidebar-field {
     display: flex;
@@ -3180,13 +3197,31 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: 20px 20px 18px !important;
+  padding: 20px !important;
   background: #fff !important;
   background-color: #fff !important;
   background-image: none !important;
   border: 1px solid rgba(10, 31, 61, 0.08) !important;
   box-shadow: 0 16px 48px -32px rgba(10, 31, 61, 0.14) !important;
   border-radius: 20px !important;
+}
+
+@media (min-width: 1025px) {
+  #hl-explore-card,
+  .bl-ref-lab-wrap .bl-lab-explore-card {
+    margin-top: 12px;
+  }
+
+  /* Lab wrap already clears the fixed plan bar — no extra spacer inside the card */
+  .bl-lab-explore-card .bl-explore-plan-foot-spacer {
+    display: none;
+    flex: 0 0 0;
+    height: 0;
+  }
+
+  .bl-ref-lab-wrap.is-explore {
+    padding-bottom: calc(20px + var(--bl-explore-plan-foot-h, 56px));
+  }
 }
 
 .bl-ref-lab-wrap .bl-mock-forecast-card .bl-mock-metrics-deck {
