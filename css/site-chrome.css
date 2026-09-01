@@ -1,3 +1,5 @@
+@import url("/css/smooth-experience.css?v=1");
+
 /* Shared Loud! OOH chrome — homepage nav + footer, reused across pages */
 .lo-amenu{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;background:#fff;border-bottom:1px solid rgba(10,31,61,.08);font-family:"Inter",Helvetica,system-ui,sans-serif;transition:background .28s ease,border-color .28s ease,box-shadow .28s ease}
 .lo-amenu.is-scrolled,.lo-amenu.is-open{background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(10,31,61,.08);box-shadow:0 8px 24px rgba(10,31,61,.06)}

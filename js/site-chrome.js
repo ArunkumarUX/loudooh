@@ -382,6 +382,22 @@
     installBreadcrumbs();
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
-  else boot();
+  function loadSmoothExperience() {
+    if (window.__LO_SMOOTH_INIT__) return;
+    if (document.querySelector('script[src*="smooth-experience.js"]')) return;
+    var js = document.createElement("script");
+    js.src = "/js/smooth-experience.js?v=1";
+    js.defer = true;
+    document.body.appendChild(js);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      boot();
+      loadSmoothExperience();
+    });
+  } else {
+    boot();
+    loadSmoothExperience();
+  }
 })();

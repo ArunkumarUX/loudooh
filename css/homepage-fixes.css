@@ -178,8 +178,6 @@ video {
 }
 
 .lo-mz-btn,
-.lo-mz-link,
-.lo-amenu-cta,
 .lo-sticky-cta a {
   min-height: 44px;
   display: inline-flex;
@@ -237,8 +235,10 @@ video {
   }
 
   .lo-mz-link {
-    width: auto;
+    width: fit-content;
     align-self: flex-start;
+    display: inline-block;
+    min-height: auto;
   }
 
   /* Copy sits at the bottom on phones — wash the lower half, crop the quote. */
