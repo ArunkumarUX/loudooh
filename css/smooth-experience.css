@@ -121,12 +121,20 @@ body.bl-lab-asleep.lo-landing-ready .bl-lab-landing-preview {
   }
 }
 
-@media (max-width: 1180px) {
+@media (min-width: 1101px) and (max-width: 1240px) {
+  .lo-amenu-links {
+    margin-left: clamp(0.5rem, 1.5vw, 1.25rem) !important;
+  }
+
+  .lo-amenu-link {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    font-size: 11px !important;
+  }
+
   .lo-amenu-cta {
-    max-width: 11rem;
-    white-space: normal !important;
-    text-align: center;
-    line-height: 1.25;
+    font-size: 11px !important;
+    padding: 8px 12px !important;
   }
 }
 

@@ -8,7 +8,7 @@
   var onHome = path === "/";
   var onAbout = path.indexOf("/about") === 0;
   var ctaHref = onLab ? "#planner" : "/budget-lab/";
-  var ctaLabel = onLab ? "Start my plan" : "See what your budget can buy";
+  var ctaLabel = onLab ? "Start my plan" : "Open Budget Lab";
   var SITE_ORIGIN = "https://www.loudooh.co.uk";
 
   var chevron = '<svg class="lo-amenu-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
