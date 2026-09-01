@@ -1,0 +1,209 @@
+/* ==========================================================================
+   bl-mail.css — the email tab, and the printed plan.
+   The email is not a black box any more: subject and body are on screen and
+   editable, and what is sent is what is shown.
+   ========================================================================== */
+
+.bl-mail{
+  --mail-navy:#0E1E3C;
+  --mail-orange:#FF4A00;
+  --mail-border:#e2e6ed;
+  --mail-muted:#4d5969;
+  --mail-soft:#6b7789;
+  max-width:820px;
+  color:#1a2332;
+}
+.bl-mail-lead{
+  margin:0 0 20px;
+  font-size:.9375rem;
+  line-height:1.6;
+  color:var(--mail-muted);
+}
+
+.bl-mail-fields{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:0 0 14px;
+}
+.bl-mail-field{ display:grid; gap:6px; min-width:0; margin:0 0 14px; }
+.bl-mail-field--wide{ grid-column:1 / -1; }
+.bl-mail-field > span{
+  font-family:'Montserrat', system-ui, sans-serif;
+  font-weight:800;
+  font-size:.6875rem;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  color:var(--mail-soft);
+}
+.bl-mail-field em{ font-style:normal; font-weight:600; text-transform:none; letter-spacing:0; }
+.bl-mail-field input,
+.bl-mail-field textarea{
+  width:100%;
+  min-height:46px;
+  padding:11px 13px;
+  border:1px solid var(--mail-border);
+  border-radius:10px;
+  background:#fff;
+  font-family:inherit;
+  font-size:.9375rem;
+  color:#1a2332;
+}
+.bl-mail-field textarea{
+  min-height:340px;
+  line-height:1.6;
+  resize:vertical;
+  /* the body is laid out with spaces; a monospace face keeps the columns true */
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:.8125rem;
+  white-space:pre;
+  overflow-x:auto;
+}
+.bl-mail-field input:focus-visible,
+.bl-mail-field textarea:focus-visible{
+  outline:2px solid var(--mail-orange);
+  outline-offset:1px;
+  border-color:var(--mail-orange);
+}
+
+.bl-mail-stale{
+  margin:0 0 14px;
+  padding:11px 13px;
+  border:1px solid #f3d5c4;
+  border-radius:10px;
+  background:#fff7f2;
+  font-size:.875rem;
+  color:#8a4b22;
+}
+.bl-mail-relink{
+  appearance:none;
+  border:0;
+  background:none;
+  padding:0;
+  font:inherit;
+  color:var(--mail-orange);
+  font-weight:700;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.bl-mail-error{ margin:0 0 12px; font-size:.875rem; color:#C2410C; }
+.bl-mail-done{ margin:12px 0 0; font-size:.875rem; color:#1E7A55; }
+
+.bl-mail-acts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:6px 0 0;
+}
+.bl-mail-acts .bl-btn{ min-height:48px; }
+.bl-mail-note{
+  margin:14px 0 0;
+  font-size:.8125rem;
+  line-height:1.6;
+  color:var(--mail-soft);
+}
+
+@media (max-width:700px){
+  .bl-mail-fields{ grid-template-columns:1fr; }
+  .bl-mail-field textarea{ min-height:280px; font-size:.75rem; }
+  .bl-mail-acts .bl-btn{ width:100%; }
+}
+
+/* ==========================================================================
+   The printed plan (Download PDF -> your print dialog -> Save as PDF).
+   Printed from the page itself, so the document cannot drift from what was
+   read on screen. Everything that is chrome on screen is dropped; the plan
+   and the email are all that remain.
+   ========================================================================== */
+#bl-print{ display:none; }
+
+@media print{
+  /* one column, no furniture */
+  body.bl-printing > *{ display:none !important; }
+  body.bl-printing #planner,
+  body.bl-printing #bl-print{ display:block !important; }
+
+  /* The panel is a fixed drawer on screen. On paper it is just the document. */
+  body.bl-printing #planner .bl-drawer{
+    position:static !important;
+    display:block !important;
+    transform:none !important;
+    width:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
+  body.bl-printing .bl-drawer-scrim,
+  body.bl-printing .bl-drawer-close{ display:none !important; }
+  body.bl-printing #planner .bl-drawer-bar{ display:none !important; }
+  body.bl-printing #planner .bl-drawer-body{
+    display:block !important;
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+  body.bl-printing #bl-pane-email{ display:none !important; }
+
+  /* controls that mean nothing on paper */
+  body.bl-printing .bl-act-cta,
+  body.bl-printing .bl-act-apply,
+  body.bl-printing .bl-act-cancel,
+  body.bl-printing .bl-act-prev,
+  body.bl-printing .bl-sum-alt,
+  body.bl-printing .bl-sum-foot,
+  body.bl-printing .bl-sum-send,
+  body.bl-printing .bl-rev,
+  body.bl-printing button{ display:none !important; }
+
+  body.bl-printing{
+    background:#fff !important;
+    color:#000 !important;
+    font-size:10.5pt;
+  }
+  body.bl-printing .bl-results{ padding:0 !important; }
+
+  /* keep blocks whole across page breaks where we can */
+  body.bl-printing .bl-sum-section,
+  body.bl-printing .bl-sum-format,
+  body.bl-printing .bl-act-card,
+  body.bl-printing .bl-sum-stats{ break-inside:avoid; page-break-inside:avoid; }
+
+  #bl-print{
+    break-before:page;
+    page-break-before:always;
+    padding-top:6mm;
+  }
+  .bl-print-title{
+    margin:0 0 4px;
+    font-family:'Montserrat', system-ui, sans-serif;
+    font-weight:900;
+    font-size:18pt;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+  }
+  .bl-print-sub{ margin:0 0 18px; font-size:9.5pt; color:#444; }
+  .bl-print-h{
+    margin:0 0 8px;
+    font-family:'Montserrat', system-ui, sans-serif;
+    font-weight:900;
+    font-size:11pt;
+    text-transform:uppercase;
+  }
+  .bl-print-subject{ margin:0 0 10px; font-size:10pt; }
+  .bl-print-mail{
+    margin:0;
+    padding:10px 12px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:8.5pt;
+    line-height:1.5;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+  }
+
+  @page{ margin:14mm 12mm; }
+}

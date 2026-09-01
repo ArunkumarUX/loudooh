@@ -1,0 +1,503 @@
+/* Loud! OOH — Budget Lab brand alignment
+   Tokens: navy #0A1F3D · orange #FF4A00 · sand #EDEBE8
+   Type: Montserrat headings · Inter body */
+
+.bl-ref-page {
+  font-family: "Inter", Helvetica, system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* Primary actions — match site chrome (sharp corners, orange fill) */
+.bl-sidebar-ai-apply,
+.bl-lab-ai-preview,
+.bl-mock-view-more.is-primary,
+.bl-mock-plan-cta,
+.lo-amenu-cta {
+  border-radius: 0 !important;
+}
+
+.bl-sidebar-ai-apply,
+.bl-mock-plan-cta {
+  background: var(--orange) !important;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff !important;
+}
+
+.bl-sidebar-ai-apply {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+.bl-sidebar-ai-apply:hover,
+.bl-mock-plan-cta:hover {
+  background: var(--orange-hover) !important;
+  color: #fff !important;
+}
+
+.bl-sidebar-ai-preview {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+.bl-sidebar-ai-preview:hover {
+  border-color: var(--orange) !important;
+  color: #fff !important;
+  background: rgba(255, 74, 0, 0.14) !important;
+}
+
+/* Sidebar AI insight — flat on navy panel */
+.bl-sidebar-ai-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.bl-sidebar-ai-copy {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Sidebar brand lockup */
+.bl-sidebar-brand-mark {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.bl-sidebar-brand-mark .bl-brand-bang {
+  color: var(--orange);
+}
+
+.bl-sidebar-brand-mark .bl-brand-ai {
+  color: var(--orange);
+}
+
+.bl-sidebar-ai-badge {
+  color: var(--orange) !important;
+}
+
+/* Results panel eyebrows & meta */
+.bl-mock-results-eyebrow {
+  color: var(--orange) !important;
+}
+
+/* KPI deltas — brand orange for positive */
+.bl-mock-delta-up {
+  color: var(--orange) !important;
+}
+
+/* Selection states on dark sidebar — orange not purple */
+.bl-ref-search-wrap .bl-campaign-seg.is-active .bl-campaign-seg-label,
+.bl-ref-search-wrap .bl-campaign-seg[aria-expanded="true"] .bl-campaign-seg-label {
+  color: rgba(255, 196, 168, 0.95) !important;
+}
+
+.bl-ref-search-wrap .bl-campaign-seg[aria-expanded="true"] .bl-campaign-seg-chevron {
+  border-color: rgba(255, 196, 168, 0.85) !important;
+}
+
+/* Objective cards — readable selected state (white on orange tint) */
+.bl-ref-search-wrap .bl-campaign-obj-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.bl-ref-search-wrap .bl-campaign-obj-card strong,
+.bl-ref-search-wrap .bl-campaign-obj-card .bl-campaign-option-name {
+  color: rgba(255, 255, 255, 0.96) !important;
+}
+
+.bl-ref-search-wrap .bl-campaign-obj-card > span:not(.bl-campaign-picker-check),
+.bl-ref-search-wrap .bl-campaign-obj-card .bl-campaign-option-meta {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.bl-ref-search-wrap .bl-campaign-obj-card.is-on {
+  background: rgba(255, 74, 0, 0.18) !important;
+  border-color: rgba(255, 74, 0, 0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 74, 0, 0.15);
+}
+
+.bl-ref-search-wrap .bl-campaign-obj-card.is-on strong,
+.bl-ref-search-wrap .bl-campaign-obj-card.is-on .bl-campaign-option-name,
+.bl-ref-search-wrap .bl-campaign-obj-card.is-on > span:not(.bl-campaign-picker-check),
+.bl-ref-search-wrap .bl-campaign-obj-card.is-on .bl-campaign-option-meta {
+  color: #fff !important;
+}
+
+/* Opportunity cards — insights guide-list parity */
+.bl-opp-card.bl-opp-card-mock .bl-opp-add-mock[aria-pressed="true"],
+.bl-opp-card.bl-opp-card-mock .bl-opp-add-mock.is-added {
+  color: var(--navy) !important;
+  background: none !important;
+}
+
+/* FAQ — align with formats / pricing sections */
+.lo-faqs {
+  background: #fff;
+  padding: clamp(2.5rem, 4vw, 5rem) 0;
+  box-sizing: border-box;
+  border-top: 1px solid #edeff4;
+}
+
+.lo-faqs-inner {
+  max-width: none;
+  margin: 0;
+  padding: 0 max(1.5rem, calc(50% - 640px));
+}
+
+.lo-faqs-inner > .lo-simple-head {
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+#bl-faq-list .lo-faq-item {
+  border-bottom: 1px solid #dde2ea;
+  padding: 22px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#bl-faq-list .lo-faq-item.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lo-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #06182f;
+  background: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.lo-faq-q .lo-faq-plus {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: #ff4a00;
+  transition: transform 0.25s ease;
+  font-weight: 400;
+}
+
+#bl-faq-list .lo-faq-item.is-open .lo-faq-plus,
+#bl-matrix-body .bl-cat-block.is-open .lo-faq-plus {
+  transform: rotate(45deg);
+}
+
+.lo-faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+#bl-faq-list .lo-faq-item.is-open .lo-faq-a {
+  grid-template-rows: 1fr;
+}
+
+.lo-faq-a > p {
+  overflow: hidden;
+  margin: 14px 0 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #5a6472;
+}
+
+@media (max-width: 1023px) {
+  .lo-faqs {
+    padding: 4rem 0;
+  }
+
+  .lo-faqs-inner {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Plan summary — insights-hub white page */
+.bl-planner {
+  padding: 0;
+}
+
+.bl-plan-page {
+  display: none !important;
+}
+
+.bl-plan-page:has(.bl-results.is-active) {
+  display: none !important;
+}
+
+.bl-plan-page-inner {
+  max-width: 1140px;
+}
+
+.bl-planner-advanced {
+  padding: 32px 0 56px;
+}
+
+.bl-plan-page .bl-results {
+  display: none;
+  padding: 0;
+  background: #fff;
+}
+
+.bl-plan-page .bl-results.is-active {
+  display: block;
+}
+
+.bl-sum-head {
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.bl-sum-eyebrow {
+  margin-bottom: 12px;
+}
+
+/* Pricing matrix — insights/pricing page parity */
+.lo-pricing-section,
+.bl-matrix {
+  background: #fff;
+  padding: clamp(2.5rem, 4vw, 5rem) 0;
+  box-sizing: border-box;
+  border-top: 1px solid #edeff4;
+}
+
+.lo-pricing-inner {
+  max-width: none;
+  margin: 0;
+  padding: 0 max(1.5rem, calc(50% - 640px));
+}
+
+.lo-pricing-inner > .lo-simple-head {
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+#bl-matrix-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#bl-matrix-body .bl-cat-block {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  overflow: visible;
+  background: transparent;
+  border-bottom: 1px solid #dde2ea;
+  padding: 22px 0;
+  opacity: 1;
+  transform: none;
+}
+
+#bl-matrix-body .bl-cat-block.is-open {
+  padding-bottom: 18px;
+}
+
+#bl-matrix-body .bl-cat-head.lo-faq-q {
+  min-height: 44px;
+}
+
+#bl-matrix-body .bl-cat-name {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #06182f;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#bl-matrix-body .bl-cat-head:hover .bl-cat-name {
+  color: #ff4a00;
+}
+
+.bl-cat-head-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.bl-cat-count {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #5a6472;
+}
+
+#bl-matrix-body .bl-cat-body {
+  display: none;
+  border-top: 0;
+  margin-top: 18px;
+}
+
+#bl-matrix-body .bl-cat-block.is-open .bl-cat-body {
+  display: block;
+}
+
+#bl-matrix-body .bl-table-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #e4e8ef;
+  background: #fff;
+  box-shadow: 0 18px 46px rgba(19, 50, 92, 0.1);
+  max-width: 100%;
+}
+
+#bl-matrix-body .bl-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+@media (min-width: 1100px) {
+  #bl-matrix-body .bl-table-scroll {
+    overflow-x: hidden;
+  }
+
+  #bl-matrix-body table.bl-pricing-table {
+    min-width: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  #bl-matrix-body table.bl-pricing-table thead th,
+  #bl-matrix-body table.bl-pricing-table tbody td {
+    white-space: normal;
+  }
+}
+
+#bl-matrix-body table.bl-pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  min-width: 920px;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#bl-matrix-body table.bl-pricing-table thead th {
+  background: #13325c;
+  color: #fff;
+  text-align: left;
+  padding: 13px 16px;
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 0;
+}
+
+#bl-matrix-body table.bl-pricing-table thead th:last-child {
+  border-right: none;
+}
+
+#bl-matrix-body table.bl-pricing-table tbody td {
+  padding: 16px;
+  border-top: 1px solid #edeff4;
+  border-right: 1px solid #edeff4;
+  color: #13325c;
+  vertical-align: top;
+  background: #fff;
+}
+
+#bl-matrix-body table.bl-pricing-table tbody td:last-child {
+  border-right: none;
+}
+
+.bl-format-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: #13325c;
+  margin: 0 0 6px;
+}
+
+.bl-format-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #6b7a92;
+  margin: 0;
+}
+
+.bl-price-val {
+  font-weight: 900;
+  font-size: 14px;
+  color: #13325c;
+  margin: 0 0 4px;
+}
+
+.bl-price-sub {
+  font-size: 11.5px;
+  color: #8593a8;
+  margin: 0;
+}
+
+.bl-format-tag {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid #e4e8ef;
+  background: #f7f9fc;
+  color: #13325c;
+}
+
+.bl-format-tag--published {
+  border-color: rgba(254, 72, 27, 0.35);
+  background: rgba(254, 72, 27, 0.08);
+  color: #fe481b;
+}
+
+.bl-format-tag--planning {
+  border-color: rgba(19, 50, 92, 0.25);
+  background: rgba(19, 50, 92, 0.06);
+  color: #13325c;
+}
+
+@media (max-width: 1023px) {
+  .lo-pricing-section,
+  .bl-matrix {
+    padding: 4rem 0;
+  }
+
+  #bl-matrix-body table.bl-pricing-table {
+    min-width: 760px;
+    font-size: 13px;
+  }
+
+  #bl-matrix-body table.bl-pricing-table thead th {
+    padding: 11px 12px;
+    font-size: 9px;
+  }
+
+  #bl-matrix-body table.bl-pricing-table tbody td {
+    padding: 12px;
+  }
+}

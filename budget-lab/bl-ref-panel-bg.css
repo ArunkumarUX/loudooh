@@ -1,0 +1,50 @@
+/* RIGHT PANEL — pure white #FFFFFF (loads last, wins over everything) */
+
+.bl-ref-lab-wrap,
+.bl-ref-lab-wrap.is-explore,
+.bl-ref-lab-wrap > #lab,
+.bl-ref-lab-wrap > .bl-plan-builder,
+.bl-ref-lab-wrap > .bl-lab-widget,
+.bl-ref-lab-wrap > .bl-lab-widget-lux,
+.bl-ref-lab-wrap .bl-lab-results,
+.bl-ref-lab-wrap #hl-results,
+.bl-ref-lab-wrap #hl-explore,
+.bl-ref-lab-wrap .bl-lab-explore,
+.bl-ref-lab-wrap .bl-mock-results-sticky,
+.bl-ref-lab-wrap .bl-mock-forecast-card,
+.bl-ref-lab-wrap .bl-mock-results-head,
+.bl-ref-lab-wrap .bl-mock-campaign-stats,
+.bl-ref-lab-wrap .bl-lab-kpi-strip,
+.bl-ref-lab-wrap .bl-lab-explore-card,
+.bl-ref-lab-wrap #hl-explore-card,
+.bl-ref-lab-wrap .bl-lab-explore-split,
+.bl-ref-lab-wrap .bl-lab-explore-list-pane,
+.bl-ref-lab-wrap .bl-lab-explore-map-pane,
+.bl-ref-lab-wrap .bl-mock-opp-head,
+.bl-ref-lab-wrap .bl-explore-toolbar,
+.bl-ref-lab-wrap .bl-explore-section-head,
+.bl-ref-lab-wrap .bl-mock-filter-bar,
+.bl-ref-lab-wrap .bl-lab-opp-list {
+  background: #fff !important;
+  background-color: #fff !important;
+  background-image: none !important;
+}
+
+.bl-ref-lab-wrap > #lab.bl-lab-widget,
+.bl-ref-lab-wrap > #lab.bl-plan-builder,
+.bl-ref-lab-wrap > #lab.bl-lab-widget-lux,
+.bl-ref-lab-wrap > #lab.is-in,
+.bl-ref-lab-wrap > #lab.is-recalc {
+  background: #fff !important;
+  background-color: #fff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 1025px) {
+  .bl-ref-lab-wrap {
+    min-height: calc(100vh - 72px);
+    background: #fff !important;
+    background-color: #fff !important;
+  }
+}

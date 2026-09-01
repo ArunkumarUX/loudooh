@@ -1,0 +1,225 @@
+/* ==========================================================================
+   bl-panel.css — the plan summary, as a right-hand panel.
+   It slides in from the right, holds the whole plan and the email that goes
+   with it, and scrolls inside itself. On a desktop it deliberately does NOT
+   dim or block the page behind it: the controls are on the left, the plan is
+   on the right, so you can change the budget and watch the plan answer. On a
+   phone there is no room for both, so it covers the screen and takes a scrim.
+   ========================================================================== */
+
+.bl-drawer-scrim{
+  position:fixed;
+  inset:0;
+  z-index:1200;
+  background:rgba(14,30,60,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .24s ease;
+}
+.bl-drawer-scrim.is-open{ opacity:1; pointer-events:auto; }
+
+.bl-drawer{
+  --pan-navy:#0E1E3C;
+  --pan-orange:#FF4A00;
+  --pan-border:#e2e6ed;
+  --pan-face:#fff;
+  --pan-muted:#4d5969;
+  --pan-head-font:'Montserrat', system-ui, sans-serif;
+  --pan-body-font:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --pan-chrome:var(--lo-chrome-h, 72px);
+
+  position:fixed;
+  top:var(--pan-chrome);
+  right:0;
+  z-index:1210;
+  display:flex;
+  flex-direction:column;
+  width:min(760px, 46vw);
+  min-width:0;
+  height:calc(100vh - var(--pan-chrome));
+  height:calc(100dvh - var(--pan-chrome));
+  border-left:1px solid var(--pan-border);
+  background:var(--pan-face);
+  box-shadow:-18px 0 48px rgba(14,30,60,.16);
+  overflow:hidden;
+  font-family:var(--pan-body-font);
+
+  transform:translateX(100%);
+  transition:transform .26s cubic-bezier(.2,.7,.3,1);
+}
+.bl-drawer.is-open{ transform:none; }
+
+/* Hidden means hidden — [hidden] alone loses to display:flex. */
+.bl-drawer[hidden]{ display:none; }
+.bl-drawer-scrim[hidden]{ display:none; }
+
+@media (prefers-reduced-motion:reduce){
+  .bl-drawer{ transition:none; }
+  .bl-drawer-scrim{ transition:none; }
+}
+
+/* ---------- bar ---------- */
+.bl-drawer-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:nowrap;          /* one row, always — a wrapped bar reads as a bug */
+  padding:10px 14px;
+  border-bottom:1px solid var(--pan-border);
+  background:linear-gradient(180deg,#fff,#fbfcfd);
+}
+.bl-drawer-tabs{ display:flex; gap:4px; min-width:0; }
+.bl-drawer-tab{
+  appearance:none;
+  border:1px solid transparent;
+  background:none;
+  padding:9px 16px;
+  min-height:40px;
+  border-radius:999px;
+  cursor:pointer;
+  font-family:var(--pan-head-font);
+  font-weight:800;
+  font-size:.75rem;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  color:var(--pan-muted);
+  transition:background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.bl-drawer-tab:hover{ background:#f2f4f8; color:var(--pan-navy); }
+.bl-drawer-tab.is-on{
+  background:var(--pan-navy);
+  border-color:var(--pan-navy);
+  color:#fff;
+}
+.bl-drawer-tab:focus-visible{ outline:2px solid var(--pan-orange); outline-offset:2px; }
+
+.bl-drawer-acts{ display:flex; align-items:center; gap:12px; min-width:0; flex:0 1 auto; }
+.bl-drawer-tabs{ flex:0 0 auto; }
+.bl-drawer-meta{
+  font-size:.8125rem;
+  color:var(--pan-muted);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.bl-drawer-dl{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  min-height:40px;
+  padding:9px 16px;
+  border:1px solid var(--pan-border);
+  border-radius:999px;
+  background:#fff;
+  cursor:pointer;
+  font-family:var(--pan-body-font);
+  font-weight:600;
+  font-size:.875rem;
+  color:var(--pan-navy);
+  white-space:nowrap;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.bl-drawer-dl:hover{ border-color:var(--pan-navy); background:#f7f9fc; }
+.bl-drawer-dl:focus-visible{ outline:2px solid var(--pan-orange); outline-offset:2px; }
+.bl-drawer-dl i{ font-style:normal; color:var(--pan-orange); font-size:1rem; line-height:1; }
+
+.bl-drawer-close{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border:1px solid transparent;
+  border-radius:50%;
+  background:none;
+  cursor:pointer;
+  color:var(--pan-muted);
+  font-size:1.5rem;
+  line-height:1;
+  transition:background-color .15s ease, color .15s ease;
+}
+.bl-drawer-close:hover{ background:#f2f4f8; color:var(--pan-navy); }
+.bl-drawer-close:focus-visible{ outline:2px solid var(--pan-orange); outline-offset:2px; }
+.bl-drawer-close i{ font-style:normal; }
+
+/* ---------- body ---------- */
+.bl-drawer-body{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;   /* reading the plan never scrolls the page behind it */
+  padding:22px clamp(16px,2.4vw,28px) 28px;
+  scroll-behavior:smooth;
+}
+/* The panel takes focus when it opens so the keyboard lands inside it, but a
+   ring around a whole 700px surface is noise — the controls inside show their
+   own. The scrolling pane keeps its ring only when tabbed to directly. */
+.bl-drawer:focus{ outline:none; }
+.bl-drawer-body:focus{ outline:none; }
+.bl-drawer-body:focus-visible{ outline:2px solid var(--pan-orange); outline-offset:-2px; }
+
+/* a scrollbar you can see, so it is obvious there is more below */
+.bl-drawer-body{ scrollbar-width:thin; scrollbar-color:#c9d0da transparent; }
+.bl-drawer-body::-webkit-scrollbar{ width:10px; }
+.bl-drawer-body::-webkit-scrollbar-thumb{
+  background:#c9d0da; border-radius:999px; border:3px solid #fff;
+}
+.bl-drawer-body::-webkit-scrollbar-thumb:hover{ background:#a9b3c1; }
+
+/* the summary no longer needs its own page-level top edge inside the panel */
+.bl-drawer .bl-results{ padding-top:0; }
+
+@media (max-width:1200px){
+  .bl-drawer{ width:min(680px, 62vw); }
+}
+@media (max-width:900px){
+  /* No room for controls and plan side by side: the panel takes the screen. */
+  .bl-drawer{
+    width:100vw;
+    top:0;
+    height:100vh;
+    height:100dvh;
+    border-left:0;
+  }
+  .bl-drawer-bar{ padding:10px 12px; }
+  .bl-drawer-meta{ display:none; }
+}
+@media (max-width:600px){
+  .bl-drawer-tab{ padding:9px 13px; }
+  .bl-drawer-dl{ padding:9px 13px; }
+  .bl-drawer-dl span{ display:none; }
+  .bl-drawer-body{ padding:18px 14px 24px; }
+}
+
+/* Reduced motion: no smooth scroll inside the panel either. */
+@media (prefers-reduced-motion:reduce){
+  .bl-drawer-body{ scroll-behavior:auto; }
+}
+
+/* While the panel covers a small screen, the page behind it must not scroll. */
+body.bl-drawer-open{ overflow:hidden; }
+
+/* --------------------------------------------------------------------------
+   The bar has to hold four controls at 320px. The close button is the one
+   that must never be pushed off the edge, so below 480 the download drops to
+   its icon (it keeps its aria-label) and the meta line steps out.
+   -------------------------------------------------------------------------- */
+@media (max-width:480px){
+  .bl-drawer-bar{ gap:8px; padding:8px 10px; }
+  .bl-drawer-meta{ display:none; }
+  .bl-drawer-dl span{ display:none; }
+  .bl-drawer-dl{
+    width:44px;
+    padding:0;
+    justify-content:center;
+  }
+  .bl-drawer-tab{ padding:9px 14px; font-size:.6875rem; }
+  .bl-drawer-close{ flex:0 0 auto; }
+}
+@media (max-width:360px){
+  .bl-drawer-tab{ padding:9px 11px; }
+}

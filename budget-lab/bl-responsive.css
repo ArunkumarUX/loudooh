@@ -1,0 +1,344 @@
+/* ==========================================================================
+   bl-responsive.css — loaded LAST so it settles the cascade.
+   --------------------------------------------------------------------------
+   The explore card (list + map) had no mobile layout: its split stayed two
+   470px columns at every width, so the card measured 982px on a 375px phone
+   and pushed the whole document sideways. Everything else that "overflowed"
+   — the fixed nav, the report overlay — was only sizing to that widened
+   document, not broken itself.
+   ========================================================================== */
+
+/* ---------- 1. let grid and flex items actually shrink ----------
+   min-width:auto is the default on a grid/flex item and refuses to go below
+   the content's min-content width, which is what pinned the card open. */
+.bl-lab-explore-card,
+.bl-lab-explore-split,
+.bl-lab-explore-list-pane,
+.bl-lab-explore-map-pane,
+.bl-lab-explore,
+.bl-ref-lab-wrap,
+.bl-plan-builder {
+  min-width: 0;
+}
+
+/* ---------- 1b. the actual root cause ----------
+   #hl-explore is a column flex container with align-items:start, so its
+   children are sized to max-content rather than to the container. That is
+   what made the explore card 982px wide inside a 319px parent and pushed the
+   whole document sideways on every phone and tablet. */
+.bl-lab-explore > *,
+#hl-explore > * {
+  align-self: stretch;
+  max-width: 100%;
+}
+.bl-lab-explore-card,
+#hl-explore-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ---------- 2. tablet and below: stack the list over the map ---------- */
+@media (max-width: 900px) {
+  .bl-lab-explore-split,
+  .bl-ref-lab-wrap .bl-lab-explore-split,
+  .bl-lab-explore-card .bl-lab-explore-split {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    gap: 14px !important;
+    overflow: visible !important;
+  }
+  .bl-ref-lab-wrap .bl-lab-explore-list-pane,
+  .bl-ref-lab-wrap .bl-lab-explore-map-pane,
+  .bl-lab-explore-list-pane,
+  .bl-lab-explore-map-pane {
+    height: auto !important;
+    max-height: none !important;
+  }
+  /* the map still needs a definite height or Leaflet collapses to nothing */
+  .bl-lab-explore-map-pane { min-height: 340px !important; }
+  #hl-map-canvas, .bl-lab-map-canvas { min-height: 340px !important; }
+  /* the opportunity list scrolls inside itself rather than running forever */
+  .bl-lab-opp-list-lux,
+  .bl-lab-explore-card .bl-lab-opp-list-lux {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---------- 3. phones ---------- */
+@media (max-width: 640px) {
+  .bl-lab-explore-map-pane, #hl-map-canvas, .bl-lab-map-canvas { min-height: 280px !important; }
+  .bl-explore-section-head { flex-wrap: wrap; gap: 6px; }
+  .bl-mock-results-title { font-size: clamp(19px, 5.2vw, 24px); }
+  /* filter chips and the sort control scroll horizontally instead of wrapping
+     into a tall stack — the row is the one place sideways scroll is right */
+  .bl-explore-filters, .bl-lab-opp-filters {
+    display: flex; flex-wrap: nowrap;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .bl-explore-filters::-webkit-scrollbar,
+  .bl-lab-opp-filters::-webkit-scrollbar { display: none; }
+  .bl-explore-filters > *, .bl-lab-opp-filters > * { flex: 0 0 auto; }
+}
+
+/* ---------- 4. touch targets ----------
+   Footer and nav links were 22px tall; the WCAG 2.2 minimum is 24px and the
+   comfortable target is 44px. */
+@media (pointer: coarse) {
+  .lo-footer-col a,
+  .lo-amenu-dd-item,
+  .bl-opp-add, .bl-opp-bookmark {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  /* the budget slider's hit area — the track is deliberately thin, so grow
+     the invisible target rather than the visual */
+  #hl-budget { padding: 14px 0; background-clip: content-box; }
+  #hl-budget::-webkit-slider-thumb { width: 26px; height: 26px; }
+  #hl-budget::-moz-range-thumb { width: 26px; height: 26px; }
+}
+
+/* ---------- 5. wide content never scrolls the page sideways ---------- */
+.bl-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- 6. very large screens: stop the plan sprawling ---------- */
+@media (min-width: 1800px) {
+  .bl-plan-page-inner, .bl-sum-head, .bl-results { max-width: 1280px; margin-inline: auto; }
+}
+
+/* ---------- 7. the last two overflow sources ---------- */
+
+/* The pricing matrix table scrolls inside its card — not the whole section. */
+.bl-table-scroll,
+.bl-matrix-body {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#bl-matrix-body,
+.bl-cat-body,
+.lo-pricing-inner,
+.bl-matrix {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.bl-table-scroll > table { min-width: 640px; }
+
+/* A single hint line under the map was set not to wrap, so it ran 593px wide. */
+.bl-lab-explore-foot-hint,
+#hl-map-insight-body,
+#hl-map-insight-title {
+  white-space: normal !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 8. comfortable targets in the shared chrome ----------
+   Nav and footer links were 14–22px tall; 44px is the comfortable minimum on
+   touch. Applies only to coarse pointers, so the desktop layout is untouched. */
+@media (pointer: coarse) {
+  .lo-footer a,
+  .lo-amenu-link,
+  .lo-amenu-dd-item,
+  .lo-footer-bottom a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ---------- 9. the actual source of the phone overflow ----------
+   #hl-campaign-bar keeps its horizontal desktop toolbar layout on narrow
+   screens, so its accordion fields sum to 445px inside a 351px rail and push
+   the document out. Everything that appeared to overflow above this — the
+   fixed nav, the mobile menu, the report overlay — was only sizing to the
+   widened canvas. Stack the fields and the rest resolves. */
+@media (max-width: 1024px) {
+  .bl-sidebar-settings-fields,
+  .bl-campaign-bar,
+  #hl-campaign-bar,
+  .bl-campaign-bar-shell,
+  #hl-campaign-shell {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+  .bl-campaign-accordion-item,
+  .bl-sidebar-field,
+  .bl-campaign-seg,
+  .bl-campaign-seg--field {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  /* nothing in the rail may exceed it */
+  .bl-ref-search-wrap,
+  .bl-campaign-control,
+  #hl-campaign-control,
+  .bl-sidebar-settings { max-width: 100% !important; min-width: 0 !important; }
+}
+
+/* ---------- 10. chip rows scroll sideways instead of widening the page ----
+   A row of filter chips or sheet tabs is the one place horizontal scroll is
+   the right answer — wrapping them into a tall stack pushes the content the
+   user came for off the screen. */
+@media (max-width: 1024px) {
+  .bl-filter-bar, #hl-filter-bar,
+  .bl-filter-chips, #hl-filter-chips,
+  .bl-campaign-sheet-tabs, #hl-sheet-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .bl-filter-bar::-webkit-scrollbar,
+  .bl-filter-chips::-webkit-scrollbar,
+  .bl-campaign-sheet-tabs::-webkit-scrollbar { display: none; }
+  .bl-filter-chip, .bl-campaign-sheet-tab, .bl-filter-divider { flex: 0 0 auto; }
+}
+
+/* ---------- 11. the remaining small targets on touch ----------
+   WCAG 2.2 AA asks for 24px minimum; 44px is the comfortable size. These were
+   9px (a social icon whose label is a single character), 16px (the pre-booking
+   checkboxes) and 21px (FAQ question rows). */
+@media (pointer: coarse) {
+  .lo-footer-socials a {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* grow the checkbox's hit area without inflating the tick itself */
+  .bl-act-check input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+  }
+  .bl-act-check input[type="checkbox"]:checked::after {
+    width: 6px;
+    height: 11px;
+    margin: 2px 0 0 7px;
+  }
+}
+
+/* ---------- 12. last two ----------
+   The social icon link is a single character, so it needs a width floor at
+   every pointer type, not just touch. The Loud AI footer's "Advanced settings"
+   is a 12px text button. */
+.lo-footer-socials a {
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.bl-lab-ai-fine-tune, #hl-fine-tune {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+@media (pointer: coarse) {
+  .bl-lab-ai-fine-tune, #hl-fine-tune { min-height: 44px; }
+}
+
+/* ---------- 13. breadcrumb links ----------
+   Bare <a> elements in the breadcrumb were 14px tall. */
+.lo-breadcrumb-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+@media (pointer: coarse) {
+  .lo-breadcrumb-list a { min-height: 44px; }
+}
+
+/* Footer link rows were 20px on desktop; 24px is the WCAG 2.2 AA floor. */
+.lo-footer-col a, .lo-footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* FAQ question rows were 21px at every pointer type. */
+.lo-faq-q, .bl-faq-q, summary.lo-faq-q {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+}
+@media (pointer: coarse) {
+  .lo-faq-q, .bl-faq-q, summary.lo-faq-q { min-height: 44px; }
+}
+
+/* Budget preset chips (£5K … £100K+) were 23px on desktop. */
+.bl-campaign-preset { min-height: 24px; }
+@media (pointer: coarse) { .bl-campaign-preset { min-height: 40px; } }
+
+
+/* ---------- 14. the plan's own top edge on a phone ----------
+   The collapsed campaign control (the Budget / Duration / Location chips) is
+   drawn over the top of the page in explore mode and overlaps the first ~70px
+   of the plan, which is exactly where the verdict headline sits. Give the plan
+   a top edge of its own on small screens so its opening line is never read
+   through a control bar. */
+@media (max-width:1024px){
+  .bl-results{ padding-top:96px; }
+}
+
+.bl-ref-lab-wrap .bl-mock-forecast-card,
+.bl-ref-lab-wrap .bl-mock-metrics-deck {
+  background: #fff !important;
+  background-color: #fff !important;
+}
+
+.bl-ref-lab-wrap .bl-mock-forecast-card .bl-mock-metrics-deck,
+.bl-ref-lab-wrap .bl-mock-forecast-card .bl-lab-kpi-strip,
+.bl-ref-lab-wrap .bl-mock-forecast-card .bl-mock-campaign-stats {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.bl-mock-metrics-deck .bl-mock-delta-up {
+  color: #156b34 !important;
+  background: #e8f5ec !important;
+}
+
+@media (max-width: 720px) {
+  .bl-mock-forecast-card,
+  .bl-mock-metrics-deck {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .bl-mock-forecast-card .bl-mock-metrics-deck {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .bl-mock-results-head--forecast {
+    margin-bottom: 12px;
+  }
+}

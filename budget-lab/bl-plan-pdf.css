@@ -1,0 +1,319 @@
+/* ==========================================================================
+   bl-plan-pdf.css — the plan, on paper.
+   ------------------------------------------------------------------
+   The PDF used to be the screen with the furniture switched off: it opened
+   cold on the verdict box with no title, left a half-empty page wherever a
+   card would not fit, split the totals table across a page break, and printed
+   the on-screen controls — "See the effect before it changes anything",
+   empty checkboxes, Apply/Cancel — none of which mean anything on paper.
+
+   This makes it a document: a cover with the brand and the headline figures,
+   the plan in its own visual language (navy, orange, Montserrat, the same
+   cards and price rows), pagination that keeps a card whole and never leaves
+   a heading stranded at the foot of a page, and the email as an appendix.
+   ========================================================================== */
+
+/* These blocks exist only for the printed document. Scoped to screen so the
+   print rules below are not overridden by a later declaration of equal weight
+   — which is exactly why the cover page failed to appear the first time. */
+@media screen {
+  #bl-plan-cover, #bl-plan-appendix, #bl-plan-footline{ display: none !important; }
+}
+
+@media print {
+
+  /* ---------- page ---------- */
+  @page {
+    size: A4;
+    margin: 16mm 14mm 18mm;
+  }
+
+  html, body{
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;         /* navy and orange are the brand, not decoration */
+  }
+
+  body.bl-printing{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    color: #16233a;
+  }
+
+  /* ---------- what prints ---------- */
+  /* The three printed blocks are appended in place — the DOM is never
+     reordered — so the reading order is set here instead: cover, plan, email.
+     Nothing about this can outlive the print. */
+  body.bl-printing{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  body.bl-printing > *{ display: none !important; }
+  body.bl-printing #bl-plan-cover,
+  body.bl-printing #bl-plan-drawer-root,
+  body.bl-printing #bl-plan-appendix{ display: block !important; }
+  body.bl-printing #bl-plan-cover{ order: 1; }
+  body.bl-printing #bl-plan-drawer-root{ order: 2; }
+  body.bl-printing #bl-plan-appendix{ order: 3; }
+
+  body.bl-printing #bl-plan-drawer-root,
+  body.bl-printing #bl-plan-drawer{
+    position: static !important;
+    visibility: visible !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+  }
+  body.bl-printing .bl-plan-drawer-head,
+  body.bl-printing .bl-plan-drawer-foot,
+  body.bl-printing #bl-plan-drawer-backdrop,
+  body.bl-printing #bl-plan-drawer-stage-email,
+  body.bl-printing .bl-drawer-bar,
+  body.bl-printing .bl-drawer-scrim{ display: none !important; }
+
+  body.bl-printing .bl-plan-drawer-body,
+  body.bl-printing .bl-drawer-body,
+  body.bl-printing #bl-plan-drawer-stage-review{
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  /* The cover already carries the verdict, the title and the headline figures.
+     Printing them again at the top of page two is the same duplication the
+     screen had before the summary was pulled into one place. */
+  body.bl-printing #bl-ai-verdict,
+  body.bl-printing .bl-ai,
+  body.bl-printing .bl-sum-head,
+  body.bl-printing .bl-sum-stats{ display: none !important; }
+
+  /* Screen controls are not document content. */
+  body.bl-printing button,
+  body.bl-printing .bl-act-foot,
+  body.bl-printing .bl-act-prev,
+  body.bl-printing .bl-sum-alt,
+  body.bl-printing .bl-rev,
+  body.bl-printing .bl-sum-foot,
+  body.bl-printing .bl-sum-send,
+  body.bl-printing input[type="checkbox"]{ display: none !important; }
+
+  /* the checklist keeps its content, loses its form controls */
+  body.bl-printing .bl-act-check li{
+    padding-left: 12px;
+    border-left: 2px solid #ff4a00;
+    margin-bottom: 7px;
+  }
+  body.bl-printing .bl-act-check label{ display: block; }
+  body.bl-printing .bl-act-check label b{ display: block; margin-bottom: 1px; }
+
+  /* ---------- cover ---------- */
+  #bl-plan-cover{ break-after: page; page-break-after: always; }
+
+  .bl-pdf-brandbar{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid #ff4a00;
+    padding-bottom: 6px;
+    margin-bottom: 26px;
+  }
+  .bl-pdf-brand{
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 12pt;
+    letter-spacing: .02em;
+    color: #0E1E3C;
+    text-transform: uppercase;
+  }
+  .bl-pdf-brand em{ font-style: normal; color: #ff4a00; }
+  .bl-pdf-brandmeta{ font-size: 8pt; color: #5b6678; }
+
+  .bl-pdf-eyebrow{
+    margin: 0 0 8px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 8pt;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #ff4a00;
+  }
+  .bl-pdf-title{
+    margin: 0 0 10px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 26pt;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #0E1E3C;
+  }
+  .bl-pdf-sub{
+    margin: 0 0 26px;
+    font-size: 10pt;
+    color: #4d5969;
+  }
+
+  /* headline figures, in the plan's own tile language */
+  .bl-pdf-figures{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0 0 26px;
+  }
+  .bl-pdf-fig{
+    border: 1px solid #dfe4ec;
+    border-radius: 8px;
+    padding: 12px 14px;
+    break-inside: avoid;
+  }
+  .bl-pdf-fig b{
+    display: block;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 17pt;
+    line-height: 1.1;
+    color: #0E1E3C;
+    font-variant-numeric: tabular-nums;
+  }
+  .bl-pdf-fig.is-lead b{ color: #ff4a00; }
+  .bl-pdf-fig span{
+    display: block;
+    margin-top: 4px;
+    font-size: 7.5pt;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #6b7789;
+  }
+  .bl-pdf-fig i{ display:block; margin-top:3px; font-style:normal; font-size:8pt; color:#4d5969; }
+
+  .bl-pdf-verdict{
+    background: #0E1E3C;
+    color: #fff;
+    border-left: 4px solid #ff4a00;
+    padding: 16px 18px;
+    margin: 0 0 22px;
+    break-inside: avoid;
+  }
+  .bl-pdf-verdict p:first-child{
+    margin: 0 0 6px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 8pt;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #ff7a45;
+  }
+  .bl-pdf-verdict h2{
+    margin: 0 0 6px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13pt;
+    font-weight: 800;
+    color: #fff;
+  }
+  .bl-pdf-verdict p:last-child{ margin: 0; font-size: 9.5pt; color: #d7dEEA; }
+
+  .bl-pdf-note{
+    font-size: 8.5pt;
+    color: #6b7789;
+    border-top: 1px solid #e6eaf0;
+    padding-top: 10px;
+  }
+
+  /* ---------- the plan body ---------- */
+  /* A card is a unit of meaning: never split one across a page. */
+  body.bl-printing .bl-sum-format,
+  body.bl-printing .bl-act-card,
+  body.bl-printing .bl-sum-stat,
+  body.bl-printing .bl-sum-quote,
+  body.bl-printing .bl-sum-totals,
+  body.bl-printing .bl-sum-impacts,
+  body.bl-printing .bl-mix-row,
+  body.bl-printing .bl-sum-mix,
+  body.bl-printing .bl-sum-rows,
+  body.bl-printing .bl-sum-cpm,
+  body.bl-printing .bl-sum-alt-card,
+  body.bl-printing .bl-exclusion-list > *,
+  body.bl-printing .bl-act-check li,
+  body.bl-printing table{
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* A heading never sits alone at the foot of a page. */
+  body.bl-printing .bl-sum-section-head,
+  body.bl-printing .bl-sum-section-title,
+  body.bl-printing h2, body.bl-printing h3, body.bl-printing h4{
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Sections start clean but do not each demand a fresh page. */
+  body.bl-printing .bl-sum-section{
+    break-inside: auto;
+    margin: 0 0 18px;
+    padding-top: 14px;
+  }
+
+  /* The stat tiles used to be re-laid-out for print; they are now on the
+     cover instead, so the rule that fought the hide above is gone. */
+
+  /* The format cards read better as one column on paper than two cramped ones. */
+  body.bl-printing .bl-sum-formats{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  body.bl-printing .bl-results,
+  body.bl-printing .bl-sum-head{ padding: 0 !important; }
+
+  /* soften the screen's shadows into something a printer can render */
+  body.bl-printing [class*="bl-sum-"],
+  body.bl-printing [class*="bl-act-"]{ box-shadow: none !important; }
+
+  /* ---------- appendix: the email ---------- */
+  #bl-plan-appendix{
+    break-before: page;
+    page-break-before: always;
+    padding-top: 4mm;
+  }
+  .bl-pdf-h{
+    margin: 0 0 10px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    color: #0E1E3C;
+    border-bottom: 2px solid #ff4a00;
+    padding-bottom: 6px;
+  }
+  .bl-pdf-subject{ margin: 0 0 12px; font-size: 9.5pt; }
+  .bl-pdf-mail{
+    margin: 0;
+    padding: 14px 16px;
+    border: 1px solid #dfe4ec;
+    border-radius: 8px;
+    background: #fafbfc;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 8pt;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* No running foot: Chrome positions a fixed element against the page box,
+     not the margin box, so it printed on top of the first card on every page.
+     The browser's own print header already carries the date. */
+  #bl-plan-footline{ display: none !important; }
+}
+

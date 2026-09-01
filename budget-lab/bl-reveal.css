@@ -1,0 +1,154 @@
+/* ==========================================================================
+   bl-reveal.css — the plan arriving.
+   A build log above the plan and a short stagger on the plan's own blocks.
+   No overlay, no scrim, no spinner: nothing here covers the page, so if the
+   script never runs or the motion is switched off, the plan is simply there.
+   ========================================================================== */
+
+.bl-rev{
+  /* It is a scroll target in its own right. On a phone the campaign sheet's
+     collapsed tab bar sits over the top of the page and is not counted by
+     --lo-chrome-h, so the allowance there is measured from the design, not
+     from the variable. */
+  scroll-margin-top:calc(var(--lo-chrome-h, 0px) + 20px);
+  margin:0 0 22px;
+  padding:18px 20px 14px;
+  border:1px solid var(--sum-border,#e2e6ed);
+  border-radius:var(--sum-radius,12px);
+  background:var(--sum-face,#fff);
+  box-shadow:var(--sum-shadow,0 1px 3px rgba(14,30,60,.06));
+  transform-origin:top center;
+  animation:bl-rev-log-in .28s cubic-bezier(.2,.7,.3,1) both;
+}
+.bl-rev.is-leaving{
+  animation:bl-rev-log-out .24s cubic-bezier(.4,0,1,1) both;
+  pointer-events:none;
+}
+
+.bl-rev-mark{
+  margin:0 0 12px;
+  font-family:var(--sum-head-font,'Montserrat',system-ui,sans-serif);
+  font-weight:900;
+  font-size:.75rem;
+  letter-spacing:var(--track-label,.045em);
+  text-transform:uppercase;
+  color:var(--sum-orange,#FF4A00);
+}
+.bl-rev-mark.is-done{ color:var(--sum-navy,#0E1E3C); }
+
+.bl-rev-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:6px;
+}
+.bl-rev-step{
+  display:grid;
+  grid-template-columns:16px 1fr auto;
+  align-items:baseline;
+  gap:10px;
+  min-width:0;
+  font-size:.875rem;
+  line-height:1.45;
+  color:var(--sum-soft,#6b7789);
+  opacity:.45;
+  transition:opacity .18s ease, color .18s ease;
+}
+.bl-rev-step.is-done{
+  opacity:1;
+  color:var(--sum-muted,#4d5969);
+}
+.bl-rev-tick{
+  position:relative;
+  align-self:center;
+  width:14px;
+  height:14px;
+  border:1.5px solid var(--sum-border,#e2e6ed);
+  border-radius:50%;
+  transition:border-color .18s ease, background-color .18s ease;
+}
+.bl-rev-step.is-done .bl-rev-tick{
+  border-color:var(--sum-orange,#FF4A00);
+  background:var(--sum-orange,#FF4A00);
+}
+.bl-rev-step.is-done .bl-rev-tick::after{
+  content:"";
+  position:absolute;
+  left:4px; top:1.5px;
+  width:3px; height:7px;
+  border:solid #fff;
+  border-width:0 1.5px 1.5px 0;
+  transform:rotate(45deg);
+}
+.bl-rev-label{ min-width:0; }
+.bl-rev-value{
+  font-weight:600;
+  color:var(--sum-navy,#0E1E3C);
+  font-variant-numeric:tabular-nums;
+  opacity:0;
+  transform:translateY(2px);
+  transition:opacity .2s ease, transform .2s ease;
+}
+.bl-rev-step.is-done .bl-rev-value{ opacity:1; transform:none; }
+
+.bl-rev-rule{
+  margin:14px 0 0;
+  height:2px;
+  border-radius:2px;
+  background:var(--sum-border,#e2e6ed);
+  overflow:hidden;
+}
+.bl-rev-rule > span{
+  display:block;
+  width:0;
+  height:100%;
+  background:var(--sum-orange,#FF4A00);
+  transition:width .16s linear;
+}
+
+/* Keep the browser from helpfully scrolling the log off the top when it is
+   inserted above content the reader is already looking at. */
+.bl-results.is-revealing{ overflow-anchor:none; }
+
+/* ---------- the plan's own blocks arriving ---------- */
+.bl-results.is-revealing > *:not(.bl-rev){
+  animation:bl-rev-block-in .4s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay:calc(var(--bl-rev-i, 0) * 70ms);
+}
+
+@keyframes bl-rev-log-in{
+  from{ opacity:0; transform:translateY(-6px); }
+  to  { opacity:1; transform:none; }
+}
+@keyframes bl-rev-log-out{
+  from{ opacity:1; transform:none; max-height:400px; }
+  to  { opacity:0; transform:translateY(-8px); max-height:0; margin-bottom:0;
+        padding-top:0; padding-bottom:0; border-width:0; }
+}
+@keyframes bl-rev-block-in{
+  from{ opacity:0; transform:translateY(10px); }
+  to  { opacity:1; transform:none; }
+}
+
+@media (max-width:600px){
+  .bl-rev{ padding:16px 16px 12px; }
+  .bl-rev-step{
+    grid-template-columns:16px 1fr;
+    row-gap:1px;
+    font-size:.8125rem;
+  }
+  .bl-rev-value{ grid-column:2; }
+}
+
+/* The reader asked for less motion: nothing moves, nothing is hidden, and the
+   script does not run this at all — this is the belt to that braces. */
+@media (prefers-reduced-motion:reduce){
+  .bl-rev,
+  .bl-rev.is-leaving,
+  .bl-results.is-revealing > *:not(.bl-rev){
+    animation:none !important;
+  }
+  .bl-rev-step,
+  .bl-rev-value{ opacity:1; transform:none; transition:none; }
+}

@@ -12,7 +12,7 @@
   --ink:#121826;
   --muted:#6B7785;
   --line:#E6EAF0;
-  --bg:#F6F8FB;
+  --bg:#EDEBE8;
   --sand:#F2EFEB;
   --white:#fff;
   --chip:#FFEFE6;
@@ -36,7 +36,7 @@ button{font-family:inherit}
   html{scroll-behavior:auto}
 }
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:background .2s ease,transform .18s ease,box-shadow .2s ease,color .2s ease;line-height:1.2}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:0;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:background .2s ease,transform .18s ease,box-shadow .2s ease,color .2s ease;line-height:1.2}
 .btn-primary{background:var(--orange);color:#fff}
 .btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(255,74,0,.45)}
 .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
@@ -60,7 +60,7 @@ button{font-family:inherit}
 @media (max-width:820px){.bl-nav-links a:not(.bl-nav-cta):not(.bl-nav-home){display:none}}
 
 /* ===== Hero (navy) ===== */
-.bl-hero{position:relative;padding:84px 0 110px;overflow:hidden;background:var(--navy)}
+.bl-hero{position:relative;padding:48px 0 110px;overflow:hidden;background:var(--navy)}
 .bl-hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(760px 480px at 78% 8%,rgba(255,74,0,.24),transparent 62%),
   radial-gradient(520px 380px at 8% 108%,rgba(255,74,0,.12),transparent 60%);pointer-events:none}
@@ -76,7 +76,7 @@ button{font-family:inherit}
 .bl-hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .bl-hero-note{margin:16px 0 0;font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.02em}
 .bl-hero-note i{font-style:normal;margin:0 7px;color:rgba(255,255,255,.3)}
-@media (max-width:980px){.bl-hero-grid{grid-template-columns:1fr;gap:44px}.bl-hero{padding:60px 0 70px}}
+@media (max-width:980px){.bl-hero-grid{grid-template-columns:1fr;gap:44px}.bl-hero{padding:36px 0 70px}}
 
 /* ===== Hero calculator card (white) ===== */
 .bl-lab{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 50px 120px -40px rgba(4,12,26,.65)}
@@ -254,7 +254,7 @@ button{font-family:inherit}
 
 .bl-panel-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 30px;border-top:1px solid var(--line);background:var(--bg)}
 .bl-panel-nav[hidden]{display:none}
-.bl-btn{padding:13px 24px;border-radius:10px;border:none;font-weight:700;font-size:14.5px;cursor:pointer;transition:all .18s ease}
+.bl-btn{padding:13px 24px;border-radius:0;border:none;font-weight:700;font-size:14.5px;cursor:pointer;transition:all .18s ease}
 .bl-btn-primary{background:var(--orange);color:#fff}
 .bl-btn-primary:hover{background:var(--orange-hover);transform:translateY(-1px)}
 .bl-btn-primary:disabled{background:#F0D2C4;cursor:not-allowed}
@@ -359,3 +359,51 @@ table.bl-table td small{display:block;color:var(--muted);font-weight:500;margin-
 .bl-foot a{color:rgba(255,255,255,.85);text-decoration:none}
 .bl-foot a:hover{color:var(--orange)}
 .bl-updated{font-size:12px;color:rgba(255,255,255,.4)}
+
+#planner,#formats,#top{scroll-margin-top:88px}
+
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#loud-ai{scroll-margin-top:88px}
+
+.bl-ai-brief{padding:28px 30px 24px;background:#0A1F3D;color:#fff}
+.bl-ai-brief-copy{max-width:38rem;margin:0 0 18px}
+.bl-ai-mark{margin:0 0 8px;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#FF4A00}
+.bl-ai-brief h3{color:#fff;font-size:clamp(1.2rem,2.2vw,1.55rem);margin:0 0 8px;letter-spacing:-.02em}
+.bl-ai-brief-copy p{margin:0;color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.55}
+.bl-ai-brief-form{display:flex;gap:10px;align-items:stretch}
+.bl-ai-brief-form input{flex:1;min-width:0;padding:14px 16px;border:0;background:#fff;color:#0A1F3D;font-size:15px;font-weight:600}
+.bl-ai-brief-form input::placeholder{color:#5C6B7A}
+.bl-ai-brief-form input:focus{outline:2px solid #FF4A00;outline-offset:2px}
+.bl-ai-brief-form .bl-btn{flex:0 0 auto;white-space:nowrap}
+.bl-ai-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.bl-ai-chips button{padding:8px 14px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;font-size:12.5px;font-weight:700;cursor:pointer}
+.bl-ai-chips button:hover,.bl-ai-chips button:focus-visible{border-color:#FF4A00;color:#FF4A00;outline:none}
+.bl-ai-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.bl-ai-tags span{padding:5px 10px;background:#FF4A00;color:#fff;font-size:12px;font-weight:700}
+.bl-ai-error{margin:10px 0 0;font-size:13px;color:#FFB4A0}
+.bl-ai-error[hidden],.bl-ai-done[hidden],.bl-ai-tags[hidden]{display:none}
+
+.bl-ai{border-bottom:1px solid var(--line)}
+.bl-ai-verdict{padding:26px 30px;background:#0A1F3D;color:#fff}
+.bl-ai-verdict h3{color:#fff;font-size:clamp(1.15rem,2vw,1.45rem);margin:0 0 10px}
+.bl-ai-body{margin:0 0 18px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.82);max-width:40rem}
+.bl-ai-prompt{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#FF4A00}
+.bl-ai-moves{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.bl-ai-move{padding:9px 14px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.bl-ai-move:hover,.bl-ai-move:focus-visible{border-color:#FF4A00;color:#FF4A00;outline:none}
+.bl-ai-lead-row{display:grid;grid-template-columns:1.2fr .8fr;gap:10px;margin:0 0 12px}
+.bl-ai-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.bl-ai-field span{font-size:12px;font-weight:700;color:rgba(255,255,255,.7)}
+.bl-ai-field input{padding:12px 14px;border:0;background:#fff;color:#0A1F3D;font-size:14.5px;font-weight:600}
+.bl-ai-field input:focus{outline:2px solid #FF4A00;outline-offset:2px}
+.bl-ai-note,.bl-ai-done{margin:12px 0 0;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
+.bl-ai-done{color:#fff}
+@media (max-width:700px){
+  .bl-ai-brief-form{flex-direction:column}
+  .bl-ai-lead-row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .bl-ai-move,.bl-ai-chips button{transition:none}
+}
+
+#planner,#formats,#top{scroll-margin-top:88px}

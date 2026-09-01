@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 32" width="110" height="32">
+  <path d="M2 20 L9 6 L16 20 L23 6 L30 20 L37 6 L44 20" fill="none" stroke="#e10600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="23" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#f5f5f7">The Drum</text>
+</svg>

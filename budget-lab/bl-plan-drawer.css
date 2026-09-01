@@ -1,0 +1,477 @@
+/* Right-side full plan preview drawer */
+.bl-plan-drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.bl-plan-drawer-root.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.bl-plan-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 31, 61, 0.42);
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+
+.bl-plan-drawer-root.is-open .bl-plan-drawer-backdrop {
+  opacity: 1;
+}
+
+.bl-plan-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(68vw, 920px);
+  min-width: min(100%, 360px);
+  background: #fff;
+  box-shadow: -24px 0 64px -24px rgba(10, 31, 61, 0.35);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(102%);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bl-plan-drawer-root.is-open .bl-plan-drawer {
+  transform: translateX(0);
+}
+
+.bl-plan-drawer-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid rgba(10, 31, 61, 0.08);
+  background: #fff;
+}
+
+.bl-plan-drawer-eyebrow {
+  margin: 0 0 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #6b7280);
+}
+
+.bl-plan-drawer-head h2 {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 800;
+  color: var(--navy, #0a1f3d);
+  letter-spacing: -0.02em;
+}
+
+.bl-plan-drawer-sub {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted, #6b7280);
+}
+
+.bl-plan-drawer-close {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(10, 31, 61, 0.06);
+  color: var(--navy, #0a1f3d);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bl-plan-drawer-close:hover {
+  background: rgba(10, 31, 61, 0.1);
+}
+
+.bl-plan-drawer-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: none;
+  flex-direction: column;
+}
+
+.bl-plan-drawer-stage.is-active {
+  display: flex;
+}
+
+.bl-plan-drawer-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 24px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bl-plan-drawer-scroll.bl-results {
+  display: block;
+}
+
+/* Full-bleed strategy quote — use full drawer width, not the 46rem summary cap */
+#hl-drawer-plan-content .bl-sum-quote {
+  max-width: none;
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-right: -24px;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  #hl-drawer-plan-content .bl-sum-quote {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+/* Drawer cards — uniform border, no left accent stroke */
+#hl-drawer-plan-content .bl-exclusion-list li {
+  border-left: 1px solid rgba(16, 24, 40, 0.1);
+}
+
+#hl-drawer-plan-content .bl-sum-tradeoff {
+  border-left: 1px solid var(--sum-border, #e2e6ed);
+}
+
+#hl-drawer-plan-content .bl-act-card::before {
+  display: none;
+}
+
+#hl-drawer-plan-content .bl-act-note {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.bl-plan-drawer-foot {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px calc(14px + env(safe-area-inset-bottom, 0));
+  border-top: 1px solid rgba(10, 31, 61, 0.08);
+  background: #fff;
+  box-shadow: 0 -8px 24px -16px rgba(10, 31, 61, 0.2);
+}
+
+.bl-plan-drawer-foot [hidden] {
+  display: none !important;
+}
+
+.bl-plan-drawer-foot[data-stage="review"] .bl-plan-drawer-foot-refine {
+  margin-left: auto;
+}
+
+.bl-plan-drawer-foot[data-stage="email"] .bl-plan-drawer-foot-send {
+  margin-left: auto;
+}
+
+.bl-plan-drawer-btn {
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.bl-plan-drawer-btn--primary {
+  background: var(--orange, #ff4a00);
+  color: #fff;
+}
+
+.bl-plan-drawer-btn--secondary {
+  background: var(--navy, #0a1f3d);
+  color: #fff;
+}
+
+.bl-plan-drawer-btn--ghost {
+  background: rgba(10, 31, 61, 0.06);
+  color: var(--navy, #0a1f3d);
+}
+
+.bl-plan-drawer-email-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px 24px 24px;
+}
+
+.bl-plan-drawer-email-meta {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bl-plan-drawer-email-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 13px;
+}
+
+.bl-plan-drawer-email-row dt {
+  margin: 0;
+  font-weight: 700;
+  color: var(--muted, #6b7280);
+  padding-top: 9px;
+}
+
+.bl-plan-drawer-email-row dd {
+  margin: 0;
+}
+
+.bl-plan-drawer-email-row input,
+.bl-plan-drawer-email-row textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid rgba(10, 31, 61, 0.12);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--navy, #0a1f3d);
+  background: #fff;
+}
+
+.bl-plan-drawer-email-body {
+  margin: 0;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(10, 31, 61, 0.1);
+  background: rgba(10, 31, 61, 0.02);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: min(40vh, 360px);
+  overflow: auto;
+}
+
+.bl-plan-drawer-error {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #c2410c;
+}
+
+@media (max-width: 768px) {
+  .bl-plan-drawer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bl-plan-drawer-btn {
+    flex: 1 1 calc(50% - 5px);
+    min-height: 48px;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .bl-plan-drawer-foot {
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bl-plan-drawer,
+  .bl-plan-drawer-backdrop {
+    transition: none;
+  }
+}
+
+body.bl-plan-drawer-open {
+  overflow: hidden;
+}
+
+/* Download PDF — print the drawer plan + email appendix (Save as PDF in dialog) */
+#bl-print {
+  display: none;
+}
+
+/* Off-screen PDF capture (bl-pdf.js) */
+.bl-pdf-export .bl-print-title {
+  margin: 24px 0 4px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.bl-pdf-export .bl-print-sub {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #444;
+}
+
+.bl-pdf-export .bl-print-h {
+  margin: 0 0 8px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.bl-pdf-export .bl-print-subject {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.bl-pdf-export .bl-print-mail {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.bl-pdf-appendix {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e6eaf0;
+}
+
+@media print {
+  body.bl-printing > * {
+    display: none !important;
+  }
+
+  body.bl-printing #bl-plan-drawer-root,
+  body.bl-printing #bl-print {
+    display: block !important;
+  }
+
+  body.bl-printing #bl-plan-drawer-root {
+    position: static !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    inset: auto !important;
+  }
+
+  body.bl-printing .bl-plan-drawer-backdrop,
+  body.bl-printing .bl-plan-drawer-close,
+  body.bl-printing .bl-plan-drawer-head,
+  body.bl-printing .bl-plan-drawer-foot,
+  body.bl-printing #bl-plan-drawer-stage-email {
+    display: none !important;
+  }
+
+  body.bl-printing .bl-plan-drawer {
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  body.bl-printing #bl-plan-drawer-stage-review,
+  body.bl-printing #hl-drawer-plan-content {
+    display: block !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  body.bl-printing button,
+  body.bl-printing .bl-act-cta,
+  body.bl-printing .bl-act-apply,
+  body.bl-printing .bl-act-cancel,
+  body.bl-printing .bl-act-prev,
+  body.bl-printing .bl-sum-alt,
+  body.bl-printing .bl-sum-foot,
+  body.bl-printing .bl-sum-send,
+  body.bl-printing .bl-rev {
+    display: none !important;
+  }
+
+  body.bl-printing {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+  }
+
+  body.bl-printing .bl-results {
+    padding: 0 !important;
+  }
+
+  body.bl-printing .bl-sum-section,
+  body.bl-printing .bl-sum-format,
+  body.bl-printing .bl-act-card,
+  body.bl-printing .bl-sum-stats {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #bl-print {
+    break-before: page;
+    page-break-before: always;
+    padding-top: 6mm;
+  }
+
+  .bl-print-title {
+    margin: 0 0 4px;
+    font-family: "Montserrat", system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 18pt;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  .bl-print-sub {
+    margin: 0 0 18px;
+    font-size: 9.5pt;
+    color: #444;
+  }
+
+  .bl-print-h {
+    margin: 0 0 8px;
+    font-family: "Montserrat", system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 11pt;
+    text-transform: uppercase;
+  }
+
+  .bl-print-subject {
+    margin: 0 0 10px;
+    font-size: 10pt;
+  }
+
+  .bl-print-mail {
+    margin: 0;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  @page {
+    margin: 14mm 12mm;
+  }
+}

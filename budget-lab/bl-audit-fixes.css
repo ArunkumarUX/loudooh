@@ -1,0 +1,83 @@
+/* ═══════════════════════════════════════════════════════════════════
+   bl-audit-fixes.css — 2026-08-31 Design + QC audit fixes
+   Applied on top of existing sheets; each rule references the finding.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* P1 (Design): global keyboard focus baseline — no interactive element
+   should ever lose its focus indicator. */
+:where(a[href], button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--orange, #ff4a00);
+  outline-offset: 3px;
+}
+
+/* P1 (Design): orange #FF4A00 on white fails WCAG AA (≈3.1:1).
+   Darken to #C93800 (≈5.1:1) wherever it sits on light surfaces. */
+.bl-lab-opp-eyebrow,
+.bl-lab-mix-eyebrow,
+.bl-lab-map-eyebrow,
+body.is-planning .bl-filter-chip.is-on,
+.bl-lab-ai-experiment .bl-lab-tip-icon {
+  color: #c93800;
+}
+
+/* P0 (Design): mobile landing preview forced min-width 620px → overflow
+   on phones. Let it compress; pills become a 2-col grid + nowrap. */
+@media (max-width: 960px) {
+  .bl-lab-landing-preview {
+    min-width: 0;
+  }
+  .bl-lab-landing-preview .bl-mock-pills span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media (max-width: 520px) {
+  .bl-lab-landing-preview .bl-mock-pills--market {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Responsive pass — measured at 2560 / 1920 / 1680 / 1440 / 1366 /
+   1280 / 1024 / 834 / 768 / 430 / 414 / 390 / 375 / 320.
+   Result of that sweep: no horizontal overflow at any width, no broken
+   grids, no clipped controls. The four items below are what it did find.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* P2 (Responsive): the hero title is clamped at 2.35rem (37.6px), so it
+   stops growing at ~1170px and reads small on a 1920 or 2560 monitor
+   while the stage behind it keeps expanding. Raise the ceiling only on
+   very large screens — every width up to 1600 is untouched. */
+@media (min-width: 1600px) {
+  .bl-lab-landing-title {
+    font-size: clamp(2.35rem, 2.6vw, 3.25rem);
+  }
+}
+
+/* P2 (Readability): body copy with no measure cap runs to 110–144
+   characters per line above 768px; comfortable is 60–75. Cap the
+   paragraphs that were measured over, and only those. */
+.bl-mock-rec-lead,
+.bl-mock-rec-note,
+.bl-lab-landing-note,
+.bl-mock-results-eyebrow {
+  max-width: min(100%, 68ch);
+}
+
+/* P2 (Touch target): the FAQ / format-accordion headers measure 24px
+   tall — at the WCAG 2.2 AA floor, under the 44px comfort target the
+   brief asks for. The row is full width, so this costs nothing. */
+.lo-faq-q,
+.bl-cat-head {
+  min-height: 44px;
+}
+
+/* P2 (Touch target): the map's zoom and expand controls measure 36px
+   square. Square controls need both dimensions, not just height. */
+.bl-mock-map-btn,
+.bl-mock-map-zoom button {
+  min-width: 44px;
+  min-height: 44px;
+}

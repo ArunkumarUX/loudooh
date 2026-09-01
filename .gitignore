@@ -5,3 +5,9 @@ node_modules
 !.env.example
 .netlify
 loud-ooh-seo-campaign-blueprint-uk-UPDATED.md
+_next/
+.impeccable/
+budget-lab/_to_delete/
+p.typekit.net/
+use.typekit.net/
+serve-mude.py

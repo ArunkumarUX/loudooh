@@ -1,0 +1,359 @@
+/* Planning mode: sticky bar, hero compress, results dim */
+
+.bl-ref-lab-wrap.is-dimmed {
+  opacity: 0.88;
+  filter: brightness(0.94);
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+body.is-planning .bl-ref-hero {
+  gap: 0;
+  min-height: 0;
+  transition: gap 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.is-planning .bl-ref-hero--mobile .bl-ref-hero-copy,
+body.is-planning .bl-ref-hero--mobile .bl-ref-hero-visual {
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  transform: translateY(-10px) scale(0.98);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  visibility: hidden;
+}
+
+body.is-planning .bl-ref-hero--mobile .bl-ref-hero-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+body.is-planning .bl-ref-hero-visual {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+body.is-planning .bl-ref-hero-band.is-compact {
+  padding-bottom: 8px;
+}
+
+/* Sidebar segment layout — bl-lab-explore.css */
+
+/* Loud AI action button */
+.bl-campaign-lai {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FF4A00 0%, #E64100 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -10px rgba(255, 74, 0, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bl-campaign-lai:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px -10px rgba(255, 74, 0, 0.65);
+}
+
+.bl-campaign-lai-spark {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.bl-campaign-loc-nearby {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 0;
+  background: rgba(255, 74, 0, 0.06);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  margin-bottom: 4px;
+}
+
+.bl-campaign-loc-nearby:hover {
+  background: rgba(255, 74, 0, 0.1);
+}
+
+/* White premium search pill — mobile/stacked only (not dark sidebar) */
+@media (max-width: 1024px) {
+  .bl-ref-hero-band .bl-campaign-bar-shell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border-radius: 999px;
+    padding: 6px 6px 6px 8px;
+    box-shadow: 0 8px 32px -12px rgba(10, 31, 61, 0.18), 0 0 0 1px rgba(10, 31, 61, 0.06);
+  }
+}
+
+.bl-campaign-backdrop {
+  background: rgba(10, 31, 61, 0.14);
+}
+
+/* Format-specific map markers */
+.bl-map-marker-wrap.is-highlighted .bl-map-marker-dot,
+.bl-map-marker-wrap.is-highlighted .bl-map-marker-shape {
+  transform: scale(1.35);
+}
+
+.bl-map-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.bl-map-marker-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px -4px rgba(10, 31, 61, 0.35);
+  z-index: 2;
+  transition: transform 0.22s ease;
+}
+
+.bl-map-marker-shape {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: color-mix(in srgb, var(--c) 20%, transparent);
+  transition: transform 0.22s ease;
+}
+
+.bl-map-marker--digital .bl-map-marker-shape {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.bl-map-marker--billboards .bl-map-marker-shape {
+  width: 10px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.bl-map-marker--bus .bl-map-marker-shape {
+  width: 16px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.bl-map-marker--rail .bl-map-marker-shape {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--c);
+  background: transparent;
+}
+
+.bl-map-marker--taxi .bl-map-marker-shape {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.bl-map-marker--airport .bl-map-marker-shape {
+  width: 14px;
+  height: 14px;
+  border-radius: 50% 50% 50% 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.bl-map-cluster-wrap {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.bl-map-cluster {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FF4A00;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px -6px rgba(255, 74, 0, 0.5);
+  border: 2px solid #fff;
+}
+
+/* Popover panels — mobile / tablet only; desktop uses inline accordion */
+@media (max-width: 1024px) {
+  .bl-campaign-panels {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    z-index: 8;
+    pointer-events: none;
+  }
+
+  .bl-campaign-panel {
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: translateY(8px) scale(0.985);
+    transition:
+      opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.32s;
+  }
+
+  .bl-campaign-control.is-open .bl-campaign-panel.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition:
+      opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s;
+  }
+}
+
+.bl-kpi-strip-item b {
+  transition: opacity 0.2s ease;
+}
+
+/* Airbnb scroll: hide site nav, pin search to viewport top */
+.bl-scroll-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.bl-search-spacer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bl-search-spacer.is-active {
+  pointer-events: none;
+}
+
+body.is-planning .lo-amenu.is-hidden-planning {
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease;
+}
+
+@media (max-width: 1024px) {
+  body.is-planning .bl-ref-page {
+    padding-top: 0;
+  }
+}
+
+body.is-planning .bl-ref-hero-band.is-compact {
+  padding-top: 0;
+}
+
+/* Split layout: search rail left — see bl-lab-explore.css */
+
+body.is-planning .bl-campaign-backdrop {
+  pointer-events: auto !important;
+}
+
+body.is-planning .bl-ref-hero-band {
+  overflow: visible;
+}
+
+.lo-amenu {
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease;
+}
+
+body.is-planning .bl-campaign-control.is-open .bl-campaign-backdrop {
+  pointer-events: auto !important;
+}
+
+@media (max-width: 1024px) {
+  .bl-campaign-control.is-open .bl-campaign-backdrop {
+    pointer-events: none !important;
+  }
+}
+
+body.is-planning .bl-lab-map-col .bl-lab-card-map {
+  top: 120px;
+}
+
+body.is-planning .bl-lab-opp-list {
+  max-height: min(62vh, 640px);
+}
+
+/* Hero image removed — hide live pill in planning mode (replaces .bl-ref-hero-visual) */
+body.is-planning .bl-ref-hero-live {
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  transform: translateY(-10px) scale(0.98);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+/* explore card flows in results column */
+
+/* ---------- §10 excluded-format disclosure ---------- */
+.bl-exclusion-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:10px;
+}
+.bl-exclusion-list li{
+  display:grid;
+  gap:3px;
+  padding:11px 13px;
+  border:1px solid rgba(16,24,40,.10);
+  border-left:3px solid rgba(255,74,0,.55);
+  border-radius:8px;
+  background:rgba(16,24,40,.015);
+}
+.bl-exclusion-list b{
+  font-size:13.5px;
+  font-weight:650;
+  color:var(--ink,#101828);
+}
+.bl-exclusion-list span{
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted,#5A6472);
+}
+.bl-exclusion-list em{ font-style:normal; font-weight:600; color:var(--ink,#101828); }

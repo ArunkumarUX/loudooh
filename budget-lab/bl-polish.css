@@ -1,0 +1,156 @@
+/* ==========================================================================
+   bl-polish.css — the refinement layer. Loaded last, on purpose.
+   ------------------------------------------------------------------
+   This file does not restyle the product. It corrects three specific,
+   measured things across every breakpoint from 320 to 1440:
+
+     1. Touch targets. Everything you can press is at least 44px on a pointer
+        and 48px on a touch screen. Measured before: chips 28px, sort 28px,
+        budget field 31px, presets 24px.
+     2. Spacing. The plan was built on values like 26 / 22 / 15 / 14 / 10 / 2.
+        They are snapped to a 4px grid (4 8 12 16 24 32 40 48 64) so vertical
+        rhythm is consistent rather than nearly consistent.
+     3. The panel's breakpoint. It docks beside the controls only while there
+        is room for both; the site stacks at 1024, so that is where the panel
+        goes full-screen — not 900, which left it covering a rail it claimed
+        to sit beside.
+
+   Every number here was read off the rendered page, not guessed.
+   ========================================================================== */
+
+:root{
+  --sp-1:4px;  --sp-2:8px;  --sp-3:12px; --sp-4:16px;
+  --sp-6:24px; --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px;
+  --tap:44px;         /* pointer */
+  --tap-touch:48px;   /* finger */
+}
+
+/* --------------------------------------------------------------------------
+   1. TOUCH TARGETS
+   WCAG 2.2 AA sets the floor at 24px; 44 is the size a thumb actually hits.
+   Height is set with min-height so nothing is stretched that was already big.
+   -------------------------------------------------------------------------- */
+.bl-filter-chip,
+.bl-campaign-preset,
+.bl-campaign-opt,
+.bl-drawer-tab,
+.bl-drawer-dl,
+.bl-mock-plan-cta,
+#hl-opp-sort,
+#hl-budget-input,
+#hl-ai-preview,
+#hl-fine-tune,
+.bl-sum-alt,
+.bl-act-cta,
+.bl-act-apply,
+.bl-act-cancel,
+/* measured short: 34px "View more", 36px map controls, 26px List/Map switch,
+   24px FAQ and format-accordion headers */
+#hl-opp-view-more,
+.bl-mock-map-btn,
+.bl-mock-map-zoom button,
+#hl-mobile-view button,
+.lo-faq-q,
+.bl-cat-head{
+  min-height:var(--tap);
+}
+
+/* A chip can be short as well as thin — "All" measured 41px wide. */
+.bl-filter-chip{ min-width:var(--tap); }
+
+/* Square icon controls: height alone leaves them 36px wide. */
+.bl-mock-map-btn,
+.bl-mock-map-zoom button{ min-width:var(--tap); }
+
+/* The location field measured 40px. */
+#hl-loc-search,
+.bl-campaign-loc-search{ min-height:var(--tap); }
+
+/* In the pre-booking checklist the label is the real target (WCAG 2.2 2.5.8
+   equivalent control), so it is the label that has to be big enough. */
+.bl-act-check label{ min-height:var(--tap); display:flex; flex-direction:column; justify-content:center; }
+
+/* A select needs its own padding to reach the height, not just min-height. */
+#hl-opp-sort{ padding-top:var(--sp-2); padding-bottom:var(--sp-2); }
+#hl-budget-input{ padding-top:var(--sp-2); padding-bottom:var(--sp-2); }
+
+@media (pointer:coarse){
+  .bl-filter-chip,
+  .bl-campaign-preset,
+  .bl-campaign-opt,
+  .bl-drawer-tab,
+  .bl-drawer-dl,
+  .bl-mock-plan-cta,
+  #hl-opp-sort,
+  #hl-budget-input,
+  #hl-ai-preview,
+  #hl-fine-tune,
+  .bl-sum-alt,
+  .bl-act-cta,
+  .bl-act-apply,
+  .bl-act-cancel,
+  .bl-mail-acts .bl-btn,
+  #hl-opp-view-more,
+  .bl-mock-map-btn,
+  .bl-mock-map-zoom button,
+  #hl-mobile-view button,
+  .lo-faq-q,
+  .bl-cat-head{
+    min-height:var(--tap-touch);
+  }
+  .bl-filter-chip{ min-width:var(--tap-touch); }
+}
+
+/* Focus is never implied. Same ring everywhere, including in the dark rail. */
+.bl-filter-chip:focus-visible,
+.bl-campaign-preset:focus-visible,
+.bl-campaign-opt:focus-visible,
+.bl-sum-alt:focus-visible,
+.bl-act-cta:focus-visible,
+.bl-act-apply:focus-visible,
+.bl-act-cancel:focus-visible,
+#hl-opp-sort:focus-visible,
+#hl-budget-input:focus-visible{
+  outline:2px solid #FF4A00;
+  outline-offset:2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. SPACING — snapped to the grid
+   -------------------------------------------------------------------------- */
+.bl-sum-section{
+  margin-top:var(--sp-6);
+  margin-bottom:var(--sp-6);
+  padding-top:var(--sp-6);
+}
+.bl-sum-stats{ gap:var(--sp-3); }
+.bl-act-card{
+  padding-top:var(--sp-4);
+  padding-bottom:var(--sp-4);
+  gap:var(--sp-1);
+}
+.bl-drawer-body{ padding-top:var(--sp-6); }
+
+/* --------------------------------------------------------------------------
+   3. THE PANEL'S BREAKPOINT
+   Below 1025 the site is one column, so a panel "beside" the controls is a
+   panel on top of them. Take the screen instead, and say so with a scrim.
+   -------------------------------------------------------------------------- */
+@media (max-width:1024px){
+  .bl-drawer{
+    width:100vw;
+    top:0;
+    height:100vh;
+    height:100dvh;
+    border-left:0;
+  }
+  .bl-drawer-meta{ display:none; }
+}
+
+/* At the narrowest sizes the bar has to hold four controls. Let it wrap
+   rather than squeeze, and keep the close button reachable at the end. */
+@media (max-width:400px){
+  .bl-drawer-bar{ gap:var(--sp-2); }
+  .bl-drawer-dl{ padding-left:var(--sp-3); padding-right:var(--sp-3); }
+  .bl-drawer-tab{ padding-left:var(--sp-3); padding-right:var(--sp-3); }
+}

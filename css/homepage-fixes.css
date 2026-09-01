@@ -1,0 +1,331 @@
+/**
+ * Homepage production fixes — 2026-08-31
+ * Loaded by index.html after inline styles; overrides only where needed.
+ *
+ * NOTE: Do not change index.html lo-sections-restore templates for header
+ * styling — #services uses bl-ref-title but must match lo-diff-head / lo-simple-head.
+ */
+
+/* ---- Design tokens ---- */
+:root {
+  --lo-container: max(1.5rem, calc(50% - 640px));
+  --lo-space-1: 4px;
+  --lo-space-2: 8px;
+  --lo-space-3: 16px;
+  --lo-space-4: 24px;
+  --lo-space-5: 32px;
+  --lo-space-6: 48px;
+  --lo-space-7: 64px;
+  --lo-orange-accessible: #c93800;
+  --lo-radius-card: 24px;
+  --lo-radius-btn: 12px;
+}
+
+/* ---- Global baseline ---- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  overflow-x: clip;
+  min-width: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Accessibility: focus ---- */
+:where(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid #ff4a00;
+  outline-offset: 3px;
+}
+
+/* Orange on white fails WCAG AA — darken link text on light surfaces only (not buttons) */
+:where(.lo-diff, .lo-faq, .lo-wwd, main)
+  a:not(.lo-mz-btn):not(.lo-amenu-cta):not(.lo-work-card):not(.lo-diff-vcard):not(.pri):not(.sec):not(.lo-case-btn) {
+  color: var(--lo-orange-accessible);
+}
+
+/* Final CTA + sticky bar: white on accessible orange (AA at 14px) */
+.lo-final-cta .pri,
+.lo-sticky-cta .pri {
+  color: #fff !important;
+  background: #c93800 !important;
+  border: 1px solid #c93800;
+}
+
+.lo-final-cta .pri:hover,
+.lo-sticky-cta .pri:hover {
+  background: #a93000 !important;
+  border-color: #a93000;
+  color: #fff !important;
+}
+
+.lo-final-cta .sec,
+.lo-sticky-cta .sec {
+  color: #fff !important;
+}
+
+/* ---- Hide Mude template chrome (replaced by Loud scripts) ---- */
+#__next > div > header:not(.lo-amenu) {
+  display: none !important;
+}
+
+#__next > div > .pointer-events-none.fixed.top-0.left-0.rounded-full,
+#__next > div > .fixed.z-50.top-0.left-0.w-screen.h-screen.bg-black {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* ---- Container alignment lock (centre content bands) ---- */
+.lo-work-grid,
+.lo-projects-grid,
+.lo-insights2-grid {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* #services: bl-ref-title must match other homepage section headers (not Budget Lab sizing) */
+#services.lo-gallery .lo-gallery-head h2.bl-ref-title {
+  margin: 0 0 0.45rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  color: #fff;
+}
+
+#services.lo-gallery .lo-gallery-head h2.bl-ref-title .bl-accent {
+  color: #fff;
+}
+
+#services.lo-gallery .lo-gallery-head p {
+  margin: 0;
+  max-width: 36rem;
+  font-family: "Inter", Helvetica, system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---- Hero (Monzo shell) ---- */
+.lo-mz-title {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.lo-mz-btn,
+.lo-mz-link,
+.lo-amenu-cta,
+.lo-sticky-cta a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lo-mz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+}
+
+/* ---- Services grid: tablet + small mobile ---- */
+@media (max-width: 1024px) and (min-width: 901px) {
+  .lo-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .lo-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .lo-work-card {
+    border-radius: 20px;
+  }
+
+  .lo-diff-visuals {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lo-industries-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .lo-mz-copy {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 16% !important;
+  }
+
+  .lo-mz-title {
+    font-size: clamp(2rem, 9vw, 2.75rem) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .lo-work-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lo-industries-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lo-mz-prop,
+  .lo-mz-sub {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .lo-sticky-cta {
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+  }
+
+  .lo-sticky-cta a {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .lo-amenu-row {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .lo-gallery-head h2,
+  .lo-diff-head,
+  .lo-simple-head h2 {
+    font-size: 1.35rem !important;
+  }
+}
+
+/* ---- Invalid nested buttons: flatten hit area ---- */
+a > button {
+  pointer-events: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: inherit;
+}
+
+/* ---- Mobile nav ---- */
+.lo-amenu-mobile-link,
+.lo-amenu-toggle {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.lo-amenu-mobile.is-open {
+  pointer-events: auto;
+}
+
+/* Hero carousel dots — expanded hit area without changing layout */
+.lo-mz-dot {
+  position: relative;
+}
+
+.lo-mz-dot::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+}
+
+/* Suppress broken legacy Next/Mude assets still in hidden DOM nodes */
+img[src*="/_next/image"],
+img[src*="content.mude.com.au"] {
+  content-visibility: hidden;
+}
+
+/* ---- Footer ---- */
+.lo-footer a:focus-visible,
+.lo-work-card:focus-visible,
+.lo-diff-vcard:focus-visible,
+.lo-insight2-card:focus-visible {
+  outline-offset: 4px;
+}
+
+/* ---- Performance: reduce layout shift on cards ---- */
+.lo-work-card img,
+.lo-diff-vcard img,
+.lo-insight2-card img,
+.lo-project-card img {
+  object-fit: cover;
+}
+
+/* ---- Press marquee: prevent vertical blowout ---- */
+#client-logos img {
+  max-height: 28px;
+  width: auto;
+}
+
+/* ---- Process section container ---- */
+#text-columns[data-lo-process="1"] .container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--lo-container);
+  padding-right: var(--lo-container);
+}
+
+@media (max-width: 639px) {
+  #text-columns[data-lo-process="1"] .lo-op-step {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Large-screen services / projects grids — measured at 2560, 1920,
+   1760, 1440, 1280, 1024, 768, 390.
+   ───────────────────────────────────────────────────────────────────
+   These two grids already centre themselves the full-bleed way:
+
+       padding: 0 max(1.5rem, calc(50% - 640px));
+
+   A percentage padding resolves against the CONTAINING BLOCK, not the
+   element, so on a 2560 screen that is 640px of padding a side. The
+   "container alignment lock" above then ALSO capped them at 1280px
+   with box-sizing:border-box — and 1280 minus 640 minus 640 leaves a
+   content box of zero. Measured card widths: 392px at 1280, 355 at
+   1440, 248 at 1760, 195 at 1920, and 0 at 2560, with the cards
+   squeezed into the middle of an increasingly empty band.
+
+   Two centring mechanisms, applied at once. The full-bleed one is the
+   one the markup was built for and the one the section heading uses,
+   so it wins and the cap is lifted here — which also puts the heading
+   and the first card back on the same left edge at every width.
+
+   .lo-insights2-grid is deliberately left alone: it centres with
+   max-width and auto margins and has no percentage padding, so the
+   lock does it no harm.
+   ═══════════════════════════════════════════════════════════════════ */
+.lo-work-grid,
+.lo-projects-grid {
+  max-width: none;
+  padding: 0 max(1.5rem, calc(50% - 640px));
+}

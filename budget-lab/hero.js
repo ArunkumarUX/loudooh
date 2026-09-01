@@ -1,16 +1,10 @@
-/* ============================================================
-   LOUD! OOH — Budget Lab hero estimator
-   Lightweight instant estimator driven by window.__BL_DATA__
-   (same verified 2026 rate-card data used by engine.js).
-   Mirrors engine.js scoring / allocation conventions.
-   ============================================================ */
+/* Budget Lab hero — live AI budget console + brief sync */
 (function(){
 "use strict";
 
 var DATA = window.__BL_DATA__ || [];
 if(!DATA.length) return;
 
-/* ---------- scenario table (labels mirror engine.js) ---------- */
 var SCENARIOS = {
   reach:     {anchorPct:.68, reinforcePct:.17, favouredCategories:["Billboards","Bus Stops","Bus","Rail"], favouredRoles:["reach"], freq:3.4},
   local:     {anchorPct:.62, reinforcePct:.25, favouredCategories:["Bus Stops","Billboards","Bus"], favouredRoles:["local-visibility","frequency"], freq:4.2},
@@ -20,16 +14,69 @@ var SCENARIOS = {
 };
 var CAT_LABEL = {"Billboards":"Billboards","London Underground":"London Underground","Bus":"Buses","Bus Stops":"Bus Stops","Rail":"Rail","Taxi":"Taxis","Airport":"Airports","Digital AdVans":"AdVans"};
 var COLORS = ["#3B6FE0","#8B5CF6","#F5A623","#F2C94C","#EB5757","#56CCF2","#4CAF7D"];
-
 var BASIS_DAYS = {"1 day":1,"3 days":3,"5 days":5,"1 week":7,"2 weeks":14,"4 weeks":28};
 
-/* fixed hero state (full planner offers the rest) */
-var state = {budget:50000, days:14, objective:"reach"};
+var state = {budget:50000, days:14, objective:"reach", geo:"london", audience:"broad"};
+var labEl = null;
+var liveTimer = null;
+var onSync = null;
 
-/* ---------- pricing helpers (same approach as engine.js) ---------- */
+var CITY_TO_GEO = {
+  london:"london", manchester:"manchester", birmingham:"birmingham",
+  leeds:"leeds", glasgow:"glasgow", uk:"uk", regional:"regional"
+};
+
+function readState(){
+  if(window.BLState) return window.BLState.get();
+  return {
+    budget: state.budget,
+    days: state.days,
+    durationDays: state.days,
+    objective: state.objective,
+    geo: state.geo,
+    audience: state.audience,
+    named: ""
+  };
+}
+
+function mapGeoKey(s){
+  s = s || readState();
+  if(s.mapGeo) return s.mapGeo;
+  if(s.geo && CITY_TO_GEO[s.geo]) return s.geo;
+  if(s.geo === "named" && s.named){
+    var n = String(s.named).toLowerCase();
+    if(CITY_TO_GEO[n]) return n;
+    if(n.indexOf("manchester") > -1) return "manchester";
+    if(n.indexOf("birmingham") > -1) return "birmingham";
+    if(n.indexOf("leeds") > -1) return "leeds";
+    if(n.indexOf("glasgow") > -1) return "glasgow";
+  }
+  if(s.geo === "uk" || s.geo === "regional") return s.geo;
+  return "london";
+}
+
+function heroState(){
+  var s = readState();
+  s.mapGeo = mapGeoKey(s);
+  return s;
+}
+
+function writeState(patch){
+  if(window.BLState){
+    window.BLState.set(patch, "hero");
+    return;
+  }
+  if(patch.budget != null) state.budget = patch.budget;
+  if(patch.days != null) state.days = patch.days;
+  if(patch.durationDays != null) state.days = patch.durationDays;
+  if(patch.objective != null) state.objective = patch.objective;
+  if(patch.geo != null) state.geo = patch.geo;
+  if(patch.audience != null) state.audience = patch.audience;
+}
+
 function basisDays(b){ return BASIS_DAYS[b] || null; }
 function isMultipliable(f){ return basisDays(f.campaignBasis) !== null; }
-function unitMediaPrice(f){ return (f.regionalLow + f.regionalHigh) / 2; } /* regional, indicative */
+function unitMediaPrice(f){ return (f.regionalLow + f.regionalHigh) / 2; }
 function durationMultiplier(f, days){
   var bd = basisDays(f.campaignBasis);
   if(bd === null) return null;
@@ -42,14 +89,14 @@ function unitTotal(f, days){
 }
 function intersects(a,b){ return a.some(function(x){ return b.indexOf(x) > -1; }); }
 
-/* ---------- scoring (mirrors engine.js scoreCandidate) ---------- */
-function score(f, obj){
+function score(f, obj, st){
+  st = st || readState();
   var sc = SCENARIOS[obj], s = 0;
   s += sc.favouredCategories.indexOf(f.category) > -1 ? 30 : (intersects(f.roles, sc.favouredRoles) ? 18 : 8);
-  s += 12; /* broad audience */
-  s += 15; /* geography baseline */
-  var ut = unitTotal(f, state.days);
-  var eff = ut ? Math.max(0, Math.min(1, 1 - (ut / Math.max(state.budget, 1)))) : 0;
+  s += 12 + 15;
+  var days = st.days || st.durationDays || 14;
+  var ut = unitTotal(f, days);
+  var eff = ut ? Math.max(0, Math.min(1, 1 - (ut / Math.max(st.budget, 1)))) : 0;
   s += 15 * eff;
   s += intersects(f.roles, ["reach","frequency"]) ? 10 : 5;
   var creative = 3;
@@ -61,14 +108,16 @@ function score(f, obj){
   return Math.max(0, Math.min(100, s));
 }
 
-/* best (highest scoring) feasible format per category */
 function categoryCandidates(){
+  var st = readState();
+  var days = st.days || st.durationDays || 14;
+  var obj = st.objective || "reach";
   var byCat = {};
   DATA.forEach(function(f){
     if(!isMultipliable(f)) return;
-    var ut = unitTotal(f, state.days);
-    if(ut === null || ut > state.budget) return;
-    var s = score(f, state.objective);
+    var ut = unitTotal(f, days);
+    if(ut === null || ut > st.budget) return;
+    var s = score(f, obj, st);
     if(!byCat[f.category] || s > byCat[f.category].score){
       byCat[f.category] = {f:f, ut:ut, score:s};
     }
@@ -78,18 +127,18 @@ function categoryCandidates(){
   }).sort(function(a,b){ return b.score - a.score; });
 }
 
-/* ---------- allocation ---------- */
 function estimate(){
+  var st = readState();
+  var days = st.days || st.durationDays || 14;
+  var obj = st.objective || "reach";
   var cands = categoryCandidates();
   if(!cands.length) return null;
-  var sc = SCENARIOS[state.objective];
-  var budget = state.budget;
-
+  var sc = SCENARIOS[obj];
+  var budget = st.budget;
   var anchor = cands[0];
   var reinforcement = null;
   for(var i=1;i<cands.length;i++){ if(cands[i].cat !== anchor.cat){ reinforcement = cands[i]; break; } }
 
-  /* target shares of budget */
   var shares = [{c:anchor, pct:sc.anchorPct}];
   if(reinforcement) shares.push({c:reinforcement, pct:sc.reinforcePct});
   var used = sc.anchorPct + (reinforcement ? sc.reinforcePct : 0);
@@ -98,42 +147,51 @@ function estimate(){
   for(var j=0;j<cands.length && rest > 0.02 && wi < fillWeights.length;j++){
     var c = cands[j];
     if(c === anchor || c === reinforcement) continue;
-    if(c.ut > budget * rest * fillWeights[wi]) continue; /* can't even buy 1 unit */
+    if(c.ut > budget * rest * fillWeights[wi]) continue;
     var p = rest * fillWeights[wi];
     shares.push({c:c, pct:p});
     rest -= p; wi++;
   }
   if(reinforcement) shares[1].pct += rest; else shares[0].pct += rest;
 
-  /* units + spend per category */
-  var totalImpacts = 0, planned = 0;
+  var totalImpacts = 0, planned = 0, media = 0, prod = 0, install = 0;
   var segs = shares.map(function(sh){
     var qty = Math.max(1, Math.floor((sh.pct * budget) / sh.c.ut));
     var spend = qty * sh.c.ut;
-    var mult = durationMultiplier(sh.c.f, state.days) || 1;
+    var mult = durationMultiplier(sh.c.f, days) || 1;
     var impMid = sh.c.f.impactsCampaignLow != null
       ? ((sh.c.f.impactsCampaignLow + sh.c.f.impactsCampaignHigh) / 2) * mult * qty
       : 0;
     totalImpacts += impMid;
     planned += spend;
-    return {cat:CAT_LABEL[sh.c.cat] || sh.c.cat, spend:spend};
+    media += unitMediaPrice(sh.c.f) * mult * qty;
+    prod += sh.c.f.production * qty;
+    install += sh.c.f.installation * qty;
+    return {cat:CAT_LABEL[sh.c.cat] || sh.c.cat, spend:spend, f:sh.c.f, qty:qty};
   });
 
-  /* leftover rolls to anchor (engine.js behaviour) */
   var leftover = budget - planned;
-  while(leftover >= anchor.ut){ segs[0].spend += anchor.ut; leftover -= anchor.ut; planned += anchor.ut; }
+  while(leftover >= anchor.ut){
+    segs[0].spend += anchor.ut;
+    leftover -= anchor.ut;
+    planned += anchor.ut;
+    var am = durationMultiplier(anchor.f, days) || 1;
+    media += unitMediaPrice(anchor.f) * am;
+    prod += anchor.f.production;
+    install += anchor.f.installation;
+  }
 
-  var freq = sc.freq;
+  var spendTotal = media + prod + install || 1;
   return {
     segments: segs,
     impressions: totalImpacts,
-    reach: totalImpacts / freq,
-    freq: freq,
-    planned: planned
+    reach: totalImpacts / sc.freq,
+    freq: sc.freq,
+    planned: planned,
+    spend: {media:media, prod:prod, install:install, total:spendTotal}
   };
 }
 
-/* ---------- formatting ---------- */
 function gbp(n){ return "£" + Math.round(n).toLocaleString("en-GB"); }
 function compact(n){
   if(n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,"") + "M";
@@ -141,27 +199,27 @@ function compact(n){
   return Math.round(n).toString();
 }
 
-/* ---------- count-up animation ---------- */
 function countUp(el, target, fmt){
+  if(!el) return;
   var from = parseFloat(el.getAttribute("data-v") || "0");
-  var start = null, dur = 750;
+  var start = null, dur = 650;
   el.setAttribute("data-v", target);
   function frame(ts){
     if(start === null) start = ts;
     var p = Math.min(1, (ts - start) / dur);
-    var e = 1 - Math.pow(1 - p, 3); /* easeOutCubic */
+    var e = 1 - Math.pow(1 - p, 3);
     el.textContent = fmt(from + (target - from) * e);
     if(p < 1) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 }
 
-/* ---------- donut ---------- */
 var CIRC = 2 * Math.PI * 56;
 function renderDonut(est){
   var g = document.getElementById("hl-donut");
   var legend = document.getElementById("hl-legend");
-  var total = state.budget;
+  var total = readState().budget;
+  if(!g || !legend) return;
   g.innerHTML = ""; legend.innerHTML = "";
   var acc = 0;
   est.segments.forEach(function(seg, i){
@@ -172,13 +230,12 @@ function renderDonut(est){
     c.setAttribute("cx","74"); c.setAttribute("cy","74"); c.setAttribute("r","56");
     c.setAttribute("fill","none"); c.setAttribute("stroke",color);
     c.setAttribute("stroke-width","17");
-    c.setAttribute("stroke-linecap","butt");
     var gap = Math.min(1.6, CIRC * pct * .08);
     var dash = Math.max(0, CIRC * pct - gap);
     c.setAttribute("stroke-dasharray", dash + " " + (CIRC - dash));
     c.setAttribute("stroke-dashoffset", -acc);
     c.style.opacity = "0";
-    c.style.transition = "opacity .5s ease " + (i * .09) + "s";
+    c.style.transition = "opacity .45s ease " + (i * .08) + "s";
     g.appendChild(c);
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.style.opacity = "1"; }); });
     acc += CIRC * pct;
@@ -192,12 +249,76 @@ function renderDonut(est){
   tot.className = "bl-legend-total";
   tot.innerHTML = '<span>Total (excl. VAT)</span><b>' + gbp(total) + '</b>';
   legend.appendChild(tot);
-  document.getElementById("hl-donut-total").textContent = gbp(total);
+  var center = document.getElementById("hl-donut-total");
+  if(center) center.textContent = gbp(total);
 }
 
-/* ---------- slider mapping (£5k–£500k, exponential feel) ---------- */
+function renderSpendBars(spend){
+  var total = spend.total;
+  var rows = [
+    {id:"hl-bar-media", pct:"hl-media-pct", val:spend.media, color:"#3B6FE0"},
+    {id:"hl-bar-prod", pct:"hl-prod-pct", val:spend.prod, color:"#FF4A00"},
+    {id:"hl-bar-install", pct:"hl-install-pct", val:spend.install, color:"#8B5CF6"}
+  ];
+  rows.forEach(function(r){
+    var bar = document.getElementById(r.id);
+    var pctEl = document.getElementById(r.pct);
+    if(!bar || !pctEl) return;
+    var p = Math.round((r.val / total) * 100);
+    bar.style.width = p + "%";
+    bar.style.background = r.color;
+    pctEl.textContent = p + "%";
+  });
+}
+
+function pulseLive(){
+  if(!labEl) return;
+  labEl.classList.add("is-recalc");
+  clearTimeout(liveTimer);
+  liveTimer = setTimeout(function(){ labEl.classList.remove("is-recalc"); }, 520);
+}
+
+function syncDownstream(est){
+  var st = heroState();
+  if(window.__BL_EXPLORE__ && window.__BL_EXPLORE__.render){
+    window.__BL_EXPLORE__.render(est, st);
+  }
+  if(window.__BL_MAP__ && window.__BL_MAP__.update){
+    window.__BL_MAP__.update(est, st);
+  }
+  if(window.__BL_FORECAST__ && window.__BL_FORECAST__.refresh){
+    window.__BL_FORECAST__.refresh();
+  }
+  if(typeof onSync === "function") onSync();
+}
+
+function update(){
+  var st = readState();
+  var out = document.getElementById("hl-budget-out");
+  if(out) out.textContent = gbp(st.budget);
+  pulseLive();
+  var est = estimate();
+  if(!est){
+    ["hl-reach","hl-impressions","hl-frequency"].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.textContent = "—";
+    });
+    syncDownstream(null);
+    return;
+  }
+  var reachEl = document.getElementById("hl-reach");
+  var impEl = document.getElementById("hl-impressions");
+  var freqEl = document.getElementById("hl-frequency");
+  if(reachEl) countUp(reachEl, est.reach, function(v){ return compact(v); });
+  if(impEl) countUp(impEl, est.impressions, function(v){ return compact(v); });
+  if(freqEl) countUp(freqEl, est.freq, function(v){ return v.toFixed(1); });
+  renderDonut(est);
+  renderSpendBars(est.spend);
+  syncDownstream(est);
+}
+
 function sliderToBudget(t){
-  var b = 5000 * Math.pow(100, t / 1000); /* 5k → 500k */
+  var b = 5000 * Math.pow(100, t / 1000);
   var step = b < 25000 ? 500 : (b < 100000 ? 1000 : 5000);
   b = Math.round(b / step) * step;
   return Math.min(500000, Math.max(5000, b));
@@ -206,21 +327,31 @@ function budgetToSlider(b){
   return Math.round(1000 * Math.log(b / 5000) / Math.log(100));
 }
 
-/* ---------- render ---------- */
-function update(){
-  document.getElementById("hl-budget-out").textContent = gbp(state.budget);
-  var est = estimate();
-  if(!est){
-    ["hl-reach","hl-impressions"].forEach(function(id){ document.getElementById(id).textContent = "—"; });
-    return;
-  }
-  countUp(document.getElementById("hl-reach"), est.reach, function(v){ return compact(v); });
-  countUp(document.getElementById("hl-impressions"), est.impressions, function(v){ return compact(v); });
-  countUp(document.getElementById("hl-frequency"), est.freq, function(v){ return v.toFixed(1); });
-  renderDonut(est);
+function syncSliderUI(){
+  var slider = document.getElementById("hl-budget");
+  if(!slider) return;
+  slider.value = budgetToSlider(readState().budget);
+  slider.style.setProperty("--fill", ((slider.value - slider.min) / (slider.max - slider.min) * 100) + "%");
 }
 
-/* ---------- sync hero selections into the full planner (engine.js) ---------- */
+function syncDurationUI(){
+  var dur = document.getElementById("hl-duration");
+  if(!dur) return;
+  var days = readState().days || readState().durationDays || 14;
+  dur.querySelectorAll("button").forEach(function(b){
+    b.classList.toggle("is-on", parseInt(b.getAttribute("data-days"), 10) === days);
+  });
+}
+
+function syncGoalsUI(){
+  var goals = document.getElementById("hl-goals");
+  if(!goals) return;
+  var obj = readState().objective || "reach";
+  goals.querySelectorAll(".bl-goal").forEach(function(b){
+    b.classList.toggle("is-on", b.getAttribute("data-obj") === obj);
+  });
+}
+
 function syncEngine(){
   try{
     var budgetInput = document.getElementById("bl-budget");
@@ -239,52 +370,113 @@ function syncEngine(){
   }catch(e){}
 }
 
-/* ---------- wire inputs ---------- */
+function applyHeroParsed(parsed){
+  writeState(parsed);
+  syncSliderUI();
+  syncDurationUI();
+  syncGoalsUI();
+  update();
+}
+
+function setState(partial){
+  writeState(partial || {});
+  syncSliderUI();
+  syncDurationUI();
+  syncGoalsUI();
+  update();
+}
+
+window.blHeroSync = applyHeroParsed;
+window.blHeroGetState = function(){ return heroState(); };
+
+window.__BL_HERO__ = {
+  estimate: estimate,
+  update: update,
+  gbp: gbp,
+  getState: heroState,
+  setState: setState,
+  goToPlan: function(){
+    var btn = document.getElementById("hl-view-full-summary");
+    if(btn) btn.click();
+    else if(window.BLPlanDrawer && window.BLPlanDrawer.open) window.BLPlanDrawer.open("review");
+  },
+  focusIntelligence: function(){
+    if(window.__BL_EXPLORE__ && window.__BL_EXPLORE__.focusIntelligence){
+      window.__BL_EXPLORE__.focusIntelligence();
+    }
+  },
+  get onSync(){ return onSync; },
+  set onSync(fn){ onSync = fn; }
+};
+
+function scrollTo(id){
+  var el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
 function wire(){
+  labEl = document.getElementById("lab");
   var slider = document.getElementById("hl-budget");
-  function paint(){ slider.style.setProperty("--fill", ((slider.value - slider.min) / (slider.max - slider.min) * 100) + "%"); }
-  slider.value = budgetToSlider(state.budget);
-  paint();
-  slider.addEventListener("input", function(){
-    state.budget = sliderToBudget(parseFloat(slider.value));
-    paint();
-    update();
-  });
+  if(slider){
+    syncSliderUI();
+    slider.addEventListener("input", function(){
+      writeState({ budget: sliderToBudget(parseFloat(slider.value)) });
+      syncSliderUI();
+      update();
+    });
+  }
 
   var dur = document.getElementById("hl-duration");
-  dur.addEventListener("click", function(e){
+  if(dur) dur.addEventListener("click", function(e){
     var btn = e.target.closest("[data-days]");
     if(!btn) return;
-    state.days = parseInt(btn.getAttribute("data-days"), 10);
-    dur.querySelectorAll("button").forEach(function(b){ b.classList.toggle("is-on", b === btn); });
+    writeState({ days: parseInt(btn.getAttribute("data-days"), 10) });
+    syncDurationUI();
     update();
   });
 
   var goals = document.getElementById("hl-goals");
-  goals.addEventListener("click", function(e){
+  if(goals) goals.addEventListener("click", function(e){
     var btn = e.target.closest("[data-obj]");
     if(!btn) return;
-    state.objective = btn.getAttribute("data-obj");
-    goals.querySelectorAll(".bl-goal").forEach(function(b){ b.classList.toggle("is-on", b === btn); });
+    writeState({ objective: btn.getAttribute("data-obj") });
+    syncGoalsUI();
     update();
   });
 
-  function scrollTo(id){
-    var el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
-  }
   var see = document.getElementById("hl-see-results");
   if(see) see.addEventListener("click", function(){ syncEngine(); scrollTo("planner"); });
-  var start = document.getElementById("bl-hero-start");
-  if(start) start.addEventListener("click", function(){ syncEngine(); scrollTo("planner"); });
+
+  var fine = document.getElementById("bl-hero-fine");
+  if(fine) fine.addEventListener("click", function(e){ e.preventDefault(); scrollTo("planner"); });
+
   var finalCta = document.getElementById("bl-final-cta");
   if(finalCta) finalCta.addEventListener("click", function(){ syncEngine(); scrollTo("planner"); });
   var finalStart = document.getElementById("bl-final-start");
-  if(finalStart) finalStart.addEventListener("click", function(){ scrollTo("lab"); });
+  if(finalStart) finalStart.addEventListener("click", function(){ scrollTo("loud-ai"); });
+
+  var input = document.getElementById("bl-ai-input");
+  if(input){
+    var debounce;
+    input.addEventListener("input", function(){
+      clearTimeout(debounce);
+      debounce = setTimeout(function(){
+        if(typeof window.blParseBrief !== "function") return;
+        var parsed = window.blParseBrief(input.value);
+        if(parsed.hits < 1) return;
+        applyHeroParsed(parsed);
+      }, 300);
+    });
+  }
 }
 
-/* ---------- scroll reveal ---------- */
 function reveal(){
+  var copy = document.querySelector(".bl-hero-copy");
+  var lab = document.getElementById("lab");
+  requestAnimationFrame(function(){
+    if(copy) copy.classList.add("is-in");
+    if(lab) lab.classList.add("is-in");
+  });
   var els = document.querySelectorAll(".reveal");
   if(typeof IntersectionObserver !== "function"){
     els.forEach(function(el){ el.classList.add("is-in"); });
@@ -298,8 +490,10 @@ function reveal(){
   els.forEach(function(el){ io.observe(el); });
 }
 
-/* ---------- boot ---------- */
 function boot(){
+  if(window.BLState){
+    window.BLState.subscribe(function(){ update(); });
+  }
   wire();
   update();
   reveal();

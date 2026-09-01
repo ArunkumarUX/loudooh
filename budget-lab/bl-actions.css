@@ -1,0 +1,300 @@
+/* ==========================================================================
+   bl-actions.css — "Your next moves"
+   The summary's decision surface. Cards are quiet until you engage with one,
+   then the previewed card lifts and the rest recede, so there is only ever
+   one question on screen at a time.
+   ========================================================================== */
+.bl-act-panel{
+  margin:26px 0 30px;
+  padding:22px 20px 20px;
+  border-radius:16px;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(255,74,0,.055) 0%, rgba(255,74,0,0) 55%),
+    var(--bl-act-bg,#fff);
+  border:1px solid rgba(16,24,40,.09);
+  box-shadow:0 1px 2px rgba(16,24,40,.04), 0 12px 32px -22px rgba(16,24,40,.35);
+}
+.bl-act-head{ margin:0 0 16px; }
+.bl-act-head h3{
+  margin:0 0 4px;
+  font-size:clamp(19px,2.2vw,23px);
+  line-height:1.2;
+  letter-spacing:-.015em;
+  font-weight:680;
+  color:var(--ink,#101828);
+}
+.bl-act-head p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--muted,#5A6472);
+  max-width:62ch;
+}
+
+.bl-act-grid{ display:grid; gap:10px; }
+
+/* ---------- card ---------- */
+.bl-act-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:2px 13px;
+  padding:15px 16px 15px 15px;
+  border-radius:12px;
+  border:1px solid rgba(16,24,40,.10);
+  background:var(--bl-act-card,#fff);
+  transition:border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.bl-act-card::before{
+  content:"";
+  position:absolute; inset:0 auto 0 0;
+  width:3px; border-radius:12px 0 0 12px;
+  background:var(--act-accent,#98A2B3);
+  transition:width .22s ease;
+}
+.bl-act-card.is-positive  { --act-accent:#1E9E6A; }
+.bl-act-card.is-highlight { --act-accent:#FF4A00; }
+.bl-act-card.is-critical  { --act-accent:#D64545; }
+.bl-act-card.is-neutral   { --act-accent:#3B6FE0; }
+
+.bl-act-card:hover{
+  border-color:rgba(16,24,40,.18);
+  box-shadow:0 10px 26px -20px rgba(16,24,40,.5);
+}
+.bl-act-card.is-previewing{
+  border-color:var(--act-accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--act-accent) 12%, transparent),
+             0 16px 34px -24px rgba(16,24,40,.55);
+  transform:translateY(-1px);
+}
+.bl-act-card.is-previewing::before{ width:4px; }
+
+.bl-act-icon{
+  grid-row:1 / span 3;
+  display:grid; place-items:center;
+  width:32px; height:32px;
+  margin-top:1px;
+  border-radius:9px;
+  color:var(--act-accent);
+  background:color-mix(in srgb, var(--act-accent) 11%, transparent);
+}
+.bl-act-icon svg{ width:17px; height:17px; }
+
+.bl-act-body h4{
+  margin:0 0 4px;
+  font-size:15px;
+  line-height:1.32;
+  font-weight:650;
+  letter-spacing:-.008em;
+  color:var(--ink,#101828);
+  text-wrap:balance;
+}
+.bl-act-body p{
+  margin:0;
+  font-size:13px;
+  line-height:1.58;
+  color:var(--muted,#5A6472);
+  max-width:66ch;
+}
+.bl-act-note{
+  margin-top:7px !important;
+  padding-left:9px;
+  border-left:2px solid rgba(16,24,40,.12);
+  font-size:12px !important;
+  font-style:italic;
+}
+
+/* ---------- pre-booking checklist ---------- */
+.bl-act-check{ list-style:none; margin:11px 0 0; padding:0; display:grid; gap:7px; }
+.bl-act-check li{ display:grid; grid-template-columns:auto 1fr; gap:9px; align-items:start; }
+.bl-act-check input{
+  appearance:none;
+  width:16px; height:16px; margin:2px 0 0;
+  border:1.5px solid rgba(16,24,40,.28);
+  border-radius:5px; background:#fff;
+  cursor:pointer; flex:none;
+  transition:background .16s ease, border-color .16s ease;
+}
+.bl-act-check input:checked{ background:#1E9E6A; border-color:#1E9E6A; }
+.bl-act-check input:checked::after{
+  content:""; display:block;
+  width:4px; height:8px; margin:1px 0 0 4.5px;
+  border:solid #fff; border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+.bl-act-check input:focus-visible{ outline:2px solid var(--act-accent); outline-offset:2px; }
+.bl-act-check label{ cursor:pointer; display:grid; gap:1px; }
+.bl-act-check b{ font-size:12.5px; font-weight:640; color:var(--ink,#101828); }
+.bl-act-check span{ font-size:12.5px; line-height:1.55; color:var(--muted,#5A6472); }
+.bl-act-check input:checked + label b,
+.bl-act-check input:checked + label span{ color:var(--muted,#5A6472); text-decoration:line-through; opacity:.65; }
+
+/* ---------- call to action ---------- */
+.bl-act-foot{
+  grid-column:2;
+  display:flex; align-items:center; gap:11px;
+  flex-wrap:wrap;
+  margin-top:11px;
+}
+.bl-act-cta{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:8px 14px;
+  border:1px solid var(--act-accent);
+  border-radius:8px;
+  background:transparent;
+  color:var(--act-accent);
+  font:inherit; font-size:13px; font-weight:620;
+  text-decoration:none; cursor:pointer;
+  transition:background .18s ease, color .18s ease;
+}
+.bl-act-cta i{ font-style:normal; transition:transform .18s ease; }
+.bl-act-cta:hover{ background:var(--act-accent); color:#fff; }
+.bl-act-cta:hover i{ transform:translateX(2px); }
+.bl-act-cta:focus-visible{ outline:2px solid var(--act-accent); outline-offset:2px; }
+.bl-act-hint{ font-size:11.5px; color:var(--muted,#5A6472); opacity:.8; }
+
+/* ---------- before / after preview ---------- */
+.bl-act-preview{
+  grid-column:2;
+  margin-top:12px;
+  padding:13px 14px;
+  border-radius:10px;
+  border:1px dashed color-mix(in srgb, var(--act-accent) 38%, transparent);
+  background:color-mix(in srgb, var(--act-accent) 5%, transparent);
+  animation:bl-act-in .24s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes bl-act-in{ from{ opacity:0; transform:translateY(-5px); } to{ opacity:1; transform:none; } }
+.bl-act-preview-head{
+  margin:0 0 9px !important;
+  font-size:11px !important;
+  font-weight:680;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--act-accent) !important;
+}
+.bl-act-delta{ margin:0; display:grid; gap:6px; }
+.bl-act-delta > div{
+  display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(16,24,40,.07);
+}
+.bl-act-delta > div:last-child{ border-bottom:0; padding-bottom:0; }
+.bl-act-delta dt{ font-size:12.5px; color:var(--muted,#5A6472); }
+.bl-act-delta dd{
+  margin:0; display:inline-flex; align-items:baseline; gap:7px;
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.bl-act-delta s{ font-size:12.5px; color:var(--muted,#5A6472); opacity:.7; text-decoration-thickness:1px; }
+.bl-act-delta i{ font-style:normal; font-size:11px; color:var(--muted,#5A6472); opacity:.6; }
+.bl-act-delta b{ font-size:13.5px; font-weight:660; }
+.bl-act-delta .is-up b{ color:#1E9E6A; }
+.bl-act-delta .is-down b{ color:#C2410C; }
+
+.bl-act-confirm{ display:flex; gap:9px; flex-wrap:wrap; margin-top:12px; }
+.bl-act-confirm .bl-btn{ font-size:13px; padding:8px 15px; }
+
+/* the plan re-rendering after an apply, so the change is felt not just seen */
+.bl-results.is-refreshed{ animation:bl-act-refresh .9s ease; }
+@keyframes bl-act-refresh{
+  0%{ box-shadow:0 0 0 0 rgba(255,74,0,.30); }
+  40%{ box-shadow:0 0 0 5px rgba(255,74,0,.10); }
+  100%{ box-shadow:0 0 0 0 rgba(255,74,0,0); }
+}
+
+/* ---------- fine-tune, now clearly the control panel below the plan ---------- */
+.bl-planner-summary-icon{
+  display:grid; place-items:center;
+  width:34px; height:34px; flex:none;
+  border-radius:9px;
+  color:#FF4A00;
+  background:rgba(255,74,0,.09);
+}
+.bl-planner-summary-icon svg{ width:18px; height:18px; }
+
+@media (max-width:640px){
+  .bl-act-panel{ padding:18px 14px 16px; border-radius:14px; }
+  .bl-act-card{ grid-template-columns:1fr; gap:9px; padding:14px; }
+  .bl-act-icon{ grid-row:auto; }
+  .bl-act-foot, .bl-act-preview{ grid-column:1; }
+  .bl-act-delta > div{ flex-direction:column; gap:2px; align-items:flex-start; }
+}
+@media (prefers-reduced-motion:reduce){
+  .bl-act-card, .bl-act-cta, .bl-act-cta i{ transition:none; }
+  .bl-act-preview, .bl-results.is-refreshed{ animation:none; }
+}
+
+/* ==========================================================================
+   Advanced settings — the last block in the planner rail.
+   The rail is a dark surface and already styles .bl-campaign-aud-row for it,
+   including the selected state. So this only draws the disclosure shell and
+   then gets out of the way: the pickers inside are the rail's own component,
+   untouched, which is why they look and behave like every other control.
+   ========================================================================== */
+.bl-adv{
+  margin:14px 0 4px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  overflow:hidden;
+  transition:border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.bl-adv[open]{ background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.2); }
+.bl-adv.is-flash{
+  border-color:rgba(255,74,0,.75);
+  box-shadow:0 0 0 3px rgba(255,74,0,.22);
+}
+.bl-adv-summary{
+  display:flex; align-items:center; gap:12px;
+  padding:13px 14px; cursor:pointer; list-style:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.bl-adv-summary::-webkit-details-marker{ display:none; }
+.bl-adv-summary::marker{ content:""; }
+.bl-adv-summary:focus-visible{ outline:2px solid #FF4A00; outline-offset:-3px; border-radius:12px; }
+.bl-adv-summary-text{ display:grid; gap:3px; min-width:0; flex:1; }
+.bl-adv-summary-text strong{
+  font-family:"Montserrat", system-ui, sans-serif;
+  font-size:11.5px; font-weight:800;
+  letter-spacing:.05em; text-transform:uppercase;
+  color:#fff;
+}
+/* the current values, so the closed state is still informative */
+#hl-adv-state{
+  font-size:12px; line-height:1.4; color:rgba(255,255,255,.62);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.bl-adv-chevron{
+  flex:none; width:8px; height:8px; margin-right:3px;
+  border-right:1.8px solid rgba(255,255,255,.6);
+  border-bottom:1.8px solid rgba(255,255,255,.6);
+  transform:rotate(45deg) translate(-2px,-2px);
+  transition:transform .22s ease;
+}
+.bl-adv[open] .bl-adv-chevron{ transform:rotate(-135deg) translate(-2px,-2px); }
+
+.bl-adv-body{
+  padding:2px 14px 16px;
+  border-top:1px solid rgba(255,255,255,.1);
+  display:grid; gap:18px;
+}
+.bl-adv-intro{
+  margin:14px 0 0; font-size:12px; line-height:1.55;
+  color:rgba(255,255,255,.6);
+}
+.bl-adv-intro em{ font-style:normal; font-weight:700; color:rgba(255,255,255,.9); }
+.bl-adv-field{ display:grid; gap:8px; }
+/* question headings match the rail's own panel headings */
+.bl-adv .bl-campaign-panel-head--sidebar{
+  margin:0;
+  font-family:"Montserrat", system-ui, sans-serif;
+  font-size:12px; font-weight:700; line-height:1.35;
+  letter-spacing:.01em; color:#fff;
+}
+/* the pickers themselves inherit .bl-campaign-aud-row from the rail — the only
+   adjustment is letting a two-line description breathe */
+.bl-adv .bl-campaign-aud-row{ align-items:flex-start !important; }
+.bl-adv .bl-campaign-aud-row .bl-campaign-aud-check{ margin-top:2px; }
+
+@media (prefers-reduced-motion:reduce){
+  .bl-adv, .bl-adv-chevron{ transition:none; }
+}

@@ -2,10 +2,15 @@
   "name": "loudooh",
   "version": "1.0.0",
   "private": true,
-  "description": "Loud! OOH - UK Rail Advertising insights (HTML + vanilla JS)",
+  "description": "Loud OOH static site (HTML and vanilla JS)",
   "scripts": {
-    "dev": "python3 -m http.server 8080 --bind 0.0.0.0",
-    "build": "echo 'Static site - no build step required'",
-    "start": "python3 -m http.server 8080 --bind 0.0.0.0"
+    "dev": "node budget-lab/dev-server.mjs",
+    "start": "node budget-lab/dev-server.mjs",
+    "build": "node -e \"console.log('Static site — no build step required')\""
+  },
+  "devDependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "playwright-core": "^1.62.1"
   }
 }
