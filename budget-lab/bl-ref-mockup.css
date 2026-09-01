@@ -2666,13 +2666,15 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 
 @media (max-width: 1024px) {
   .bl-mock-results-sticky {
-    position: sticky;
-    top: var(--lo-chrome-h);
-    z-index: 35;
-    margin: 0 -4px 8px;
-    padding: 4px 4px 2px;
-    background: #fff;
-    box-shadow: 0 10px 28px -18px rgba(10, 31, 61, 0.14);
+    position: static !important;
+    z-index: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .bl-mock-results-sticky .bl-mock-results-head {
@@ -2689,7 +2691,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 
   .bl-ref-hero--sidebar, .bl-sidebar-budget, .bl-sidebar-ai, .bl-sidebar-stats { display: none; }
   .bl-mock-results-meta { gap: 6px; }
-  #hl-plan-hub { display: grid !important; }
+  #hl-plan-hub { display: block !important; }
 }
 
 .bl-ref-hero--mobile { display: none; }

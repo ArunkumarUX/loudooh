@@ -600,108 +600,126 @@
   }
 
   .bl-ref-lab-wrap {
-    padding-top: 8px !important;
+    padding: 12px 16px calc(72px + env(safe-area-inset-bottom, 0px)) !important;
     position: relative;
     z-index: 1;
   }
+
+  #hl-mix-panel.bl-lab-mix-lux {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  #hl-mix-panel .bl-lab-mix-head {
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  #hl-mix-panel .bl-lab-mix-summary {
+    width: 100%;
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+/* Plan hub: format mix only — Loud AI stays in the desktop sidebar */
+#hl-ai-experiment {
+  display: none !important;
+}
+
+#hl-plan-hub {
+  display: block !important;
+  margin: 0 0 12px;
+  grid-template-columns: none !important;
+}
+
+#hl-explore {
+  gap: 12px;
+}
+
+#hl-mix-panel.bl-lab-mix-lux {
+  margin: 0;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(10, 31, 61, 0.08);
+  background: #fff;
+  box-shadow: 0 16px 48px -32px rgba(10, 31, 61, 0.14);
+}
+
+#hl-mix-panel .bl-lab-mix-head {
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+#hl-mix-panel .bl-lab-mix-head h3 {
+  font-size: clamp(16px, 1.4vw, 18px);
+}
+
+#hl-mix-panel .bl-lab-mix-summary {
+  font-size: 11px;
+  padding: 7px 11px;
+}
+
+#hl-mix-panel .bl-lab-donut-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0 !important;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#hl-mix-panel .bl-donut-wrap-lux {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+}
+
+#hl-mix-panel .bl-donut-wrap-lux svg {
+  width: 96px;
+  height: 96px;
+}
+
+#hl-mix-panel .bl-donut-wrap-lux::before {
+  inset: 8px;
+}
+
+#hl-mix-panel .bl-donut-center b {
+  font-size: 14px;
+}
+
+#hl-mix-panel .bl-donut-center span {
+  font-size: 9px;
+}
+
+#hl-mix-panel .bl-lab-legend-lux {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 14px;
+  align-content: center;
+  max-height: none;
+  overflow: visible;
+}
+
+#hl-mix-panel .bl-lab-legend-lux .bl-legend-row {
+  padding: 5px 0;
+}
+
+#hl-mix-panel .bl-lab-legend-lux .bl-legend-total {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(10, 31, 61, 0.06);
 }
 
 @media (min-width: 1025px) {
   .bl-mobile-campaign-strip {
     display: none !important;
-  }
-
-  /* Desktop: compact format mix only — Loud AI stays in the left sidebar */
-  #hl-plan-hub {
-    display: block !important;
-    margin: 0 0 12px;
-  }
-
-  #hl-ai-experiment {
-    display: none !important;
-  }
-
-  #hl-explore {
-    gap: 12px;
-  }
-
-  #hl-mix-panel.bl-lab-mix-lux {
-    margin: 0;
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid rgba(10, 31, 61, 0.08);
-    background: #fff;
-    box-shadow: 0 16px 48px -32px rgba(10, 31, 61, 0.14);
-  }
-
-  #hl-mix-panel .bl-lab-mix-head {
-    margin-bottom: 14px;
-    align-items: center;
-  }
-
-  #hl-mix-panel .bl-lab-mix-head h3 {
-    font-size: clamp(16px, 1.4vw, 18px);
-  }
-
-  #hl-mix-panel .bl-lab-mix-summary {
-    font-size: 11px;
-    padding: 7px 11px;
-  }
-
-  #hl-mix-panel .bl-lab-donut-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin: 0;
-    padding: 0 !important;
-    border-radius: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-
-  #hl-mix-panel .bl-donut-wrap-lux {
-    flex: 0 0 96px;
-    width: 96px;
-    height: 96px;
-  }
-
-  #hl-mix-panel .bl-donut-wrap-lux svg {
-    width: 96px;
-    height: 96px;
-  }
-
-  #hl-mix-panel .bl-donut-wrap-lux::before {
-    inset: 8px;
-  }
-
-  #hl-mix-panel .bl-donut-center b {
-    font-size: 14px;
-  }
-
-  #hl-mix-panel .bl-donut-center span {
-    font-size: 9px;
-  }
-
-  #hl-mix-panel .bl-lab-legend-lux {
-    flex: 1;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2px 14px;
-    align-content: center;
-    max-height: none;
-    overflow: visible;
-  }
-
-  #hl-mix-panel .bl-lab-legend-lux .bl-legend-row {
-    padding: 5px 0;
-  }
-
-  #hl-mix-panel .bl-lab-legend-lux .bl-legend-total {
-    grid-column: 1 / -1;
-    margin-top: 6px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(10, 31, 61, 0.06);
   }
 }
