@@ -41,7 +41,7 @@ html {
   will-change: transform;
 }
 
-/* Header CTA — contained pill, not full-bleed */
+/* Header layout — CTA styling lives in site-chrome.css */
 .lo-amenu-row {
   min-width: 0;
 }
@@ -51,17 +51,6 @@ html {
   min-width: 0;
   margin-left: clamp(0.75rem, 2vw, 2rem) !important;
   margin-right: 0.5rem !important;
-}
-
-.lo-amenu-cta {
-  align-self: center !important;
-  height: auto !important;
-  min-height: 40px !important;
-  padding: 10px 16px !important;
-  border-radius: 6px !important;
-  margin-right: 0 !important;
-  flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(255, 74, 0, 0.2);
 }
 
 /* Hero text link — underline matches text width */
@@ -117,7 +106,8 @@ body.bl-lab-asleep.lo-landing-ready .bl-lab-landing-preview {
 
   .lo-amenu-cta {
     font-size: 12px !important;
-    padding: 9px 14px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -134,7 +124,8 @@ body.bl-lab-asleep.lo-landing-ready .bl-lab-landing-preview {
 
   .lo-amenu-cta {
     font-size: 11px !important;
-    padding: 8px 12px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 }
 

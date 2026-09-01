@@ -178,11 +178,14 @@ video {
 }
 
 .lo-mz-btn,
+.lo-amenu-cta,
 .lo-sticky-cta a {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .lo-mz-btn:hover {

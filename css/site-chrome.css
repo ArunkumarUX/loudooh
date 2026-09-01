@@ -1,4 +1,4 @@
-@import url("/css/smooth-experience.css?v=2");
+@import url("/css/smooth-experience.css?v=3");
 
 /* Shared Loud! OOH chrome — homepage nav + footer, reused across pages */
 .lo-amenu{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;background:#fff;border-bottom:1px solid rgba(10,31,61,.08);font-family:"Inter",Helvetica,system-ui,sans-serif;transition:background .28s ease,border-color .28s ease,box-shadow .28s ease}
@@ -15,7 +15,31 @@
 .lo-amenu-link.is-current{color:#0A1F3D;background:#fff}
 .lo-amenu-chevron{width:8px;height:8px;transition:transform .25s ease;opacity:.7}
 .lo-amenu-item.is-open .lo-amenu-chevron{transform:rotate(180deg);opacity:1}
-.lo-amenu-cta{color:#fff;font-size:13px;font-weight:700;text-decoration:none;flex:0 0 auto;margin-left:auto;border:0;padding:10px 18px;border-radius:0;background:#FF4A00;transition:background .2s ease,transform .2s ease;white-space:nowrap;max-width:none;overflow:visible}
+.lo-amenu-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  min-height:44px;
+  padding:0 18px;
+  border:0;
+  border-radius:0;
+  background:#FF4A00;
+  color:#fff;
+  font-family:"Montserrat",system-ui,sans-serif;
+  font-size:13px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.02em;
+  text-decoration:none;
+  white-space:nowrap;
+  flex:0 0 auto;
+  margin-left:auto;
+  max-width:none;
+  overflow:visible;
+  cursor:pointer;
+  transition:background .2s ease,transform .2s ease;
+}
 .lo-amenu-row{overflow:visible}
 .lo-amenu-cta:hover{background:#E64300;color:#fff;transform:translateY(-1px)}
 .lo-amenu-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer;margin-left:auto}
