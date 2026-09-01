@@ -225,6 +225,12 @@ function wireOnce(){
       ? window.blEmailBodyText(r, nameEl && nameEl.value, email) : "";
     window.location.href = "mailto:hello@loudooh.co.uk?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
+    /* SLA confirmation (Jamie brief) */
+    if(emailError){
+      emailError.hidden = false;
+      emailError.style.color = "rgba(10,31,61,.85)";
+      emailError.textContent = "Request received. We'll review the plan and confirm availability within 2 business hours. Where media can be provisionally held, we'll confirm the seven-day hold separately.";
+    }
   });
 
   [document.getElementById("bl-plan-drawer-email-from"), document.getElementById("bl-plan-drawer-email-name")].forEach(function(el){

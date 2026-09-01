@@ -111,8 +111,9 @@
     h += "</div>";
 
     h += '<p class="bl-pdf-note">Impacts are a planning range from operator and industry data, not a ' +
-         'measured audience. Rates are indicative and subject to live availability. This document ' +
+         'measured audience. Rates are indicative and subject to availability. This document ' +
          'reflects the plan as it stood on ' + esc(today()) + ".</p>";
+    h += '<p class="bl-pdf-disclaimer">Planning estimates based on current market rates, available audience data and Loud! OOH buying experience. Final prices and availability are confirmed before booking.</p>';
     return h;
   }
 

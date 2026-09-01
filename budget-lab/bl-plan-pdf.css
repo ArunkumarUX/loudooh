@@ -228,6 +228,13 @@
     padding-top: 10px;
   }
 
+  .bl-pdf-disclaimer{
+    font-size: 8pt;
+    color: #6b7789;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
   /* ---------- the plan body ---------- */
   /* A card is a unit of meaning: never split one across a page. */
   body.bl-printing .bl-sum-format,

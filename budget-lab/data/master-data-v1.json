@@ -1,0 +1,1144 @@
+{
+ "README": [
+  {
+   "Workbook": "Loud! OOH Budget Lab | Master Data & Planning Engine v1.0",
+   "Status": "Practical planning dataset. Mix of Loud! OOH published 2026 rates, public benchmarks and clearly labelled planning assumptions.",
+   "Last Updated": "1 September 2026",
+   "Important": "All outputs should be presented as planning estimates until availability and final pricing are confirmed.",
+   "": ""
+  }
+ ],
+ "Format Rate Benchmarks": [
+  {
+   "Category": "Roadside",
+   "Format": "Static 6-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 400.0,
+   "Planning Typical \u00a3": 650.0,
+   "Planning High \u00a3": 900.0,
+   "Minimum Spend \u00a3": 325.0,
+   "Public Low \u00a3": 300.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Static 48-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 650.0,
+   "Planning Typical \u00a3": 825.0,
+   "Planning High \u00a3": 1000.0,
+   "Minimum Spend \u00a3": 325.0,
+   "Public Low \u00a3": 325.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Static 48-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 325.0,
+   "Planning Typical \u00a3": 475.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 325.0,
+   "Public Low \u00a3": 325.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per screen / week",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 650.0,
+   "Planning High \u00a3": 800.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 400.0,
+   "Public High \u00a3": 650.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per screen / week",
+   "Planning Low \u00a3": 400.0,
+   "Planning Typical \u00a3": 500.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 400.0,
+   "Public Low \u00a3": 400.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Digital 48-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 1000.0,
+   "Planning Typical \u00a3": 1100.0,
+   "Planning High \u00a3": 1200.0,
+   "Minimum Spend \u00a3": 1000.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 1000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Digital 48-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 750.0,
+   "Planning High \u00a3": 1000.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 1000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Indicative market range"
+  },
+  {
+   "Category": "Roadside",
+   "Format": "Digital 96-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 1500.0,
+   "Planning Typical \u00a3": 3000.0,
+   "Planning High \u00a3": 5000.0,
+   "Minimum Spend \u00a3": 1000.0,
+   "Public Low \u00a3": 1000.0,
+   "Public High \u00a3": 15000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium range can be much higher"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "Tube Car Panel",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / line buy",
+   "Planning Low \u00a3": 10.0,
+   "Planning Typical \u00a3": 50.0,
+   "Planning High \u00a3": 150.0,
+   "Minimum Spend \u00a3": 10.0,
+   "Public Low \u00a3": 10.0,
+   "Public High \u00a3": 150.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Line/package dependent"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "Escalator Panel",
+   "Market/Region": "Outer / London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 125.0,
+   "Planning Typical \u00a3": 300.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 125.0,
+   "Public Low \u00a3": 125.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Interchange premium"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "Platform 4-Sheet",
+   "Market/Region": "Outer zones",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 300.0,
+   "Planning Typical \u00a3": 350.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 300.0,
+   "Public Low \u00a3": 300.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Zone dependent"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "16-Sheet Cross-Track",
+   "Market/Region": "Outer / Zone 1",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 1000.0,
+   "Planning Typical \u00a3": 1800.0,
+   "Planning High \u00a3": 2800.0,
+   "Minimum Spend \u00a3": 1000.0,
+   "Public Low \u00a3": 1000.0,
+   "Public High \u00a3": 2800.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Station dependent"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "48-Sheet Cross-Track",
+   "Market/Region": "Outer / Zone 1",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 1500.0,
+   "Planning Typical \u00a3": 3000.0,
+   "Planning High \u00a3": 5000.0,
+   "Minimum Spend \u00a3": 1500.0,
+   "Public Low \u00a3": 1500.0,
+   "Public High \u00a3": 5000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Station dependent"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "Digital Escalator Bank",
+   "Market/Region": "London",
+   "Buying Unit": "per week",
+   "Planning Low \u00a3": 15750.0,
+   "Planning Typical \u00a3": 20000.0,
+   "Planning High \u00a3": 40000.0,
+   "Minimum Spend \u00a3": 15750.0,
+   "Public Low \u00a3": 15750.0,
+   "Public High \u00a3": 40000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium negotiated"
+  },
+  {
+   "Category": "London Underground",
+   "Format": "Station Domination",
+   "Market/Region": "London",
+   "Buying Unit": "per 2 wks",
+   "Planning Low \u00a3": 15000.0,
+   "Planning Typical \u00a3": 50000.0,
+   "Planning High \u00a3": 100000.0,
+   "Minimum Spend \u00a3": 15000.0,
+   "Public Low \u00a3": 15000.0,
+   "Public High \u00a3": 100000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Flagship sites can exceed range"
+  },
+  {
+   "Category": "Rail",
+   "Format": "4/6-Sheet Poster",
+   "Market/Region": "Regional",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 250.0,
+   "Planning Typical \u00a3": 500.0,
+   "Planning High \u00a3": 750.0,
+   "Minimum Spend \u00a3": 250.0,
+   "Public Low \u00a3": 250.0,
+   "Public High \u00a3": 750.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Station category dependent"
+  },
+  {
+   "Category": "Rail",
+   "Format": "4/6-Sheet Poster",
+   "Market/Region": "Major regional",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 750.0,
+   "Planning High \u00a3": 1000.0,
+   "Minimum Spend \u00a3": 250.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 1000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Station category dependent"
+  },
+  {
+   "Category": "Rail",
+   "Format": "4/6-Sheet Poster",
+   "Market/Region": "London termini",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 750.0,
+   "Planning Typical \u00a3": 1100.0,
+   "Planning High \u00a3": 1500.0,
+   "Minimum Spend \u00a3": 250.0,
+   "Public Low \u00a3": 750.0,
+   "Public High \u00a3": 1500.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium station inventory"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per week",
+   "Planning Low \u00a3": 450.0,
+   "Planning Typical \u00a3": 800.0,
+   "Planning High \u00a3": 1200.0,
+   "Minimum Spend \u00a3": 450.0,
+   "Public Low \u00a3": 450.0,
+   "Public High \u00a3": 1200.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Daypart may vary"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "Major regional",
+   "Buying Unit": "per week",
+   "Planning Low \u00a3": 800.0,
+   "Planning Typical \u00a3": 1000.0,
+   "Planning High \u00a3": 1400.0,
+   "Minimum Spend \u00a3": 450.0,
+   "Public Low \u00a3": 800.0,
+   "Public High \u00a3": 1400.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Planning benchmark"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "London termini",
+   "Buying Unit": "per week",
+   "Planning Low \u00a3": 1200.0,
+   "Planning Typical \u00a3": 1700.0,
+   "Planning High \u00a3": 2200.0,
+   "Minimum Spend \u00a3": 450.0,
+   "Public Low \u00a3": 1200.0,
+   "Public High \u00a3": 2200.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Planning benchmark"
+  },
+  {
+   "Category": "Rail",
+   "Format": "48-Sheet Station Large Format",
+   "Market/Region": "Regional",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 750.0,
+   "Planning Typical \u00a3": 1250.0,
+   "Planning High \u00a3": 2000.0,
+   "Minimum Spend \u00a3": 750.0,
+   "Public Low \u00a3": 750.0,
+   "Public High \u00a3": 2000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Includes trackside opportunities"
+  },
+  {
+   "Category": "Rail",
+   "Format": "48-Sheet Station Large Format",
+   "Market/Region": "Major regional",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 1500.0,
+   "Planning Typical \u00a3": 2000.0,
+   "Planning High \u00a3": 3000.0,
+   "Minimum Spend \u00a3": 750.0,
+   "Public Low \u00a3": 1500.0,
+   "Public High \u00a3": 3000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Planning benchmark"
+  },
+  {
+   "Category": "Rail",
+   "Format": "48-Sheet Station Large Format",
+   "Market/Region": "London termini",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 2000.0,
+   "Planning Typical \u00a3": 3250.0,
+   "Planning High \u00a3": 4500.0,
+   "Minimum Spend \u00a3": 750.0,
+   "Public Low \u00a3": 2000.0,
+   "Public High \u00a3": 4500.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Traincard Interior",
+   "Market/Region": "UK",
+   "Buying Unit": "per panel",
+   "Planning Low \u00a3": 75.0,
+   "Planning Typical \u00a3": 125.0,
+   "Planning High \u00a3": 150.0,
+   "Minimum Spend \u00a3": 75.0,
+   "Public Low \u00a3": 75.0,
+   "Public High \u00a3": 150.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Usually fleet/package based"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Station Takeover",
+   "Market/Region": "Regional",
+   "Buying Unit": "per campaign",
+   "Planning Low \u00a3": 2500.0,
+   "Planning Typical \u00a3": 5000.0,
+   "Planning High \u00a3": 8000.0,
+   "Minimum Spend \u00a3": 2500.0,
+   "Public Low \u00a3": 2500.0,
+   "Public High \u00a3": 8000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Longer lead times"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Station Takeover",
+   "Market/Region": "Major regional",
+   "Buying Unit": "per campaign",
+   "Planning Low \u00a3": 8000.0,
+   "Planning Typical \u00a3": 12000.0,
+   "Planning High \u00a3": 15000.0,
+   "Minimum Spend \u00a3": 2500.0,
+   "Public Low \u00a3": 8000.0,
+   "Public High \u00a3": 15000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Planning benchmark"
+  },
+  {
+   "Category": "Rail",
+   "Format": "Station Takeover",
+   "Market/Region": "London termini",
+   "Buying Unit": "per campaign",
+   "Planning Low \u00a3": 15000.0,
+   "Planning Typical \u00a3": 30000.0,
+   "Planning High \u00a3": 60000.0,
+   "Minimum Spend \u00a3": 2500.0,
+   "Public Low \u00a3": 15000.0,
+   "Public High \u00a3": 60000.0,
+   "Source / Basis": "Loud! OOH Rail Guide 2026",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium negotiated"
+  },
+  {
+   "Category": "Bus Shelter",
+   "Format": "Static 6-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 400.0,
+   "Planning Typical \u00a3": 525.0,
+   "Planning High \u00a3": 650.0,
+   "Minimum Spend \u00a3": 300.0,
+   "Public Low \u00a3": 300.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Postcode clusters"
+  },
+  {
+   "Category": "Bus Shelter",
+   "Format": "Static 6-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per panel / 2 wks",
+   "Planning Low \u00a3": 300.0,
+   "Planning Typical \u00a3": 450.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 300.0,
+   "Public Low \u00a3": 300.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Postcode clusters"
+  },
+  {
+   "Category": "Bus Shelter",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "London",
+   "Buying Unit": "per screen / week",
+   "Planning Low \u00a3": 650.0,
+   "Planning Typical \u00a3": 725.0,
+   "Planning High \u00a3": 800.0,
+   "Minimum Spend \u00a3": 650.0,
+   "Public Low \u00a3": 400.0,
+   "Public High \u00a3": 650.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium corridors can differ"
+  },
+  {
+   "Category": "Bus Shelter",
+   "Format": "Digital 6-Sheet",
+   "Market/Region": "Regional",
+   "Buying Unit": "per screen / week",
+   "Planning Low \u00a3": 400.0,
+   "Planning Typical \u00a3": 525.0,
+   "Planning High \u00a3": 650.0,
+   "Minimum Spend \u00a3": 400.0,
+   "Public Low \u00a3": 400.0,
+   "Public High \u00a3": 650.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Network/package dependent"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Rear / Headliner",
+   "Market/Region": "Regional",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 60.0,
+   "Planning Typical \u00a3": 75.0,
+   "Planning High \u00a3": 90.0,
+   "Minimum Spend \u00a3": 60.0,
+   "Public Low \u00a3": 60.0,
+   "Public High \u00a3": 90.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Volume dependent"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Rear / Headliner",
+   "Market/Region": "London",
+   "Buying Unit": "per bus / week",
+   "Planning Low \u00a3": 200.0,
+   "Planning Typical \u00a3": 400.0,
+   "Planning High \u00a3": 600.0,
+   "Minimum Spend \u00a3": 400.0,
+   "Public Low \u00a3": 200.0,
+   "Public High \u00a3": 600.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Route/depot dependent"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Superside",
+   "Market/Region": "Regional",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 130.0,
+   "Planning Typical \u00a3": 200.0,
+   "Planning High \u00a3": 275.0,
+   "Minimum Spend \u00a3": 130.0,
+   "Public Low \u00a3": 130.0,
+   "Public High \u00a3": 275.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Minimum volume often applies"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Superside",
+   "Market/Region": "London",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 300.0,
+   "Planning Typical \u00a3": 400.0,
+   "Planning High \u00a3": 500.0,
+   "Minimum Spend \u00a3": 300.0,
+   "Public Low \u00a3": 300.0,
+   "Public High \u00a3": 500.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Premium routes may exceed"
+  },
+  {
+   "Category": "Bus",
+   "Format": "T-Side",
+   "Market/Region": "Regional",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 250.0,
+   "Planning Typical \u00a3": 375.0,
+   "Planning High \u00a3": 500.0,
+   "Minimum Spend \u00a3": 250.0,
+   "Public Low \u00a3": 250.0,
+   "Public High \u00a3": 500.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Volume dependent"
+  },
+  {
+   "Category": "Bus",
+   "Format": "T-Side",
+   "Market/Region": "London",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 700.0,
+   "Planning High \u00a3": 900.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 900.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Route/depot dependent"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Streetliner",
+   "Market/Region": "Regional",
+   "Buying Unit": "per bus / 2 wks",
+   "Planning Low \u00a3": 180.0,
+   "Planning Typical \u00a3": 340.0,
+   "Planning High \u00a3": 500.0,
+   "Minimum Spend \u00a3": 180.0,
+   "Public Low \u00a3": 180.0,
+   "Public High \u00a3": 500.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Suburban/high street use"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Full Wrap",
+   "Market/Region": "London",
+   "Buying Unit": "per bus / 4 wks",
+   "Planning Low \u00a3": 10000.0,
+   "Planning Typical \u00a3": 20000.0,
+   "Planning High \u00a3": 30000.0,
+   "Minimum Spend \u00a3": 10000.0,
+   "Public Low \u00a3": 10000.0,
+   "Public High \u00a3": 30000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Production extra"
+  },
+  {
+   "Category": "Bus",
+   "Format": "Full Wrap",
+   "Market/Region": "UK annual",
+   "Buying Unit": "per bus / year",
+   "Planning Low \u00a3": 18000.0,
+   "Planning Typical \u00a3": 24000.0,
+   "Planning High \u00a3": 30000.0,
+   "Minimum Spend \u00a3": 18000.0,
+   "Public Low \u00a3": 18000.0,
+   "Public High \u00a3": 30000.0,
+   "Source / Basis": "Published Loud! OOH 2026 pricing",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Annual commitment"
+  },
+  {
+   "Category": "Airport",
+   "Format": "Static 6-Sheet",
+   "Market/Region": "Regional airport",
+   "Buying Unit": "per panel / campaign",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 750.0,
+   "Planning High \u00a3": 1200.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 1200.0,
+   "Source / Basis": "Loud! OOH Airport Guide / public insight",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Use as v1 planning benchmark"
+  },
+  {
+   "Category": "Airport",
+   "Format": "Premium Digital / Large Format",
+   "Market/Region": "Major airport",
+   "Buying Unit": "per campaign",
+   "Planning Low \u00a3": 2500.0,
+   "Planning Typical \u00a3": 7500.0,
+   "Planning High \u00a3": 25000.0,
+   "Minimum Spend \u00a3": 2500.0,
+   "Public Low \u00a3": 2500.0,
+   "Public High \u00a3": 25000.0,
+   "Source / Basis": "Planning benchmark requiring media-owner confirmation",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Broad range, confirm per terminal"
+  },
+  {
+   "Category": "Taxi",
+   "Format": "Cab panels / supersides",
+   "Market/Region": "London / major city",
+   "Buying Unit": "per taxi / campaign",
+   "Planning Low \u00a3": 500.0,
+   "Planning Typical \u00a3": 1000.0,
+   "Planning High \u00a3": 2000.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 500.0,
+   "Public High \u00a3": 2000.0,
+   "Source / Basis": "Planning benchmark requiring supplier confirmation",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Fleet and duration dependent"
+  },
+  {
+   "Category": "Taxi",
+   "Format": "Full wrap",
+   "Market/Region": "London / major city",
+   "Buying Unit": "per taxi / campaign",
+   "Planning Low \u00a3": 1000.0,
+   "Planning Typical \u00a3": 2000.0,
+   "Planning High \u00a3": 4000.0,
+   "Minimum Spend \u00a3": 1000.0,
+   "Public Low \u00a3": 1000.0,
+   "Public High \u00a3": 4000.0,
+   "Source / Basis": "Planning benchmark requiring supplier confirmation",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Production may be extra"
+  },
+  {
+   "Category": "Mobile OOH",
+   "Format": "Digital AdVan",
+   "Market/Region": "Major city",
+   "Buying Unit": "per day",
+   "Planning Low \u00a3": 999.0,
+   "Planning Typical \u00a3": 1250.0,
+   "Planning High \u00a3": 2000.0,
+   "Minimum Spend \u00a3": 999.0,
+   "Public Low \u00a3": 999.0,
+   "Public High \u00a3": 2000.0,
+   "Source / Basis": "Public UK supplier benchmark + planning range",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Route hours and staffing affect price"
+  },
+  {
+   "Category": "pDOOH",
+   "Format": "Programmatic DOOH",
+   "Market/Region": "UK",
+   "Buying Unit": "CPM / media benchmark",
+   "Planning Low \u00a3": 5.0,
+   "Planning Typical \u00a3": 12.0,
+   "Planning High \u00a3": 25.0,
+   "Minimum Spend \u00a3": 500.0,
+   "Public Low \u00a3": 5.0,
+   "Public High \u00a3": 25.0,
+   "Source / Basis": "Planning benchmark only",
+   "Last Reviewed": "2026-09-01",
+   "Notes": "Auction dynamics vary materially"
+  }
+ ],
+ "Regional Multipliers": [
+  {
+   "Region Tier": "London Core",
+   "Indicative Price Index vs London Core": 1.0,
+   "Use": "Base market",
+   "Notes": "Highest premium concentration",
+   "": ""
+  },
+  {
+   "Region Tier": "London Outer",
+   "Indicative Price Index vs London Core": 0.8500000000000001,
+   "Use": "Indicative multiplier",
+   "Notes": "Use only when exact station/site tier unavailable",
+   "": ""
+  },
+  {
+   "Region Tier": "Major City Prime",
+   "Indicative Price Index vs London Core": 0.75,
+   "Use": "Indicative multiplier",
+   "Notes": "Manchester, Birmingham and similar prime city environments",
+   "": ""
+  },
+  {
+   "Region Tier": "Major City Standard",
+   "Indicative Price Index vs London Core": 0.65,
+   "Use": "Indicative multiplier",
+   "Notes": "Standard city inventory",
+   "": ""
+  },
+  {
+   "Region Tier": "Regional Prime",
+   "Indicative Price Index vs London Core": 0.55,
+   "Use": "Indicative multiplier",
+   "Notes": "High-footfall regional sites",
+   "": ""
+  },
+  {
+   "Region Tier": "Regional Standard",
+   "Indicative Price Index vs London Core": 0.45,
+   "Use": "Indicative multiplier",
+   "Notes": "Standard regional inventory",
+   "": ""
+  },
+  {
+   "Region Tier": "National Network",
+   "Indicative Price Index vs London Core": "N/A",
+   "Use": "Network-specific",
+   "Notes": "Do not derive from single-site multiplier",
+   "": ""
+  }
+ ],
+ "Audience Methodology": [
+  {
+   "Metric": "Reach",
+   "Definition": "Unique number of individuals seeing the campaign",
+   "Source": "Route output",
+   "Implementation Note": "Do not equate with impacts",
+   "": ""
+  },
+  {
+   "Metric": "Cover",
+   "Definition": "Proportion of target audience exposed",
+   "Source": "Route output",
+   "Implementation Note": "Reach divided by population",
+   "": ""
+  },
+  {
+   "Metric": "Impacts",
+   "Definition": "Total number of times the target audience sees the campaign",
+   "Source": "Route output",
+   "Implementation Note": "Not interchangeable with digital impressions",
+   "": ""
+  },
+  {
+   "Metric": "Frequency",
+   "Definition": "Average number of times exposed people see the campaign",
+   "Source": "Route output",
+   "Implementation Note": "Impacts divided by reach",
+   "": ""
+  },
+  {
+   "Metric": "GRPs",
+   "Definition": "Total exposure expressed as reach percentage multiplied by frequency",
+   "Source": "Route output",
+   "Implementation Note": "Use where relevant",
+   "": ""
+  }
+ ],
+ "Objective Rules": [
+  {
+   "Objective": "Maximise Reach",
+   "Primary Formats": "Digital 48-sheet; Bus rear; Digital shelter; pDOOH",
+   "Reach Weight %": "70",
+   "Frequency/Local Weight %": "20",
+   "Impact Weight %": "10",
+   "Planning Logic": "Prioritise broad audience delivery and efficient scale"
+  },
+  {
+   "Objective": "Local Dominance",
+   "Primary Formats": "Static 48-sheet; Static shelter; Bus superside",
+   "Reach Weight %": "30",
+   "Frequency/Local Weight %": "60",
+   "Impact Weight %": "10",
+   "Planning Logic": "Concentrate spend in selected geography"
+  },
+  {
+   "Objective": "Frequency Boost",
+   "Primary Formats": "Shelter clusters; Taxi; Bus interiors/transport",
+   "Reach Weight %": "20",
+   "Frequency/Local Weight %": "60",
+   "Impact Weight %": "20",
+   "Planning Logic": "Prioritise repeat exposure in defined areas"
+  },
+  {
+   "Objective": "Brand Building",
+   "Primary Formats": "Large format; Cross-track; Premium digital",
+   "Reach Weight %": "40",
+   "Frequency/Local Weight %": "20",
+   "Impact Weight %": "40",
+   "Planning Logic": "Prioritise fame, context and visual impact"
+  },
+  {
+   "Objective": "Product Launch",
+   "Primary Formats": "Premium digital; Large format; station takeovers",
+   "Reach Weight %": "45",
+   "Frequency/Local Weight %": "20",
+   "Impact Weight %": "35",
+   "Planning Logic": "Prioritise attention and launch moment"
+  },
+  {
+   "Objective": "Footfall / Local Action",
+   "Primary Formats": "Shelter; Bus; local roadside",
+   "Reach Weight %": "20",
+   "Frequency/Local Weight %": "70",
+   "Impact Weight %": "10",
+   "Planning Logic": "Prioritise proximity and geographic relevance"
+  }
+ ],
+ "Availability Matrix": [
+  {
+   "Format": "Static Roadside",
+   "Availability": "National",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "No",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "Digital Roadside",
+   "Availability": "National / major cities",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "London Underground",
+   "Availability": "London only",
+   "National": "No",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "Rail",
+   "Availability": "National Rail network",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "Bus Advertising",
+   "Availability": "Most major UK cities",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "Bus Shelter",
+   "Availability": "Major cities and broad regional coverage",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "Airport",
+   "Availability": "Selected UK airports",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Planner review"
+  },
+  {
+   "Format": "Taxi",
+   "Availability": "London and selected major cities",
+   "National": "No",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Planner review"
+  },
+  {
+   "Format": "Mobile AdVan",
+   "Availability": "Major UK cities / national routes",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  },
+  {
+   "Format": "pDOOH",
+   "Availability": "Dependent on screen marketplace",
+   "National": "Yes",
+   "Regional": "Yes",
+   "City Specific": "Yes",
+   "Auto Recommend Rule": "Yes"
+  }
+ ],
+ "Production Costs": [
+  {
+   "Format": "Static 6-Sheet",
+   "Planning Production Range": "\u00a375\u2013\u00a3200 per creative/print batch",
+   "Assumption": "Print/installation varies by supplier",
+   "Status": "Estimate until supplier quote",
+   "": ""
+  },
+  {
+   "Format": "Static 48-Sheet",
+   "Planning Production Range": "\u00a3150\u2013\u00a3400 per site/batch",
+   "Assumption": "Paper, vinyl and posting vary",
+   "Status": "Estimate",
+   "": ""
+  },
+  {
+   "Format": "96-Sheet / large format",
+   "Planning Production Range": "\u00a3400\u2013\u00a31,500+",
+   "Assumption": "Material and installation significant",
+   "Status": "Supplier quote preferred",
+   "": ""
+  },
+  {
+   "Format": "Bus rear / side",
+   "Planning Production Range": "\u00a350\u2013\u00a3250 per bus",
+   "Assumption": "Printing and fitting may vary",
+   "Status": "Estimate",
+   "": ""
+  },
+  {
+   "Format": "Bus wrap",
+   "Planning Production Range": "\u00a3500\u2013\u00a31,500+",
+   "Assumption": "Specialist installation",
+   "Status": "Published Loud! range",
+   "": ""
+  },
+  {
+   "Format": "Taxi panel / wrap",
+   "Planning Production Range": "\u00a3150\u2013\u00a3800 per vehicle",
+   "Assumption": "Depends on coverage and duration",
+   "Status": "Planning estimate",
+   "": ""
+  },
+  {
+   "Format": "Digital DOOH",
+   "Planning Production Range": "\u00a30\u2013\u00a3500",
+   "Assumption": "Creative adaptation / delivery fees possible",
+   "Status": "Usually no print",
+   "": ""
+  },
+  {
+   "Format": "Rail / Underground static",
+   "Planning Production Range": "\u00a3100\u2013\u00a3500 per campaign asset set",
+   "Assumption": "Print and installation may vary",
+   "Status": "Estimate",
+   "": ""
+  },
+  {
+   "Format": "Airport static",
+   "Planning Production Range": "\u00a3150\u2013\u00a31,000+",
+   "Assumption": "Premium production can increase",
+   "Status": "Supplier quote preferred",
+   "": ""
+  },
+  {
+   "Format": "AdVan",
+   "Planning Production Range": "Included or \u00a30\u2013\u00a3500 extra",
+   "Assumption": "Depends on creative setup and production",
+   "Status": "Supplier dependent",
+   "": ""
+  }
+ ],
+ "Budget Scenarios": [
+  {
+   "Budget": "\u00a3500",
+   "Planning Tier": "Single local test",
+   "Typical Starting Options": "1 regional 48-sheet OR 1\u20132 shelters",
+   "Guidance": "Keep the plan simple and geographically focused",
+   "": ""
+  },
+  {
+   "Budget": "\u00a31,000",
+   "Planning Tier": "Local impact",
+   "Typical Starting Options": "2 billboards OR shelter cluster / bus rears",
+   "Guidance": "Start building local presence",
+   "": ""
+  },
+  {
+   "Budget": "\u00a32,500",
+   "Planning Tier": "Local dominance",
+   "Typical Starting Options": "Multi-site local mix",
+   "Guidance": "Concentrate around a city, postcode cluster or commuter corridor",
+   "": ""
+  },
+  {
+   "Budget": "\u00a35,000",
+   "Planning Tier": "City presence",
+   "Typical Starting Options": "4 billboards, shelter cluster, bus supersides or entry rail mix",
+   "Guidance": "Enough budget to build a deliberate mix",
+   "": ""
+  },
+  {
+   "Budget": "\u00a310,000",
+   "Planning Tier": "Multi-format city campaign",
+   "Typical Starting Options": "Roadside + transport + digital mix",
+   "Guidance": "Balance reach, frequency and impact",
+   "": ""
+  },
+  {
+   "Budget": "\u00a325,000",
+   "Planning Tier": "Major city / regional scale",
+   "Typical Starting Options": "Multiple formats and premium locations",
+   "Guidance": "Allows meaningful geographic coverage",
+   "": ""
+  },
+  {
+   "Budget": "\u00a350,000",
+   "Planning Tier": "Large campaign",
+   "Typical Starting Options": "Multi-city or premium single-market campaign",
+   "Guidance": "Use scenario rules rather than one default mix",
+   "": ""
+  },
+  {
+   "Budget": "\u00a3100,000+",
+   "Planning Tier": "National / premium scale",
+   "Typical Starting Options": "Multi-market, high-impact and network buys",
+   "Guidance": "Requires availability and campaign-specific optimisation",
+   "": ""
+  }
+ ],
+ "Case Studies": [
+  {
+   "Campaign": "York Street Billboard, Leeds",
+   "Objective": "Brand awareness and pricing transparency",
+   "Budget": "\u00a3650 real quote vs \u00a3325 published rate",
+   "Media": "2 x 48-sheet billboards",
+   "Geography": "Leeds",
+   "Outcome": "188% new traffic uplift; 5 press placements",
+   "Source Status": "Published Loud! case study",
+   "Notes": "Strong real proof example"
+  },
+  {
+   "Campaign": "Flood Re 3D DOOH, Manchester",
+   "Objective": "High-impact awareness / creative impact",
+   "Budget": "TBC internal budget",
+   "Media": "3D anamorphic DOOH",
+   "Geography": "Manchester",
+   "Outcome": "TBC verified outcomes",
+   "Source Status": "Add internal data before public use",
+   "Notes": "Use once budget/outcomes approved"
+  },
+  {
+   "Campaign": "Future Loud! Campaign",
+   "Objective": "Planning example",
+   "Budget": "TBC",
+   "Media": "TBC",
+   "Geography": "TBC",
+   "Outcome": "TBC",
+   "Source Status": "Internal source",
+   "Notes": "Reserve for second validated example"
+  }
+ ],
+ "Sources": [
+  {
+   "Source": "Loud! OOH 2026 Pricing",
+   "URL": "https://www.loudooh.co.uk/pricing/",
+   "Use": "Primary v1 rate source",
+   "Notes": "Current public rate ranges",
+   "": ""
+  },
+  {
+   "Source": "Loud! OOH Rail Guide",
+   "URL": "https://www.loudooh.co.uk/insights/rail-advertising-uk/",
+   "Use": "Primary rail source",
+   "Notes": "Published 2026 rail ranges",
+   "": ""
+  },
+  {
+   "Source": "Loud! OOH Underground Guide",
+   "URL": "https://www.loudooh.co.uk/insights/london-underground-advertising-costs-2026/",
+   "Use": "Primary Underground source",
+   "Notes": "Published 2026 ranges",
+   "": ""
+  },
+  {
+   "Source": "Route Audience",
+   "URL": "https://www.route.org.uk/audience.php",
+   "Use": "Primary measurement methodology",
+   "Notes": "Reach, cover, impacts, frequency, GRPs",
+   "": ""
+  },
+  {
+   "Source": "Route Data Dictionary",
+   "URL": "https://routedata.org.uk/Data%20Dictionary/",
+   "Use": "Current metric definitions",
+   "Notes": "R59 Q2 2026 noted by source",
+   "": ""
+  },
+  {
+   "Source": "Loud! OOH Case Study",
+   "URL": "https://www.loudooh.co.uk/case-studies/york-street-billboard-leeds/",
+   "Use": "Real campaign example",
+   "Notes": "\u00a3325 published rate, 188% traffic uplift",
+   "": ""
+  }
+ ]
+}

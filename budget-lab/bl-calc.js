@@ -127,10 +127,38 @@ function priceBand(f, geo, named){
   return {lo:Math.min(f.londonLow, f.regionalLow), hi:Math.max(f.londonHigh, f.regionalHigh)};
 }
 function unitMediaPrice(f, geo, mode, named){
+  var g = normaliseGeo(geo, named);
+  /* Master data: Planning Typical is the optimise target; use it as mid when
+     available. Conservative = Planning High; optimistic = Planning Low. */
+  var MD = window.BLMasterData;
+  if(MD){
+    var masterTy  = MD.typicalRate(f.id, g);
+    var masterLo  = MD.lowRate(f.id, g);
+    var masterHi  = MD.highRate(f.id, g);
+    if(masterTy != null){
+      if(mode === "conservative") return masterHi != null ? masterHi : masterTy;
+      if(mode === "optimistic")   return masterLo != null ? masterLo : masterTy;
+      return masterTy;   /* indicative / mid = Planning Typical */
+    }
+  }
+  /* Fallback: existing band arithmetic */
   var band = priceBand(f, geo, named);
   if(mode === "conservative") return band.hi;
   if(mode === "optimistic")   return band.lo;
-  return normaliseGeo(geo, named) === "uk" ? f.mid : (band.lo + band.hi) / 2;
+  return g === "uk" ? f.mid : (band.lo + band.hi) / 2;
+}
+
+/* Planning Low / High uncertainty range for display — master data sourced. */
+function unitPriceRange(f, geo, named){
+  var g = normaliseGeo(geo, named);
+  var MD = window.BLMasterData;
+  if(MD){
+    var lo = MD.lowRate(f.id, g);
+    var hi = MD.highRate(f.id, g);
+    if(lo != null && hi != null) return {lo:lo, hi:hi};
+  }
+  var band = priceBand(f, geo, named);
+  return {lo:band.lo, hi:band.hi};
 }
 
 function isLondonGeo(geo, named){
@@ -163,10 +191,21 @@ function quote(f, opts){
   if(!isGeoEligible(f, opts.geo, opts.named)) return null;
   var cf = cycleFactor(f, opts.days);
   if(!cf) return null;
-  var mediaUnit = unitMediaPrice(f, opts.geo, opts.mode, opts.named) * cf.factor;
+  var g = normaliseGeo(opts.geo, opts.named);
+  var rawUnit = unitMediaPrice(f, opts.geo, opts.mode, opts.named);
+  /* §MD Minimum Spend enforcement: per-unit price must not go below the
+     master-data floor (prevents optimistic pricing below minimum rate). */
+  var MD = window.BLMasterData;
+  if(MD){
+    var mMin = MD.minSpend(f.id, g);
+    if(mMin != null && rawUnit < mMin) rawUnit = mMin;
+  }
+  var mediaUnit = rawUnit * cf.factor;
   var inc = opts.includeProduction !== false;
   var unitTotal = mediaUnit + (inc ? f.production + f.installation : 0);
   var minQty = minimumBuy(f);
+  /* Uncertainty range from master data (shown in UI, not used in allocation) */
+  var prRange = unitPriceRange(f, opts.geo, opts.named);
   return {
     f: f,
     cycles: cf.cycles,
@@ -178,6 +217,9 @@ function quote(f, opts){
           : f.campaignBasis + " is bought as a negotiated cycle — additional cycles are quoted below a straight multiple, not extrapolated linearly. Confirm the multi-cycle rate before booking.")
       : null,
     mediaUnit: mediaUnit,
+    mediaUnitLo: prRange.lo * cf.factor,
+    mediaUnitHi: prRange.hi * cf.factor,
+    plannerReview: !!(MD && MD.needsPlannerReview(f)),
     production: f.production,
     installation: f.installation,
     unitTotal: unitTotal,
@@ -243,8 +285,12 @@ function exclusions(data, opts){
     var pick = sameCat || any;
     return pick ? pick.f : null;
   }
+  var MD = window.BLMasterData;
+  /* Planner-review formats: included in plan but disclosed separately */
+  var plannerReview = [];
   data.forEach(function(f){
     var reason = null;
+    var isPR = !!(MD && MD.needsPlannerReview(f));
     if(isPOA(f)){
       reason = "Priced on application — convoy size, routes and duration set the cost, so it can't be auto-planned.";
     } else if(!isMultipliable(f)){
@@ -259,14 +305,20 @@ function exclusions(data, opts){
                  " (about £" + Math.round(q.entryCost).toLocaleString("en-GB") + "), which is above this budget.";
       }
     }
+    if(isPR && !reason){
+      /* Not excluded — but needs a planner call before booking */
+      plannerReview.push({format: f.format, category: f.category,
+        note: f.category + " pricing varies significantly by location, season and campaign duration — confirm availability and final cost with a planner before committing."});
+    }
     if(reason){
       var alt = alternativeFor(f);
       out.push({
-        format: f.format, category: f.category, reason: reason,
+        format: f.format, category: f.category, reason: reason, plannerReview: isPR,
         alternative: alt && alt.id !== f.id ? (alt.category + " — " + alt.format) : null
       });
     }
   });
+  out.plannerReview = plannerReview;
   return out;
 }
 
@@ -420,6 +472,7 @@ window.BLCalc = {
   normaliseGeo: normaliseGeo,
   priceBand: priceBand,
   unitMediaPrice: unitMediaPrice,
+  unitPriceRange: unitPriceRange,
   isLondonGeo: isLondonGeo,
   isGeoEligible: isGeoEligible,
   minimumBuy: minimumBuy,

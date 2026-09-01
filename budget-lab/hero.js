@@ -299,7 +299,7 @@ function update(){
   pulseLive();
   var est = estimate();
   if(!est){
-    ["hl-reach","hl-impressions","hl-frequency"].forEach(function(id){
+    ["hl-reach","hl-impacts","hl-frequency"].forEach(function(id){
       var el = document.getElementById(id);
       if(el) el.textContent = "—";
     });
@@ -307,7 +307,7 @@ function update(){
     return;
   }
   var reachEl = document.getElementById("hl-reach");
-  var impEl = document.getElementById("hl-impressions");
+  var impEl = document.getElementById("hl-impacts");
   var freqEl = document.getElementById("hl-frequency");
   if(reachEl) countUp(reachEl, est.reach, function(v){ return compact(v); });
   if(impEl) countUp(impEl, est.impressions, function(v){ return compact(v); });

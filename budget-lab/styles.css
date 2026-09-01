@@ -387,6 +387,7 @@ table.bl-table td small{display:block;color:var(--muted);font-weight:500;margin-
 .bl-ai-verdict{padding:26px 30px;background:#0A1F3D;color:#fff}
 .bl-ai-verdict h3{color:#fff;font-size:clamp(1.15rem,2vw,1.45rem);margin:0 0 10px}
 .bl-ai-body{margin:0 0 18px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.82);max-width:40rem}
+.bl-ai-method{margin:0;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.42);max-width:40rem}
 .bl-ai-prompt{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#FF4A00}
 .bl-ai-moves{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
 .bl-ai-move{padding:9px 14px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
@@ -407,3 +408,5 @@ table.bl-table td small{display:block;color:var(--muted);font-weight:500;margin-
 }
 
 #planner,#formats,#top{scroll-margin-top:88px}
+
+.bl-plan-drawer-disclaimer,.bl-mock-disclaimer{display:block;font-size:10.5px;line-height:1.55;color:var(--muted,#6b7280);margin:10px 0 4px;padding:0 2px}
