@@ -79,7 +79,7 @@ async function handleLaiInsight(body) {
   }
 
   const system = [
-    "You are Loud AI for a UK OOH budget calculator.",
+    "You are Loud AI for a UK OOH media buying intelligence platform.",
     "Write concise planner copy grounded ONLY in the supplied numbers.",
     "Never invent reach, average frequency, or guaranteed availability.",
     "Only reference estimated impacts ranges, cost per 1,000 impacts, format mix, budget, duration, and geography.",

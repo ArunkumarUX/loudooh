@@ -1,6 +1,6 @@
 {
-  "name": "Mude",
-  "short_name": "Mude",
+  "name": "Loud! OOH",
+  "short_name": "Loudooh",
   "icons": [
     {
       "src": "/favicon/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#0A1F3D",
+  "background_color": "#0A1F3D",
   "display": "standalone"
 }

@@ -960,7 +960,7 @@ function loudVerdict(result){
     return { tone:"own", title:"This budget can own "+place, body:"Keep the mix concentrated. The plan below is a media system for "+place+", not a thin national sprinkle." };
   }
   if(b >= 50000){
-    return { tone:"own", title:"This is a real media system", body:"Enough budget for reach and reinforcement. Next step is live availability — not another calculator pass." };
+    return { tone:"own", title:"This is a real media system", body:"Enough budget for reach and reinforcement. Next step is live availability — not another planning pass." };
   }
   if(b < 5000){
     return { tone:"burst", title:"A sharp burst, not a campaign system", body:"At "+gbp(b)+" the honest play is one format in one place. Depth beats a handful of leftover panels." };
