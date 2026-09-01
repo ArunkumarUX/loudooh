@@ -161,13 +161,13 @@
   }
 }
 
-/* ---------- 9. the actual source of the phone overflow ----------
-   #hl-campaign-bar keeps its horizontal desktop toolbar layout on narrow
-   screens, so its accordion fields sum to 445px inside a 351px rail and push
-   the document out. Everything that appeared to overflow above this — the
-   fixed nav, the mobile menu, the report overlay — was only sizing to the
-   widened canvas. Stack the fields and the rest resolves. */
-@media (max-width: 1024px) {
+/* ---------- 9. campaign controls: tablet card, phone pill ----------
+   #hl-campaign-bar is an Airbnb pill on desktop. An earlier overflow fix
+   stacked it with display:flex !important at ≤1024px, which undid the phone
+   hide rule and turned border-radius:999px into a giant white oval that
+   clipped Duration / Audience. Stack as a rounded card on tablet only;
+   on phones hide the shell and use the compact pill + sheet. */
+@media (max-width: 1024px) and (min-width: 901px) {
   .bl-sidebar-settings-fields,
   .bl-campaign-bar,
   #hl-campaign-bar,
@@ -180,7 +180,13 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    gap: 8px !important;
+    gap: 4px !important;
+  }
+  .bl-campaign-bar-shell,
+  #hl-campaign-shell {
+    border-radius: 20px !important;
+    padding: 6px !important;
+    overflow: hidden;
   }
   .bl-campaign-accordion-item,
   .bl-sidebar-field,
@@ -189,12 +195,111 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    border-radius: 14px !important;
   }
-  /* nothing in the rail may exceed it */
+  .bl-campaign-seg::after { display: none !important; }
   .bl-ref-search-wrap,
   .bl-campaign-control,
   #hl-campaign-control,
   .bl-sidebar-settings { max-width: 100% !important; min-width: 0 !important; }
+}
+
+@media (max-width: 900px) {
+  .bl-campaign-bar-shell,
+  #hl-campaign-shell,
+  .bl-campaign-panels {
+    display: none !important;
+  }
+  .bl-campaign-mobile-pill {
+    display: block !important;
+    white-space: normal;
+    line-height: 1.35;
+    text-align: left;
+    padding: 14px 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .bl-campaign-sheet { display: block !important; }
+  .bl-campaign-control,
+  #hl-campaign-control,
+  .bl-ref-search-wrap,
+  .bl-sidebar-settings {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html, body {
+    overflow-x: clip;
+  }
+  .bl-ref-search-wrap,
+  .bl-ref-hero-band {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  body.bl-lab-awake .lo-amenu-row .bl-lab-back-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-height: 40px;
+  }
+  .bl-ref-hero--mobile .bl-ref-title {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+
+  /* Forecast card was position:sticky on phones, so its KPI grid sat under
+     the fixed explore plan bar. Keep it in document flow and clear the bar. */
+  .bl-mock-results-sticky {
+    position: static !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    top: auto !important;
+  }
+  .bl-ref-lab-wrap.is-explore,
+  main.bl-ref-page {
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .bl-lab-kpi-strip.bl-mock-kpi-strip {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px !important;
+    margin-bottom: 12px !important;
+  }
+  .bl-lab-kpi-strip.bl-mock-kpi-strip::-webkit-scrollbar { display: none; }
+  .bl-mock-kpi-card {
+    flex: 0 0 72% !important;
+    padding: 10px 10px 8px !important;
+    min-width: 0 !important;
+  }
+  .bl-mock-kpi-card .bl-mock-card-icon {
+    width: 28px !important;
+    height: 28px !important;
+    margin-bottom: 6px !important;
+  }
+  .bl-mock-kpi-value b {
+    white-space: normal !important;
+    font-size: 1.05rem !important;
+  }
+  .bl-mock-forecast-card,
+  .bl-mock-metrics-deck {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .bl-mock-plan-compact {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .bl-mock-plan-cta {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 /* ---------- 10. chip rows scroll sideways instead of widening the page ----
