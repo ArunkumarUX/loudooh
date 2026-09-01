@@ -287,7 +287,7 @@
     setActiveCard(id);
     highlightCard(id);
     showMapPreview(card);
-    if (window.matchMedia("(max-width: 960px)").matches) {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
       document.body.classList.add("explore-map-only");
       document.body.classList.remove("explore-list-only");
       var toggle = document.getElementById("hl-mobile-view");
@@ -439,20 +439,47 @@
     });
   }
 
+  function isMobileExplore() {
+    return window.matchMedia("(max-width: 1024px)").matches;
+  }
+
+  function applyMobileExploreView(view) {
+    if (!isMobileExplore()) {
+      document.body.classList.remove("explore-map-only", "explore-list-only");
+      return;
+    }
+    document.body.classList.remove("explore-map-only", "explore-list-only");
+    if (view === "map") document.body.classList.add("explore-map-only");
+    else document.body.classList.add("explore-list-only");
+    if (window.__BL_MAP__ && window.__BL_MAP__.invalidate) {
+      setTimeout(function () {
+        window.__BL_MAP__.invalidate();
+      }, 120);
+    }
+  }
+
   function wireMobileView() {
     var toggle = document.getElementById("hl-mobile-view");
     if (!toggle) return;
+
+    function activeView() {
+      var on = toggle.querySelector("button.is-on");
+      return on ? on.getAttribute("data-view") : "list";
+    }
+
+    applyMobileExploreView(activeView());
+
     toggle.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-view]");
       if (!btn) return;
       toggle.querySelectorAll("button").forEach(function (b) {
         b.classList.toggle("is-on", b === btn);
       });
-      document.body.classList.remove("explore-map-only", "explore-list-only");
-      var view = btn.getAttribute("data-view");
-      if (view === "map") document.body.classList.add("explore-map-only");
-      if (view === "list") document.body.classList.add("explore-list-only");
-      if (window.__BL_MAP__ && window.__BL_MAP__.invalidate) window.__BL_MAP__.invalidate();
+      applyMobileExploreView(btn.getAttribute("data-view"));
+    });
+
+    window.addEventListener("resize", function () {
+      applyMobileExploreView(activeView());
     });
   }
 
