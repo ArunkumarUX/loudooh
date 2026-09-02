@@ -105,7 +105,7 @@
     var body = [
       "Hi,",
       "",
-      "Here is the plan the Loud! OOH Budget Lab built for " + gbp(st.budget) +
+      "Here is the plan the Loud! OOH Budget Lab™ built for " + gbp(st.budget) +
         " across " + place + " over " + dur + ".",
       "",
       "THE NUMBERS",

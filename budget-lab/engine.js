@@ -52,7 +52,7 @@ var PLANNING_MODES = [
 var TRANSPORT_CATS = ["Bus","Bus Stops","Rail","London Underground","Taxi"];
 
 var FAQS = [
-  {q:"What is the OOH Budget Lab actually trying to solve?", a:"We built the Budget Lab around a simple frustration: people are given a budget but aren't shown what it can realistically buy. A £5,000, £10,000 and £50,000 budget aren't just different sizes of the same campaign — they lead to different strategies, footprints, formats and frequency. So instead of another 'get a quote' form, the Budget Lab asks what you're trying to achieve and shows you a real planning answer: what you could buy, what it might deliver, and what you'd be trading off."},
+  {q:"What is the OOH Budget Lab™ actually trying to solve?", a:"We built the Budget Lab around a simple frustration: people are given a budget but aren't shown what it can realistically buy. A £5,000, £10,000 and £50,000 budget aren't just different sizes of the same campaign — they lead to different strategies, footprints, formats and frequency. So instead of another 'get a quote' form, the Budget Lab asks what you're trying to achieve and shows you a real planning answer: what you could buy, what it might deliver, and what you'd be trading off."},
   {q:"Why shouldn't I just buy the cheapest OOH media available?", a:"Because cheap and efficient aren't the same thing. A £1,000 placement in a genuinely relevant location can outperform a £500 placement that barely touches your objective — and a premium format can be entirely justified if the goal is stature or fame. That's why the Budget Lab shows the trade-off between cost, scale, geography, audience relevance, frequency and format rather than just ranking by price."},
   {q:"How should I think about a £5,000, £10,000 or £25,000 budget?", a:"We wouldn't start by saying '£10,000 buys this exact thing' — we'd start with the objective. At the lower end, concentration usually beats spreading thin: own one location, route or catchment. Around £10,000 it becomes a real trade-off between reach and concentration. At £25,000 and above, we start thinking in terms of a media system — combining formats so the campaign has both reach and reinforcement."},
   {q:"Should the Budget Lab optimise for reach or frequency?", a:"Neither, by default — they solve different problems. Reach is the unique number of people who see your campaign; frequency is how often those people see it. A launch usually wants reach; owning a message or location usually wants frequency. The Budget Lab asks what you're trying to achieve first, then makes that trade-off visible rather than assuming one answer fits every brief."},
@@ -64,6 +64,20 @@ var FAQS = [
   {q:"How do I decide whether OOH is actually working?", a:"Decide what 'working' means before the campaign goes live. For awareness, look at reach, frequency and recall; for driving people somewhere, look at footfall; for demand generation, search behaviour alongside other signals. Impacts tell you about delivery — they don't, by themselves, tell you the business objective was hit. A strong plan starts with the outcome and works backwards to the media."},
   {q:"Can a relatively small OOH budget still have a big impact?", a:"Yes — but 'big impact' needs to mean something specific, not national reach on a local budget. A modest budget can dominate one town, postcode area or commuter route rather than being diluted across a huge geography, and sharp creative can make a small footprint feel much bigger. That's why the Budget Lab shows different scenarios for the same budget rather than one 'correct' answer."},
   {q:"What's the biggest mistake the Budget Lab is built to stop?", a:"Starting with the format. 'How much is a billboard?' is a fair question, but it's the second one. The first is: what are you actually trying to achieve? Once that's answered, audience, geography, reach, frequency, format and creative all follow logically — and the recommendation should never simply be whichever format has the biggest headline reach number."}
+];
+
+var METHOD_STEPS = [
+  {q:"Objective rules", a:"Your campaign objective sets which formats are prioritised and how reach, frequency and impact are weighted."},
+  {q:"Availability matrix", a:"Formats are only offered where they can actually run for your region type. Specialist formats are flagged for planner review rather than auto-recommended."},
+  {q:"Rate benchmarks", a:"Plans are costed from Loud! OOH 2026 rate benchmarks at the Planning Typical level, with the Low to High range shown so you can see the uncertainty. Minimum spends are enforced."},
+  {q:"One plan, one source", a:"The hero, drawer and email summary are all assembled from the same engine output, so the numbers never drift apart."}
+];
+
+var METHOD_FAQS = [
+  {q:"Is this a live booking system?", a:"No. The Planning Lab builds an indicative plan from published benchmarks and planning logic. Final prices, inventory and availability are always confirmed by the Loud! OOH team before anything is booked."},
+  {q:"Where do the prices come from?", a:"From the Loud! OOH 2026 rate benchmarks, cross-checked against market rate card ranges. Each format shows a Planning Typical cost with a Low to High range, and specialist or bespoke formats are flagged for planner review."},
+  {q:"How do you count impressions?", a:"We use impacts, the standard out-of-home measurement for estimated audience contacts, sourced from audience data such as Route where available. Reach counts unique individuals; frequency is impacts divided by reach. Exact delivery should be confirmed with Route or the relevant operator."},
+  {q:"How accurate are the recommendations?", a:"The engine is deterministic and built on real rate benchmarks, so the plan is a reliable planning starting point. Actual costs and availability move with market conditions, which is why every plan is reviewed and confirmed before booking."}
 ];
 
 function gbp(n){ return "£" + Math.round(n).toLocaleString("en-GB"); }
@@ -769,10 +783,10 @@ function renderMatrix(){
 }
 
 /* ---------- faq ---------- */
-function renderFaq(){
-  var el = document.getElementById("bl-faq-list");
-  if(!el) return;
-  el.innerHTML = FAQS.map(function(f,i){
+function wireFaqAccordion(el, items, options){
+  if(!el || !items || !items.length) return;
+  options = options || {};
+  el.innerHTML = items.map(function(f,i){
     return '<div class="lo-faq-item" data-faq="'+i+'"><button type="button" class="lo-faq-q"><span>'+f.q+'</span><span class="lo-faq-plus">+</span></button>' +
       '<div class="lo-faq-a"><p>'+f.a+'</p></div></div>';
   }).join("");
@@ -792,27 +806,37 @@ function renderFaq(){
       }
     });
   });
-  var items = el.querySelectorAll(".lo-faq-item");
+  if(options.animate === false) return;
+  var accordionItems = el.querySelectorAll(".lo-faq-item");
   if("IntersectionObserver" in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(!entry.isIntersecting) return;
         var target = entry.target;
-        var siblings = Array.prototype.slice.call(items);
+        var siblings = Array.prototype.slice.call(accordionItems);
         var i = siblings.indexOf(target);
         setTimeout(function(){ target.classList.add("is-in"); }, i * 80);
         io.unobserve(target);
       });
     }, {threshold: 0.12, rootMargin: "0px 0px -40px 0px"});
-    items.forEach(function(item){ io.observe(item); });
+    accordionItems.forEach(function(item){ io.observe(item); });
   } else {
-    items.forEach(function(item){ item.classList.add("is-in"); });
+    accordionItems.forEach(function(item){ item.classList.add("is-in"); });
   }
+}
+
+function renderFaq(){
+  wireFaqAccordion(document.getElementById("bl-faq-list"), FAQS);
   var schema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity": FAQS.map(function(f){
     return {"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}};
   })};
   var tag = document.getElementById("lo-faq-schema");
   if(tag) tag.textContent = JSON.stringify(schema);
+}
+
+function renderMethodology(){
+  wireFaqAccordion(document.getElementById("bl-method-list"), METHOD_STEPS);
+  wireFaqAccordion(document.getElementById("bl-method-faq-list"), METHOD_FAQS);
 }
 
 /* ---------- Loud AI: brief → verdict → live quote ---------- */
@@ -990,7 +1014,7 @@ function loudMoves(result){
 
 function planSnapshot(result){
   var lines = [
-    "Loud AI plan from the OOH Budget Lab",
+    "Loud AI plan from the OOH Budget Lab™",
     "Budget: "+gbp(state.budget)+" ("+state.basis+")",
     "Objective: "+SCENARIOS[state.objective].label,
     "Geography: "+placeLabel(),
@@ -1238,6 +1262,7 @@ function boot(){
   wireBriefBar();
   renderMatrix();
   renderFaq();
+  renderMethodology();
   syncAdvancedLabel();
   /* Show the plan immediately rather than waiting for a button. */
   state.completed = true;

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OOH Budget Lab | UK Media Buying Intelligence | Loud! OOH</title>
+<title>OOH Budget Lab™ | UK Media Buying Intelligence | Loud! OOH</title>
 <meta name="description" content="The UK's most advanced OOH media buying intelligence. Build your plan from verified 2026 pricing across 8 key formats — reach, impacts and allocation in seconds. Free, no sign-up.">
 <link rel="canonical" href="https://www.loudooh.co.uk/budget-lab/">
-<meta property="og:title" content="OOH Budget Lab | UK Media Buying Intelligence | Loud! OOH">
+<meta property="og:title" content="OOH Budget Lab™ | UK Media Buying Intelligence | Loud! OOH">
 <meta property="og:description" content="The UK's most advanced OOH media buying intelligence. AI-generated plans from verified 2026 pricing across 8 key formats. Instant results, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.loudooh.co.uk/budget-lab/">
@@ -29,9 +29,9 @@
 <link rel="stylesheet" href="bl-actions.css?v=6">
 <link rel="stylesheet" href="bl-ref-mockup.css?v=48">
 <link rel="preload" as="image" href="../images/hero/piccadilly-circus-dooh.jpg" fetchpriority="high">
-<link rel="stylesheet" href="bl-lab-landing.css?v=28">
+<link rel="stylesheet" href="bl-lab-landing.css?v=29">
 <link rel="stylesheet" href="bl-lab-mock-preview.css?v=22">
-<link rel="stylesheet" href="bl-brand.css?v=17">
+<link rel="stylesheet" href="bl-brand.css?v=18">
 <link rel="stylesheet" href="bl-formats-gallery.css?v=1">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="bl-plan-pdf.css?v=8">
 <link rel="stylesheet" href="bl-pdf-export.css?v=1">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"The OOH Budget Lab","applicationCategory":"BusinessApplication","operatingSystem":"Any browser","url":"https://www.loudooh.co.uk/budget-lab/","description":"The UK's most advanced OOH media buying intelligence. Enter a budget, duration and objective and receive a transparent recommended format mix, indicative cost breakdown and audience delivery range, built from Loud! OOH's verified 2026 rate-card pricing.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Loud! OOH","url":"https://www.loudooh.co.uk/"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"The OOH Budget Lab™","applicationCategory":"BusinessApplication","operatingSystem":"Any browser","url":"https://www.loudooh.co.uk/budget-lab/","description":"The UK's most advanced OOH media buying intelligence. Enter a budget, duration and objective and receive a transparent recommended format mix, indicative cost breakdown and audience delivery range, built from Loud! OOH's verified 2026 rate-card pricing.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Loud! OOH","url":"https://www.loudooh.co.uk/"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.loudooh.co.uk/"},{"@type":"ListItem","position":2,"name":"Budget Lab","item":"https://www.loudooh.co.uk/budget-lab/"}]}
@@ -79,7 +79,7 @@ main.bl-ref-page,
     <div class="bl-lab-landing-copy">
       <header class="bl-lab-landing-head">
         <p class="bl-mock-results-eyebrow">Introducing</p>
-        <h1 class="bl-lab-landing-title bl-mock-results-title" id="bl-lab-landing-title">The <span class="bl-accent">OOH</span> Budget Lab</h1>
+        <h1 class="bl-lab-landing-title bl-mock-results-title" id="bl-lab-landing-title">The <span class="bl-accent">OOH</span> Budget Lab<span class="bl-tm" aria-hidden="true">™</span></h1>
       </header>
       <p class="bl-lab-landing-lead">The UK's most advanced OOH media buying intelligence.</p>
       <ul class="bl-lab-landing-checks">
@@ -978,7 +978,7 @@ main.bl-ref-page,
       <h2>How we think about OOH budgets</h2>
       <p>Reach versus frequency, cheap versus efficient, and why we never hide production inside the media rate.</p>
     </div>
-    <div id="bl-faq-list"></div>
+    <div id="bl-faq-list" class="bl-faq-accordion"></div>
   </div>
 </section>
 
@@ -990,12 +990,7 @@ main.bl-ref-page,
       <h2>How the Planning Lab works</h2>
       <p>The Planning Lab is a deterministic planning engine, not a live booking system. Same inputs, same plan, every time.</p>
     </div>
-    <ul class="bl-method-list">
-      <li><strong>Objective rules.</strong> Your campaign objective sets which formats are prioritised and how reach, frequency and impact are weighted.</li>
-      <li><strong>Availability matrix.</strong> Formats are only offered where they can actually run for your region type. Specialist formats are flagged for planner review rather than auto-recommended.</li>
-      <li><strong>Rate benchmarks.</strong> Plans are costed from Loud! OOH 2026 rate benchmarks at the Planning Typical level, with the Low to High range shown so you can see the uncertainty. Minimum spends are enforced.</li>
-      <li><strong>One plan, one source.</strong> The hero, drawer and email summary are all assembled from the same engine output, so the numbers never drift apart.</li>
-    </ul>
+    <div id="bl-method-list" class="bl-faq-accordion"></div>
     <p class="bl-method-note">Planning estimates based on current market rates, available audience data and Loud! OOH buying experience. Final prices and availability are confirmed before booking.</p>
   </div>
 </section>
@@ -1006,16 +1001,7 @@ main.bl-ref-page,
       <h2>Planning Lab questions</h2>
       <p>Straight answers about how this tool estimates your plan.</p>
     </div>
-    <div class="bl-method-faq">
-      <h3>Is this a live booking system?</h3>
-      <p>No. The Planning Lab builds an indicative plan from published benchmarks and planning logic. Final prices, inventory and availability are always confirmed by the Loud! OOH team before anything is booked.</p>
-      <h3>Where do the prices come from?</h3>
-      <p>From the Loud! OOH 2026 rate benchmarks, cross-checked against market rate card ranges. Each format shows a Planning Typical cost with a Low to High range, and specialist or bespoke formats are flagged for planner review.</p>
-      <h3>How do you count impressions?</h3>
-      <p>We use impacts, the standard out-of-home measurement for estimated audience contacts, sourced from audience data such as Route where available. Reach counts unique individuals; frequency is impacts divided by reach. Exact delivery should be confirmed with Route or the relevant operator.</p>
-      <h3>How accurate are the recommendations?</h3>
-      <p>The engine is deterministic and built on real rate benchmarks, so the plan is a reliable planning starting point. Actual costs and availability move with market conditions, which is why every plan is reviewed and confirmed before booking.</p>
-    </div>
+    <div id="bl-method-faq-list" class="bl-faq-accordion"></div>
   </div>
 </section>
 
@@ -1045,7 +1031,7 @@ main.bl-ref-page,
 <script src="bl-lai-insight.js?v=2"></script>
 <script src="bl-forecast-sync.js?v=1"></script>
 <script src="bl-campaign-control.js?v=5"></script>
-<script src="engine.js?v=23"></script>
+<script src="engine.js?v=24"></script>
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="vendor/html2canvas.min.js"></script>
 <script src="bl-pdf.js?v=2"></script>

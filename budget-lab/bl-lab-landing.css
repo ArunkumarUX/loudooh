@@ -407,3 +407,12 @@ body.bl-lab-awake .bl-lab-marketing {
     padding-bottom: 40px;
   }
 }
+
+/* Trademark mark — superscript, brand orange */
+.bl-tm {
+  color: var(--orange, #ff4a00);
+  font-size: 0.55em;
+  vertical-align: super;
+  margin-left: 0.12em;
+  font-weight: 700;
+}
