@@ -31,7 +31,7 @@
     glasgow: "Glasgow",
     uk: "UK-wide",
     regional: "Regional UK",
-    named: "Named city",
+    named: "Your city",
   };
 
   function compact(n) {
@@ -172,7 +172,9 @@
       sidebarCopy:
         result && result.cpm
           ? "Digital and transport formats currently offer the strongest efficiency for " +
-            (GEO_LABELS[state.geo] || "your market") +
+            (state.geo === "named" && state.named
+              ? state.named
+              : GEO_LABELS[state.geo] || "your market") +
             " at roughly £" +
             result.cpm.mid.toFixed(2) +
             " per 1,000 impacts."

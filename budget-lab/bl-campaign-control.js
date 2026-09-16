@@ -52,7 +52,7 @@ function syncBar(){
   var b = barEls();
   if(b.budget) b.budget.textContent = hero.gbp(s.budget);
   if(b.duration) b.duration.textContent = DUR_LABELS[s.days] || (s.days + " days");
-  if(b.location) b.location.textContent = GEO_LABELS[s.geo] || "London";
+  if(b.location) b.location.textContent = geoLabelOf(s);
   if(b.objective) b.objective.textContent = OBJ_LABELS[s.objective] || OBJ_LABELS.reach;
   if(b.audience) b.audience.textContent = AUD_LABELS[s.audience] || "Mass Market";
   var compactBar = document.body.classList.contains("is-planning") && window.innerWidth <= 1024;
@@ -64,7 +64,7 @@ function syncBar(){
   if(b.pill){
     var bud = s.budget >= 1000 ? "£" + Math.round(s.budget / 1000) + "K" : hero.gbp(s.budget);
     var dur = DUR_LABELS[s.days] || "2 weeks";
-    var loc = GEO_LABELS[s.geo] || "London";
+    var loc = geoLabelOf(s);
     var obj = (OBJ_LABELS[s.objective] || "Reach").replace("Maximise ", "");
     var summary = loc + " · " + bud + " · " + dur + " · " + obj;
     b.pill.setAttribute("aria-label", "Campaign settings: " + summary);
@@ -77,8 +77,15 @@ function syncBar(){
 
 var GEO_LABELS = {
   london:"London", manchester:"Manchester", birmingham:"Birmingham",
-  leeds:"Leeds", glasgow:"Glasgow", uk:"UK-wide", regional:"Regional UK", named:"Named city"
+  leeds:"Leeds", glasgow:"Glasgow", uk:"UK-wide", regional:"Regional UK", named:"Your city"
 };
+
+/* Resolve the geography label from full state, so geo === "named" shows the
+   actual city instead of the table's static fallback. */
+function geoLabelOf(s){
+  if(s.geo === "named" && s.named) return s.named;
+  return GEO_LABELS[s.geo] || "London";
+}
 
 function syncPanelSelections(s){
   document.querySelectorAll(".bl-campaign-preset").forEach(function(btn){

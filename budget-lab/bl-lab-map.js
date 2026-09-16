@@ -101,7 +101,7 @@
     },
     uk: { label: "UK-wide", center: [54.2, -2.8], zoom: 6, sites: [] },
     regional: { label: "Regional UK", center: [53.2, -1.8], zoom: 7, sites: [] },
-    named: { label: "Named city", center: [51.5074, -0.1278], zoom: 12, sites: [] },
+    named: { label: "Your city", center: [51.5074, -0.1278], zoom: 12, sites: [] },
   };
 
   GEO.uk.sites = [].concat(

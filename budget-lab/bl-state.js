@@ -166,7 +166,9 @@ function geoLabel(s){
   if(s.geo === "london") return "London";
   if(s.geo === "uk") return "UK-wide";
   if(s.geo === "regional") return "Regional UK";
-  return s.named || "Named city";
+  /* geo === "named": the real city when one is set, otherwise say so honestly
+     rather than printing the internal placeholder copy "Named city". */
+  return s.named || "Your city";
 }
 
 function reset(){ set(DEFAULTS); }

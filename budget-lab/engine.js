@@ -391,12 +391,17 @@ function actionPanelMarkup(result){
 
     var foot = '';
     if(a.apply && a.preview && a.preview.ok && a.preview.rows.length){
+      /* Two-step by design: first click reveals the priced effect, "Apply this
+         change" commits it. The old label named the action itself ("Add
+         £2,600"), so one click looked like it had done nothing. Label the
+         button as the preview it performs and carry the specific change in
+         the aria-label and the preview head. */
       foot = '<div class="bl-act-foot">' +
-        '<button type="button" class="bl-act-cta" data-act="' + i + '">' + a.cta +
+        '<button type="button" class="bl-act-cta" data-act="' + i + '" aria-label="Preview: ' + a.cta + '">See what changes' +
         '<i aria-hidden="true">\u2192</i></button>' +
-        '<span class="bl-act-hint">See the effect before it changes anything</span></div>' +
+        '<span class="bl-act-hint">Preview first — nothing changes until you apply it</span></div>' +
         '<div class="bl-act-preview" id="bl-act-prev-' + i + '" hidden>' +
-          '<p class="bl-act-preview-head">If you apply this</p>' +
+          '<p class="bl-act-preview-head">If you apply this — <b>' + a.cta + '</b></p>' +
           '<dl class="bl-act-delta">' + a.preview.rows.map(function(r){
             return '<div class="is-' + r.dir + '"><dt>' + r.label + '</dt>' +
                    '<dd><s>' + r.from + '</s><i aria-hidden="true">\u2192</i><b>' + r.to + '</b></dd></div>';
@@ -428,8 +433,17 @@ function actionPanelMarkup(result){
 var ACTION_CACHE = [];
 
 function wireActionPanel(){
-  var root = document.getElementById("hl-drawer-plan-content");
-  if(!root) return;
+  /* Action cards render into BOTH containers: the plan drawer on the happy
+     path and #bl-results on the infeasible path. Wiring only the drawer left
+     the infeasible-plan cards with dead CTAs, so wire every container that
+     can hold them. The actWired guard keeps this idempotent. */
+  ["hl-drawer-plan-content", "bl-results"].forEach(function(id){
+    var root = document.getElementById(id);
+    if(root) wireActionPanelIn(root);
+  });
+}
+
+function wireActionPanelIn(root){
   root.querySelectorAll("[data-step-to]").forEach(function(btn){
     if(btn.dataset.actWired === "1") return;
     btn.dataset.actWired = "1";
@@ -448,7 +462,12 @@ function wireActionPanel(){
       var open = panel.hidden;
       panel.hidden = !open;
       card.classList.toggle("is-previewing", open);
-      if(open) track("action_previewed", {action_previewed: ACTION_CACHE[i] && ACTION_CACHE[i].id});
+      /* Bring the revealed preview into view — expanding below the fold is
+         why a single click read as "nothing happened". */
+      if(open){
+        panel.scrollIntoView({behavior:"smooth", block:"nearest"});
+        track("action_previewed", {action_previewed: ACTION_CACHE[i] && ACTION_CACHE[i].id});
+      }
     });
   });
   root.querySelectorAll(".bl-act-cancel").forEach(function(btn){
@@ -510,7 +529,7 @@ function renderResults(){
     return;
   }
 
-  var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Named city") : "UK-wide";
+  var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Your city") : "UK-wide";
   /* Describe the plan that was actually costed, not the one the scenario
      intended — a reinforcement that couldn't reach its minimum buy is not
      claimed in the copy. */
@@ -937,7 +956,7 @@ function renderBriefTags(parsed){
   if(parsed.durationDays) parts.push(durationLabel(parsed.durationDays));
   if(parsed.geo === "london") parts.push("London");
   else if(parsed.geo === "uk") parts.push("UK-wide");
-  else if(parsed.geo === "named") parts.push(parsed.named || "Named city");
+  else if(parsed.geo === "named") parts.push(parsed.named || "Your city");
   else if(parsed.geo === "regional") parts.push("Regional UK");
   if(parsed.objective) parts.push(SCENARIOS[parsed.objective].label);
   if(parsed.audience){
@@ -1032,7 +1051,7 @@ function planSnapshot(result){
 
 function planFullExport(result){
   if(result.infeasible) return planSnapshot(result);
-  var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Named city") : "UK-wide";
+  var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Your city") : "UK-wide";
   var lines = [
     "LOUD! OOH — BUDGET LAB PLAN EXPORT",
     "Generated: " + new Date().toISOString(),
