@@ -50,6 +50,7 @@
 
   var activeFilter = "all";
   var previewState = null;
+  var activeSort = "reach";
   var listEl = document.getElementById("hl-opportunities");
   var countEl = document.getElementById("hl-opp-count");
   var geoEl = document.getElementById("hl-opp-geo");
@@ -75,7 +76,12 @@
       uk: "UK-wide",
       regional: "Regional UK",
     };
-    return labels[geo] || "London";
+    if (labels[geo]) return labels[geo];
+    /* geo === "named": show the real city when one is set; otherwise say so
+       honestly instead of mislabelling the fallback as "London". */
+    var named = window.BLState && window.BLState.get && window.BLState.get().named;
+    if (named) return named;
+    return "Your city";
   }
 
   function siteFormat(index, name) {
@@ -195,7 +201,7 @@
       '<p class="bl-opp-guide-text">' + detailLine + "</p>" +
       '<div class="bl-opp-guide-foot">' +
       '<span class="bl-opp-guide-price"><strong>' + gbp(opp.allocation) + '</strong><span class="bl-opp-guide-price-label">est. allocation</span></span>' +
-      '<button type="button" class="bl-opp-add bl-opp-add-mock" aria-pressed="false">Add to Plan →</button>' +
+      '<button type="button" class="bl-opp-add bl-opp-add-mock" aria-pressed="false">Shortlist</button>' +
       "</div>" +
       "</div>" +
       "</article>"
@@ -231,6 +237,45 @@
         visible === total ? visible + " sites" : visible + " of " + total + " sites";
     }
     updateShowingLabel(visible);
+  }
+
+  /* Sort the live opportunity cards. Cards already carry data-reach (mid
+     impacts), data-tags and an est. allocation, so this reorders the DOM in
+     place rather than re-rendering — hover/selection state stays intact. */
+  function sortValue(card, key) {
+    if (key === "reach") return parseInt(card.getAttribute("data-reach"), 10) || 0;
+    if (key === "value") {
+      /* "Value" = most reach per pound. data-vis-label holds £ CPM per 1k, so
+         lower is better — invert to sort descending on value. */
+      var vis = card.getAttribute("data-vis-label") || "";
+      var cpm = parseFloat(vis.replace(/[^0-9.]/g, ""));
+      return isFinite(cpm) && cpm > 0 ? 1 / cpm : 0;
+    }
+    if (key === "premium") {
+      return (card.getAttribute("data-tags") || "").split(" ").indexOf("premium") > -1 ? 1 : 0;
+    }
+    return 0;
+  }
+
+  function applySort() {
+    if (!listEl) return;
+    var cards = Array.prototype.slice.call(listEl.querySelectorAll(".bl-opp-card"));
+    cards.sort(function (a, b) { return sortValue(b, activeSort) - sortValue(a, activeSort); });
+    var frag = document.createDocumentFragment();
+    cards.forEach(function (c) { frag.appendChild(c); });
+    listEl.appendChild(frag);
+  }
+
+  function wireSort() {
+    var sel = document.getElementById("hl-opp-sort");
+    if (!sel || sel._wired) return;
+    sel._wired = true;
+    sel.addEventListener("change", function () {
+      activeSort = sel.value || "reach";
+      applySort();
+      var first = listEl && listEl.querySelector(".bl-opp-card:not(.is-hidden)");
+      if (first) highlightCard(first.getAttribute("data-site-id"));
+    });
   }
 
   function updateShowingLabel(visible) {
@@ -282,7 +327,18 @@
   }
 
   function focusOpportunity(card) {
-    if (!card || card.classList.contains("is-hidden")) return;
+    if (!card) return;
+    /* "View Details" used to fail silently when the target card was filtered
+       out. Clear the filter first so the detail always has somewhere to land. */
+    if (card.classList.contains("is-hidden")) {
+      activeFilter = "all";
+      if (filterBar) {
+        filterBar.querySelectorAll(".bl-filter-chip").forEach(function (c) {
+          c.classList.toggle("is-on", (c.getAttribute("data-filter") || "all") === "all");
+        });
+      }
+      applyFilter(true);
+    }
     var id = card.getAttribute("data-site-id");
     setActiveCard(id);
     highlightCard(id);
@@ -373,7 +429,37 @@
     if (geoEl) geoEl.textContent = geo;
     var badge = document.getElementById("hl-map-badge");
     if (badge) badge.textContent = geo;
+    applySort();
+    updatePlanFoot(est, state);
     applyFilter(true);
+  }
+
+  /* The explore plan footer used to show hardcoded £23,800 / £26,200 / 53%
+     that no JS ever wrote to — confidently wrong numbers. Bind them to the
+     engine's real planned spend against the user's budget instead. */
+  function updatePlanFoot(est, state) {
+    var budget = (state && state.budget) || 0;
+    var planned = (est && est.planned) || 0;
+    if (planned > budget) planned = budget;
+    var remaining = Math.max(0, budget - planned);
+    var pct = budget > 0 ? Math.round((planned / budget) * 100) : 0;
+    if (pct > 100) pct = 100;
+
+    var allocEl = document.getElementById("hl-planned-alloc");
+    var remEl = document.getElementById("hl-remaining-budget");
+    var bar = document.getElementById("hl-plan-progress");
+    var plannedPct = document.getElementById("hl-planned-pct");
+    var remainingPct = document.getElementById("hl-remaining-pct");
+    var hint = document.getElementById("hl-plan-hint");
+
+    if (allocEl) allocEl.textContent = gbp(planned);
+    if (remEl) remEl.textContent = gbp(remaining);
+    if (bar) bar.style.setProperty("--pct", pct + "%");
+    if (plannedPct) plannedPct.textContent = pct + "%";
+    if (remainingPct) remainingPct.textContent = (100 - pct) + "%";
+    if (hint) {
+      hint.textContent = pct >= 97 ? "Budget fully allocated" : "Add more locations to use full budget";
+    }
   }
 
   function wireCardInteractions() {
@@ -413,8 +499,9 @@
         if (!card) return;
         var selected = card.classList.toggle("is-selected");
         addBtn.classList.toggle("is-added", selected);
-        addBtn.textContent = selected ? "Added ✓" : "Add to Plan →";
+        addBtn.textContent = selected ? "Shortlisted ✓" : "Shortlist";
         addBtn.setAttribute("aria-pressed", selected ? "true" : "false");
+        addBtn.setAttribute("aria-label", selected ? "Remove from shortlist" : "Add to shortlist");
         if (selected) {
           focusOpportunity(card);
         }
@@ -682,6 +769,7 @@
   }
 
   wireFilters();
+  wireSort();
   wireMobileView();
   if (!wireAiExperiment()) {
     var aiTries = 0;
