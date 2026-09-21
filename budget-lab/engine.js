@@ -169,6 +169,9 @@ function runScenario(scenarioKey, state){
   result.discountLines = plan.lines.filter(function(l){ return l.discountRate > 0; });
   result.taperNotes = plan.taperNotes;
   result.exclusions = C.exclusions(DATA, opts);
+  /* Honest plan score + the breakdown behind it (point 2 + point 4). */
+  result.score = window.BLPlanCore && window.BLPlanCore.planScore
+    ? window.BLPlanCore.planScore(result, SCENARIOS) : null;
   return result;
 }
 
@@ -588,6 +591,22 @@ function renderResults(){
       gbp(result.reserve) + " contingency · " + gbp(Math.max(0, result.unallocated)) + " unallocated") +
     '</div>';
 
+  /* ---- plan score, earned not assumed (point 2 + 4) ---- */
+  if(result.score){
+    html += '<section class="bl-sum-score" aria-label="Plan score">' +
+      '<div class="bl-sum-score-head">' +
+        '<div class="bl-sum-score-num"><b>' + result.score.total + '</b><span>/100</span></div>' +
+        '<div><p class="bl-sum-score-label">' + result.score.label + ' plan</p>' +
+        '<p class="bl-sum-score-why">Scored from zero on five things: how well the mix fits your objective, how hard the budget works, delivery efficiency, evidence quality and plan shape. Nothing is awarded by default.</p></div>' +
+      '</div>' +
+      '<ul class="bl-sum-score-bars">' + result.score.breakdown.map(function(b){
+        var pct = Math.round((b.earned / b.max) * 100);
+        return '<li><div class="bl-sum-score-bar-top"><span>' + b.label + '</span><b>' + b.earned + '/' + b.max + '</b></div>' +
+          '<div class="bl-sum-score-bar" role="img" aria-label="' + b.label + ': ' + b.earned + ' of ' + b.max + '"><i style="width:' + pct + '%"></i></div>' +
+          '<p class="bl-sum-score-note">' + b.note + '</p></li>';
+      }).join("") + '</ul></section>';
+  }
+
   /* ---- the reasoning, given weight ---- */
   html += '<blockquote class="bl-sum-quote">' + recSentence + '</blockquote>';
 
@@ -601,7 +620,10 @@ function renderResults(){
       '<div class="bl-sum-format-body">' +
         '<p class="bl-sum-format-tag">' + f.category + (f.technology === "DOOH" ? ' · Digital' : '') + '</p>' +
         '<h4 class="bl-sum-format-title">' + line.qty + ' × ' + f.format + '</h4>' +
-        '<p class="bl-sum-format-text">' + (f.whyRecommend || f.strength) + '</p>' +
+        '<p class="bl-sum-format-text">' + lineRationale(line, result, state) + '</p>' +
+        '<dl class="bl-sum-format-detail">' + lineDetailRows(line, result, state).map(function(r){
+          return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>';
+        }).join("") + '</dl>' +
       '</div>' +
       '<div class="bl-sum-format-prices">' +
         priceRow("Media", gbp(line.media), "accent") +
@@ -662,8 +684,29 @@ function renderResults(){
   /* ---- 04 alternatives ---- */
   var alts = ALT_MAP[state.objective].map(function(key){ return runScenario(key, state); }).filter(function(r){ return !r.infeasible; });
   if(alts.length){
-    html += section("04", "The same money, planned differently",
-      "There is rarely one correct answer. These are defensible alternatives for the identical budget.",
+    function impRange(r){
+      if(r.audienceLow == null) return "No benchmark";
+      return Math.round(r.audienceLow).toLocaleString("en-GB") + " – " + Math.round(r.audienceHigh).toLocaleString("en-GB");
+    }
+    var rows = [result].concat(alts);
+    var table = '<div class="bl-sum-compare-wrap"><table class="bl-sum-compare">' +
+      '<caption>Same budget, three defensible ways to spend it. The recommended plan is the one you are looking at; the others are a click away.</caption>' +
+      '<thead><tr><th scope="col">Plan</th><th scope="col">Planned spend</th><th scope="col">Sites</th>' +
+      '<th scope="col">Formats</th><th scope="col">Indicative impacts</th><th scope="col">Per 1,000</th><th scope="col">Score</th></tr></thead><tbody>' +
+      rows.map(function(r, i){
+        var isCurrent = i === 0;
+        return '<tr' + (isCurrent ? ' class="is-current"' : '') + '>' +
+          '<th scope="row">' + r.scenario.label + (isCurrent ? ' <span class="bl-sum-compare-badge">Your plan</span>' : '') + '</th>' +
+          '<td>' + gbp(r.spend) + '</td>' +
+          '<td>' + r.sites + '</td>' +
+          '<td>' + r.lines.map(function(l){ return l.f.category; }).join(", ") + '</td>' +
+          '<td>' + impRange(r) + '</td>' +
+          '<td>' + (r.cpm ? "£" + r.cpm.mid.toFixed(2) : "—") + '</td>' +
+          '<td>' + (r.score ? '<b>' + r.score.total + '</b> ' + r.score.label : "—") + '</td></tr>';
+      }).join("") + '</tbody></table></div>' +
+      '<ul class="bl-sum-compare-notes">' + [result].concat(alts).map(function(r){
+        return '<li><b>' + r.scenario.label + ':</b> ' + r.scenario.tradeoff + '</li>';
+      }).join("") + '</ul>' +
       '<div class="bl-sum-alts">' + alts.map(function(r){
         return '<button type="button" class="bl-sum-alt" data-alt="' + r.scenarioKey + '">' +
           '<p class="bl-sum-format-tag">' + r.scenario.label + '</p>' +
@@ -672,10 +715,14 @@ function renderResults(){
             '<span>' + r.sites + ' sites</span>' +
             '<span>' + r.lines.length + ' format' + (r.lines.length === 1 ? '' : 's') + '</span>' +
             (r.cpm ? '<span>£' + r.cpm.mid.toFixed(2) + ' / 1,000</span>' : '') +
+            (r.score ? '<span>Score ' + r.score.total + '/100</span>' : '') +
           '</div>' +
           '<span class="bl-sum-alt-cta">See this plan <i aria-hidden="true">→</i></span>' +
         '</button>';
-      }).join("") + '</div>');
+      }).join("") + '</div>';
+    html += section("04", "The same money, planned differently",
+      "There is rarely one correct answer. Compare the numbers, then choose the plan that fits the brief.",
+      table);
   }
 
   /* ---- 05 exclusions ---- */
@@ -700,6 +747,29 @@ function renderResults(){
     '<li><b>Volume discounts are assumed, not guaranteed.</b> 5% at 25–49 units, 10% at 50–99, 15% at 100+, applied to media only — production and installation never discount.</li>' +
     '<li><b>Long runs are not extrapolated linearly.</b> Taxi and multi-cycle campaigns are quoted below a straight multiple of the rate card. Confirm the negotiated rate before booking.</li>' +
     '</ul>', "is-quiet");
+
+  /* ---- 07 see it for real: case studies + published pricing (point 7) ---- */
+  var cats = {};
+  result.lines.forEach(function(l){ cats[l.f.category] = true; });
+  var proofLinks = [];
+  if(cats["Billboards"]){
+    proofLinks.push({t:"The York Street billboard, Leeds", d:"Our own money on a 48-sheet with the pricing painted on it. What transparency looks like in practice.", h:"/insights/leeds-billboard-costtransparency-campaign/", cta:"View case study"});
+  }
+  if(cats["Digital AdVans"]){
+    proofLinks.push({t:"AdVans and mobile billboards", d:"How mobile campaigns are routed, reported and priced, including the Electric format.", h:"/insights/advan-mobile-billboards/", cta:"Read the guide"});
+  }
+  if(cats["London Underground"]){
+    proofLinks.push({t:"London Underground advertising costs", d:"Every Tube format priced, from carriage panels to station takeovers.", h:"/insights/london-underground-advertising-costs-uk/", cta:"Read the guide"});
+  }
+  proofLinks.push({t:"Compare the OOH channels", d:"Billboards, buses, rail, taxi, airports, Tube and AdVans side by side on cost, dwell and fit.", h:"/insights/ooh-channel-comparison/", cta:"See the comparison"});
+  proofLinks.push({t:"Published OOH pricing", d:"The real 2026 rate card this plan was costed from. No mark-ups, no \u2018contact us for pricing\u2019.", h:"/insights/pricing/", cta:"See OOH pricing"});
+  html += section("07", "Don't take the plan's word for it",
+    "Real Loud! campaigns and the published rates behind this plan, matched to the formats you are looking at.",
+    '<div class="bl-sum-proof">' + proofLinks.map(function(p){
+      return '<a class="bl-sum-proof-card" href="' + p.h + '">' +
+        '<h4>' + p.t + '</h4><p>' + p.d + '</p>' +
+        '<span class="bl-sum-proof-cta">' + p.cta + ' <i aria-hidden="true">\u2192</i></span></a>';
+    }).join("") + '</div>');
 
   var planHtml = html;
   window.__BL_PLAN_HTML__ = planHtml;
@@ -756,6 +826,77 @@ function durationLabel(days){
   if(days === 1) return "1 day";
   if(days % 7 === 0) return (days/7) + (days===7?" week":" weeks");
   return days + " days";
+}
+
+/* ---------- per-line detail + data-derived reasoning (points 1 and 4) ----------
+   Each recommendation must be specific (area, unit cost, cycles, spend, share,
+   cost per 1,000) and must explain WHY it is in THIS plan, computed from the
+   plan's own numbers rather than repeating the record's static blurb. */
+function lineCpm(line){
+  if(!line.impactsLow || !line.impactsHigh) return null;
+  var mid = (line.impactsLow + line.impactsHigh) / 2;
+  if(!mid) return null;
+  var spend = line.total || 0;
+  return spend / (mid / 1000);
+}
+function lineShare(line, result){
+  if(!result || !result.spend) return 0;
+  return Math.round((line.total / result.spend) * 100);
+}
+function lineGeoLabel(state, line){
+  var g = state && state.geo;
+  if(g === "london") return "London";
+  if(g === "named") return (state.named || "your city");
+  if(g === "uk") return "UK-wide";
+  return "Regional UK";
+}
+/* A specific, numbers-backed reason this line is in the plan. */
+function lineRationale(line, result, state){
+  var f = line.f, sc = result.scenario || {};
+  var roles = f.roles || [], favoured = sc.favouredRoles || [];
+  var roleHit = roles.filter(function(r){ return favoured.indexOf(r) > -1; });
+  var share = lineShare(line, result);
+  var cpm = lineCpm(line);
+  var planCpm = result.cpm ? result.cpm.mid : null;
+  var bits = [];
+  /* role fit */
+  if(roleHit.length){
+    bits.push("chosen for the " + sc.label + " objective because it does the " +
+      roleHit[0].replace(/-/g," ") + " job this plan needs");
+  } else {
+    bits.push("adds " + (f.strength || f.category).toLowerCase() + " alongside the anchor format");
+  }
+  /* efficiency vs plan */
+  if(cpm != null && planCpm != null){
+    var better = cpm < planCpm;
+    bits.push((better ? "more efficient than" : "priced above") + " the plan average at " +
+      gbp(cpm) + " per 1,000 impacts");
+  }
+  /* weight in the plan */
+  bits.push(share >= 50 ? "carrying " + share + "% of the spend" :
+            share >= 20 ? "taking " + share + "% of the budget" :
+            "a " + share + "% supporting line");
+  /* confidence honesty */
+  if(f.impactConfidence === "Low-Medium"){
+    bits.push("on indicative audience data, so confirm delivery with Route before booking");
+  }
+  return bits.join(", ") + ".";
+}
+/* The concrete specifics a planner would want on each recommendation. */
+function lineDetailRows(line, result, state){
+  var f = line.f, q = line.q || {};
+  var rows = [];
+  rows.push(["Area", lineGeoLabel(state, line)]);
+  if(q.mediaUnit) rows.push(["Unit media", gbp(q.mediaUnit) + " " + (f.buyingUnit || "")]);
+  rows.push(["Quantity", line.qty + " × " + f.format]);
+  rows.push(["Booking basis", f.campaignBasis + (line.cycles > 1 ? " × " + line.cycles + " cycles" : "")]);
+  var cpm = lineCpm(line);
+  if(cpm != null) rows.push(["Cost per 1,000 impacts", gbp(cpm)]);
+  if(line.impactsLow != null && line.impactsHigh != null){
+    rows.push(["Indicative impacts", Math.round(line.impactsLow).toLocaleString("en-GB") + " – " + Math.round(line.impactsHigh).toLocaleString("en-GB")]);
+  }
+  rows.push(["Share of plan", lineShare(line, result) + "%"]);
+  return rows;
 }
 
 /* ---------- pricing matrix ---------- */
@@ -1070,19 +1211,44 @@ function planFullExport(result){
     "Sites: " + result.sites,
     "Formats: " + result.lines.length
   ];
-  if(result.cpm) lines.push("Cost per 1,000 impacts: £" + result.cpm.mid.toFixed(2) + " (£" + result.cpm.low.toFixed(2) + "–£" + result.cpm.high.toFixed(2) + ")");
+  if(result.cpm) lines.push("Cost per 1,000 impacts: £" + result.cpm.mid.toFixed(2) + " (£" + result.cpm.low.toFixed(2) + " to £" + result.cpm.high.toFixed(2) + ")");
   if(result.audienceLow != null){
-    lines.push("Indicative impacts: " + Math.round(result.audienceLow).toLocaleString("en-GB") + " – " + Math.round(result.audienceHigh).toLocaleString("en-GB"));
+    lines.push("Indicative impacts: " + Math.round(result.audienceLow).toLocaleString("en-GB") + " to " + Math.round(result.audienceHigh).toLocaleString("en-GB"));
   }
-  lines.push("", "MIX");
+  if(result.score){
+    lines.push("Plan score: " + result.score.total + "/100 (" + result.score.label + ")");
+    result.score.breakdown.forEach(function(b){
+      lines.push("  " + b.label + ": " + b.earned + "/" + b.max + " | " + b.note);
+    });
+  }
+  lines.push("", "MIX AND REASONING");
   result.lines.forEach(function(line){
     var f = line.f;
-    lines.push("- " + line.qty + " × " + f.format + " (" + f.category + ")");
+    lines.push("- " + line.qty + " × " + f.format + " (" + f.category + ", " + geoLabel + ")");
     lines.push("  Media: " + gbp(line.media) + " · Production: " + gbp(line.production) + " · Installation: " + gbp(line.installation));
-    lines.push("  Line total: " + gbp(line.total));
+    lines.push("  Booking basis: " + f.campaignBasis + (line.cycles > 1 ? " × " + line.cycles + " cycles" : ""));
+    var lcpm = lineCpm(line);
+    if(lcpm != null) lines.push("  Cost per 1,000 impacts: " + gbp(lcpm) + " · Share of plan: " + lineShare(line, result) + "%");
+    lines.push("  Why: " + lineRationale(line, result, state));
   });
   lines.push("", "TRADE-OFF", result.scenario.tradeoff);
-  lines.push("", "Indicative only — confirm live inventory with a Loud! OOH planner.");
+  var altKeys = ALT_MAP[state.objective] || [];
+  var altLines = altKeys.map(function(k){ return runScenario(k, state); }).filter(function(r){ return !r.infeasible; });
+  if(altLines.length){
+    lines.push("", "THE SAME MONEY, PLANNED DIFFERENTLY");
+    altLines.forEach(function(r){
+      lines.push("- " + r.scenario.label + ": " + r.sites + " sites, " + r.lines.length + " format" + (r.lines.length === 1 ? "" : "s") +
+        ", " + gbp(r.spend) + (r.cpm ? ", £" + r.cpm.mid.toFixed(2) + " per 1,000" : "") +
+        (r.score ? ", score " + r.score.total + "/100" : ""));
+      lines.push("  Trade-off: " + r.scenario.tradeoff);
+    });
+  }
+  lines.push("", "SEE IT FOR REAL",
+    "York Street billboard case study: https://www.loudooh.co.uk/insights/leeds-billboard-costtransparency-campaign/",
+    "Published OOH pricing: https://www.loudooh.co.uk/insights/pricing/",
+    "OOH channel comparison: https://www.loudooh.co.uk/insights/ooh-channel-comparison/",
+    "Plan a real campaign: https://www.loudooh.co.uk/contact/");
+  lines.push("", "Indicative only, ex-VAT. Confirm live inventory with a Loud! OOH planner.");
   return lines.join("\n");
 }
 

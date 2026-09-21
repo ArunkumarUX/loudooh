@@ -6,11 +6,11 @@ var DATA = window.__BL_DATA__ || [];
 if(!DATA.length) return;
 
 var SCENARIOS = {
-  reach:     {anchorPct:.68, reinforcePct:.17, favouredCategories:["Billboards","Bus Stops","Bus","Rail"], favouredRoles:["reach"], freq:3.4},
-  local:     {anchorPct:.62, reinforcePct:.25, favouredCategories:["Bus Stops","Billboards","Bus"], favouredRoles:["local-visibility","frequency"], freq:4.2},
-  frequency: {anchorPct:.60, reinforcePct:.25, favouredCategories:["Bus","Rail","London Underground","Bus Stops"], favouredRoles:["frequency"], freq:4.8},
-  premium:   {anchorPct:.72, reinforcePct:.14, favouredCategories:["Airport","London Underground","Billboards"], favouredRoles:["stature","premium-audience"], freq:3.0},
-  balanced:  {anchorPct:.52, reinforcePct:.28, favouredCategories:["Billboards","Bus","Bus Stops"], favouredRoles:["reach","frequency"], freq:3.7}
+  reach:     {anchorPct:.68, reinforcePct:.17, favouredCategories:["Billboards","Bus Stops","Bus","Rail"], favouredRoles:["reach"]},
+  local:     {anchorPct:.62, reinforcePct:.25, favouredCategories:["Bus Stops","Billboards","Bus"], favouredRoles:["local-visibility","frequency"]},
+  frequency: {anchorPct:.60, reinforcePct:.25, favouredCategories:["Bus","Rail","London Underground","Bus Stops"], favouredRoles:["frequency"]},
+  premium:   {anchorPct:.72, reinforcePct:.14, favouredCategories:["Airport","London Underground","Billboards"], favouredRoles:["stature","premium-audience"]},
+  balanced:  {anchorPct:.52, reinforcePct:.28, favouredCategories:["Billboards","Bus","Bus Stops"], favouredRoles:["reach","frequency"]}
 };
 var CAT_LABEL = {"Billboards":"Billboards","London Underground":"London Underground","Bus":"Buses","Bus Stops":"Bus Stops","Rail":"Rail","Taxi":"Taxis","Airport":"Airports","Digital AdVans":"AdVans"};
 var COLORS = ["#3B6FE0","#8B5CF6","#F5A623","#F2C94C","#EB5757","#56CCF2","#4CAF7D"];
@@ -184,9 +184,10 @@ function estimate(){
   var spendTotal = media + prod + install || 1;
   return {
     segments: segs,
+    /* Impacts only. Reach and frequency are deliberately NOT modelled here:
+       the blueprint forbids fabricating them from scenario constants, and the
+       summary states that Route or operator data is required. */
     impressions: totalImpacts,
-    reach: totalImpacts / sc.freq,
-    freq: sc.freq,
     planned: planned,
     spend: {media:media, prod:prod, install:install, total:spendTotal}
   };
@@ -299,19 +300,15 @@ function update(){
   pulseLive();
   var est = estimate();
   if(!est){
-    ["hl-reach","hl-impacts","hl-frequency"].forEach(function(id){
+    ["hl-impacts"].forEach(function(id){
       var el = document.getElementById(id);
       if(el) el.textContent = "—";
     });
     syncDownstream(null);
     return;
   }
-  var reachEl = document.getElementById("hl-reach");
   var impEl = document.getElementById("hl-impacts");
-  var freqEl = document.getElementById("hl-frequency");
-  if(reachEl) countUp(reachEl, est.reach, function(v){ return compact(v); });
   if(impEl) countUp(impEl, est.impressions, function(v){ return compact(v); });
-  if(freqEl) countUp(freqEl, est.freq, function(v){ return v.toFixed(1); });
   renderDonut(est);
   renderSpendBars(est.spend);
   syncDownstream(est);

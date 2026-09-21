@@ -58,17 +58,21 @@
     if (score >= 85) return "Excellent";
     if (score >= 70) return "Strong";
     if (score >= 55) return "Good";
-    return "Fair";
+    if (score >= 40) return "Fair";
+    return "Weak";
   }
 
+  /* Honest plan score from the shared core (starts at zero, earns every
+     point, carries a breakdown). The old formula floored plans at 50 and
+     only ever climbed, which made every plan look automatically good. */
   function computeScore(result) {
     if (!result || result.infeasible) return null;
-    var mid =
-      result.audienceLow != null && result.audienceHigh != null
-        ? (result.audienceLow + result.audienceHigh) / 2
-        : 0;
-    var formats = result.lines ? result.lines.length : 0;
-    return Math.min(99, Math.round(50 + (mid / 900000) * 30 + formats * 4));
+    var P = window.BLPlanCore;
+    if (P && P.planScore) {
+      var s = P.planScore(result, null);
+      return s ? s.total : null;
+    }
+    return null;
   }
 
   function countUp(el, target, fmt) {
@@ -270,7 +274,7 @@
     if (fmtEl && result.lines) fmtEl.textContent = String(result.lines.length);
 
     var visEl = document.getElementById("hl-stat-visibility");
-    if (visEl && score != null) visEl.textContent = score + "/100";
+    if (visEl && score != null) visEl.textContent = score + "/100 · " + scoreLabel(score);
 
     refreshLai(result, state);
   }
