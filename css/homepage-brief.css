@@ -1,0 +1,462 @@
+/* Homepage rewrite (Sept 2026 SEO brief): sections added to index.html.
+   Tokens match the inline homepage styles: navy #0A1F3D, orange #FF4A00,
+   accessible orange #c93800, Montserrat headings, Inter body. */
+
+.lob-sec {
+  box-sizing: border-box;
+  padding: 5rem max(1.5rem, calc(50% - 640px));
+  font-family: "Inter", Helvetica, system-ui, sans-serif;
+}
+.lob-sec *, .lob-sec *::before, .lob-sec *::after { box-sizing: border-box; }
+.lob-sec--light { background: #fff; color: #0A1F3D; }
+.lob-sec--mist { background: #F4F5F8; color: #0A1F3D; }
+.lob-sec--navy { background: #0A1F3D; color: #fff; }
+.lob-sec--orange { background: #FF4A00; color: #fff; }
+
+.lob-eyebrow {
+  display: inline-block;
+  margin: 0 0 .9rem;
+  font: 800 .78rem/1 "Montserrat", system-ui, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #c93800;
+}
+.lob-sec--navy .lob-eyebrow { color: #FF4A00; }
+.lob-sec--orange .lob-eyebrow { color: #0A1F3D; }
+
+.lob-h2 {
+  margin: 0 0 1rem;
+  font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.08 "Montserrat", system-ui, sans-serif;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.lob-h2 em { font-style: normal; color: #FF4A00; }
+.lob-sec--orange .lob-h2 em { color: #0A1F3D; }
+.lob-lead {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  opacity: .82;
+}
+.lob-head { margin: 0 0 2.75rem; }
+.lob-head--split > div { max-width: 48rem; }
+.lob-head--split {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.25rem 3rem;
+}
+
+/* Buttons */
+.lob-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: .85rem 1.4rem;
+  border-radius: 12px; border: 1px solid transparent;
+  font: 800 .82rem/1.1 "Montserrat", system-ui, sans-serif;
+  letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.lob-btn:hover { transform: translateY(-1px); }
+.lob-btn--pri { background: #c93800; color: #fff !important; }
+.lob-btn--pri:hover { background: #a93000; }
+.lob-btn--ghost { border-color: currentColor; color: inherit !important; background: transparent; }
+.lob-sec--light .lob-btn--ghost, .lob-sec--mist .lob-btn--ghost { color: #0A1F3D !important; }
+.lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: #0A1F3D; color: #fff !important; }
+.lob-sec--navy .lob-btn--ghost:hover { background: #fff; color: #0A1F3D !important; }
+.lob-btn--navy { background: #0A1F3D; color: #fff !important; }
+.lob-btn--navy:hover { background: #061426; }
+.lob-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+/* Reveal (JS adds .is-in; content is visible without JS) */
+.lob-js .lob-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.lob-js .lob-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .lob-js .lob-reveal { opacity: 1; transform: none; transition: none; }
+  .lob-btn:hover { transform: none; }
+}
+
+/* ---------- 2. Intro / point of view ---------- */
+.lob-intro { padding-top: 6rem; padding-bottom: 6rem; }
+.lob-intro-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); gap: 0 4.5rem; align-items: center;
+}
+.lob-intro-grid::before {
+  content: ""; grid-column: 2; grid-row: 1; align-self: stretch; background: rgba(10, 31, 61, .1);
+}
+.lob-intro-grid > div:first-child { grid-column: 1; grid-row: 1; }
+.lob-intro-grid > .lob-intro-body { grid-column: 3; grid-row: 1; }
+.lob-intro .lob-eyebrow { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.6rem; letter-spacing: .22em; }
+.lob-intro .lob-eyebrow::before { content: ""; width: 2.5rem; height: 2px; background: currentColor; border-radius: 2px; }
+.lob-intro .lob-h2 { font-size: clamp(2.2rem, 4.2vw, 3.6rem); line-height: 1.02; letter-spacing: -.015em; margin-bottom: 1.5rem; }
+.lob-intro-kicker {
+  margin: 0; max-width: 32rem;
+  font-size: clamp(1.15rem, 1.55vw, 1.4rem); line-height: 1.55; font-weight: 400; color: #0A1F3D;
+}
+.lob-intro-lead {
+  margin: 0 0 .9rem !important;
+  font: 800 clamp(1.3rem, 1.8vw, 1.6rem)/1.25 "Montserrat", system-ui, sans-serif !important;
+  letter-spacing: -.01em; color: #0A1F3D !important;
+}
+.lob-intro-body p { margin: 0 0 1.25rem; font-size: 1.06rem; line-height: 1.65; color: rgba(10, 31, 61, .72); }
+.lob-intro-body p a { color: #FF4A00 !important; font-weight: 700; text-decoration: none; }
+.lob-intro-body p a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lob-punch { list-style: none; margin: 1.9rem 0 0; padding: 0; border: 0; }
+.lob-punch li {
+  position: relative; display: flex; align-items: center; gap: 1.5rem;
+  padding: .7rem 0;
+  font: 800 clamp(.98rem, 1.25vw, 1.12rem)/1.35 "Montserrat", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .005em;
+  color: #0A1F3D;
+}
+.lob-punch li + li::before {
+  content: ""; position: absolute; top: 0; left: calc(3.9rem + 1.5rem); right: 0; height: 1px; background: rgba(10, 31, 61, .1);
+}
+.lob-punch li:last-child { color: #FF4A00; }
+.lob-punch-ico {
+  flex: none; display: grid; place-items: center; width: 3.9rem; height: 3.9rem; border-radius: 50%;
+}
+.lob-punch-ico svg { width: 2rem; height: 2rem; }
+.lob-punch-ico--warm { background: #FFE9DF; color: #0A1F3D; }
+.lob-punch-ico--cool { background: #E7ECF8; color: #0A1F3D; }
+.lob-punch-ico--solid { background: #FFE9DF; color: #fff; position: relative; }
+.lob-punch-ico--solid::before { content: ""; position: absolute; inset: .6rem; border-radius: 50%; background: #FF4A00; }
+.lob-punch-ico--solid svg { position: relative; width: 1.6rem; height: 1.6rem; }
+.lob-intro .lob-actions { margin-top: 1.9rem; }
+.lob-btn--arrow { gap: .85rem; min-height: 56px; padding: 0 1.8rem; font-size: .88rem; letter-spacing: .1em; }
+.lob-btn--arrow svg { width: 1.1rem; height: 1.1rem; transition: transform .2s ease; }
+.lob-btn--arrow:hover svg { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .lob-btn--arrow:hover svg { transform: none; } }
+
+/* ---------- 6. Real campaigns ---------- */
+.lob-cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.lob-case {
+  display: flex; flex-direction: column; overflow: hidden;
+  border-radius: 24px; background: #0F2A4F; border: 1px solid rgba(255, 255, 255, .08);
+}
+.lob-case-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #122F57; }
+.lob-case-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.lob-case:hover .lob-case-media img { transform: scale(1.04); }
+.lob-case-tag {
+  position: absolute; left: 1rem; top: 1rem; padding: .4rem .7rem; border-radius: 999px;
+  background: rgba(10, 31, 61, .82); color: #fff;
+  font: 800 .68rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+}
+.lob-case-media--brand {
+  display: flex; align-items: flex-end; padding: 1.5rem;
+  background: #FFFC00; color: #0A1F3D;
+}
+.lob-case-media--brand strong {
+  font: 900 clamp(1.8rem, 3vw, 2.4rem)/1 "Montserrat", system-ui, sans-serif; text-transform: uppercase; letter-spacing: -.01em;
+}
+.lob-case-media--brand span { display: block; margin-top: .5rem; font-weight: 600; font-size: .95rem; }
+.lob-case-body { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 1.5rem 1.6rem; }
+.lob-case-body h3 {
+  margin: 0 0 1rem; font: 800 1.2rem/1.2 "Montserrat", system-ui, sans-serif; text-transform: uppercase;
+}
+.lob-case-facts { display: grid; grid-template-columns: auto 1fr; gap: .45rem 1rem; margin: 0 0 1.25rem; font-size: .92rem; line-height: 1.45; }
+.lob-case-facts dt { color: rgba(255, 255, 255, .55); font-weight: 600; }
+.lob-case-facts dd { margin: 0; color: rgba(255, 255, 255, .9); }
+.lob-case-result {
+  margin: auto 0 1.25rem; padding: 1rem 1.1rem; border-radius: 14px; background: rgba(255, 74, 0, .12); border: 1px solid rgba(255, 74, 0, .35);
+}
+.lob-case-result span {
+  display: block; margin-bottom: .3rem; font: 800 .68rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #FF7A40;
+}
+.lob-case-result p { margin: 0; font-size: 1rem; line-height: 1.4; font-weight: 600; color: #fff; }
+.lob-case-cta {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: .4rem;
+  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #fff !important; text-decoration: none;
+  border-bottom: 2px solid #FF4A00; padding-bottom: .35rem;
+}
+.lob-case-cta:hover { color: #FF4A00 !important; }
+
+/* ---------- 7. Trust / clients ---------- */
+.lob-logos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.lob-logos li {
+  display: flex; align-items: center; justify-content: center; min-height: 104px; padding: 1.1rem;
+  border-radius: 18px; background: #fff; border: 1px solid rgba(10, 31, 61, .08);
+}
+.lob-logos img { max-width: 100%; max-height: 52px; width: auto; height: auto; object-fit: contain; }
+.lob-logos .lob-logo--feature {
+  grid-column: span 2; background: #FFFC00; border-color: #FFFC00;
+  flex-direction: column; align-items: flex-start; justify-content: center; gap: .3rem; text-align: left;
+}
+.lob-logo--feature strong { font: 900 1.6rem/1 "Montserrat", system-ui, sans-serif; color: #0A1F3D; letter-spacing: -.01em; }
+.lob-logo--feature span { font-size: .88rem; font-weight: 600; color: #0A1F3D; }
+.lob-trust-note { margin: 1.75rem 0 0; font-size: 1rem; color: rgba(10, 31, 61, .7); }
+
+/* ---------- 8. Testimonials ---------- */
+.lob-quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.lob-quote {
+  margin: 0; display: flex; flex-direction: column; padding: 2rem; border-radius: 24px; background: #fff; border: 1px solid rgba(10, 31, 61, .08);
+}
+.lob-quote-tag {
+  align-self: flex-start; margin-bottom: 1.1rem; padding: .35rem .65rem; border-radius: 999px; background: rgba(255, 74, 0, .1); color: #c93800;
+  font: 800 .66rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+}
+.lob-quote blockquote { margin: 0 0 1.5rem; font-size: 1.08rem; line-height: 1.65; color: #0A1F3D; }
+.lob-quote blockquote::before { content: "\201C"; display: block; font: 900 3rem/0.6 "Montserrat", system-ui, sans-serif; color: #FF4A00; margin-bottom: .6rem; }
+.lob-quote figcaption { margin-top: auto; font-size: .92rem; color: rgba(10, 31, 61, .65); }
+.lob-quote figcaption strong { display: block; color: #0A1F3D; font-size: 1rem; }
+
+/* ---------- 9. Process ---------- */
+.lob-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(10, 31, 61, .14); }
+.lob-step { position: relative; padding: 1.75rem 1.5rem .5rem; }
+.lob-step:first-child { padding-left: 0; }
+.lob-step:not(:last-child) { border-right: 1px solid rgba(10, 31, 61, .12); }
+.lob-step::before { content: ""; position: absolute; top: -1px; left: 1.5rem; width: 2.25rem; height: 3px; background: #FF4A00; }
+.lob-step:first-child::before { left: 0; }
+.lob-step-num { display: block; margin-bottom: 1.25rem; font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; color: #c93800; }
+.lob-step h3 { margin: 0 0 .75rem; font: 800 1.15rem/1.2 "Montserrat", system-ui, sans-serif; text-transform: uppercase; }
+.lob-step p { margin: 0; font-size: 1rem; line-height: 1.6; color: rgba(10, 31, 61, .72); }
+.lob-step:last-child h3 { color: #c93800; }
+
+/* ---------- 10. PR / authority ---------- */
+.lob-press { padding-bottom: 1rem; }
+.lob-press .lob-lead a { color: #fff !important; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+#client-logos .lo-logos-track > img { opacity: 1 !important; }
+
+/* ---------- 12. Pricing ---------- */
+.lob-pricing-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: center; }
+.lob-chips { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.lob-chips a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: .55rem .95rem; border-radius: 999px;
+  background: #fff; border: 1px solid rgba(10, 31, 61, .14); color: #0A1F3D !important; text-decoration: none; font-weight: 600; font-size: .92rem;
+}
+.lob-chips a:hover { border-color: #c93800; color: #c93800 !important; }
+.lob-price-card {
+  padding: 2rem; border-radius: 24px; background: #0A1F3D; color: #fff;
+}
+.lob-price-card p { margin: 0 0 .5rem; font-size: 1rem; line-height: 1.55; color: rgba(255, 255, 255, .8); }
+.lob-price-card strong {
+  display: block; margin-bottom: .75rem; font: 900 clamp(1.5rem, 2.6vw, 2rem)/1.1 "Montserrat", system-ui, sans-serif; text-transform: uppercase; color: #fff;
+}
+.lob-price-card strong em { font-style: normal; color: #FF4A00; }
+
+/* ---------- 13. Budget Lab promotion ---------- */
+.lob-budget-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.lob-budgets { margin: 0; padding: 0; list-style: none; }
+.lob-budgets li {
+  font: 900 clamp(2.6rem, 7vw, 5.2rem)/1.02 "Montserrat", system-ui, sans-serif; letter-spacing: -.02em; color: #fff;
+}
+.lob-budgets li:nth-child(2) { color: #FF4A00; }
+.lob-budgets li:nth-child(3) { color: rgba(255, 255, 255, .35); }
+.lob-budget-copy p { margin: 0 0 1rem; font-size: 1.1rem; line-height: 1.65; color: rgba(255, 255, 255, .82); }
+
+/* ---------- Format cards (Where do you want to be seen?) ---------- */
+.lo-gallery .lo-work-grid { counter-reset: lob-fmt; }
+.lo-gallery .lo-work-card { counter-increment: lob-fmt; }
+.lo-gallery .lo-work-card::after {
+  background: linear-gradient(180deg, rgba(6, 20, 40, 0) 30%, rgba(6, 20, 40, .55) 58%, rgba(6, 20, 40, .94) 100%);
+}
+.lo-gallery .lo-work-card::before { display: none; }
+.lo-gallery .lo-work-meta { padding: 1.6rem 1.6rem 1.4rem; }
+.lo-gallery .lo-work-brand {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem); line-height: 1.12; letter-spacing: -.012em;
+}
+.lo-gallery .lo-work-brand::before {
+  content: counter(lob-fmt, decimal-leading-zero);
+  display: flex; align-items: center; gap: .6rem; margin-bottom: .75rem;
+  font: 700 .72rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .22em; color: #FF4A00;
+}
+.lo-gallery .lo-work-card .lob-work-desc {
+  margin: 0 0 1.1rem; max-width: 24rem;
+  font-family: "Inter", Helvetica, system-ui, sans-serif; font-size: .92rem; line-height: 1.55; font-weight: 400;
+  color: rgba(255, 255, 255, .74); text-transform: none; letter-spacing: 0; text-wrap: pretty;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.lo-gallery .lo-work-view {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%;
+  padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .16);
+  font: 700 .7rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #fff;
+}
+.lo-gallery .lo-work-view svg {
+  flex: none; width: 32px; height: 32px; padding: 9px; box-sizing: border-box;
+  border-radius: 50%; background: #FF4A00; color: #fff;
+  box-shadow: 0 6px 18px rgba(255, 74, 0, .35);
+  transition: transform .25s ease, background-color .25s ease;
+}
+.lo-gallery .lo-work-card:hover .lo-work-view svg,
+.lo-gallery .lo-work-card:focus-visible .lo-work-view svg { transform: translateX(4px); background: #ff6424; }
+@media (prefers-reduced-motion: reduce) {
+  .lo-gallery .lo-work-card:hover .lo-work-view svg { transform: none; }
+}
+@media (max-width: 719px) {
+  .lo-gallery .lo-work-card { aspect-ratio: 4 / 5 !important; }
+  .lo-gallery .lo-work-card::after {
+    background: linear-gradient(180deg, rgba(6, 20, 40, 0) 22%, rgba(6, 20, 40, .7) 50%, rgba(6, 20, 40, .96) 100%);
+  }
+  .lo-gallery .lo-work-meta { padding: 1.25rem 1.25rem 1.15rem; }
+  .lo-gallery .lo-work-card .lob-work-desc { font-size: .88rem; margin-bottom: .9rem; }
+}
+.lob-also { margin: 2rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+.lob-also a { color: #fff !important; font-weight: 600; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+
+/* ---------- Stacking card CTA ---------- */
+.lo-wwd-card .lob-wwd-cta { margin-top: 1.5rem; align-self: flex-start; }
+
+/* ---------- Difference intro ---------- */
+.lo-diff .lob-diff-intro { margin: .75rem 0 2.25rem; max-width: 40rem; font-size: 1.15rem; line-height: 1.6; color: rgba(10, 31, 61, .75); }
+
+/* ---------- Insights intro ---------- */
+.lo-insights2 .lob-insights-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
+.lo-insights2 .lob-insights-head p { margin: .5rem 0 0; max-width: 38rem; font-size: 1.08rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+
+/* ---------- Final CTA ---------- */
+.lo-final-cta .lob-final-lines { margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.lo-final-cta .lob-final-lines li { font: 800 1rem/1.5 "Montserrat", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+.lo-final-cta .lob-final-lines li:last-child { color: #FF4A00; }
+
+/* ---------- Hero ---------- */
+/* Deeper left-hand scrim so copy stays legible over any carousel photo. */
+#home-banner .lo-mz-scrim {
+  background:
+    linear-gradient(90deg, rgba(6, 20, 40, .9) 0%, rgba(8, 26, 52, .78) 34%, rgba(10, 31, 61, .38) 62%, rgba(10, 31, 61, .12) 100%),
+    linear-gradient(180deg, rgba(10, 31, 61, .25) 0%, rgba(10, 31, 61, 0) 30%, rgba(6, 20, 40, .55) 100%);
+}
+#home-banner .lo-mz-copy { max-width: 46rem; }
+.lo-mz-eyebrow {
+  display: flex; align-items: center; gap: .85rem;
+  margin: 0 0 1.35rem;
+  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FF4A00;
+}
+.lo-mz-eyebrow::before { content: ""; width: 2.25rem; height: 2px; background: currentColor; border-radius: 2px; }
+#home-banner .lo-mz-title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(2.2rem, 3.9vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+#home-banner .lo-mz-title .lo-accent { display: block; margin-top: .08em; }
+#home-banner .lo-mz-prop {
+  margin: 0 0 1.75rem;
+  max-width: 33rem;
+  font-size: clamp(1.05rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: rgba(255, 255, 255, .9);
+  text-wrap: pretty;
+}
+/* The three "No ..." promises as quiet chips instead of a dense bold sentence. */
+.lo-mz-nos {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin: 0 0 1rem; padding: 0; list-style: none;
+}
+.lo-mz-nos li {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .45rem .85rem .45rem .6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .14);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font: 500 .86rem/1.2 "Inter", Helvetica, system-ui, sans-serif;
+  color: rgba(255, 255, 255, .92);
+  white-space: nowrap;
+}
+.lo-mz-nos li::before {
+  content: ""; flex: none; width: 1.05rem; height: 1.05rem; border-radius: 50%;
+  background:
+    linear-gradient(45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%) center / 55% 55% no-repeat,
+    linear-gradient(-45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%) center / 55% 55% no-repeat,
+    #FF4A00;
+}
+#home-banner .lo-mz-sub {
+  margin: 0 0 2.25rem;
+  max-width: 31rem;
+  padding: 0;
+  border: 0;
+  font-size: .98rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: rgba(255, 255, 255, .66);
+  text-shadow: none;
+  text-wrap: pretty;
+}
+#home-banner .lo-mz-actions { align-items: center; gap: .85rem; }
+#home-banner .lo-mz-btn,
+#home-banner .lo-mz-link {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 54px; padding: 0 1.6rem; border-radius: 12px;
+  font-family: "Inter", Helvetica, system-ui, sans-serif; font-size: .98rem; font-weight: 600; letter-spacing: -.005em;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+#home-banner .lo-mz-btn {
+  background: #FF4A00; color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+#home-banner .lo-mz-btn:hover { background: #e64300; color: #fff; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255, 74, 0, .4); }
+#home-banner .lo-mz-link {
+  /* smooth-experience.css forces the old underline style with !important */
+  display: inline-flex !important; width: auto !important; min-height: 54px !important;
+  padding: 0 1.5rem 0 1.6rem !important; line-height: 1 !important; align-self: auto;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .32);
+  background: rgba(255, 255, 255, .08);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+#home-banner .lo-mz-link::after {
+  content: ""; width: .5rem; height: .5rem;
+  border-top: 2px solid currentColor; border-right: 2px solid currentColor;
+  transform: rotate(45deg); margin-left: .1rem; transition: transform .2s ease;
+}
+#home-banner .lo-mz-link:hover { border-color: rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .16); }
+#home-banner .lo-mz-link:hover::after { transform: translateX(3px) rotate(45deg); }
+@media (prefers-reduced-motion: reduce) {
+  #home-banner .lo-mz-btn:hover { transform: none; }
+  #home-banner .lo-mz-link:hover::after { transform: rotate(45deg); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .lob-pricing-grid, .lob-budget-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .lob-intro { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .lob-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .lob-intro-grid::before { display: none; }
+  .lob-intro-grid > div:first-child, .lob-intro-grid > .lob-intro-body { grid-column: 1; grid-row: auto; }
+  .lob-intro-grid > .lob-intro-body { padding-top: 2.5rem; border-top: 1px solid rgba(10, 31, 61, .1); }
+  .lob-cases { grid-template-columns: 1fr 1fr; }
+  .lob-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lob-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lob-step:nth-child(2n) { border-right: 0; }
+  .lob-step:nth-child(2n-1) { padding-left: 0; }
+  .lob-step:nth-child(2n-1)::before { left: 0; }
+  .lob-step:nth-child(n+3) { border-top: 1px solid rgba(10, 31, 61, .12); }
+}
+@media (max-width: 900px) {
+  .lob-sec { padding: 4rem 1.5rem; }
+}
+@media (max-width: 719px) {
+  .lob-sec { padding: 3.25rem 1rem; }
+  .lob-cases, .lob-quotes { grid-template-columns: 1fr; }
+  .lob-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lob-logos li { min-height: 84px; }
+  .lob-steps { grid-template-columns: 1fr; }
+  .lob-step { padding: 1.5rem 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 1px solid rgba(10, 31, 61, .12); }
+  .lob-step::before { left: 0 !important; }
+  .lob-quote { padding: 1.5rem; }
+  .lob-punch li { gap: 1rem; }
+  .lob-punch-ico { width: 3.25rem; height: 3.25rem; }
+  .lob-punch-ico svg { width: 1.7rem; height: 1.7rem; }
+  .lob-punch li + li::before { left: 4.25rem; }
+  .lob-actions .lob-btn { width: 100%; }
+  #home-banner .lo-mz-title { font-size: clamp(1.9rem, 8.6vw, 2.5rem); margin-bottom: 1.2rem; }
+  #home-banner .lo-mz-scrim { background: linear-gradient(180deg, rgba(6, 20, 40, .55) 0%, rgba(8, 26, 52, .72) 40%, rgba(6, 20, 40, .92) 100%); }
+  .lo-mz-eyebrow { margin-bottom: 1rem; letter-spacing: .22em; }
+  #home-banner .lo-mz-sub { margin-bottom: 1.75rem; }
+  /* Let the copy set the hero height on phones so nothing is clipped on short screens. */
+  #home-banner .lo-mz-frame { display: flex; flex-direction: column; justify-content: flex-end; }
+  #home-banner .lo-mz-copy { position: relative; inset: auto !important; max-width: none; margin: 0 1.25rem; padding: 5.5rem 0 4rem; }
+  #home-banner .lo-mz-prop { font-size: 1rem; line-height: 1.55; margin-bottom: 1.25rem; }
+  .lo-mz-nos { gap: .4rem; margin-bottom: .85rem; }
+  .lo-mz-nos li { padding: .35rem .7rem .35rem .45rem; gap: .4rem; font-size: .78rem; }
+  .lo-mz-nos li::before { width: .95rem; height: .95rem; }
+  #home-banner .lo-mz-sub { font-size: .92rem; margin-bottom: 1.5rem; }
+  #home-banner .lo-mz-btn, #home-banner .lo-mz-link { min-height: 50px !important; }
+  #home-banner .lo-mz-actions { flex-direction: column; align-items: stretch; }
+  #home-banner .lo-mz-btn, #home-banner .lo-mz-link { width: 100% !important; }
+}
+
+/* ---------- Existing-section tweaks ---------- */
+.lo-gallery .lob-also { padding: 0 max(1.5rem, calc(50% - 640px)); }
+.lo-wwd-card:has(.lob-wwd-cta) .lo-wwd-dots { display: none; }
+

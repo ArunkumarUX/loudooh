@@ -103,8 +103,8 @@
               '<p class="lo-footer-col-title">Contact Us</p>' +
               '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg><a href="mailto:hello@loudooh.co.uk">hello@loudooh.co.uk</a></div>' +
               '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2.1z"/></svg><a href="tel:+442083233978">020 8323 3978</a></div>' +
-              '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>London Office — 3rd Floor, London, EC2A 4NE</span></div>' +
-              '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Leeds Office — International House, 14 King Street, Leeds, LS1 2HL</span></div>' +
+              '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>London Office: 3rd Floor, London, EC2A 4NE</span></div>' +
+              '<div class="lo-footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Leeds Office: International House, 14 King Street, Leeds, LS1 2HL</span></div>' +
             "</div>" +
           "</div>" +
         "</div>" +
@@ -117,10 +117,10 @@
           '<a href="https://www.loudooh.co.uk/cookie-policy/">Cookie Policy</a>' +
         "</div>" +
         '<div class="lo-footer-socials">' +
-          '<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
-          '<a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a>' +
-          '<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>' +
-          '<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+          '<a href="https://www.linkedin.com/company/loudooh" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
+          '<a href="https://x.com/loudoutofhome" target="_blank" rel="noopener noreferrer">X</a>' +
+          '<a href="https://www.facebook.com/share/1X94iZdVQT/" target="_blank" rel="noopener noreferrer">Facebook</a>' +
+          '<a href="https://www.instagram.com/loudoutofhome" target="_blank" rel="noopener noreferrer">Instagram</a>' +
         "</div>" +
       "</div>" +
     "</footer>";
