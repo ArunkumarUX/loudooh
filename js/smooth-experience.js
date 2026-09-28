@@ -113,7 +113,7 @@
     "#home-banner .lo-mz-carousel",
     ".bl-lab-landing-stage img",
     ".lo-diff-visual img",
-    "#home-banner .lo-mz-copy",
+    /* Hero copy is intentionally excluded: text stays still and readable. */
   ].join(",");
 
   var items = [];

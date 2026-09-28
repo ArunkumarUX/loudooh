@@ -145,3 +145,9 @@
   .lo-footer-cols{grid-template-columns:1fr;gap:24px}
   .lo-footer-bottom{flex-direction:column;align-items:flex-start}
 }
+
+/* Connected page transitions (Chromium 126+, Safari 18.2+; other browsers load normally). */
+@view-transition { navigation: auto; }
+.lo-amenu { view-transition-name: site-nav; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; animation-timing-function: cubic-bezier(.22, 1, .36, 1); }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
