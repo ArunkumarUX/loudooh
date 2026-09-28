@@ -401,3 +401,12 @@
     loadSmoothExperience();
   }
 })();
+
+/* Shared header auto-hide (hides while scrolling, returns when scrolling stops). */
+(function () {
+  if (document.querySelector('script[src*="nav-autohide.js"]')) return;
+  var s = document.createElement("script");
+  s.src = "/js/nav-autohide.js?v=3";
+  s.defer = true;
+  document.head.appendChild(s);
+})();
