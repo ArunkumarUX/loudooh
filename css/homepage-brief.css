@@ -956,3 +956,23 @@
   #services .lo-gallery-head p.lob-eyebrow { margin-bottom: 1rem; letter-spacing: .22em; }
 }
 @media (max-width: 400px) { #services .lo-gallery-head p.lob-eyebrow { font-size: .72rem; letter-spacing: .16em; gap: .65rem; } }
+
+/* Touch screens keep :hover after a tap, which left buttons and cards stuck in
+   their hover look. Reset hover states where there is no real hover; taps still
+   get the :active press feedback. */
+@media (hover: none) {
+  #home-banner .lo-mz-link:hover { border-color: rgba(255, 255, 255, .32); background: rgba(255, 255, 255, .08); }
+  #home-banner .lo-mz-link:hover::after { transform: rotate(45deg); }
+  #home-banner .lo-mz-btn:hover { background: #FF4A00; transform: none; box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
+  .lob-btn:hover, .lo-final-cta .lob-btn--pri:hover, .lob-budget-card .lob-btn:hover { transform: none; }
+  .lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: transparent; color: #0A1F3D !important; }
+  .lob-sec--navy .lob-btn--ghost:hover, #lo-insights-teaser .lob-btn--ghost:hover { background: transparent; color: #fff !important; }
+  .lo-final-cta .lob-btn--ghost:hover { background: rgba(255, 255, 255, .08) !important; border-color: rgba(255, 255, 255, .32); }
+  .lo-final-cta .lob-btn--ghost:hover::after { transform: rotate(45deg); }
+  .lob-case:hover, .lo-work-card:hover, .lo-diff-vcard:hover, .lo-insight2-card.is-in:hover { transform: none; }
+  .lob-case:hover .lob-case-media img, .lo-work-card:hover img, .lo-diff-vcard:hover img { transform: none; }
+  .lo-gallery .lo-work-card:hover .lo-work-view svg, .lob-case:hover .lob-case-cta svg { transform: none; background: transparent !important; border-color: rgba(255, 255, 255, .85); }
+  .lob-ledger a:hover { color: #0A1F3D !important; }
+  .lob-ledger a:hover .lob-ledger-mark { background: #FFE9DF; color: #c93800; }
+  .lob-ledger a:hover svg { color: rgba(10, 31, 61, .35); transform: none; }
+}
