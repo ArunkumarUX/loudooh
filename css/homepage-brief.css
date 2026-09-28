@@ -933,3 +933,26 @@
 @media (max-width: 719px) {
   .lob-budget-card .lob-btn { width: 100%; font-size: .95rem !important; letter-spacing: -.005em; }
 }
+
+/* Formats, What Loud! does and The Loud! difference use the shared section header. */
+.lo-gallery-head .lob-eyebrow { color: #FF4A00; }
+.lo-gallery-head .lob-h2 { margin: 0 0 1.6rem; color: #fff; }
+#services .lo-gallery-head p.lob-lead { max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(255, 255, 255, .72); }
+.lo-gallery .lo-gallery-head { margin-bottom: 3rem; }
+.lo-wwd-head-wrap { margin-bottom: 3rem; }
+.lo-wwd-head-wrap .lob-h2 { margin: 0; color: #0A1F3D; }
+.lo-diff .lob-h2 { color: #0A1F3D; }
+.lo-diff .lob-diff-intro.lob-lead { margin: 0 0 3rem; max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(10, 31, 61, .72); }
+.lo-gallery-head h2.lob-h2 {
+  margin: 0 0 1.6rem; font: 900 clamp(2.2rem, 3.9vw, 3.4rem)/1.02 "Montserrat", system-ui, sans-serif;
+  letter-spacing: -.012em; text-transform: uppercase; text-wrap: balance; color: #fff;
+}
+#services .lo-gallery-head p.lob-eyebrow {
+  display: flex; align-items: center; gap: .85rem; max-width: none; margin: 0 0 1.35rem;
+  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FF4A00;
+}
+@media (max-width: 719px) {
+  .lo-gallery-head h2.lob-h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); margin-bottom: 1.2rem; }
+  #services .lo-gallery-head p.lob-eyebrow { margin-bottom: 1rem; letter-spacing: .22em; }
+}
+@media (max-width: 400px) { #services .lo-gallery-head p.lob-eyebrow { font-size: .72rem; letter-spacing: .16em; gap: .65rem; } }
