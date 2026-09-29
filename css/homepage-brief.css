@@ -982,6 +982,7 @@
    ========================================================================== */
 /* The template reset (_next/static/css) is not deployed, so remove the browser's default body margin here. */
 html, body { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
 #home-banner.lo-hero-monzo,
 #home-banner.lo-hero-monzo > .h-screen > .h-full,
 #home-banner.lo-hero-monzo .h-full.relative.overflow-hidden {
