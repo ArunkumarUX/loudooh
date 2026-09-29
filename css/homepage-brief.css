@@ -1027,3 +1027,28 @@ html, body { margin: 0; padding: 0; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-links { background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #fff !important; background: none !important; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { text-shadow: 0 1px 8px rgba(0, 0, 0, .35) !important; }
+
+/* One button system everywhere (matches the hero pair). */
+.lo-amenu .lo-amenu-cta {
+  min-height: 44px !important; padding: 0 1.25rem !important; border-radius: 12px !important;
+  font: 600 .92rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em !important; text-transform: none !important;
+  background: #FF4A00 !important; color: #fff !important; border: 0 !important;
+  box-shadow: 0 8px 22px rgba(255, 74, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+  transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.lo-amenu .lo-amenu-cta:hover { background: #e64300 !important; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(255, 74, 0, .36) !important; }
+.lo-amenu .lo-amenu-cta:active { transform: scale(.97); }
+@media (hover: none) { .lo-amenu .lo-amenu-cta:hover { background: #FF4A00 !important; transform: none; } }
+.lob-btn, .lob-btn--arrow, .lo-final-cta .lob-btn, .lob-budget-card .lob-btn, .lo-wwd-card .lob-btn {
+  min-height: 54px; padding: 0 1.6rem; border-radius: 12px; gap: .6rem;
+  font: 600 .98rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em !important; text-transform: none !important;
+}
+.lob-btn--pri, .lob-btn--navy { box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
+.lob-btn--pri { background: #FF4A00; }
+.lob-btn--pri:hover { background: #e64300; }
+.lob-btn--navy { box-shadow: 0 10px 26px rgba(10, 31, 61, .28), inset 0 1px 0 rgba(255, 255, 255, .12); }
+.lob-btn--arrow svg { width: 1.05rem; height: 1.05rem; }
+.lob-btn--ghost { border-width: 1px; }
+/* Mobile sticky bar: same shape and type. */
+.lo-sticky-cta a { border-radius: 12px !important; font: 600 .92rem/1.2 "Inter", Helvetica, system-ui, sans-serif !important; text-transform: none !important; letter-spacing: -.005em !important; }
+@media (max-width: 719px) { .lob-btn, .lob-btn--arrow { font-size: .95rem !important; padding: 0 1.25rem; } }
