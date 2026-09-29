@@ -976,3 +976,42 @@
   .lob-ledger a:hover .lob-ledger-mark { background: #FFE9DF; color: #c93800; }
   .lob-ledger a:hover svg { color: rgba(10, 31, 61, .35); transform: none; }
 }
+
+/* ==========================================================================
+   Full-screen hero: edge-to-edge image behind a transparent header.
+   ========================================================================== */
+#home-banner.lo-hero-monzo,
+#home-banner.lo-hero-monzo > .h-screen > .h-full,
+#home-banner.lo-hero-monzo .h-full.relative.overflow-hidden {
+  padding: 0 !important; background: #0A1F3D !important;
+}
+#home-banner .lo-mz-shell,
+#home-banner .lo-mz-frame { min-height: 100vh; min-height: 100svh; }
+#home-banner .lo-mz-frame { border-radius: 0 !important; box-shadow: none !important; }
+/* Opening animation no longer scales the frame (it would reveal page edges). */
+#home-banner .lo-mz-frame { animation-name: lobFade !important; }
+/* Top of the scrim darkens slightly so the white header text reads on any photo. */
+#home-banner .lo-mz-scrim::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 180px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(6, 20, 40, .55) 0%, rgba(6, 20, 40, 0) 100%);
+}
+#home-banner .lo-mz-copy { bottom: 11%; }
+#home-banner .lo-mz-dots { bottom: 2rem; }
+
+/* Transparent header while it sits over the top of the hero. */
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) {
+  background: transparent !important; border-bottom-color: transparent !important; box-shadow: none !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-links {
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .16);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { color: rgba(255, 255, 255, .86) !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link:hover { color: #fff !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #0A1F3D !important; background: #fff !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-toggle span { background: #fff !important; }
+@media (max-width: 719px) {
+  #home-banner .lo-mz-copy { padding-top: 6.5rem; padding-bottom: 4.5rem; }
+  #home-banner .lo-mz-dots { bottom: 1.25rem; }
+}

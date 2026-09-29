@@ -50,6 +50,7 @@
 
   if (reduced || !("IntersectionObserver" in window)) {
     root.classList.add("lob-motion-off");
+    [0, 300, 1000, 2500].forEach(function (ms) { setTimeout(heroHeader, ms); });
     return;
   }
 
@@ -148,8 +149,27 @@
     });
   }
 
+  /* Full-screen hero: light logo while the header is transparent over the photo. */
+  function heroHeader() {
+    var nav = document.querySelector(".lo-amenu");
+    var logo = nav && nav.querySelector(".lo-amenu-logo-img");
+    if (!nav || !logo || nav.hasAttribute("data-lob-hero")) return;
+    nav.setAttribute("data-lob-hero", "");
+    root.classList.add("lob-hero-top");
+    var dark = logo.getAttribute("src"), light = "images/loud-ooh-logo.png";
+    function sync() {
+      var over = nav.classList.contains("lo-on-light") && !nav.classList.contains("is-scrolled") && !nav.classList.contains("is-open");
+      var want = over ? light : dark;
+      if (logo.getAttribute("src") !== want) logo.setAttribute("src", want);
+    }
+    sync();
+    new MutationObserver(sync).observe(nav, { attributes: true, attributeFilter: ["class"] });
+  }
+
   /* Sections are injected by other homepage scripts over the first few seconds. */
   function boot() {
+    heroHeader();
+    [300, 1000, 2500].forEach(function (ms) { setTimeout(heroHeader, ms); });
     tag();
     [400, 1200, 2500, 5000].forEach(function (ms) { setTimeout(tag, ms); });
   }
