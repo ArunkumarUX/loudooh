@@ -1018,3 +1018,12 @@ html, body { margin: 0; padding: 0; }
   #home-banner .lo-mz-copy { padding-top: 6.5rem; padding-bottom: 4.5rem; }
   #home-banner .lo-mz-dots { bottom: 1.25rem; }
 }
+
+/* Plain navigation: no pill container; the current page gets an orange underline. */
+.lo-amenu .lo-amenu-links { background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; padding: 0 !important; gap: .25rem !important; }
+.lo-amenu .lo-amenu-link { position: relative; background: none !important; border-radius: 0 !important; }
+.lo-amenu .lo-amenu-link.is-current { background: none !important; box-shadow: none !important; border: 0 !important; color: #0A1F3D !important; }
+.lo-amenu .lo-amenu-link.is-current::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 18px; height: 2px; margin-left: -9px; border-radius: 2px; background: #FF4A00; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-links { background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #fff !important; background: none !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { text-shadow: 0 1px 8px rgba(0, 0, 0, .35) !important; }

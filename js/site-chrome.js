@@ -40,7 +40,7 @@
   var navHtml =
     '<div class="lo-amenu lo-on-light">' +
       '<div class="lo-amenu-row">' +
-        '<a class="lo-amenu-logo" href="/"><img class="lo-amenu-logo-img" src="/images/loud-ooh-logo.png" alt="Loud! OOH" width="680" height="214"></a>' +
+        '<a class="lo-amenu-logo" href="/"><img class="lo-amenu-logo-img" src="/images/loud-ooh-logo-light.png" alt="Loud! OOH" width="680" height="214"></a>' +
         '<ul class="lo-amenu-links">' +
           '<li class="lo-amenu-item"><a' + linkClass(onHome) + ' href="/">Home</a></li>' +
           '<li class="lo-amenu-item" data-has-dropdown="1"><a class="lo-amenu-link" href="/#services">Services ' + chevron + "</a>" + ddPanel() + "</li>" +
