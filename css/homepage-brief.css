@@ -1052,3 +1052,62 @@ html, body { margin: 0; padding: 0; }
 /* Mobile sticky bar: same shape and type. */
 .lo-sticky-cta a { border-radius: 12px !important; font: 600 .92rem/1.2 "Inter", Helvetica, system-ui, sans-serif !important; text-transform: none !important; letter-spacing: -.005em !important; }
 @media (max-width: 719px) { .lob-btn, .lob-btn--arrow { font-size: .95rem !important; padding: 0 1.25rem; } }
+
+/* ==========================================================================
+   30 Sept 2026 revised brief
+   ========================================================================== */
+/* Hero: "Make them look up." with its original line and single CTA. */
+#home-banner .lo-mz-prop { font: 700 clamp(1.25rem, 2vw, 1.6rem)/1.3 "Montserrat", system-ui, sans-serif !important; letter-spacing: -.01em; color: #fff !important; max-width: 34rem; }
+#home-banner .lo-mz-sub { max-width: 32rem; }
+
+/* POV: entity sentence and the Big Brand Exposure statement. */
+.lob-intro-entity { margin: 1.5rem 0 0; max-width: 32rem; font-size: 1rem; line-height: 1.65; color: rgba(10, 31, 61, .65); }
+.lob-intro-lead { color: #c93800 !important; }
+
+/* Press: compact; button under the copy. */
+.lob-press .lob-actions { margin-top: 1.5rem; }
+.lob-press .lob-btn--ghost { color: #0A1F3D !important; border-color: rgba(10, 31, 61, .25); }
+
+/* Budget Lab link in copy. */
+.lob-budget-card p a { color: #fff !important; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; font-weight: 600; }
+
+/* What we buy: eight formats, four across on desktop. */
+.lob-formats8 .lo-work-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
+.lob-formats8 .lo-work-card { aspect-ratio: 3 / 4; }
+.lob-formats8 .lo-work-brand { font-size: clamp(1.15rem, 1.5vw, 1.35rem); }
+.lob-formats8 .lob-work-desc { font-size: .88rem; -webkit-line-clamp: 4; }
+.lob-formats8 .lo-work-meta { padding: 1.35rem 1.25rem 1.2rem; }
+@media (max-width: 1100px) { .lob-formats8 .lo-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .lob-formats8 .lo-work-card { aspect-ratio: 4 / 5; } }
+@media (max-width: 719px) { .lob-formats8 .lo-work-grid { grid-template-columns: 1fr !important; } }
+
+/* DON'T LOOK UP brand moment. */
+.lob-dlu {
+  position: relative; overflow: hidden; isolation: isolate; background: #FF4A00; color: #0A1F3D;
+  padding-top: clamp(5rem, 10vw, 9rem); padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+.lob-dlu::before {
+  content: "\2191"; position: absolute; z-index: -1; right: max(1.5rem, calc(50% - 640px)); top: 50%; translate: 0 -50%;
+  font: 900 clamp(14rem, 34vw, 30rem)/1 "Montserrat", system-ui, sans-serif; color: rgba(255, 255, 255, .14); pointer-events: none;
+}
+.lob-dlu-inner { max-width: 52rem; }
+.lob-dlu-title {
+  margin: 0; font: 900 clamp(3.4rem, 10vw, 8.5rem)/.92 "Montserrat", system-ui, sans-serif; letter-spacing: -.03em; text-transform: uppercase; color: #fff;
+}
+.lob-dlu-sub { margin: 1.25rem 0 2.25rem; font: 800 clamp(1.3rem, 2.4vw, 2rem)/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; color: #0A1F3D; }
+.lob-dlu-body { margin: 0 0 .6rem; max-width: 36rem; font-size: 1.15rem; line-height: 1.6; font-weight: 500; color: #0A1F3D; }
+
+/* Clients: eight logos, four across. */
+.lob-logos--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .lob-logos--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 719px) { .lob-logos--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Testimonials: three across. */
+.lob-quotes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .lob-quotes--3 { grid-template-columns: 1fr; } }
+
+/* Final CTA: no chips now; buttons stay on the right on desktop. */
+@media (min-width: 900px) { .lob-final-inner > .lob-final-actions { grid-row: 1 / span 3; } }
+@media (max-width: 374px) {
+  .lo-amenu .lo-amenu-cta { padding: 0 .8rem !important; font-size: .8rem !important; min-height: 44px !important; }
+  .lo-amenu-row { padding-left: 14px !important; padding-right: 10px !important; }
+}

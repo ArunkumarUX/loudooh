@@ -44,7 +44,7 @@
         '<ul class="lo-amenu-links">' +
           '<li class="lo-amenu-item"><a' + linkClass(onHome) + ' href="/">Home</a></li>' +
           '<li class="lo-amenu-item" data-has-dropdown="1"><a class="lo-amenu-link" href="/#services">Services ' + chevron + "</a>" + ddPanel() + "</li>" +
-          '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-difference">Why Loud?</a></li>' +
+          '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-intro">Why Loud?</a></li>' +
           '<li class="lo-amenu-item"><a' + linkClass(onPricing) + ' href="/insights/pricing/">Pricing</a></li>' +
           '<li class="lo-amenu-item"><a' + linkClass(onLab) + ' href="/budget-lab/">Budget Lab</a></li>' +
           '<li class="lo-amenu-item"><a' + linkClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
@@ -60,7 +60,7 @@
         '<li><a class="lo-amenu-mobile-link" href="/#services" data-mobile-toggle="1">Services ' + chevron + "</a>" +
           '<ul class="lo-amenu-mobile-sub">' + services.map(function (s) { return "<li><a href=\"" + s.href + "\">" + s.title + "</a></li>"; }).join("") + "</ul>" +
         "</li>" +
-        '<li><a class="lo-amenu-mobile-link" href="/#lo-difference">Why Loud?</a></li>' +
+        '<li><a class="lo-amenu-mobile-link" href="/#lo-intro">Why Loud?</a></li>' +
         '<li><a' + mobileClass(onPricing) + ' href="/insights/pricing/">Pricing</a></li>' +
         '<li><a' + mobileClass(onLab) + ' href="/budget-lab/">Budget Lab</a></li>' +
         '<li><a' + mobileClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +

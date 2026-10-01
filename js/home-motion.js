@@ -37,7 +37,9 @@
     "#lo-budget-promo .lob-budget-grid > div:first-child > .lob-eyebrow",
     "#lo-budget-promo .lob-budget-grid > div:first-child > .lob-h2",
     "#lo-budget-promo .lob-budget-card",
-    "#lo-final-cta .lob-final-inner > *"
+    "#lo-final-cta .lob-final-inner > *",
+    "#lo-dlu .lob-dlu-inner > *",
+    "#lo-press .lob-press-grid > div > .lob-actions"
   ].join(",");
 
   /* Text whose figures count up when revealed. */

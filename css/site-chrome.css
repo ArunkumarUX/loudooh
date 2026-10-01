@@ -169,3 +169,7 @@
 .lo-amenu .lo-amenu-cta:hover { background: #e64300 !important; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(255, 74, 0, .36) !important; }
 .lo-amenu .lo-amenu-cta:active { transform: scale(.97); }
 @media (hover: none) { .lo-amenu .lo-amenu-cta:hover { background: #FF4A00 !important; transform: none; } }
+@media (max-width: 374px) {
+  .lo-amenu .lo-amenu-cta { padding: 0 .8rem !important; font-size: .8rem !important; min-height: 44px !important; }
+  .lo-amenu-row { padding-left: 14px !important; padding-right: 10px !important; }
+}
