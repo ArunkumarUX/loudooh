@@ -1122,3 +1122,7 @@ html, body { margin: 0; padding: 0; }
 .lo-sticky-cta .sec { border: 1px solid rgba(255, 255, 255, .32) !important; background: rgba(255, 255, 255, .06) !important; }
 @media (min-width: 500px) { .lo-sticky-cta a { white-space: nowrap; } }
 @media (max-width: 359px) { .lo-sticky-cta a { font-size: .84rem !important; padding: .35rem .5rem !important; } }
+/* POV: follow-on paragraphs sit tight under the entity sentence; list starts the right column. */
+.lob-intro-entity + .lob-intro-entity { margin-top: .9rem; }
+.lob-intro-entity a { color: #c93800 !important; font-weight: 700; text-decoration: none; }
+.lob-intro-body .lob-punch { margin-top: 0; }
