@@ -1126,3 +1126,10 @@ html, body { margin: 0; padding: 0; }
 .lob-intro-entity + .lob-intro-entity { margin-top: .9rem; }
 .lob-intro-entity a { color: #c93800 !important; font-weight: 700; text-decoration: none; }
 .lob-intro-body .lob-punch { margin-top: 0; }
+/* Press and point of view are both white: close the gap between them. */
+#lo-press.lob-press { padding-bottom: 3rem; }
+#lo-intro.lob-intro { padding-top: 2.5rem; }
+@media (max-width: 1023px) {
+  #lo-press.lob-press { padding-bottom: 2.5rem; }
+  #lo-intro.lob-intro { padding-top: 2rem; }
+}
