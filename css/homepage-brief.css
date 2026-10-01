@@ -1133,3 +1133,10 @@ html, body { margin: 0; padding: 0; }
   #lo-press.lob-press { padding-bottom: 2.5rem; }
   #lo-intro.lob-intro { padding-top: 2rem; }
 }
+/* Don't look up: centred. */
+.lob-dlu { text-align: center; }
+.lob-dlu-inner { margin: 0 auto; }
+.lob-dlu-body { margin-left: auto; margin-right: auto; }
+.lob-dlu::before { right: max(1rem, calc(50% - 720px)); translate: 0 -50%; color: rgba(255, 255, 255, .1); }
+.lob-dlu-body { text-wrap: balance; }
+@media (max-width: 1023px) { .lob-dlu::before { display: none; } }
