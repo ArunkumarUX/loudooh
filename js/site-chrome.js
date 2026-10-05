@@ -409,13 +409,13 @@
     if (!document.querySelector('link[href*="smooth-experience.css"]')) {
       var css = document.createElement("link");
       css.rel = "stylesheet";
-      css.href = "/css/smooth-experience.css?v=4";
+      css.href = "/css/smooth-experience.css?v=5";
       document.head.appendChild(css);
     }
     if (window.__LO_SMOOTH_INIT__) return;
     if (document.querySelector('script[src*="smooth-experience.js"]')) return;
     var js = document.createElement("script");
-    js.src = "/js/smooth-experience.js?v=3";
+    js.src = "/js/smooth-experience.js?v=4";
     js.defer = true;
     document.body.appendChild(js);
   }

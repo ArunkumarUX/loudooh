@@ -165,7 +165,7 @@
     }
     document.querySelectorAll(PARALLAX_SEL).forEach(function (el) {
       if (inScrollContainer(el)) return;
-      if (el.closest(".lob-logos, .lob-press-logos")) return;
+      if (el.closest(".lob-logos, .lob-press-logos, .lo-wwd")) return;
       var raw = el.getAttribute("data-lo-parallax");
       var speed = raw !== null && raw !== "" ? parseFloat(raw) : defaultSpeed(el);
       if (!isFinite(speed)) speed = defaultSpeed(el);

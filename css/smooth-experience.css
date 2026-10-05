@@ -33,6 +33,11 @@ html {
 .lo-px-frame {
   overflow: hidden;
 }
+/* Sticky stack cards must not be clipped by the photo frame rule. */
+.lo-wwd,
+.lo-wwd-stack {
+  overflow: visible !important;
+}
 #home-banner .lo-mz-slide img,
 .lob-case-media > img,
 .lo-work-card img,
