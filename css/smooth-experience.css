@@ -29,12 +29,38 @@ html {
   transform: none;
 }
 
-/* Parallax targets */
-[data-lo-parallax],
-.lo-mz-carousel,
+/* Photos drift inside a still frame. The frame itself never moves. */
+.lo-px-frame {
+  overflow: hidden;
+}
+#home-banner .lo-mz-slide img,
+.lob-case-media > img,
+.lo-work-card img,
+.lo-diff-visual img,
+.lo-diff-vcard img,
+.hero-stage-img,
+.guide-list-media img,
 .bl-lab-landing-stage img,
-.lo-diff-visual img {
+.related-grid img,
+[data-lo-parallax] {
+  scale: 1.14;
   backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  #home-banner .lo-mz-slide img,
+  .lob-case-media > img,
+  .lo-work-card img,
+  .lo-diff-visual img,
+  .lo-diff-vcard img,
+  .hero-stage-img,
+  .guide-list-media img,
+  .bl-lab-landing-stage img,
+  .related-grid img,
+  [data-lo-parallax] {
+    scale: 1;
+    translate: none !important;
+  }
 }
 
 .lo-mz-copy[data-lo-parallax] {

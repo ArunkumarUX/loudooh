@@ -406,10 +406,16 @@
   }
 
   function loadSmoothExperience() {
+    if (!document.querySelector('link[href*="smooth-experience.css"]')) {
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "/css/smooth-experience.css?v=4";
+      document.head.appendChild(css);
+    }
     if (window.__LO_SMOOTH_INIT__) return;
     if (document.querySelector('script[src*="smooth-experience.js"]')) return;
     var js = document.createElement("script");
-    js.src = "/js/smooth-experience.js?v=1";
+    js.src = "/js/smooth-experience.js?v=3";
     js.defer = true;
     document.body.appendChild(js);
   }
@@ -427,7 +433,7 @@
 
 /* Shared header auto-hide (hides while scrolling, returns when scrolling stops). */
 (function () {
-  ["/js/nav-autohide.js?v=3", "/js/back-to-top.js?v=3"].forEach(function (src) {
+  ["/js/nav-autohide.js?v=4", "/js/back-to-top.js?v=3"].forEach(function (src) {
     if (document.querySelector('script[src*="' + src.split("?")[0].split("/").pop() + '"]')) return;
     var s = document.createElement("script");
     s.src = src;
