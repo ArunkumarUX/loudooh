@@ -380,6 +380,29 @@
     }
 
     installBreadcrumbs();
+    bindCaseHeroHeader();
+  }
+
+  function bindCaseHeroHeader() {
+    var hero = document.querySelector("body.case-study .hero");
+    var menu = document.querySelector(".lo-amenu");
+    if (!hero || !menu) return;
+    document.documentElement.classList.add("lob-hero-top");
+    var logo = menu.querySelector(".lo-amenu-logo-img");
+    var darkLogo = "/images/loud-ooh-logo-light.png";
+    var lightLogo = "/images/loud-ooh-logo.png";
+
+    function sync() {
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      var over = y < (hero.offsetHeight || window.innerHeight) - 80;
+      var open = menu.classList.contains("is-open");
+      menu.classList.toggle("lo-on-light", over);
+      if (logo) logo.setAttribute("src", over && !open && y <= 12 ? lightLogo : darkLogo);
+    }
+
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync);
   }
 
   function loadSmoothExperience() {

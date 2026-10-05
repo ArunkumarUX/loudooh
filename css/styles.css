@@ -365,6 +365,11 @@ body.nav-lock { overflow: hidden; }
   inset: 0;
   z-index: 0;
 }
+.hero-stage--plain {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(255, 74, 0, 0.22), transparent 46%),
+    linear-gradient(160deg, #16325c 0%, #0A1F3D 62%);
+}
 .hero-stage-img {
   width: 100%;
   height: 100%;
@@ -3284,6 +3289,13 @@ body.case-study.is-reading .cs-section {
     border-radius: 18px;
   }
 }
+.cs-boards-wrap > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 0 16px;
+}
 .cs-boards-caption {
   margin: 0 0 18px;
   font-size: 0.7rem;
@@ -3376,8 +3388,9 @@ body.case-study.is-reading .cs-section {
 }
 .cs-how-step {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 8px;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
   padding: 20px 18px;
   border-bottom: 1px solid var(--color-border);
 }
@@ -3390,6 +3403,7 @@ body.case-study.is-reading .cs-section {
   text-transform: uppercase;
   color: var(--color-orange);
   padding-top: 2px;
+  white-space: nowrap;
 }
 .cs-how-step strong {
   display: block;
@@ -3564,4 +3578,52 @@ body.case-study .stat-cards {
 @media (prefers-reduced-motion: reduce) {
   .cs-press-lead,
   .cs-press-item { transition: none; }
+}
+
+/* Case studies on a phone: compact hero, thumb-sized actions, one-column facts. */
+@media (max-width: 719px) {
+  body.case-study .hero {
+    min-height: 0;
+    padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  }
+  body.case-study .hero-shell {
+    padding: 8px 20px 20px;
+  }
+  body.case-study .hero-lead {
+    font-size: 1rem;
+  }
+  body.case-study .hero-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+  body.case-study .guide-jumps {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    gap: 8px;
+    margin-right: calc(var(--gutter) * -1);
+    padding-right: var(--gutter);
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  body.case-study .guide-jumps::-webkit-scrollbar { display: none; }
+  body.case-study .guide-jump {
+    min-height: 44px;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+  body.case-study .stat-cards {
+    grid-template-columns: 1fr;
+  }
+  body.case-study .cs-section {
+    margin-bottom: 40px;
+  }
+  body.case-study .cs-press-grid {
+    grid-template-columns: 1fr;
+  }
+  body.case-study .cta-contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
