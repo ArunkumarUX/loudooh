@@ -723,7 +723,12 @@
 .lo-faq-q { min-height: 52px; }
 @media (pointer: coarse) {
   .lo-amenu-logo { min-height: 44px; }
-  .lo-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  /* Footer links must stay one per line; inline layout made them run together. */
+  .lo-footer a { min-height: 44px; }
+  .lo-footer-col a { display: flex; align-items: center; }
+  .lo-footer-bottom-links a, .lo-footer-socials a { display: inline-flex; align-items: center; }
+  /* Contact rows: let the text own the remaining width and wrap instead of clipping. */
+  .lo-footer-contact-row a, .lo-footer-contact-row span { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
   .lob-press .lob-lead a, .lob-intro-body p a, .lob-also a { padding: .5rem 0; }
 }
 

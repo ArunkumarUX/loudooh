@@ -17,8 +17,8 @@
     ".lo-top:active{scale:.94}" +
     ".lo-top:focus-visible{outline:2px solid #FF4A00;outline-offset:3px}" +
     ".lo-top svg{width:20px;height:20px}" +
-    "@media (max-width:900px){.lo-top{right:16px;bottom:16px}" +
-    "body:has(.lo-sticky-cta.is-on) .lo-top{bottom:88px}}" +
+    "@media (max-width:900px){.lo-top{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}" +
+    "body:has(.lo-sticky-cta.is-on) .lo-top{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}" +
     "@media (hover:none){.lo-top:hover{background:#fff;border-color:rgba(10,31,61,.08);color:#0A1F3D}}" +
     "@media (prefers-reduced-motion:reduce){.lo-top{transition:none;translate:none}}";
   document.head.appendChild(css);
