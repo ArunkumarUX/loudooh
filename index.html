@@ -2613,11 +2613,9 @@ if(document.readyState==="loading") document.addEventListener("DOMContentLoaded"
     '</section>';
 
   function inject(){
-    if(document.getElementById("lo-what-we-do")) { initStack(); return true; }
-    var anchor = document.getElementById("global-image-with-slide-in-content") || document.getElementById("lo-intro");
-    if(!anchor) return false;
-    anchor.insertAdjacentHTML("afterend", html);
-    initStack();
+    /* "What Loud! does" stack cards removed at Jamie's request (6 Oct 2026). */
+    var existing = document.getElementById("lo-what-we-do");
+    if(existing) existing.remove();
     return true;
   }
 
@@ -3800,7 +3798,7 @@ if(document.readyState==="loading") document.addEventListener("DOMContentLoaded"
 </script>
 <script id="lo-section-reorder">
 (function(){
-  var ORDER = ["lo-intro","lo-what-we-do","lo-budget-promo","services","lo-dlu","lo-campaigns","lo-process","lo-pricing","lo-press","lo-trust","lo-testimonials","lo-final-cta"];
+  var ORDER = ["lo-intro","lo-budget-promo","services","lo-dlu","lo-campaigns","lo-process","lo-pricing","lo-press","lo-trust","lo-testimonials","lo-final-cta"];
   function reorder(){
     var footer = document.getElementById("lo-footer") || document.querySelector("footer");
     if(!footer || !footer.parentNode) return false;
