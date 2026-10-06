@@ -3376,6 +3376,74 @@ body.case-study.is-reading .cs-section {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Campaign photo gallery: real photography, labelled for SEO.
+   Light cards matching .stat-card so it sits inside a .cs-section. */
+.cs-photos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 28px 0 0;
+}
+@media (min-width: 640px) {
+  .cs-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+.cs-photo {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+.cs-photo-imgwrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0E1E3C;
+}
+.cs-photo-imgwrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cs-photo-format {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--color-orange);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cs-photo figcaption {
+  padding: 14px 16px 16px;
+}
+.cs-photo-place {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+.cs-photo-desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+/* Portrait photography: keep faces and copy in frame rather than cropping tight.
+   34% holds the visible window over the main creative in every tall shot
+   (verified per image: seep digivan y236-895, seep advan y505-995,
+   oscar platform y377-794 all inside the 4:3 crop). */
+.cs-photo-imgwrap--portrait img { object-position: center 34%; }
+
 .cs-how {
   display: grid;
   grid-template-columns: 1fr;
