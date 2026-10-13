@@ -80,6 +80,13 @@
       return;
     }
 
+    /* Mobile plan view: the page stays still. No compact mode; the slim
+       settings bar in bl-mobile-stable.js takes over once the header scrolls away. */
+    if (document.body.classList.contains("bl-lab-awake")) {
+      if (planning) setPlanning(false);
+      return;
+    }
+
     /* Mobile: enter explore when scrolled past hero */
     if (!planning && y > 120) setPlanning(true);
     else if (planning && y < 16) setPlanning(false);

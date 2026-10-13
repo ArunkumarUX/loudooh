@@ -1,0 +1,60 @@
+/* Budget Lab, phones and tablets (plan view): a still page.
+   See bl-mobile-stable.js. Loaded last so it overrides the older pinned/compact
+   header rules in bl-responsive.css, bl-lab-explore.css and bl-lab-planning.css. */
+@media (max-width: 1024px) {
+  /* The plan header scrolls with the page; it is never pinned or shrunk. */
+  body.bl-lab-awake .bl-ref-hero-band,
+  body.bl-lab-awake.is-planning .bl-ref-hero-band {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+  }
+  body.bl-lab-awake.is-planning .bl-ref-hero--mobile .bl-ref-hero-copy {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    clip: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+  body.bl-lab-awake .bl-mobile-campaign-strip.is-sticky { position: static !important; }
+
+  /* Slim settings bar under the top bar. */
+  .bl-mini-bar {
+    position: fixed; left: 0; right: 0; top: var(--lo-chrome-h, 72px); z-index: 190;
+    padding: 8px 16px 10px;
+    background: rgba(10, 31, 61, .96);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 10px 24px -14px rgba(6, 20, 40, .6);
+    transform: translateY(-110%); opacity: 0; visibility: hidden;
+    transition: transform .32s cubic-bezier(.22, 1, .36, 1), opacity .24s ease, visibility 0s linear .32s;
+  }
+  .bl-mini-bar.is-on {
+    transform: none; opacity: 1; visibility: visible;
+    transition: transform .32s cubic-bezier(.22, 1, .36, 1), opacity .24s ease, visibility 0s;
+  }
+  .bl-mini-bar-btn {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;
+    min-height: 48px; padding: 6px 14px; border: 0; border-radius: 12px;
+    background: #fff; color: #0A1F3D; text-align: left; cursor: pointer;
+    font-family: "Inter", Helvetica, system-ui, sans-serif;
+  }
+  .bl-mini-bar-btn:active { scale: .985; }
+  .bl-mini-bar-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .bl-mini-bar-label { font: 800 .64rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #c93800; }
+  .bl-mini-bar-summary { font-size: .9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bl-mini-bar-btn svg { flex: none; width: 20px; height: 20px; color: #FF4A00; }
+  .bl-mini-bar-btn:focus-visible { outline: 2px solid #FF4A00; outline-offset: 2px; }
+}
+@media (min-width: 1025px) { .bl-mini-bar { display: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  .bl-mini-bar, .bl-mini-bar.is-on { transition: none; }
+}
+
+/* Back-to-top arrow sits above the plan footer ("Review plan and email"). */
+@media (max-width: 1024px) {
+  body.bl-lab-awake .lo-top { bottom: calc(96px + 12px + env(safe-area-inset-bottom, 0px)) !important; }
+}

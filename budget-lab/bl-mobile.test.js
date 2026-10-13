@@ -12,8 +12,12 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   await p.goto(URL,{waitUntil:'domcontentloaded'});
   await p.waitForTimeout(3500);
 
+  /* Plan view on phones stays still: no compact mode; a slim fixed settings bar appears instead. */
+  const h0=await p.evaluate(()=>document.body.scrollHeight);
   await p.evaluate(()=>window.scrollTo(0,1500)); await p.waitForTimeout(900);
-  ok(await p.evaluate(()=>document.body.classList.contains('is-planning')),'scrolling enters explore mode');
+  const h1=await p.evaluate(()=>document.body.scrollHeight);
+  ok(h0===h1, `page height stays the same while scrolling (${h0}px -> ${h1}px)`);
+  ok(await p.evaluate(()=>{const b=document.querySelector('.bl-mini-bar');return !!b&&b.classList.contains('is-on');}),'slim settings bar shows once the plan header scrolls away');
 
   console.log('\nMOBILE DRAWER — full width');
   await p.evaluate(()=>document.getElementById('hl-view-full-summary').click());
