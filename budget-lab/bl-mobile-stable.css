@@ -58,3 +58,30 @@
 @media (max-width: 1024px) {
   body.bl-lab-awake .lo-top { bottom: calc(96px + 12px + env(safe-area-inset-bottom, 0px)) !important; }
 }
+
+/* Opportunities toolbar on phones and tablets: chips get their own full-width
+   row (scrolls sideways, edges fade); Sort sits under them on the left and the
+   List/Map switch on the right. Previously all three shared one row, which left
+   the chips 2px wide at 375px. */
+@media (max-width: 1024px) {
+  #hl-filter-bar.bl-explore-toolbar {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "chips chips" "sort view";
+    align-items: center;
+    gap: 12px 12px;
+    margin: 12px 0 16px !important;
+    padding: 0 0 16px !important;
+    border-bottom: 1px solid rgba(10, 31, 61, .08);
+  }
+  #hl-filter-bar #hl-filter-chips {
+    grid-area: chips; width: auto !important; min-width: 0; max-width: 100%;
+    display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; padding: 2px 24px 2px 0;
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, #000 85%, transparent);
+    scroll-snap-type: x proximity;
+  }
+  #hl-filter-bar #hl-filter-chips .bl-filter-chip { flex: 0 0 auto; min-height: 36px; padding: 8px 14px; scroll-snap-align: start; }
+  #hl-filter-bar .bl-explore-sort { grid-area: sort; justify-self: start; margin: 0 !important; flex: none !important; }
+  #hl-filter-bar #hl-mobile-view { grid-area: view; justify-self: end; margin: 0 !important; }
+}
