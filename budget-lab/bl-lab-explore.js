@@ -439,7 +439,7 @@
      engine's real planned spend against the user's budget instead. */
   function updatePlanFoot(est, state) {
     var budget = (state && state.budget) || 0;
-    var planned = (est && est.planned) || 0;
+    var planned = Math.round((est && est.planned) || 0);
     if (planned > budget) planned = budget;
     var remaining = Math.max(0, budget - planned);
     var pct = budget > 0 ? Math.round((planned / budget) * 100) : 0;

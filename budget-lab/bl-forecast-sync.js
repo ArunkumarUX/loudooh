@@ -153,12 +153,19 @@
     var summary = document.getElementById("hl-mix-summary");
     if (goal) goal.textContent = OBJ_LABELS[state.objective] || OBJ_LABELS.reach;
     if (summary && result && result.lines) {
+      /* Same figure as the plan footer ("Planned allocation"): what the plan
+         actually spends, not the total budget. */
+      var est = window.__BL_HERO__ && window.__BL_HERO__.estimate && window.__BL_HERO__.estimate();
+      var planned = est && typeof est.planned === "number" ? est.planned
+        : typeof result.spend === "number" ? result.spend : state.budget;
+      planned = Math.round(planned);
+      if (planned > state.budget) planned = state.budget;
       summary.textContent =
         result.lines.length +
         " format" +
         (result.lines.length === 1 ? "" : "s") +
         " · " +
-        gbp(state.budget) +
+        gbp(planned) +
         " allocated";
     }
   }
