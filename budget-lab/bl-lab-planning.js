@@ -48,8 +48,10 @@
     }
     if (labWrap) labWrap.classList.toggle("is-explore", on);
 
+    /* The site header stays visible (same as every other page); the sticky
+       campaign strip sits below it via --lo-chrome-h. */
     var nav = navEl();
-    if (nav) nav.classList.toggle("is-hidden-planning", on);
+    if (nav) nav.classList.remove("is-hidden-planning");
     syncAnchor();
     unlockScroll();
 

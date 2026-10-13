@@ -201,3 +201,9 @@ html.lo-chrome .site-header{display:none !important}
   .lo-amenu .lo-amenu-cta { padding: 0 .8rem !important; font-size: .8rem !important; min-height: 44px !important; }
   .lo-amenu-row { padding-left: 14px !important; padding-right: 10px !important; }
 }
+
+/* Match the homepage header on every page: the orange button stays visible on
+   phones and tablets, beside the menu toggle. */
+@media (max-width: 1100px) {
+  .lo-amenu .lo-amenu-cta { display: inline-flex !important; align-items: center; justify-content: center; }
+}

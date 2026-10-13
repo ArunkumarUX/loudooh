@@ -1160,3 +1160,6 @@ html, body { margin: 0; padding: 0; }
 .lob-dlu::before { right: max(1rem, calc(50% - 720px)); translate: 0 -50%; color: rgba(255, 255, 255, .1); }
 .lob-dlu-body { text-wrap: balance; }
 @media (max-width: 1023px) { .lob-dlu::before { display: none; } }
+/* Current page: orange underline only, same as the other pages (no white box). */
+.lo-amenu.lo-on-light .lo-amenu-link.is-current,
+.lo-amenu.lo-on-light.is-scrolled .lo-amenu-link.is-current { background: none !important; box-shadow: none !important; }
