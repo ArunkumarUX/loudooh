@@ -1,6 +1,13 @@
 [build]
   publish = "."
 
+# Staging build (loudooh.cloudtechnologiestest.com): never index, so it cannot
+# compete with the live loudooh.co.uk site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # NOTE: css/ and js/ assets are NOT fingerprinted (filenames stay the same
 # across deploys), so they must NOT be marked immutable. Netlify's default
 # static-asset caching already does the right thing: the CDN caches for a year

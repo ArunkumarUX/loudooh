@@ -207,3 +207,12 @@ html.lo-chrome .site-header{display:none !important}
 @media (max-width: 1100px) {
   .lo-amenu .lo-amenu-cta { display: inline-flex !important; align-items: center; justify-content: center; }
 }
+
+/* Accessible small-label variant of the brand orange, shared by all headers. */
+.lo-amenu .lo-amenu-cta{background:#c63a00!important;box-shadow:none!important}
+.lo-amenu .lo-amenu-cta:hover{background:#a83000!important;box-shadow:none!important}
+
+/* Homepage follows the Loud brand guide while retaining shared navigation. */
+body[data-shared-header-only] .lo-amenu .lo-amenu-cta{background:#FF4A00!important;color:#fff;font-size:20px!important;font-weight:700!important;border-radius:0!important;min-height:48px!important;box-shadow:none!important}
+body[data-shared-header-only] .lo-amenu .lo-amenu-cta:hover{background:#cf3c00!important}
+body[data-shared-header-only] .lo-amenu-mobile-list>li:last-child .lo-amenu-mobile-link{font-size:20px;font-weight:700;border-radius:0}

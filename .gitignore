@@ -11,3 +11,6 @@ budget-lab/_to_delete/
 p.typekit.net/
 use.typekit.net/
 serve-mude.py
+
+# Local redesign audit, backups and QA dependencies
+work/

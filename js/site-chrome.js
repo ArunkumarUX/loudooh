@@ -9,6 +9,8 @@
   var onAbout = path.indexOf("/about") === 0;
   var ctaHref = onLab ? "#planner" : "/budget-lab/";
   var ctaLabel = "Open Budget Lab";
+  var headerOnly = document.body && document.body.hasAttribute("data-shared-header-only");
+  if (headerOnly) ctaLabel = "Budget Lab";
   var SITE_ORIGIN = "https://www.loudooh.co.uk";
 
   var chevron = '<svg class="lo-amenu-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -17,7 +19,7 @@
     { title: "Programmatic DOOH", desc: "Real-time digital buying across premium screens.", href: "https://www.loudooh.co.uk/services/programmatic-dooh/" },
     { title: "London Underground", desc: "Cross-track and gallery Tube campaigns.", href: "https://www.loudooh.co.uk/services/london-underground/" },
     { title: "Airport Advertising", desc: "Heathrow, Gatwick and high-value travellers.", href: "https://www.loudooh.co.uk/services/airport-advertising/" },
-    { title: "Digital AdVans", desc: "Mobile LED for events, openings and launches.", href: "https://www.loudooh.co.uk/services/digital-advans/" },
+    { title: "Digital AdVans", desc: "Mobile LED for events, openings and launches.", href: "https://www.loudooh.co.uk/services/digital-advan/" },
     { title: "Taxi Advertising", desc: "London black cab wraps and roaming presence.", href: "https://www.loudooh.co.uk/services/taxi-advertising/" }
   ];
 
@@ -40,7 +42,7 @@
   var navHtml =
     '<div class="lo-amenu lo-on-light">' +
       '<div class="lo-amenu-row">' +
-        '<a class="lo-amenu-logo" href="/"><img class="lo-amenu-logo-img" src="/images/loud-ooh-logo-light.png" alt="Loud! OOH" width="680" height="214"></a>' +
+        '<a class="lo-amenu-logo" href="/"><img class="lo-amenu-logo-img" src="' + (headerOnly ? "/images/homepage/logo-dark.webp" : "/images/loud-ooh-logo-light.png") + '" alt="Loud! OOH" width="680" height="214"></a>' +
         '<ul class="lo-amenu-links">' +
           '<li class="lo-amenu-item"><a' + linkClass(onHome) + ' href="/">Home</a></li>' +
           '<li class="lo-amenu-item" data-has-dropdown="1"><a class="lo-amenu-link" href="/#services">Services ' + chevron + "</a>" + ddPanel() + "</li>" +
@@ -90,7 +92,7 @@
               '<a href="https://www.loudooh.co.uk/services/programmatic-dooh/">Programmatic DOOH</a>' +
               '<a href="https://www.loudooh.co.uk/services/london-underground/">London Underground</a>' +
               '<a href="https://www.loudooh.co.uk/services/airport-advertising/">Airport</a>' +
-              '<a href="https://www.loudooh.co.uk/services/digital-advans/">AdVans</a>' +
+              '<a href="https://www.loudooh.co.uk/services/digital-advan/">AdVans</a>' +
             "</div>" +
             '<div class="lo-footer-col">' +
               '<p class="lo-footer-col-title">Company</p>' +
@@ -321,14 +323,17 @@
     wrap.innerHTML = navHtml;
     document.body.insertBefore(wrap, document.body.firstChild);
 
+    if (!headerOnly) {
     var oldFoot = document.querySelector(".lo-footer") || document.querySelector(".site-footer") || document.querySelector(".bl-foot");
     var footWrap = document.createElement("div");
     footWrap.innerHTML = footerHtml;
     if (oldFoot) oldFoot.replaceWith(footWrap.firstElementChild);
     else document.body.appendChild(footWrap.firstElementChild);
+    }
 
     var menu = document.querySelector(".lo-amenu");
     var mobile = document.querySelector(".lo-amenu-mobile");
+    if (mobile) mobile.inert = true;
 
     function syncMenu() {
       if (!menu) return;
@@ -357,6 +362,7 @@
     if (toggle && mobile) {
       toggle.addEventListener("click", function () {
         var open = mobile.classList.toggle("is-open");
+        mobile.inert = !open;
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         document.body.style.overflow = open ? "hidden" : "";
         syncMenu();
@@ -365,11 +371,27 @@
         var a = e.target.closest("a");
         if (!a || a.getAttribute("data-mobile-toggle")) return;
         mobile.classList.remove("is-open");
+        mobile.inert = true;
         toggle.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
         syncMenu();
       });
     }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mobile && mobile.classList.contains("is-open")) {
+        mobile.classList.remove("is-open");
+        mobile.inert = true;
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        toggle.focus();
+        syncMenu();
+      }
+    });
+    document.querySelectorAll(".lo-amenu-item[data-has-dropdown]").forEach(function (item) {
+      item.addEventListener("focusin", function () { item.classList.add("is-open"); syncMenu(); });
+      item.addEventListener("focusout", function (e) { if (!item.contains(e.relatedTarget)) { item.classList.remove("is-open"); syncMenu(); } });
+    });
 
     var mobileToggle = document.querySelector("[data-mobile-toggle]");
     if (mobileToggle && mobileToggle.nextElementSibling) {
@@ -406,6 +428,7 @@
   }
 
   function loadSmoothExperience() {
+    if (headerOnly) return;
     if (!document.querySelector('link[href*="smooth-experience.css"]')) {
       var css = document.createElement("link");
       css.rel = "stylesheet";

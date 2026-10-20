@@ -3,5 +3,16 @@
   "framework": null,
   "installCommand": "",
   "buildCommand": "node -e \"process.exit(0)\"",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
 }

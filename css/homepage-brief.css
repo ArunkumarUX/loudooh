@@ -1092,7 +1092,7 @@ html, body { margin: 0; padding: 0; }
 .lob-formats8 .lo-work-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
 .lob-formats8 .lo-work-card { aspect-ratio: 3 / 4; }
 .lob-formats8 .lo-work-brand { font-size: clamp(1.15rem, 1.5vw, 1.35rem); }
-.lob-formats8 .lob-work-desc { font-size: .88rem; -webkit-line-clamp: 4; }
+.lo-gallery.lob-formats8 .lo-work-card .lob-work-desc { font-size: .88rem; -webkit-line-clamp: unset; display: block; overflow: visible; }
 .lob-formats8 .lo-work-meta { padding: 1.35rem 1.25rem 1.2rem; }
 @media (max-width: 1100px) { .lob-formats8 .lo-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .lob-formats8 .lo-work-card { aspect-ratio: 4 / 5; } }
 @media (max-width: 719px) { .lob-formats8 .lo-work-grid { grid-template-columns: 1fr !important; } }
@@ -1163,3 +1163,49 @@ html, body { margin: 0; padding: 0; }
 /* Current page: orange underline only, same as the other pages (no white box). */
 .lo-amenu.lo-on-light .lo-amenu-link.is-current,
 .lo-amenu.lo-on-light.is-scrolled .lo-amenu-link.is-current { background: none !important; box-shadow: none !important; }
+
+/* Heading & SEO brief (Oct 2026): no template eyebrows or decorative kicker lines.
+   Lead-ins are sentence case, medium weight, brand accent. One unified H1. */
+.lo-mz-eyebrow, .lob-eyebrow { display: none !important; }
+.lob-lead-in,
+.hero-lead-in {
+  display: block;
+  margin: 0 0 1rem;
+  font: 600 1.05rem/1.4 "Inter", Helvetica, system-ui, sans-serif;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  color: #c93800;
+}
+.lob-sec--navy .lob-lead-in, .lob-budget .lob-lead-in, .lo-gallery .lob-lead-in { color: #FF4A00; }
+.lob-lead-in::before, .lob-lead-in::after,
+.hero-lead-in::before, .hero-lead-in::after { content: none !important; display: none !important; }
+#home-banner .lo-mz-title .hero-lead-in {
+  margin: 0 0 .9rem;
+  font-size: clamp(.95rem, 1.3vw, 1.1rem);
+  color: #FF4A00;
+  text-shadow: none;
+}
+#home-banner .lo-mz-prop a { color: #fff; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+.lob-intro-entity a { font-weight: 700; }
+#lo-process .lob-head .lob-lead { margin-top: -.6rem; }
+.lob-steps--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lob-step p a { color: inherit; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+@media (max-width: 900px) { .lob-steps--3 { grid-template-columns: minmax(0, 1fr); } }
+
+/* Brief sections 04, 07, 08: Why / Sectors / Pricing guides. */
+#lo-sectors { padding-top: 0; }
+.lob-why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.lob-why-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lob-why-card { padding: 1.75rem 1.5rem; border-radius: 20px; background: #F4F5F8; border: 1px solid rgba(10, 31, 61, .06); }
+.lob-why-num { display: block; margin: 0 0 1.1rem; font: 800 .95rem/1 "Montserrat", system-ui, sans-serif; color: #c93800; }
+.lob-why-card h3 { margin: 0 0 .6rem; font: 800 1.2rem/1.25 "Montserrat", system-ui, sans-serif; color: #0A1F3D; }
+.lob-why-card p { margin: 0; font-size: 1rem; line-height: 1.6; color: rgba(10, 31, 61, .72); }
+.lob-why-card a { color: #0A1F3D; font-weight: 700; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+#lo-guides .lob-lead { max-width: 36rem; color: rgba(255, 255, 255, .72); opacity: 1; }
+.lob-guides-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+@media (max-width: 1100px) {
+  .lob-why-grid, .lob-guides-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lob-why-grid--3 { grid-template-columns: minmax(0, 1fr); }
+  .lob-guides-cards > .lob-case:last-child:nth-child(odd) { grid-column: auto; flex-direction: column; }
+}
+@media (max-width: 719px) { .lob-why-grid, .lob-guides-cards { grid-template-columns: minmax(0, 1fr); } }
