@@ -13,6 +13,10 @@
 
   document.documentElement.classList.add("lo-smooth-ready");
 
+  /* Window glide. Scroll position is eased; nothing on the page is transformed,
+     so the sticky stack and the fixed header stay planted. */
+  var glide = null;
+
   function headerOffset() {
     var menu = document.querySelector(".lo-amenu");
     return menu ? menu.offsetHeight + 12 : 88;
@@ -38,11 +42,9 @@
     var el = document.getElementById(hash);
     if (!el) return;
     e.preventDefault();
-    var top = el.getBoundingClientRect().top + window.scrollY - headerOffset();
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: reduced ? "auto" : "smooth",
-    });
+    var top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - headerOffset());
+    if (glide) glide.to(top);
+    else window.scrollTo({ top: top, behavior: reduced ? "auto" : "smooth" });
     if (history.replaceState) {
       history.replaceState(null, "", "#" + hash);
     }
@@ -108,6 +110,97 @@
 
   if (reduced) return;
 
+  glide = installGlide();
+
+  function installGlide() {
+    if (coarse) return null;
+    var target = window.scrollY;
+    var current = window.scrollY;
+    var fromUs = false;
+    var running = false;
+    var LERP = 0.1;
+
+    function enabled() {
+      return (
+        !document.documentElement.classList.contains("motion-off") &&
+        !document.body.classList.contains("bl-lab-awake")
+      );
+    }
+
+    function maxY() {
+      return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    }
+
+    function clamp(y) {
+      return Math.max(0, Math.min(maxY(), y));
+    }
+
+    function tick() {
+      if (!enabled()) {
+        target = current = window.scrollY;
+        running = false;
+        return;
+      }
+      var diff = target - current;
+      if (Math.abs(diff) < 0.5) {
+        current = target;
+        running = false;
+      } else {
+        current += diff * LERP;
+      }
+      if (Math.abs(window.scrollY - current) > 0.4) {
+        fromUs = true;
+        window.scrollTo(0, current);
+        fromUs = false;
+      }
+      if (running) requestAnimationFrame(tick);
+    }
+
+    function kick() {
+      if (!enabled() || running) return;
+      running = true;
+      requestAnimationFrame(tick);
+    }
+
+    window.addEventListener("scroll", function () {
+      if (fromUs || running) return;
+      target = current = window.scrollY;
+    }, { passive: true });
+
+    window.addEventListener("wheel", function (e) {
+      if (!enabled() || e.ctrlKey || e.metaKey) return;
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) + 0.5) return;
+      var node = e.target && e.target.nodeType === 1 ? e.target : e.target && e.target.parentElement;
+      if (node && inScrollContainer(node)) return;
+      var dy = e.deltaY;
+      if (e.deltaMode === 1) dy *= 16;
+      else if (e.deltaMode === 2) dy *= window.innerHeight;
+      if (!dy) return;
+      e.preventDefault();
+      target = clamp(target + dy);
+      kick();
+    }, { passive: false });
+
+    window.addEventListener("resize", function () {
+      target = clamp(target);
+    }, { passive: true });
+
+    document.documentElement.classList.add("lo-glide");
+    return {
+      to: function (y) {
+        y = clamp(y);
+        if (!enabled()) {
+          target = current = y;
+          window.scrollTo(0, y);
+          return;
+        }
+        target = y;
+        current = window.scrollY;
+        kick();
+      }
+    };
+  }
+
   /* Photos only. The hero frame and the header stay still — moving those is what made the screen jump. */
   var PARALLAX_SEL = [
     "[data-lo-parallax]",
@@ -126,7 +219,7 @@
   var known = new WeakMap();
   var running = false;
   var motionScale = coarse ? 0.45 : 1;
-  var EASE = 0.16;
+  var EASE = 0.09;
   var MAX = coarse ? 22 : 36;
 
   function inScrollContainer(el) {

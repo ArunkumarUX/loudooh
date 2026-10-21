@@ -8,6 +8,10 @@
 html {
   scroll-behavior: smooth;
 }
+/* The glide eases scroll itself. Native smooth scroll on top of that fights it and jumps. */
+html.lo-glide {
+  scroll-behavior: auto;
+}
 
 /* Scroll reveals (works with existing .reveal / .is-in patterns) */
 .lo-scroll-reveal,

@@ -46,7 +46,7 @@
         reveal(entry.target);
         io.unobserve(entry.target);
       });
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.08 });
     revealables.forEach((el) => io.observe(el));
   } else {
     revealables.forEach(reveal);

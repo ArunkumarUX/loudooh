@@ -438,7 +438,7 @@
     if (window.__LO_SMOOTH_INIT__) return;
     if (document.querySelector('script[src*="smooth-experience.js"]')) return;
     var js = document.createElement("script");
-    js.src = "/js/smooth-experience.js?v=4";
+    js.src = "/js/smooth-experience.js?v=5";
     js.defer = true;
     document.body.appendChild(js);
   }
