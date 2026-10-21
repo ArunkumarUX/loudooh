@@ -479,8 +479,8 @@ html.js:not(.motion-off) .case-pair .case:nth-child(2) .case-media { transition-
 .guide-text { display: grid; gap: 4px; min-width: 0; }
 .guide-tag { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-orange-text); }
 #main .guide-list h3 { font-size: 1.0625rem; letter-spacing: var(--track-subhead); line-height: 1.25; color: var(--color-navy); }
-.guide-go { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(14, 30, 60, 0.14); font-size: 0; color: var(--color-navy); transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-smooth); }
-.guide-go b { font-size: 1.0625rem; font-weight: 500; }
+.guide-go { display: grid; place-items: center; flex: none; width: 44px; height: 44px; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid rgba(14, 30, 60, 0.22); background: #fff; color: var(--color-navy); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-smooth); }
+.guide-go svg { display: block; width: 18px; height: 18px; }
 .guide-list a:hover .guide-go, .guide-list a:focus-visible .guide-go { background: var(--color-orange); border-color: var(--color-orange); color: #fff; transform: translateX(3px); }
 
 /* Budget console */
