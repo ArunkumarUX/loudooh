@@ -171,9 +171,9 @@ p a:hover { color: var(--color-orange-text); }
     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35)) drop-shadow(0 10px 28px rgba(0, 0, 0, 0.45));
   }
   .hero .mask-line.hero-accent {
-    background: linear-gradient(180deg, #ffb27f 0%, #ff7a33 38%, #ff4a00 62%, #ec4500 100%);
-    -webkit-background-clip: text; background-clip: text;
-    filter: drop-shadow(0 1px 0 rgba(255, 196, 160, 0.45)) drop-shadow(0 10px 30px rgba(255, 74, 0, 0.35));
+    background: none;
+    -webkit-text-fill-color: var(--color-orange); color: var(--color-orange);
+    filter: none;
   }
   .hero-heading { text-shadow: none; }
 }
@@ -267,7 +267,7 @@ html.lob-hero-top body.home-page .lo-amenu.lo-on-light:not(.is-scrolled):not(.is
 .strike-word::after { content: ""; position: absolute; left: -2%; right: -2%; top: 54%; height: 0.07em; border-radius: 2px; background: var(--color-navy); transform: scaleX(0); transform-origin: left center; }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   #main .manifesto-title { background: linear-gradient(180deg, #2a3b5c 0%, #0e1e3c 55%, #070f22 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .manifesto-title .strike-word { background: linear-gradient(180deg, #ff9a5c 0%, #ff6a1f 38%, #ff4a00 62%, #e04200 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .manifesto-title .strike-word { background: none; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange); }
 }
 
 /* ---------- 03 · Formats exhibition ---------- */
@@ -285,8 +285,11 @@ html.lob-hero-top body.home-page .lo-amenu.lo-on-light:not(.is-scrolled):not(.is
 .exhibit-body p { max-width: 34rem; margin-top: 6px; font-size: var(--text-body-sm); line-height: 1.45; color: var(--color-on-navy); }
 .exhibit-price { justify-self: start; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; font-size: var(--text-caption); font-weight: 700; color: var(--color-orange-on-navy); text-decoration: none; }
 .exhibit-price:hover { text-decoration: underline; text-underline-offset: 3px; }
-.exhibit-media { position: absolute; top: 0; right: 0; height: min(100%, 640px); width: calc((100% - var(--space-6)) * 0.524); overflow: hidden; border-radius: var(--radius-card); background: #18305a; opacity: 0; clip-path: inset(0 0 0 100% round var(--radius-card)); transition: opacity 0.01s linear 0.6s, clip-path 0.6s var(--ease-smooth); }
-.exhibit-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 2s var(--ease-smooth); }
+.exhibit-media { position: absolute; top: 0; bottom: 0; margin-block: auto; right: 0; height: min(100%, 480px); width: calc((100% - var(--space-6)) * 0.524); overflow: hidden; border-radius: var(--radius-card); background: #18305a; opacity: 0; clip-path: inset(0 0 0 100% round var(--radius-card)); transition: opacity 0.01s linear 0.6s, clip-path 0.6s var(--ease-smooth); }
+.exhibit-media::before { /* the same photo, blurred, fills the frame behind the full image */
+  content: ""; position: absolute; inset: -12%; background: var(--exhibit-bg) center / cover no-repeat; filter: blur(28px) brightness(0.55) saturate(1.2); transform: scale(1.05);
+}
+.exhibit-media img { position: relative; width: 100%; height: 100%; object-fit: contain; transform: scale(0.97); transition: transform 2s var(--ease-smooth); filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45)); }
 .exhibit-item.is-active .exhibit-media { z-index: 1; opacity: 1; clip-path: inset(0 0 0 0 round var(--radius-card)); transition: opacity 0.01s linear, clip-path 0.9s var(--ease-smooth); }
 .exhibit-item.is-active .exhibit-media img { transform: scale(1); }
 .exhibit-item.is-active .exhibit-num { color: var(--color-orange); }
@@ -335,7 +338,7 @@ html.lob-hero-top body.home-page .lo-amenu.lo-on-light:not(.is-scrolled):not(.is
 .campaigns .section-head p { color: var(--color-on-navy); font-size: 1.0625rem; }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   #main .campaigns .section-head h2 { background: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #e3e9f2 62%, #c9d3e1 100%) 0 0 / 100% 1.15em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  #main .campaigns .section-head h2 em { -webkit-box-decoration-break: clone; box-decoration-break: clone; background: linear-gradient(180deg, #ffb27f 0%, #ff7a33 38%, #ff4a00 62%, #ec4500 100%) 0 0 / 100% 1.15em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  #main .campaigns .section-head h2 em { background: none; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange); }
 }
 
 /* Glass material on navy */
@@ -444,7 +447,7 @@ html.js:not(.motion-off) .case-pair .case:nth-child(2) .case-media { transition-
 .pricing-head p { margin-top: var(--space-2); max-width: 36rem; font-size: 1.0625rem; line-height: 1.65; color: var(--color-text-muted); }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   #main .pricing-head h2 { background: linear-gradient(180deg, #2a3b5c 0%, #0e1e3c 55%, #070f22 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  #main .pricing-head h2 em { -webkit-box-decoration-break: clone; box-decoration-break: clone; background: linear-gradient(180deg, #ff9a5c 0%, #ff6a1f 38%, #ff4a00 62%, #e04200 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  #main .pricing-head h2 em { background: none; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange); }
 }
 .pricing-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); gap: var(--space-4); align-items: start; }
 
@@ -569,7 +572,7 @@ html.js:not(.motion-off) .dlu-title.is-in .mask-line { transform: none; }
 .glass-head p, .press-copy p { margin-top: var(--space-2); max-width: 36rem; font-size: 1.0625rem; line-height: 1.65; color: var(--color-text-muted); }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   #main .glass-head h2, #main .press-copy h2 { background: linear-gradient(180deg, #2a3b5c 0%, #0e1e3c 55%, #070f22 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  #main .glass-head h2 em, #main .press-copy h2 em { -webkit-box-decoration-break: clone; box-decoration-break: clone; background: linear-gradient(180deg, #ff9a5c 0%, #ff6a1f 38%, #ff4a00 62%, #e04200 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  #main .glass-head h2 em, #main .press-copy h2 em { background: none; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange); }
 }
 
 /* ---------- Clients · logo wall ---------- */
@@ -602,7 +605,7 @@ html.js:not(.motion-off) .logo-wall li:nth-child(4n+4)[data-reveal] { transition
 .voices-head p { margin-top: var(--space-2); font-size: 1.0625rem; line-height: 1.65; color: rgba(255, 255, 255, 0.72); }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   #main .voices-head h2 { background: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #e3e9f2 62%, #c9d3e1 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  #main .voices-head h2 em { -webkit-box-decoration-break: clone; box-decoration-break: clone; background: linear-gradient(180deg, #ffb27f 0%, #ff7a33 38%, #ff4a00 62%, #ec4500 100%) 0 0 / 100% 1.04em repeat-y; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  #main .voices-head h2 em { background: none; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange); }
 }
 .voice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
 .voice {
@@ -724,7 +727,8 @@ html.js:not(.motion-off) .finale.is-in .mask-line { transform: none; opacity: 1;
   .exhibit-list { display: grid; grid-auto-flow: column; grid-auto-columns: min(82vw, 380px); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); padding-bottom: 12px; }
   .exhibit-item, .exhibit-item:last-child { border: 0; border-radius: var(--radius-card); overflow: hidden; scroll-snap-align: start; background: #18305a; }
   .exhibit-media { position: static; width: auto; height: auto; opacity: 1; clip-path: none; border-radius: 0; }
-  .exhibit-media img { aspect-ratio: 4 / 3; height: auto; transform: none; }
+  .exhibit-media img { aspect-ratio: 4 / 3; height: auto; transform: none; object-fit: cover; filter: none; }
+  .exhibit-media::before { content: none; }
   .exhibit-body { grid-template-columns: minmax(0, 1fr); padding: 16px 18px 18px; }
   .exhibit-num { grid-row: auto; padding-bottom: 8px; color: var(--color-orange); }
   #main .exhibit-item .exhibit-body h3 { color: #fff; }
