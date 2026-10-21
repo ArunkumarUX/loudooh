@@ -7,10 +7,7 @@
   var onPricing = path.indexOf("/insights/pricing") === 0;
   var onHome = path === "/";
   var onAbout = path.indexOf("/about") === 0;
-  var ctaHref = onLab ? "#planner" : "/budget-lab/";
-  var ctaLabel = "Open Budget Lab";
   var headerOnly = document.body && document.body.hasAttribute("data-shared-header-only");
-  if (headerOnly) ctaLabel = "Budget Lab";
   var SITE_ORIGIN = "https://www.loudooh.co.uk";
 
   var chevron = '<svg class="lo-amenu-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -52,7 +49,6 @@
           '<li class="lo-amenu-item"><a' + linkClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
           '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-footer">Contact</a></li>' +
         "</ul>" +
-        '<a class="lo-amenu-cta" href="' + ctaHref + '" data-lo-track="enquiry_start">' + ctaLabel + "</a>" +
         '<button type="button" class="lo-amenu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
     "</div>" +
@@ -67,7 +63,6 @@
         '<li><a' + mobileClass(onLab) + ' href="/budget-lab/">Budget Lab</a></li>' +
         '<li><a' + mobileClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
         '<li><a class="lo-amenu-mobile-link" href="/#lo-footer">Contact</a></li>' +
-        '<li><a class="lo-amenu-mobile-link" href="' + ctaHref + '">' + ctaLabel + "</a></li>" +
       "</ul>" +
     "</div>";
 

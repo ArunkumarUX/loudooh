@@ -100,17 +100,9 @@ p a:hover { color: var(--color-orange-text); }
   font: 600 1rem/1.25 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer;
   transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, transform 0.22s var(--ease-smooth), translate 0.4s var(--ease-smooth);
 }
-.btn { padding: 6px 6px 6px 18px; gap: 12px; }
-.btn > span {
-  display: grid; place-items: center; flex: none;
-  width: 32px; height: 32px; border-radius: 50%;
-  background: #fff; color: var(--color-navy);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-smooth);
-}
-.btn > span svg { display: block; width: 15px; height: 15px; }
+.btn > span { display: inline-flex; transition: transform 0.22s var(--ease-smooth); }
+.btn > span svg { display: block; width: 16px; height: 16px; }
 .btn:hover span { transform: translateX(3px); }
-.btn-outline-dark > span { background: var(--color-navy); color: #fff; }
-.btn-outline-dark:hover > span { background: #fff; color: var(--color-navy); }
 .btn-primary { background: var(--color-orange); color: #fff; }
 .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255, 74, 0, 0.35); }
 .btn-ghost { border-color: rgba(255, 255, 255, 0.35); color: #fff; }
@@ -755,6 +747,13 @@ html.js:not(.motion-off) .voice-side .voice:nth-child(2)[data-reveal] { transiti
 .press-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
 .press-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: var(--space-4); }
 .press-actions .link-arrow { color: var(--color-navy); }
+.press-actions .link-arrow > span {
+  background: var(--color-orange); border-color: var(--color-orange); color: #fff;
+}
+.press-actions .link-arrow:hover > span,
+.press-actions .link-arrow:focus-visible > span {
+  background: var(--color-navy); border-color: var(--color-navy); color: #fff;
+}
 .press-wall {
   display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); overflow: hidden;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.72));
