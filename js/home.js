@@ -8,6 +8,7 @@
   const desktop = matchMedia("(min-width: 901px)");
   const toggle = document.querySelector(".motion-toggle");
   let paused = false;
+  let stackReady = false;
   try { paused = sessionStorage.getItem("loud-motion-paused") === "true"; } catch (_) {}
 
   const motionAllowed = () => !paused && !reduced.matches;
@@ -16,6 +17,7 @@
     if (!toggle) return;
     toggle.setAttribute("aria-pressed", String(!motionAllowed()));
     toggle.textContent = motionAllowed() ? "Pause motion" : "Play motion";
+    if (typeof updateStack === "function") updateStack();
     toggle.disabled = reduced.matches;
     toggle.title = reduced.matches ? "Reduced motion is on in your device settings" : "";
   }
@@ -54,6 +56,47 @@
       if (el.getBoundingClientRect().top < innerHeight) reveal(el);
     });
   }, 4000));
+
+  /* Sticky card stack under the manifesto. The front card opens its detail;
+     the card underneath eases back as the next one covers it. */
+  const stackCards = [...document.querySelectorAll(".card-stack > .stack-card")];
+  function updateStack() {
+    if (!stackReady || !stackCards.length) return;
+    const pin = innerWidth <= 900 ? 76 : 88;
+    const still = !motionAllowed();
+    stackCards.forEach((card, i) => {
+      const next = stackCards[i + 1];
+      card.style.transformOrigin = "center top";
+      if (still || !next) {
+        card.style.transform = "";
+        card.style.opacity = "";
+      } else {
+        const dist = next.getBoundingClientRect().top - pin;
+        const progress = Math.min(1, Math.max(0, 1 - dist / 240));
+        card.style.transform = "scale(" + (1 - progress * 0.045).toFixed(4) + ")";
+        card.style.opacity = String((1 - progress * 0.12).toFixed(3));
+      }
+      const step = innerWidth <= 900 ? 14 : 18;
+      const stickyTop = pin + i * step;
+      const top = card.getBoundingClientRect().top;
+      const nextTop = next ? next.getBoundingClientRect().top : Infinity;
+      const arrived = top <= stickyTop + 24;
+      const covered = !!next && nextTop < stickyTop + 180;
+      card.classList.toggle("is-front", still || (arrived && !covered));
+    });
+  }
+  if (stackCards.length) {
+    let stackTick = false;
+    const onStackScroll = () => {
+      if (stackTick) return;
+      stackTick = true;
+      requestAnimationFrame(() => { stackTick = false; updateStack(); });
+    };
+    addEventListener("scroll", onStackScroll, { passive: true });
+    addEventListener("resize", onStackScroll);
+    stackReady = true;
+    updateStack();
+  }
 
   /* Format exhibition: hovering, focusing or tapping a format brings its environment on stage. */
   const items = [...document.querySelectorAll(".exhibit-item")];
