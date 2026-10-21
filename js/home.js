@@ -27,6 +27,13 @@
   reduced.addEventListener("change", applyMotion);
   applyMotion();
 
+  /* The shared header is injected at the top of <body>; keep "Skip to content" the first tab stop. */
+  const skip = document.querySelector(".skip-link");
+  const keepSkipFirst = () => { if (skip && document.body.firstElementChild !== skip) document.body.prepend(skip); };
+  keepSkipFirst();
+  document.addEventListener("DOMContentLoaded", keepSkipFirst);
+  addEventListener("load", keepSkipFirst);
+
   /* Scroll reveals. Everything is revealed after 4s in case observers never fire. */
   const revealables = document.querySelectorAll("[data-reveal], .finale, .step");
   const reveal = (el) => el.classList.add("is-in");
@@ -66,6 +73,8 @@
     addEventListener("load", () => {
       slideHost.dataset.slides.split(",").forEach((src) => {
         const img = new Image();
+        img.srcset = `${src.replace(".webp", "-800.webp")} 800w, ${src} 1600w`;
+        img.sizes = "100vw";
         img.src = src; img.alt = ""; img.className = "hero-slide"; img.decoding = "async";
         slideHost.append(img);
       });
@@ -124,6 +133,79 @@
   }, { passive: true });
   updateProgress();
 
+  /* Campaign figures count up when they appear. The real value stays in the DOM for
+     screen readers; only the visible copy animates. */
+  const counters = document.querySelectorAll(".campaigns .case-facts dt, .campaigns .case-stat strong");
+  const easeOut = (t) => 1 - Math.pow(1 - t, 4);
+  function prepareCounter(el) {
+    const finalText = el.textContent.trim();
+    const match = finalText.match(/\d[\d,]*(\.\d+)?/);
+    if (!match) return null;
+    const target = parseFloat(match[0].replace(/,/g, ""));
+    const decimals = match[1] ? match[1].length - 1 : 0;
+    const grouped = match[0].includes(",");
+    const before = finalText.slice(0, match.index);
+    const after = finalText.slice(match.index + match[0].length);
+    const live = document.createElement("span");
+    live.setAttribute("aria-hidden", "true");
+    const hidden = document.createElement("span");
+    hidden.className = "sr-only";
+    hidden.textContent = finalText;
+    el.replaceChildren(hidden, live);
+    const format = (n) => before + (grouped ? Math.round(n).toLocaleString("en-GB") : n.toFixed(decimals)) + after;
+    live.textContent = format(0);
+    return { live, target, format, finalText };
+  }
+  function runCounter(c) {
+    const start = performance.now(), duration = 1800;
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      c.live.textContent = t < 1 ? c.format(c.target * easeOut(t)) : c.finalText;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  if (motionAllowed() && "IntersectionObserver" in window) {
+    const countIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const c = entry.target._counter;
+        if (c) setTimeout(() => runCounter(c), entry.target.closest(".case--lead") ? 900 : 300);
+        countIo.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => { el._counter = prepareCounter(el); if (el._counter) countIo.observe(el); });
+  }
+
+  /* Campaign photos drift against the scroll and tilt toward the pointer. */
+  const mediaFrames = [...document.querySelectorAll(".campaigns .case-media")];
+  let parallaxQueued = false;
+  function parallax() {
+    parallaxQueued = false;
+    if (!motionAllowed()) return;
+    const mid = innerHeight / 2;
+    mediaFrames.forEach((frame) => {
+      const box = frame.getBoundingClientRect();
+      if (box.bottom < 0 || box.top > innerHeight) return;
+      const offset = (box.top + box.height / 2 - mid) * -0.06;
+      frame.firstElementChild?.style.setProperty("--py", `${offset.toFixed(1)}px`);
+    });
+  }
+  addEventListener("scroll", () => {
+    if (!parallaxQueued) { parallaxQueued = true; requestAnimationFrame(parallax); }
+  }, { passive: true });
+  parallax();
+  mediaFrames.forEach((frame) => {
+    frame.addEventListener("pointermove", (event) => {
+      if (!finePointer.matches || !motionAllowed()) return;
+      const box = frame.getBoundingClientRect();
+      const x = (event.clientX - box.left) / box.width - 0.5;
+      const y = (event.clientY - box.top) / box.height - 0.5;
+      frame.style.transform = `perspective(1200px) rotateY(${(x * 5).toFixed(2)}deg) rotateX(${(-y * 4).toFixed(2)}deg)`;
+    });
+    frame.addEventListener("pointerleave", () => { frame.style.transform = ""; });
+  });
+
   /* Analytics: only pushes when the host page provides a dataLayer (GTM). */
   const track = (payload) => {
     if (Array.isArray(window.dataLayer)) window.dataLayer.push({ page_path: location.pathname, ...payload });
@@ -161,10 +243,12 @@
 
   /* Budget preview: uses the Budget Lab's own benchmark file. No invented rates. */
   const slider = document.getElementById("campaign-budget");
-  const region = document.getElementById("campaign-region");
+  const regionInputs = [...document.querySelectorAll('input[name="campaign-region"]')];
+  const presets = [...document.querySelectorAll(".budget-presets button")];
   const output = document.getElementById("budget-output");
   const results = document.getElementById("budget-results");
-  if (!slider || !region || !output || !results) return;
+  if (!slider || !regionInputs.length || !output || !results) return;
+  const currentRegion = () => regionInputs.find((input) => input.checked) || regionInputs[0];
   const money = (value) => new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(value);
   const formatSpecs = [
     { category: "Roadside", format: "Static 48-Sheet", title: "Static billboards", unit: "panels" },
@@ -172,40 +256,65 @@
     { category: "Bus", format: "Superside", title: "Bus supersides", unit: "buses" },
   ];
   let rates;
+  const rows = new Map();
+  function rowFor(spec) {
+    if (rows.has(spec.format)) return rows.get(spec.format);
+    const item = document.createElement("div");
+    item.className = "budget-result";
+    const title = document.createElement("p");
+    title.className = "result-title";
+    title.textContent = spec.title;
+    const basis = document.createElement("p");
+    const number = document.createElement("strong");
+    const count = document.createElement("span");
+    const label = document.createElement("small");
+    label.textContent = `${spec.unit} / 2 weeks`;
+    number.append(count, label);
+    const bar = document.createElement("span");
+    bar.className = "result-bar";
+    bar.setAttribute("aria-hidden", "true");
+    item.append(title, basis, number, bar);
+    const row = { item, basis, count, bar };
+    rows.set(spec.format, row);
+    return row;
+  }
   function renderBudget() {
     const budget = Number(slider.value);
+    const region = currentRegion();
     output.value = money(budget);
     slider.setAttribute("aria-valuetext", money(budget));
+    slider.style.setProperty("--fill", `${((budget - slider.min) / (slider.max - slider.min)) * 100}%`);
+    presets.forEach((button) => button.setAttribute("aria-pressed", String(Number(button.dataset.budget) === budget)));
     const discuss = document.getElementById("budget-discuss");
     if (discuss) {
       discuss.href = "mailto:hello@loudooh.co.uk?subject=" +
         encodeURIComponent(`OOH campaign: ${money(budget)} media budget`) + "&body=" +
-        encodeURIComponent(`Hello Loud! OOH,\n\nI would like to explore a campaign with a ${money(budget)} media budget in ${region.options[region.selectedIndex].text}.\n\nMy audience:\nMy preferred dates:\nMy campaign goal:\n`);
+        encodeURIComponent(`Hello Loud! OOH,\n\nI would like to explore a campaign with a ${money(budget)} media budget in ${region.labels[0].textContent}.\n\nMy audience:\nMy preferred dates:\nMy campaign goal:\n`);
     }
     if (!rates) return;
-    results.replaceChildren();
+    const computed = [];
     for (const spec of formatSpecs) {
-      const row = rates.find((r) => r.Category === spec.category && r.Format === spec.format && r["Market/Region"] === region.value);
-      const typical = Number(row?.["Planning Typical £"]);
-      if (!row || !Number.isFinite(typical) || typical <= 0) continue;
-      const item = document.createElement("div");
-      item.className = "budget-result";
-      const title = document.createElement("p");
-      title.className = "result-title";
-      title.textContent = spec.title;
-      const basis = document.createElement("p");
-      basis.textContent = `${money(typical)} ${row["Buying Unit"]} · typical`;
-      const number = document.createElement("strong");
-      number.textContent = `≈ ${Math.floor(budget / typical)}`;
-      const label = document.createElement("small");
-      label.textContent = `${spec.unit} / 2 weeks`;
-      number.append(label);
-      item.append(title, basis, number);
-      results.append(item);
+      const data = rates.find((r) => r.Category === spec.category && r.Format === spec.format && r["Market/Region"] === region.value);
+      const typical = Number(data?.["Planning Typical £"]);
+      if (!data || !Number.isFinite(typical) || typical <= 0) continue;
+      computed.push({ spec, data, typical, quantity: Math.floor(budget / typical) });
     }
+    const most = Math.max(1, ...computed.map((c) => c.quantity));
+    const shown = computed.map(({ spec, data, typical, quantity }) => {
+      const row = rowFor(spec);
+      row.basis.textContent = `${money(typical)} ${data["Buying Unit"]} · typical`;
+      row.count.textContent = `≈ ${quantity}`;
+      row.bar.style.setProperty("--w", `${Math.max(4, (quantity / most) * 100).toFixed(1)}%`);
+      return row.item;
+    });
+    if (shown.length !== results.children.length || shown.some((item, i) => results.children[i] !== item)) results.replaceChildren(...shown);
   }
   slider.addEventListener("input", renderBudget);
-  region.addEventListener("change", renderBudget);
+  regionInputs.forEach((input) => input.addEventListener("change", renderBudget));
+  presets.forEach((button) => button.addEventListener("click", () => {
+    slider.value = button.dataset.budget;
+    renderBudget();
+  }));
   renderBudget();
   const loading = document.createElement("p");
   loading.className = "budget-placeholder";
