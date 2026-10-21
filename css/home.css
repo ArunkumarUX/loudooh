@@ -901,3 +901,31 @@ html.js:not(.motion-off) .finale.is-in .mask-line { transform: none; opacity: 1;
 .guide-tag, .voice-tag, .budget-live, .facts dt small { text-transform: none !important; letter-spacing: normal !important; font-weight: 600; }
 .guide-tag, .facts dt small { font-size: 0.8125rem; }
 .voice-tag, .budget-live { font-size: 0.75rem; }
+
+/* ---------- Logo tickers: press (top) + brands (near footer) ---------- */
+/* Jamie, 21 Oct: press ticker at top, brand ticker near footer. Reuses @keyframes marquee. */
+.press-ticker { background: #fff; border-bottom: 1px solid rgba(14, 30, 60, 0.08); padding-block: clamp(18px, 2.4vw, 28px); text-align: center; }
+.press-ticker-label { margin: 0 0 14px; font: 600 0.8125rem/1.2 var(--font-body); color: var(--color-text-soft, #6b7280); }
+
+.ticker-viewport { position: relative; overflow: hidden; width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.ticker-track { display: flex; width: max-content; align-items: center; gap: clamp(40px, 6vw, 88px); margin: 0; padding: 0; list-style: none; white-space: nowrap; }
+.ticker-track li { flex: 0 0 auto; display: flex; align-items: center; }
+.ticker-track img { height: 30px; width: auto; object-fit: contain; opacity: 0.6; filter: grayscale(1); transition: opacity 0.3s ease, filter 0.3s ease; }
+.ticker-track img:hover { opacity: 1; filter: none; }
+
+.brand-ticker { padding-block: clamp(8px, 1.5vw, 18px); }
+.brand-ticker .ticker-track { gap: clamp(48px, 7vw, 104px); }
+.brand-ticker .ticker-track img { height: 40px; }
+
+html.js:not(.motion-off) .press-ticker .ticker-track,
+html.js:not(.motion-off) .brand-ticker .ticker-track { animation: marquee 45s linear infinite; }
+.brand-ticker .ticker-track { animation-duration: 55s; }
+.ticker-viewport:hover .ticker-track { animation-play-state: paused; }
+.motion-off .ticker-track { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none !important; flex-wrap: wrap; justify-content: center; white-space: normal; gap: clamp(24px, 4vw, 48px); }
+  .ticker-viewport { -webkit-mask-image: none; mask-image: none; }
+}
