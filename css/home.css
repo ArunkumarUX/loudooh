@@ -646,7 +646,10 @@ html.js:not(.motion-off) .dlu-title.is-in .mask-line { transform: none; }
 .card-stack > .dlu.stack-card {
   min-height: min(86vh, 820px);
   border-radius: 32px 32px 0 0;
-  background: radial-gradient(90% 120% at 50% 0%, #ff6a1f 0%, #ff4a00 45%, #d63d00 100%);
+  background:
+    linear-gradient(180deg, rgba(8,12,22,0.78) 0%, rgba(8,12,22,0.55) 45%, rgba(20,8,2,0.82) 100%),
+    radial-gradient(70% 90% at 50% 10%, rgba(255,74,0,0.18), transparent 60%),
+    #0b0f18 url("/images/homepage/dlu-police-now-birmingham-viaduct.webp") center / cover no-repeat;
   box-shadow: 0 -28px 70px rgba(120, 30, 0, 0.28);
 }
 .card-stack .dlu-inner { flex: 1; align-content: center; padding-block: 48px; }
