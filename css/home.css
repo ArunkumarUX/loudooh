@@ -823,8 +823,8 @@ html.js:not(.motion-off) .brand-ticker .ticker-track { animation: marquee 45s li
 }
 .hero-kicker { font: 500 clamp(0.875rem, 0.3vw + 0.8rem, 1rem)/1.3 var(--font-body); color: var(--color-navy); }
 .hero-kicker span { margin-inline: 8px; color: rgba(14, 30, 60, 0.4); }
-/* sentence case per Jamie (22 Oct): beats the uppercase hero rule above */
-#main .hero--wordmark .hero-heading:not(#lo-nocaps), #main .hero--wordmark .hero-heading .hero-accent:not(#lo-nocaps) { text-transform: none !important; }
+/* Hero H1 in capitals (user request, 23 Oct): the one exception to the site-wide no-caps rule */
+#main .hero--wordmark .hero-heading:not(#lo-nocaps), #main .hero--wordmark .hero-heading .hero-accent:not(#lo-nocaps) { text-transform: uppercase !important; letter-spacing: -0.02em !important; }
 #main .hero--wordmark .hero-heading {
   max-width: 22ch; margin-top: clamp(16px, 3vh, 32px);
   font: 800 clamp(1.75rem, 1.4vw + 1rem, 2.5rem)/1.04 var(--font-heading);
@@ -867,3 +867,111 @@ html.js:not(.motion-off) .brand-ticker .ticker-track { animation: marquee 45s li
   .hero-subject { position: relative; right: auto; bottom: auto; display: block; width: 100%; margin-top: -10%; }
   .hero-side { display: none; }
 }
+
+/* ---------- "OOH, minus the waffle." editorial edition ----------
+   Continues the wordmark hero: warm paper, a full-width statement headline,
+   bigger real photo, and giant editorial numerals instead of a glass card. */
+#lo-intro.manifesto { background: #fff; padding-block: clamp(72px, 9vw, 128px); border-top: 1px solid rgba(14, 30, 60, 0.08); }
+#lo-intro.manifesto::before, #lo-intro.manifesto::after { content: none; }
+#lo-intro .manifesto-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-rows: auto auto; gap: clamp(36px, 5vw, 72px) clamp(40px, 6vw, 96px); align-items: center; }
+#main #lo-intro .manifesto-title {
+  grid-column: 1 / -1; grid-row: 1;
+  font: 800 clamp(3rem, 8.4vw, 8.75rem)/0.9 var(--font-heading) !important;
+  letter-spacing: -0.055em !important; color: var(--color-navy);
+  background: none; -webkit-text-fill-color: currentColor;
+}
+#lo-intro .strike-word { color: #f04500; -webkit-text-fill-color: #f04500; }
+#lo-intro .strike-word::after { height: 0.06em; top: 56%; background: var(--color-navy); }
+#lo-intro .manifesto-visual { grid-column: 1; grid-row: 2; border-radius: 24px; box-shadow: 0 40px 80px -40px rgba(14, 30, 60, 0.45); }
+#lo-intro .manifesto-copy { grid-column: 2; grid-row: 2; align-self: center; gap: clamp(28px, 3vw, 40px); }
+#main #lo-intro .manifesto-copy .lede { font: 500 clamp(1.375rem, 1vw + 1rem, 1.875rem)/1.32 var(--font-body); letter-spacing: -0.02em; color: var(--color-navy); }
+#lo-intro .manifesto-copy .lede .serif { color: #c93800; }
+#lo-intro .facts {
+  grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0;
+  background: none; border: 0; border-radius: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none;
+  border-top: 2px solid var(--color-navy);
+}
+#lo-intro .facts > div { padding: 22px 16px 0 0; border-radius: 0; background: none; }
+#lo-intro .facts > div:hover { background: none; transform: none; }
+#lo-intro .facts > div + div { padding-left: 18px; }
+#lo-intro .facts > div + div::before { left: 0; top: 22px; bottom: 4px; width: 1px; height: auto; background: rgba(14, 30, 60, 0.16); }
+#lo-intro .facts dt { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 8px; font: 800 clamp(2.75rem, 3.6vw, 4.25rem)/0.9 var(--font-heading); letter-spacing: -0.05em; color: var(--color-navy); }
+#lo-intro .facts > div:hover dt { color: var(--color-navy); }
+#lo-intro .facts dt small { font: 700 0.9375rem/1 var(--font-body); letter-spacing: normal; color: #c93800; }
+#lo-intro .facts dd { font-size: 0.875rem; line-height: 1.4; color: var(--color-text-muted); }
+@media (max-width: 900px) {
+  #lo-intro .manifesto-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  #main #lo-intro .manifesto-title, #lo-intro .manifesto-visual, #lo-intro .manifesto-copy { grid-column: 1; grid-row: auto; }
+  #lo-intro .manifesto-visual { order: 0; }
+}
+@media (max-width: 600px) {
+  #lo-intro .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #lo-intro .facts > div + div { padding-left: 12px; }
+  #lo-intro .facts > div + div::before { left: 0; right: auto; top: 22px; bottom: 4px; width: 1px; height: auto; }
+  #lo-intro .facts dt { font-size: 2.25rem; }
+}
+
+/* ---------- Promise row: navy agency band ---------- */
+#main .promises {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding-block: clamp(72px, 8vw, 120px);
+  background: radial-gradient(70% 120% at 100% 0%, rgba(255, 74, 0, 0.14), transparent 60%), radial-gradient(60% 100% at 0% 100%, rgba(84, 124, 204, 0.18), transparent 60%), #0b1730;
+  border-top: 0; color: #fff;
+}
+#main .promise-row { gap: clamp(28px, 4vw, 64px); }
+#main .promise-row li { gap: 14px; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.22); }
+#main .promise-row .promise-accent { border-top: 2px solid var(--color-orange); }
+#main .promise-num { font: 800 clamp(3rem, 4.4vw, 4.5rem)/0.9 var(--font-heading); letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35); }
+#main .promise-accent .promise-num { -webkit-text-stroke-color: var(--color-orange); }
+#main .promise-row h3 { font: 800 clamp(1.75rem, 2vw + 0.9rem, 2.75rem)/1.04 var(--font-heading) !important; letter-spacing: -0.035em !important; color: #fff; }
+#main .promise-accent h3 { color: #ff7a40; }
+#main .promise-row p { font-size: 1.0625rem; line-height: 1.6; color: #c3cede; }
+#main .promise-row a { color: #fff; text-decoration-color: var(--color-orange); }
+#main .promise-row { grid-template-rows: auto auto auto; }
+#main .promise-row li { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+#main .promise-row h3 { font-size: clamp(1.625rem, 1.6vw + 0.9rem, 2.375rem) !important; align-self: start; }
+@media (max-width: 900px) { #main .promise-row li { grid-row: auto; grid-template-rows: none; } }
+
+/* Hero on deep navy (user, 23 Oct): same layout, dark agency background */
+.hero.hero--wordmark {
+  background: radial-gradient(60% 80% at 85% 55%, rgba(84, 124, 204, 0.22), transparent 65%), radial-gradient(50% 60% at 0% 100%, rgba(255, 74, 0, 0.12), transparent 60%), #0b1730;
+  color: #fff;
+}
+.hero--wordmark .hero-kicker { color: #c3cede; }
+.hero--wordmark .hero-kicker span { color: rgba(255, 255, 255, 0.35); }
+#main .hero--wordmark .hero-heading { color: #fff; }
+.hero--wordmark .hero-accent { color: #ff7a40; }
+.hero--wordmark .hero-word { color: var(--color-orange); }
+.hero--wordmark .hero-subject { filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.55)); }
+.hero--wordmark .hero-foot-copy p { color: #dbe2ec; }
+.hero--wordmark .hero-link { color: #ff7a40; }
+.hero--wordmark .hero-proof { color: #c3cede; border-top-color: rgba(255, 255, 255, 0.18); }
+.hero--wordmark .hero-proof-price { color: #fff; }
+.hero--wordmark .hero-proof-price s { color: #9aa6b8; }
+.hero--wordmark .hero-proof b { color: #ff7a40; }
+.hero-side { color: #fff; }
+.hero-side--left:hover { color: #ff7a40; }
+.hero-side--right { color: #c3cede; }
+
+/* Header joins the navy hero: transparent navy at the top, white bar once scrolled past */
+html.lob-hero-top body.home-page .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) {
+  background: rgba(11, 23, 48, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%) !important; backdrop-filter: blur(16px) saturate(140%) !important;
+}
+
+/* Promise row in the hero's language: same navy + glows, solid orange wordmark
+   numerals, capitals headings (white, punchline in orange), hero copy colour. */
+#main .promises {
+  background: radial-gradient(60% 80% at 85% 40%, rgba(84, 124, 204, 0.22), transparent 65%), radial-gradient(50% 60% at 0% 100%, rgba(255, 74, 0, 0.12), transparent 60%), #0b1730;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+#main .promise-row li { border-top: 1px solid rgba(255, 255, 255, 0.18); padding-top: 24px; gap: 12px; }
+#main .promise-row .promise-accent { border-top: 1px solid rgba(255, 255, 255, 0.18); }
+#main .promise-num { font: 800 clamp(4rem, 6.4vw, 6.5rem)/0.8 var(--font-heading); letter-spacing: -0.075em; color: var(--color-orange); -webkit-text-stroke: 0; margin-left: -0.04em; }
+#main .promise-accent .promise-num { -webkit-text-stroke: 0; }
+#main .promise-row h3:not(#lo-nocaps) { text-transform: uppercase !important; font-size: clamp(1.375rem, 1.2vw + 0.9rem, 2rem) !important; letter-spacing: -0.02em !important; line-height: 1.04 !important; color: #fff; }
+#main .promise-accent h3 { color: #ff7a40; }
+#main .promise-row p { color: #dbe2ec; }
+#main .promise-row .promise-accent h3:not(#lo-nocaps) { color: #ff7a40; }
+#lo-intro .manifesto-visual img { filter: none; object-position: center 40%; }
