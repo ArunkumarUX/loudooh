@@ -216,3 +216,9 @@ html.lo-chrome .site-header{display:none !important}
 body[data-shared-header-only] .lo-amenu .lo-amenu-cta{background:#FF4A00!important;color:#fff;font-size:20px!important;font-weight:700!important;border-radius:0!important;min-height:48px!important;box-shadow:none!important}
 body[data-shared-header-only] .lo-amenu .lo-amenu-cta:hover{background:#cf3c00!important}
 body[data-shared-header-only] .lo-amenu-mobile-list>li:last-child .lo-amenu-mobile-link{font-size:20px;font-weight:700;border-radius:0}
+
+/* Sitewide: no capitals-only text (Jamie, 22 Oct). Every page loads this file, so one
+   rule removes uppercase transforms everywhere. Headings tighten to suit sentence case. */
+/* :not(#lo-nocaps) adds id-level specificity so this beats any page's own !important uppercase. */
+html body *:not(#lo-nocaps), html body *:not(#lo-nocaps)::before, html body *:not(#lo-nocaps)::after { text-transform: none !important; }
+html body :is(h1, h2, h3, h4, h5, h6) { letter-spacing: -0.02em !important; }

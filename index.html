@@ -30,13 +30,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@900&display=swap">
-<link rel="preload" as="image" href="/images/homepage/dlu-piccadilly-night.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/images/homepage/hero-piccadilly-night.webp" fetchpriority="high">
 <link rel="stylesheet" href="/css/smooth-experience.css?v=4">
-<link rel="stylesheet" href="/css/site-chrome.css?v=brand-system-3">
-<link rel="stylesheet" href="/css/home.css?v=100">
+<link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2">
+<link rel="stylesheet" href="/css/home.css?v=118">
 <script>document.documentElement.classList.add("js")</script>
 <script defer src="/js/site-chrome.js?v=glide-2"></script>
-<script defer src="/js/home.js?v=64"></script>
+<script defer src="/js/home.js?v=114"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,6 +84,78 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Loud! OOH?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An independent UK out-of-home agency. We plan, buy and manage billboard, London Underground, bus, AdVan, airport, taxi and rail advertising across the UK, with every rate published and zero agency markup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you really publish your prices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Real 2026 media costs for billboards, buses, taxis, rail, airports and the London Underground are on our pricing page. No email gate, no “contact us for a quote”."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge an agency markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Zero markup on media. Discounted media rates go straight to you, so your budget goes on the advertising, not on agency overheads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats can you buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Billboards (48-sheets, 96-sheets and digital), London Underground, bus and transport media, AdVans and 3D anamorphic screens, airport screens, taxis, rail and programmatic DOOH."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do you run campaigns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anywhere in the UK. We plan from London and Leeds, and buy everything from one local billboard to a nationwide takeover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum spend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No fixed minimum. Campaigns run from a £1,000 test in Yorkshire to six-figure national rollouts. Some formats are sold as minimum network buys, and we tell you that upfront."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can my campaign go live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Days, not months. No 60-slide pitch deck. Timing depends on site availability and your artwork being ready, and we confirm both before you sign off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you plan around a fixed budget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tell us the budget and the objective and we build the plan around what you actually have. Or try the Budget Lab to see what it could buy first."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="home-page case-study">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -91,34 +163,35 @@
 
 <!-- 01 · HERO: one unified H1, the headline is the billboard -->
 <section class="hero" id="home-banner" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true" data-slides="/images/homepage/hero-digivans-dusk.jpg,/images/hero/york-street-pricing.jpg">
-    <img class="hero-slide is-on" src="/images/homepage/dlu-piccadilly-night.jpg" alt="" width="1024" height="682" fetchpriority="high">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="/images/homepage/hero-piccadilly-night.webp" alt="" width="1024" height="682" fetchpriority="high">
   </div>
-  <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-grid wrap">
     <div class="hero-main">
       <h1 class="hero-heading" id="hero-title">
-        <span class="hero-lead-in">UK outdoor advertising. Every rate published.</span>
-        <span class="mask"><span class="mask-line">Big brand exposure.</span></span>
-        <span class="mask"><span class="mask-line hero-accent">Not big agency fees.</span></span>
+        <span class="hero-lead-in">Independent UK out-of-home agency. Every rate published openly.</span>
+        Big brand exposure. <span class="hero-accent">Not big agency fees.</span>
       </h1>
-      <p class="hero-copy">Billboard and London Underground advertising, bought with zero agency markups. <a href="/insights/pricing/" data-lo-track="hero_check_rates">Check our rates</a>.</p>
+      <ul class="hero-punch" aria-label="What you get">
+        <li>Every rate published.</li>
+        <li>Zero agency markup.</li>
+        <li>No 60-slide decks.</li>
+      </ul>
       <div class="hero-actions">
-        <a class="btn btn-primary magnetic" href="/insights/pricing/" data-lo-track="hero_explore_prices">Explore Advertising Prices <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a>
-        <a class="btn btn-ghost magnetic" href="#lo-campaigns" data-lo-track="hero_see_campaigns">See Real Campaigns <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn-primary" href="/insights/pricing/" data-lo-track="hero_explore_prices">Explore Advertising Prices <span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn btn-ghost" href="#lo-campaigns" data-lo-track="hero_see_campaigns">See Real Campaigns</a>
       </div>
+      <a class="hero-proof" href="https://www.loudooh.co.uk/case-studies/york-street-billboard-leeds/" data-lo-track="hero_proof_york">
+        <span class="hero-proof-price"><s>£650</s> £325</span>
+        <span>Same 48-sheet in Leeds. Someone else quoted double. <b aria-hidden="true">→</b></span>
+      </a>
     </div>
-  </div>
-  <div class="hero-foot wrap">
-    <button class="motion-toggle" type="button" aria-pressed="false">Pause motion</button>
   </div>
 </section>
 
 <div class="slogan-band" role="region" aria-label="What we stand for">
-  <p class="sr-only">The media is big. The markup isn’t. Big screens. Smaller fees. Stop paying for the middleman.</p>
-  <div class="slogan-track" aria-hidden="true">
-    <span>The media is big. The markup isn’t.</span><b>✶</b><span>Big screens. Smaller fees.</span><b>✶</b><span>Stop paying for the middleman.</span><b>✶</b>
-    <span>The media is big. The markup isn’t.</span><b>✶</b><span>Big screens. Smaller fees.</span><b>✶</b><span>Stop paying for the middleman.</span><b>✶</b>
+  <div class="slogan-track">
+    <span>The media is big. The markup isn’t.</span><b>✶</b><span>Big screens. Smaller fees.</span><b>✶</b><span>Stop paying for the middleman.</span>
   </div>
 </div>
 
@@ -145,7 +218,7 @@
 <section class="manifesto section" id="lo-intro" aria-labelledby="lo-intro-h">
   <div class="wrap manifesto-grid">
     <h2 class="manifesto-title" id="lo-intro-h" data-reveal>OOH, minus the <span class="strike-word">waffle.</span></h2>
-    <figure class="manifesto-visual" data-reveal><img src="/images/homepage/lux-creativity-800.webp" srcset="/images/homepage/lux-creativity-800.webp 800w, /images/homepage/lux-creativity.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" alt="A large roadside billboard glowing over a city street at dusk" width="800" height="640" loading="lazy"></figure>
+    <figure class="manifesto-visual" data-reveal><img src="/images/homepage/intro-york-street.webp" alt="Loud! OOH’s own 48-sheet billboards on York Street, Leeds: a £650 quote beside our £325 published rate" width="1024" height="798" loading="lazy" decoding="async"></figure>
     <div class="manifesto-copy" data-reveal>
       <p class="lede">UK billboard, Tube and bus advertising. <a href="/insights/pricing/" data-lo-track="intro_rate_cards">Every rate published</a>. <em class="serif">Zero agency markups.</em></p>
       <dl class="facts">
@@ -156,56 +229,23 @@
     </div>
   </div>
 </section>
-<!-- Scroll stack: each card pins, then opens its detail as it becomes the front card. -->
-<div class="card-stack">
-  <article class="stack-card" style="--i:0;--z:1">
-    <div class="wrap stack-card-inner">
-      <p class="stack-kicker" aria-hidden="true">01</p>
-      <div class="stack-copy">
-        <h3>No hidden fees.</h3>
-        <div class="stack-reveal">
-          <p>We work from <a href="/insights/pricing/" data-lo-track="stack_rate_cards">published rate cards</a> with zero agency markups. You can see the numbers before you speak to anyone.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-  <article class="stack-card stack-card--navy" style="--i:1;--z:2">
-    <div class="wrap stack-card-inner">
-      <p class="stack-kicker" aria-hidden="true">02</p>
-      <div class="stack-copy">
-        <h3>No unnecessary middlemen.</h3>
-        <div class="stack-reveal">
-          <p>Direct planning, and discounted media rates passed straight to you. No extra layers between the plan and the site.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-  <article class="stack-card stack-card--warm" style="--i:2;--z:3">
-    <div class="wrap stack-card-inner">
-      <p class="stack-kicker" aria-hidden="true">03</p>
-      <div class="stack-copy">
-        <h3>Just bigger brand exposure.</h3>
-        <div class="stack-reveal">
-          <p>A single two-week billboard in Leeds, or a nationwide takeover across rail, buses and the Tube.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-  <section class="dlu stack-card" id="lo-dlu" style="--i:3;--z:4" aria-labelledby="lo-dlu-h">
-    <div class="dlu-glow" aria-hidden="true"></div>
-    <svg class="dlu-arrow" viewBox="0 0 240 260" aria-hidden="true" focusable="false"><path d="M120 6 234 72v62l-80-46v166H86V88L6 134V72Z"/></svg>
-    <div class="wrap dlu-inner">
-      <h2 id="lo-dlu-h" class="dlu-title" data-reveal><span class="mask"><span class="mask-line">Don’t</span></span> <span class="mask"><span class="mask-line">look up.</span></span></h2>
-      <p class="dlu-sub" data-reveal>Unless there’s something worth looking at.</p>
-      <div class="stack-reveal">
-        <div class="dlu-body">
-          <p>We put brands where people are already moving, waiting, commuting, shopping and living.</p>
-          <p>That’s the point of OOH. Be there when people are actually out in the world.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+<!-- Promise row: three short statements, one glance -->
+<section class="promises" aria-label="Our promise">
+  <ol class="wrap promise-row">
+    <li data-reveal><span class="promise-num" aria-hidden="true">01</span><h3>No hidden fees.</h3><p>We work from <a href="/insights/pricing/" data-lo-track="promise_rate_cards">published rate cards</a> with zero agency markups. See the numbers before you speak to anyone.</p></li>
+    <li data-reveal><span class="promise-num" aria-hidden="true">02</span><h3>No unnecessary middlemen.</h3><p>Direct planning, and discounted media rates passed straight to you.</p></li>
+    <li data-reveal class="promise-accent"><span class="promise-num" aria-hidden="true">03</span><h3>Just bigger brand exposure.</h3><p>One billboard in Leeds, or a nationwide takeover across rail, buses and the Tube.</p></li>
+  </ol>
+</section>
+
+<!-- Brand moment, one screen -->
+<section class="dlu" id="lo-dlu" aria-labelledby="lo-dlu-h">
+  <div class="wrap dlu-inner">
+    <h2 id="lo-dlu-h" class="dlu-title">Don’t look up.</h2>
+    <p class="dlu-sub">Unless there’s something worth looking at.</p>
+    <p class="dlu-body">We put brands where people are already moving, commuting, shopping and living. That’s the point of OOH.</p>
+  </div>
+</section>
 
 <!-- 03 · FORMATS: a digital exhibition of six environments -->
 <section class="formats section" id="services" aria-labelledby="services-h">
@@ -495,60 +535,6 @@
   </div>
 </section>
 
-<!-- 08 · PRICING GUIDES + BUDGET LAB -->
-<section class="pricing section" id="lo-pricing" aria-labelledby="pricing-h">
-  <div class="wrap">
-    <div class="pricing-head" data-reveal>
-      <div>
-        <h2 id="pricing-h" class="section-heading">The UK OOH <em>pricing guides.</em></h2>
-        <p>Honest breakdowns of what billboards, buses, AdVans, and the Tube actually cost in 2026. Written so you never walk into a media negotiation blind.</p>
-      </div>
-      <a class="btn btn-primary magnetic" href="/insights/pricing/" data-lo-track="pricing_all_rates">Explore Advertising Prices <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a>
-    </div>
-    <div class="pricing-grid">
-      <ol class="guide-list" aria-label="Pricing guides">
-        <li data-reveal><a href="/insights/billboard-advertisingguide/" data-lo-track="guide_billboard"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/billboard-night.webp" alt="" width="667" height="1000" loading="lazy"></span><span class="guide-text"><span class="guide-tag">Billboards</span><h3>Billboard advertising costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-        <li data-reveal><a href="/insights/london-underground-advertising-costs-uk/" data-lo-track="guide_underground"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/underground.webp" alt="" width="1119" height="1400" loading="lazy"></span><span class="guide-text"><span class="guide-tag">The Tube</span><h3>London Underground advertising costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-        <li data-reveal><a href="/insights/bus-advertising-guide/" data-lo-track="guide_bus"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/bus.webp" alt="" width="1200" height="763" loading="lazy"></span><span class="guide-text"><span class="guide-tag">Buses</span><h3>Bus &amp; bus stop advertising costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-        <li data-reveal><a href="/insights/advan-mobile-billboards/" data-lo-track="guide_advan"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/advan.webp" alt="" width="776" height="436" loading="lazy"></span><span class="guide-text"><span class="guide-tag">AdVans</span><h3>AdVan &amp; mobile billboard costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-        <li data-reveal><a href="/insights/airport-advertising-costs-uk/" data-lo-track="guide_airport"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/airport.webp" alt="" width="1200" height="612" loading="lazy"></span><span class="guide-text"><span class="guide-tag">Airports</span><h3>Airport advertising costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-        <li data-reveal><a href="/insights/taxi/" data-lo-track="guide_taxi"><span class="guide-thumb" aria-hidden="true"><img src="/images/homepage/taxi.webp" alt="" width="900" height="675" loading="lazy"></span><span class="guide-text"><span class="guide-tag">Taxis</span><h3>Taxi advertising costs</h3></span><span class="guide-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a></li>
-      </ol>
-
-      <div class="budget" id="lo-budget-promo" data-reveal>
-        <div class="budget-top">
-          <h3 class="budget-title">Start from your budget.</h3>
-          <span class="budget-live" aria-hidden="true"><i></i>Live estimate</span>
-        </div>
-        <div class="budget-value">
-          <label for="campaign-budget">Your media budget</label>
-          <output id="budget-output" for="campaign-budget">£5,000</output>
-        </div>
-        <input id="campaign-budget" type="range" min="1000" max="50000" step="500" value="5000" aria-valuetext="£5,000">
-        <div class="range-ends" aria-hidden="true"><span>£1,000</span><span>£50,000</span></div>
-        <div class="budget-presets" role="group" aria-label="Quick budgets">
-          <button type="button" data-budget="2500">£2.5k</button><button type="button" data-budget="5000" aria-pressed="true">£5k</button><button type="button" data-budget="10000">£10k</button><button type="button" data-budget="25000">£25k</button>
-        </div>
-        <fieldset class="budget-region">
-          <legend>Where do you want to be seen?</legend>
-          <div class="segmented">
-            <input type="radio" name="campaign-region" id="region-regional" value="Regional" checked><label for="region-regional">Regional UK</label>
-            <input type="radio" name="campaign-region" id="region-london" value="London"><label for="region-london">London</label>
-          </div>
-        </fieldset>
-        <div class="budget-results" id="budget-results" aria-live="polite" aria-atomic="true">
-          <p class="budget-placeholder">Explore estimates here, then plan locations and timing in the Budget Lab.</p>
-        </div>
-        <p class="budget-note">Indicative media-only estimates from the Budget Lab’s planning benchmarks, not a quote. Unit counts are alternatives, not a combined plan. Availability, production, VAT and final rates are confirmed before booking.</p>
-        <div class="budget-actions">
-          <a class="btn btn-primary btn-full" href="/budget-lab/" data-lo-track="budget_open_lab">Open the full Budget Lab <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-          <a class="link-arrow" id="budget-discuss" href="mailto:hello@loudooh.co.uk?subject=OOH%20campaign%20enquiry" data-lo-track="budget_discuss">Discuss this budget <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-        </div>
-        <noscript><p>Interactive estimates need JavaScript. <a href="/insights/pricing/">Read our published rates</a> or <a href="/budget-lab/">open the Budget Lab</a>.</p></noscript>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- RECOGNITION · press -->
 <section class="press section" id="lo-press" aria-labelledby="lo-press-h">
   <div class="wrap press-grid">
@@ -570,9 +556,53 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq section" id="lo-faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="faq-head" data-reveal>
+      <h2 id="faq-h" class="section-heading">Straight answers. <em>No waffle.</em></h2>
+      <p>The questions people ask before they buy outdoor advertising. Anything else, <a href="https://www.loudooh.co.uk/contact/" data-lo-track="faq_contact">just ask us</a>.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" data-reveal>
+        <summary><h3>What is Loud! OOH?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>An independent UK out-of-home agency. We plan, buy and manage billboard, London Underground, bus, AdVan, airport, taxi and rail advertising across the UK, with every rate published and zero agency markup.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>Do you really publish your prices?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Yes. Real 2026 media costs for billboards, buses, taxis, rail, airports and the London Underground are on our <a href="/insights/pricing/">pricing page</a>. No email gate, no “contact us for a quote”.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>Do you charge an agency markup?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>No. Zero markup on media. Discounted media rates go straight to you, so your budget goes on the advertising, not on agency overheads.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>What formats can you buy?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Billboards (48-sheets, 96-sheets and digital), London Underground, bus and transport media, AdVans and 3D anamorphic screens, airport screens, taxis, rail and programmatic DOOH.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>Where do you run campaigns?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Anywhere in the UK. We plan from London and Leeds, and buy everything from one local billboard to a nationwide takeover.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>Is there a minimum spend?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>No fixed minimum. Campaigns run from a £1,000 test in Yorkshire to six-figure national rollouts. Some formats are sold as minimum network buys, and we tell you that upfront.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>How quickly can my campaign go live?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Days, not months. No 60-slide pitch deck. Timing depends on site availability and your artwork being ready, and we confirm both before you sign off.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary><h3>Can you plan around a fixed budget?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Yes. Tell us the budget and the objective and we build the plan around what you actually have. Or try the <a href="/budget-lab/">Budget Lab</a> to see what it could buy first.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- 09 · FINAL CONVERSION -->
 <section class="finale" id="lo-final-cta" aria-labelledby="final-h">
-  <div class="finale-bg" aria-hidden="true"><img src="/images/homepage/lux-planning-800.webp" srcset="/images/homepage/lux-planning-800.webp 800w, /images/homepage/lux-planning.webp 1600w" sizes="100vw" alt="" width="1600" height="1066" loading="lazy" decoding="async"></div>
+  <div class="finale-bg" aria-hidden="true"><img src="/images/homepage/finale-police-now.webp" alt="" width="1200" height="885" loading="lazy" decoding="async"></div>
   <div class="finale-glow" aria-hidden="true"></div>
   <div class="wrap finale-inner">
     <h2 id="final-h" class="finale-title"><span class="mask"><span class="mask-line">Ready to</span></span> <span class="mask"><span class="mask-line finale-accent">get Loud?</span></span></h2>
