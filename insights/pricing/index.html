@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../css/styles.css?v=20260715">
   <link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2">
-<link rel="stylesheet" href="/css/ashii-type.css?v=3">
+<link rel="stylesheet" href="/css/ashii-type.css?v=5">
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -35,7 +35,7 @@
     position:absolute;
     inset:-18% -8% -14%;
     background:
-      linear-gradient(180deg, rgba(8,18,40,0.66) 0%, rgba(8,18,40,0.5) 46%, rgba(8,18,40,0.74) 100%),
+      linear-gradient(180deg, rgba(8,18,40,0.42) 0%, rgba(8,18,40,0.26) 42%, rgba(8,18,40,0.55) 100%),
       url("/images/hero/york-street-pricing.jpg") center 42% / cover no-repeat;
     transform: translate3d(0, var(--hero-bg-parallax, 0px), 0);
     will-change: transform;
@@ -45,7 +45,7 @@
     content:'';
     position:absolute;
     inset:0;
-    background: linear-gradient(180deg, rgba(7,23,51,0.18) 0%, rgba(7,23,51,0.28) 100%);
+    background: linear-gradient(180deg, rgba(7,23,51,0.06) 0%, rgba(7,23,51,0.16) 100%);
     pointer-events:none;
   }
   .pricing-hero-inner {
@@ -100,7 +100,8 @@
   }
   .pricing-title-solid,
   .pricing-title-outline{ display:block; }
-  .pricing-title-solid{ color:#fff; }
+  .pricing-title-solid{ color:#fff; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+  .pricing-subtitle { text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
   .pricing-title-outline{
     margin-top: 6px;
     color: transparent;

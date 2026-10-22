@@ -1,42 +1,30 @@
 /* ashii-type.css  (type treatment layer)
-   sidcupfamilygolf.com-inspired casing on LoudOOH's Montserrat.
-   ALL-Montserrat (body switches from Inter). HEADERS (h1, h2) in UPPERCASE;
-   everything else — sub-headings, body, nav, labels — in elegant lowercase.
-   Small eyebrow kickers stay lowercase above the caps headline.
+   All-Inter type with natural sentence case (first letter capitalised, as
+   authored in the HTML). site-chrome.css's nocaps rule already forces
+   text-transform:none, so we simply don't override it here.
+   Headers keep a bold weight; the homepage hero overrides to Montserrat.
 
-   Loaded LAST (after site-chrome.css + the page's main stylesheet) so it beats
-   site-chrome's global nocaps `text-transform:none` rule. Requires Montserrat
-   400/500/600/700/800 in the page's Google Fonts link.
+   Loaded LAST (after site-chrome.css + the page's main stylesheet).
+   Requires Inter 400–800 in the page's Google Fonts link.
    Revert by removing this <link> on each page. */
 
 :root {
-  --font-body: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --leading-heading: 1.18;
-  --track-display: 0.015em;
-  --track-section: 0.02em;
+  --track-display: normal;
+  --track-section: normal;
   --track-subhead: normal;
-  --track-label: 0.08em;
+  --track-label: 0.06em;
 }
 body { font-family: var(--font-body); font-weight: 400; }
 
-/* ---- Case ------------------------------------------------------------- */
-/* lowercase everything (overrides site-chrome's nocaps text-transform:none) */
-html body *:not(#lo-nocaps) { text-transform: lowercase !important; }
-
-/* HEADERS (h1, h2) + their inline children → UPPERCASE; higher specificity wins */
-html body :is(h1, h2):not(#lo-nocaps),
-html body :is(h1, h2):not(#lo-nocaps) * { text-transform: uppercase !important; }
-
-/* keep the small eyebrow kickers lowercase above the caps headline */
-html body .hero-lead-in:not(#lo-nocaps),
-html body .section-lead-in:not(#lo-nocaps) { text-transform: lowercase !important; }
-
-/* ---- Weight / tracking ------------------------------------------------ */
-html body :is(h1, h2):not(#lo-nocaps) { font-weight: 800 !important; letter-spacing: 0.02em !important; }
+/* ---- Weight / tracking (case left as authored — sentence case) -------- */
+html body :is(h1, h2):not(#lo-nocaps) { font-weight: 800 !important; letter-spacing: normal !important; }
 html body :is(h3, h4, h5, h6):not(#lo-nocaps) { font-weight: 600 !important; letter-spacing: normal !important; }
 
 /* ---- Homepage display: keep the airy line-heights --------------------- */
-#main .hero-heading { line-height: 1.12 !important; }
+#main .hero-heading { line-height: 1.02 !important; }
 #main .manifesto-title,
 #main .section-heading { line-height: 1.12 !important; }
 #main .dlu-title { line-height: 1.0 !important; }
