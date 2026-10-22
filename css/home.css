@@ -141,12 +141,18 @@ p a:hover { color: var(--color-orange-text); }
   background: #0b0b0d; color: #fff;
 }
 .hero-bg { position: absolute; inset: 0; z-index: -2; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+  /* Crisper hero: unsharp-mask + clarity, so detail reads sharp like maximusmaximise.com */
+  filter: url(#hero-sharpen) contrast(1.1) saturate(1.16) brightness(1.03);
+}
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
+  /* Lighter scrim on the right two-thirds so the sharpened image shows through;
+     left stays dark enough for the white headline. */
   background:
-    linear-gradient(90deg, rgba(6, 6, 8, 0.9) 0%, rgba(6, 6, 8, 0.72) 45%, rgba(6, 6, 8, 0.25) 100%),
-    linear-gradient(180deg, rgba(6, 6, 8, 0.55) 0%, rgba(6, 6, 8, 0) 25%, rgba(6, 6, 8, 0) 55%, rgba(6, 6, 8, 0.85) 100%);
+    linear-gradient(90deg, rgba(6, 6, 8, 0.88) 0%, rgba(6, 6, 8, 0.58) 44%, rgba(6, 6, 8, 0.08) 100%),
+    linear-gradient(180deg, rgba(6, 6, 8, 0.5) 0%, rgba(6, 6, 8, 0) 28%, rgba(6, 6, 8, 0) 58%, rgba(6, 6, 8, 0.82) 100%);
 }
 .hero-grid { padding-block: clamp(48px, 8vh, 96px) clamp(40px, 7vh, 80px); }
 .hero-main { max-width: 1040px; }
