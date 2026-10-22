@@ -35,3 +35,12 @@ html body :is(h5, h6):not(#lo-nocaps) { font-weight: 600 !important; letter-spac
 #main .case h3, #main .case--small h3 { line-height: 1.2 !important; }
 #main .manifesto-copy .lede { line-height: 1.5 !important; }
 #main .section-head p { line-height: 1.6 !important; }
+
+/* ---- Consistent pill CTAs site-wide (match the hero buttons) ---------- */
+.btn, .btn-primary, .btn-secondary, .btn-ghost,
+.hero-btn, .nav-cta,
+.lo-amenu-cta,
+.bl-act-cta, .bl-mock-plan-cta,
+.lo-amenu-mobile-list > li:last-child .lo-amenu-mobile-link {
+  border-radius: 999px !important;
+}

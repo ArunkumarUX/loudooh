@@ -33,8 +33,8 @@
 <link rel="preload" as="image" href="/images/homepage/hero-seep-digevan.webp" fetchpriority="high">
 <link rel="stylesheet" href="/css/smooth-experience.css?v=4">
 <link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2">
-<link rel="stylesheet" href="/css/home.css?v=145">
-<link rel="stylesheet" href="/css/ashii-type.css?v=6">
+<link rel="stylesheet" href="/css/home.css?v=195">
+<link rel="stylesheet" href="/css/ashii-type.css?v=7">
 <script>document.documentElement.classList.add("js")</script>
 <script defer src="/js/site-chrome.js?v=glide-2"></script>
 <script defer src="/js/home.js?v=114"></script>
@@ -174,11 +174,12 @@
   <a class="hero-side hero-side--left" href="https://www.loudooh.co.uk/contact/" data-lo-track="hero_side_contact">Talk to us</a>
   <p class="hero-side hero-side--right" aria-hidden="true">© loud! ooh</p>
   <div class="hero-wm-inner wrap">
-    <p class="hero-kicker">Independent UK out-of-home agency <span aria-hidden="true">|</span> Every rate published openly</p>
+    <p class="hero-kicker"><span class="hk-a">Independent UK out-of-home agency</span> <span class="hk-sep" aria-hidden="true">|</span> <span class="hk-b">Every rate published openly</span></p>
     <h1 class="hero-heading" id="hero-title">Big brand exposure. <span class="hero-accent">Not big agency fees.</span></h1>
     <div class="hero-stage" aria-hidden="true">
       <span class="hero-word">loud!</span>
-      <img class="hero-subject" src="/images/homepage/hero-seep-digevan.webp" alt="" width="911" height="535" fetchpriority="high" decoding="async">
+      <img class="hero-subject" src="/images/homepage/hero-seep-digevan.webp" alt="" width="911" height="535" fetchpriority="high" decoding="async" onload="this.classList.add('is-driven')">
+      <script>(function(i){if(i&&i.complete&&i.naturalWidth)i.classList.add("is-driven")})(document.currentScript.previousElementSibling)</script>
     </div>
     <div class="hero-foot-copy">
       <p>Billboards, the Tube, buses, AdVans, airports, taxis. Bought at trade rates, every price published, zero agency markup.</p>
@@ -214,8 +215,17 @@
 <!-- 02 · MANIFESTO / ENTITY BLOCK -->
 <section class="manifesto section" id="lo-intro" aria-labelledby="lo-intro-h">
   <div class="wrap manifesto-grid">
-    <h2 class="manifesto-title" id="lo-intro-h" data-reveal>OOH, minus the <span class="strike-word">waffle.</span></h2>
-    <figure class="manifesto-visual" data-reveal><img src="/images/homepage/intro-york-street-hq.webp" alt="Loud! OOH’s own 48-sheet billboard on York Street, Leeds: “Same billboard. Half the price.”" width="1206" height="876" loading="lazy" decoding="async"></figure>
+    <div class="manifesto-head" data-reveal>
+      <p class="section-lead-in">Who we are</p>
+      <h2 class="manifesto-title" id="lo-intro-h">OOH, minus <em>the <span class="strike-word">waffle.</span></em></h2>
+    </div>
+    <figure class="manifesto-visual" data-reveal>
+      <img src="/images/homepage/intro-york-street-sharp.webp" srcset="/images/homepage/intro-york-street-rich.webp 1024w, /images/homepage/intro-york-street-sharp.webp 1600w" sizes="(max-width: 900px) 92vw, 560px" alt="Loud! OOH’s two 48-sheet billboards on York Street, Leeds: “I was quoted £650 for this billboard” beside “Same billboard. Half the price.”" width="1600" height="1064" loading="lazy" decoding="async">
+      <div class="deal-badge" aria-hidden="true">
+        <div class="deal-prices"><span class="deal-old">£650</span><span class="deal-new">£325</span></div>
+        <span class="deal-note">Same 48-sheet in Leeds. Half the price.</span>
+      </div>
+    </figure>
     <div class="manifesto-copy" data-reveal>
       <p class="lede">UK billboard, Tube and bus advertising. <a href="/insights/pricing/" data-lo-track="intro_rate_cards">Every rate published</a>. <em class="serif">Zero agency markups.</em></p>
       <dl class="facts">
@@ -255,7 +265,7 @@
     <div class="exhibit">
       <ol class="exhibit-list">
         <li class="exhibit-item is-active">
-          <figure class="exhibit-media" style="--ar: 0.6670"><img src="/images/homepage/billboard-night.webp" alt="A roadside digital billboard on a London street at night" width="667" height="1000" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 0.6670; --img: url('/images/homepage/billboard-night.webp')"><img src="/images/homepage/billboard-night.webp" alt="A roadside digital billboard on a London street at night" width="667" height="1000" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">01</span>
             <h3><a href="https://www.loudooh.co.uk/services/billboard-advertising/" data-lo-track="format_billboard">Billboard Advertising</a></h3>
@@ -264,7 +274,7 @@
           </div>
         </li>
         <li class="exhibit-item">
-          <figure class="exhibit-media" style="--ar: 0.7993"><img src="/images/homepage/underground.webp" alt="OSCAR advertising on a London Underground platform" width="1119" height="1400" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 0.7993; --img: url('/images/homepage/underground.webp')"><img src="/images/homepage/underground.webp" alt="OSCAR advertising on a London Underground platform" width="1119" height="1400" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">02</span>
             <h3><a href="https://www.loudooh.co.uk/services/london-underground-advertising/" data-lo-track="format_underground">London Underground Advertising</a></h3>
@@ -273,7 +283,7 @@
           </div>
         </li>
         <li class="exhibit-item">
-          <figure class="exhibit-media" style="--ar: 1.5727"><img src="/images/homepage/bus.webp" alt="A London bus with a full advertising wrap" width="1200" height="763" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 1.5727; --img: url('/images/homepage/bus.webp')"><img src="/images/homepage/bus.webp" alt="A London bus with a full advertising wrap" width="1200" height="763" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">03</span>
             <h3><a href="https://www.loudooh.co.uk/services/bus-advertising/" data-lo-track="format_bus">Bus &amp; Transport Media</a></h3>
@@ -282,7 +292,7 @@
           </div>
         </li>
         <li class="exhibit-item">
-          <figure class="exhibit-media" style="--ar: 1.7798"><img src="/images/homepage/advan.webp" alt="A convoy of green digital AdVans on a UK road" width="776" height="436" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 1.7798; --img: url('/images/homepage/advan.webp')"><img src="/images/homepage/advan.webp" alt="A convoy of green digital AdVans on a UK road" width="776" height="436" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">04</span>
             <h3><a href="https://www.loudooh.co.uk/services/digital-advan/" data-lo-track="format_advan">AdVan Campaigns</a></h3>
@@ -291,7 +301,7 @@
           </div>
         </li>
         <li class="exhibit-item">
-          <figure class="exhibit-media" style="--ar: 1.9608"><img src="/images/homepage/airport.webp" alt="A large digital advertising screen in a UK airport terminal" width="1200" height="612" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 1.9608; --img: url('/images/homepage/airport.webp')"><img src="/images/homepage/airport.webp" alt="A large digital advertising screen in a UK airport terminal" width="1200" height="612" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">05</span>
             <h3><a href="https://www.loudooh.co.uk/services/airport-advertising/" data-lo-track="format_airport">Airport Advertising</a></h3>
@@ -300,7 +310,7 @@
           </div>
         </li>
         <li class="exhibit-item">
-          <figure class="exhibit-media" style="--ar: 1.3333"><img src="/images/homepage/taxi.webp" alt="A London taxi with a full floral advertising livery" width="900" height="675" loading="lazy"></figure>
+          <figure class="exhibit-media" style="--ar: 1.3333; --img: url('/images/homepage/taxi.webp')"><img src="/images/homepage/taxi.webp" alt="A London taxi with a full floral advertising livery" width="900" height="675" loading="lazy"></figure>
           <div class="exhibit-body">
             <span class="exhibit-num" aria-hidden="true">06</span>
             <h3><a href="https://www.loudooh.co.uk/services/taxi-advertising/" data-lo-track="format_taxi">Taxi Advertising</a></h3>
@@ -317,6 +327,7 @@
 <!-- 04 · COMMERCIAL DIFFERENTIATORS -->
 <section class="why section" id="lo-difference" aria-labelledby="why-h">
   <div class="wrap">
+    <p class="section-lead-in why-lead" data-reveal>Why Loud!</p>
     <h2 id="why-h" class="section-heading" data-reveal>Why smart brands skip <em>the traditional agency.</em></h2>
     <ol class="why-list">
       <li class="why-item" data-reveal>
@@ -359,6 +370,7 @@
 <section class="campaigns section" id="lo-campaigns" aria-labelledby="campaigns-h">
   <div class="wrap">
     <div class="section-head section-head--split" data-reveal>
+      <p class="section-lead-in">Real campaigns</p>
       <h2 id="campaigns-h" class="section-heading">Campaigns that actually happened. <em>Rates you can actually verify.</em></h2>
       <p>From putting our own competitors’ quotes on a billboard in Leeds to touring 3D anamorphic screens across Manchester for Flood Re, here is what happens when you spend the budget on the media instead of the middleman.</p>
     </div>
@@ -430,6 +442,7 @@
 <section class="clients section" id="lo-trust" aria-labelledby="lo-trust-h">
   <div class="wrap">
     <div class="glass-head" data-reveal>
+      <p class="section-lead-in">Clients</p>
       <h2 id="lo-trust-h" class="section-heading">Trusted by brands that <em>want to be seen.</em></h2>
       <p>Challenger brands. National businesses. Household names. Different budgets. Same straight-talking approach.</p>
     </div>
@@ -461,6 +474,7 @@
 <section class="voices section" id="lo-testimonials" aria-labelledby="lo-testimonials-h">
   <div class="wrap voices-layout">
     <div class="voices-head" data-reveal>
+      <p class="section-lead-in">What clients say</p>
       <h2 id="lo-testimonials-h" class="section-heading">Don’t take <em>our word for it.</em></h2>
       <p>The people who have actually bought OOH with us can tell you how it went.</p>
     </div>
@@ -472,18 +486,18 @@
     <figure class="voice voice--feature" data-reveal>
       <span class="voice-tag">Billboards · Pricing</span>
       <blockquote><p>We put up billboards across Barnsley to promote our summer activities and the response was immediate. Loud! OOH made the whole process straightforward, we knew exactly what we were paying before we committed to anything. For a leisure trust working with public money, that transparency matters as much as the results.</p></blockquote>
-      <figcaption><span class="voice-avatar" aria-hidden="true">AR</span><span><strong>Akshata Rathi</strong>Head of Marketing, Barnsley Premier Leisure</span></figcaption>
+      <figcaption><span class="voice-avatar" aria-hidden="true">AR<img src="/images/testimonials/akshata-rathi.webp" alt="" width="88" height="88" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span><span><strong>Akshata Rathi</strong>Head of Marketing, Barnsley Premier Leisure</span></figcaption>
     </figure>
     <div class="voice-side">
       <figure class="voice" data-reveal>
         <span class="voice-tag">Bus advertising</span>
         <blockquote><p>What impressed me the most is how knowledgeable Jamie is. We had been trying to find the right campaign for a while and he found us the perfect one using bus rears. Very happy customer.</p></blockquote>
-        <figcaption><span class="voice-avatar" aria-hidden="true">MO</span><span><strong>Max O’Neill</strong>Marketing Manager, Volvo</span></figcaption>
+        <figcaption><span class="voice-avatar" aria-hidden="true">MO<img src="/images/testimonials/max-oneill.webp" alt="" width="88" height="88" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span><span><strong>Max O’Neill</strong>Marketing Manager, Volvo</span></figcaption>
       </figure>
       <figure class="voice" data-reveal>
         <span class="voice-tag">Media buying</span>
         <blockquote><p>We’ve been working with Jamie for a number of years and it’s always a pleasure. We know we are in safe hands when we place our media with Jamie! His knowledge of OOH media, and his determination to create a successful campaign is clear, as we always ask for his advice and guidance to get the best mix of placements, and he always suggests the most cost-effective options.</p></blockquote>
-        <figcaption><span class="voice-avatar" aria-hidden="true">HS</span><span><strong>Hannah Stephen</strong>Director, Renegade</span></figcaption>
+        <figcaption><span class="voice-avatar" aria-hidden="true">HS<img src="/images/testimonials/hannah-stephen.webp" alt="" width="88" height="88" loading="lazy" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span><span><strong>Hannah Stephen</strong>Director, Renegade</span></figcaption>
       </figure>
     </div>
   </div>
@@ -493,6 +507,7 @@
 <section class="process section" id="lo-process" aria-labelledby="process-h">
   <div class="wrap process-grid">
     <div class="process-head" data-reveal>
+      <p class="section-lead-in">How it works</p>
       <h2 id="process-h" class="section-heading">How we get <em>your campaign live.</em></h2>
       <p class="process-lead">No gauntlet of discovery calls.</p>
       <a class="btn btn-primary magnetic" href="/insights/pricing/" data-lo-track="process_prices">Explore Advertising Prices <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 19 12l-6 5.5"/></svg></span></a>
@@ -521,7 +536,10 @@
 <section class="sectors section" id="lo-industries" aria-labelledby="sectors-h">
   <div class="wrap">
     <div class="section-head section-head--split" data-reveal>
-      <h2 id="sectors-h" class="section-heading">Built for challengers, scaleups, <em>and public budgets.</em></h2>
+      <div>
+        <p class="section-lead-in">Who we work with</p>
+        <h2 id="sectors-h" class="section-heading">Built for challengers, scaleups, <em>and public budgets.</em></h2>
+      </div>
       <p>When you are spending public money at a leisure trust, scaling a fintech brand, or launching a retail product into supermarkets, you need every pound visible on the street.</p>
     </div>
     <ul class="sector-list">
@@ -536,6 +554,7 @@
 <section class="press section" id="lo-press" aria-labelledby="lo-press-h">
   <div class="wrap press-grid">
     <div class="press-copy" data-reveal>
+      <p class="section-lead-in">As featured in</p>
       <h2 id="lo-press-h" class="section-heading">Making noise <em>beyond the billboard.</em></h2>
       <p>Loud! OOH has been featured across advertising, business and industry media. Our York Street billboard stunt alone earned five press placements.</p>
       <div class="press-actions">
@@ -557,6 +576,7 @@
 <section class="faq section" id="lo-faq" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div class="faq-head" data-reveal>
+      <p class="section-lead-in">Frequently asked questions</p>
       <h2 id="faq-h" class="section-heading">Straight answers. <em>No waffle.</em></h2>
       <p>The questions people ask before they buy outdoor advertising. Anything else, <a href="https://www.loudooh.co.uk/contact/" data-lo-track="faq_contact">just ask us</a>.</p>
     </div>
@@ -601,7 +621,14 @@
 <section class="finale" id="lo-final-cta" aria-labelledby="final-h">
   <div class="finale-bg" aria-hidden="true"><img src="/images/homepage/finale-police-now.webp" alt="" width="1200" height="885" loading="lazy" decoding="async"></div>
   <div class="finale-glow" aria-hidden="true"></div>
+  <span class="finale-word" aria-hidden="true">loud!</span>
+  <div class="finale-stack" aria-hidden="true">
+    <figure class="finale-card finale-card--1"><img src="/images/homepage/hero-piccadilly-night.webp" alt="" width="1024" height="682" loading="lazy" decoding="async"></figure>
+    <figure class="finale-card finale-card--2"><img src="/images/homepage/floodre-ecovan-manchester.webp" alt="" width="1206" height="740" loading="lazy" decoding="async"></figure>
+    <figure class="finale-card finale-card--3"><img src="/images/homepage/finale-police-now.webp" alt="" width="2000" height="1476" loading="lazy" decoding="async"></figure>
+  </div>
   <div class="wrap finale-inner">
+    <p class="finale-kicker">Your move</p>
     <h2 id="final-h" class="finale-title"><span class="mask"><span class="mask-line">Ready to</span></span> <span class="mask"><span class="mask-line finale-accent">get Loud?</span></span></h2>
     <div class="finale-foot" data-reveal>
       <p>Your next big campaign starts with a straight conversation and transparent pricing.</p>
