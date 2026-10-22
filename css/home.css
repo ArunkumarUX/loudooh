@@ -583,8 +583,7 @@ html.js:not(.motion-off) .guide-list li:nth-child(6)[data-reveal] { transition-d
 .dlu {
   position: relative; isolation: isolate; overflow: hidden;
   padding-block: clamp(120px, 14vw, 200px);
-  /* Dark campaign photo (Jamie, 21 Oct): Police Now billboard, Birmingham Snow Hill viaduct at dusk.
-     Scrim keeps the white headline legible; a touch of brand orange warms the glow. */
+  /* Night campaign photo (Piccadilly). Scrim keeps the white headline legible. */
   background:
     linear-gradient(180deg, rgba(6, 10, 18, 0.72) 0%, rgba(6, 10, 18, 0.48) 46%, rgba(6, 10, 18, 0.7) 100%),
     #0b0f18 url("/images/homepage/dlu-piccadilly-night.jpg") center 30% / cover no-repeat;
@@ -594,7 +593,7 @@ html.js:not(.motion-off) .guide-list li:nth-child(6)[data-reveal] { transition-d
   content: ""; position: absolute; inset: -50%; z-index: -1; pointer-events: none; opacity: 0.12; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.dlu-glow { position: absolute; inset: 0; z-index: -2; background: radial-gradient(40% 50% at 50% 38%, rgba(255, 220, 190, 0.38), transparent 70%), radial-gradient(60% 60% at 50% 120%, rgba(120, 30, 0, 0.35), transparent 70%); }
+.dlu-glow { position: absolute; inset: 0; z-index: -2; background: radial-gradient(40% 50% at 50% 38%, rgba(255, 220, 190, 0.12), transparent 70%), radial-gradient(60% 60% at 50% 120%, rgba(8, 12, 22, 0.35), transparent 70%); }
 .dlu-arrow { position: absolute; right: 4%; top: 50%; width: clamp(110px, 13vw, 210px); z-index: -1; fill: rgba(255, 255, 255, 0.12); stroke: rgba(255, 255, 255, 0.35); stroke-width: 1.5; transform: translateY(-50%); filter: drop-shadow(0 30px 60px rgba(120, 30, 0, 0.35)); }
 html.js:not(.motion-off) .dlu-arrow { animation: rise-float 6s var(--ease-smooth) infinite alternate; }
 @keyframes rise-float { from { transform: translateY(-42%); } to { transform: translateY(-58%); } }
@@ -638,7 +637,7 @@ html.js:not(.motion-off) .dlu-title.is-in .mask-line { transform: none; }
 .stack-card--navy .stack-kicker { color: rgba(255, 255, 255, 0.2); }
 #main .stack-card--navy .stack-copy h3 { color: #fff; }
 .stack-card--navy .stack-reveal p { color: rgba(255, 255, 255, 0.78); }
-/* Dark photo background now (Police Now viaduct): body copy goes light over the scrim. */
+/* Dark night photo: body copy stays light over the scrim. */
 .card-stack > .dlu.stack-card .stack-reveal p { color: rgba(255, 255, 255, 0.92); }
 .card-stack > .stack-card.stack-card--warm { background: linear-gradient(180deg, #fff7f2, #ffffff); }
 #main .stack-card--warm .stack-copy h3 { color: var(--color-orange-text); }
