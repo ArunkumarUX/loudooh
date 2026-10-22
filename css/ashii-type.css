@@ -1,0 +1,57 @@
+/* ashii-type.css
+   Adopt ashii.com's typographic *structure* on LoudOOH's own fonts, site-wide.
+   Font families stay Montserrat (headings) + Inter (body). What changes to
+   match ashii: lighter heading weight (600), normal letter-spacing (no tight
+   tracking), and airy line-heights. Sentence case is already enforced by
+   site-chrome.css (the nocaps build), so headings read in sentence case.
+
+   Load this LAST (after site-chrome.css + the page's main stylesheet) so it
+   wins. Requires Montserrat 500/600/700 in the page's Google Fonts link.
+   To revert: remove the <link> to this file on each page. */
+
+/* ============================================================
+   GENERAL — applies to every page via the shared design tokens
+   ============================================================ */
+:root {
+  --weight-heading: 600;          /* was 900 */
+  --leading-heading: 1.3;         /* was 1.15 — airier, ashii runs ~1.28–1.44 */
+  --track-display: normal;        /* was 0.008em */
+  --track-section: normal;        /* was 0.018em */
+  --track-subhead: normal;        /* was 0.028em */
+  --track-label: 0.01em;          /* was 0.045em — small labels keep a hair */
+}
+
+/* Global heading character. Loaded after site-chrome.css so it overrides its
+   `letter-spacing: -0.02em !important` on headings and the 900 weight. */
+html body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+/* ============================================================
+   HOMEPAGE — bespoke display classes + tuned line-heights
+   ============================================================ */
+#main h1, #main h2, #main h3,
+#main .hero-heading,
+#main .manifesto-title, #main .section-heading,
+#main .dlu-title, #main .dlu-sub,
+#main .promise-row h3,
+#main .case h3, #main .case--small h3,
+#main .manifesto-lines li,
+#main .slogan-track {
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+#main h1, #main h2, #main h3 { line-height: 1.3 !important; }
+#main .hero-heading { line-height: 1.14 !important; }
+#main .manifesto-title,
+#main .section-heading { line-height: 1.14 !important; }
+#main .promise-row h3,
+#main .case h3, #main .case--small h3 { line-height: 1.22 !important; }
+#main .dlu-title { line-height: 1.02 !important; }   /* giant display, keep it from floating apart */
+#main .dlu-sub { line-height: 1.25 !important; }
+
+#main .manifesto-copy .lede { line-height: 1.55 !important; }
+#main .section-head p { line-height: 1.6 !important; }
