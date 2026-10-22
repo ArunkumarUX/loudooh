@@ -116,8 +116,10 @@
     addEventListener("load", () => {
       slideHost.dataset.slides.split(",").forEach((src) => {
         const img = new Image();
-        img.srcset = `${src.replace(".webp", "-800.webp")} 800w, ${src} 1600w`;
-        img.sizes = "100vw";
+        if (src.endsWith(".webp")) {
+          img.srcset = `${src.replace(".webp", "-800.webp")} 800w, ${src} 1600w`;
+          img.sizes = "100vw";
+        }
         img.src = src; img.alt = ""; img.className = "hero-slide"; img.decoding = "async";
         slideHost.append(img);
       });
