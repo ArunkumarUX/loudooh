@@ -25,20 +25,17 @@
   ::selection { background: #FE481B; color: #fff; }
   .pricing-hero {
     position: relative;
-    background: #163a6f;
-    background-image:
-      radial-gradient(220px 220px at 96% 18%, rgba(102, 86, 167, 0.22), rgba(102, 86, 167, 0) 72%),
-      radial-gradient(250px 250px at 2% 96%, rgba(102, 86, 167, 0.20), rgba(102, 86, 167, 0) 74%);
+    background: #0e1e3c;
     color: #fff;
     overflow: hidden;
   }
   .pricing-hero::before{
     content:'';
     position:absolute;
-    inset:-14% -10% -10%;
+    inset:-18% -8% -14%;
     background:
-      radial-gradient(360px 240px at 12% 16%, rgba(255,255,255,0.07), rgba(255,255,255,0)),
-      radial-gradient(320px 220px at 88% 82%, rgba(254,72,27,0.12), rgba(254,72,27,0));
+      linear-gradient(180deg, rgba(8,18,40,0.66) 0%, rgba(8,18,40,0.5) 46%, rgba(8,18,40,0.74) 100%),
+      url("/images/hero/york-street-pricing.jpg") center 42% / cover no-repeat;
     transform: translate3d(0, var(--hero-bg-parallax, 0px), 0);
     will-change: transform;
     pointer-events:none;
@@ -47,7 +44,7 @@
     content:'';
     position:absolute;
     inset:0;
-    background: linear-gradient(180deg, rgba(7,23,51,0.12) 0%, rgba(7,23,51,0.22) 100%);
+    background: linear-gradient(180deg, rgba(7,23,51,0.18) 0%, rgba(7,23,51,0.28) 100%);
     pointer-events:none;
   }
   .pricing-hero-inner {
