@@ -17,11 +17,13 @@
   --track-subhead: normal;
   --track-label: 0.06em;
 }
-body { font-family: var(--font-body); font-weight: 400; }
+body { font-family: var(--font-body); font-weight: 400; letter-spacing: -0.01em; }
 
-/* ---- Weight / tracking (case left as authored — sentence case) -------- */
-html body :is(h1, h2):not(#lo-nocaps) { font-weight: 800 !important; letter-spacing: normal !important; }
-html body :is(h3, h4, h5, h6):not(#lo-nocaps) { font-weight: 600 !important; letter-spacing: normal !important; }
+/* ---- Weight + Apple-style optical tracking (tighten larger type) ------- */
+/* Large display/section headings sit tightest; sub-heads a touch; body ~0. */
+html body :is(h1, h2):not(#lo-nocaps) { font-weight: 800 !important; letter-spacing: -0.021em !important; }
+html body :is(h3, h4):not(#lo-nocaps) { font-weight: 600 !important; letter-spacing: -0.014em !important; }
+html body :is(h5, h6):not(#lo-nocaps) { font-weight: 600 !important; letter-spacing: -0.008em !important; }
 
 /* ---- Homepage display: keep the airy line-heights --------------------- */
 #main .hero-heading { line-height: 1.02 !important; }
