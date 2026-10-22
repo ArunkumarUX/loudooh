@@ -228,7 +228,7 @@ function wireOnce(){
     /* SLA confirmation (Jamie brief) */
     if(emailError){
       emailError.hidden = false;
-      emailError.style.color = "rgba(10,31,61,.85)";
+      emailError.style.color = "rgba(2, 18, 52, .85)";
       emailError.textContent = "Request received. We'll review the plan and confirm availability within 2 business hours. Where media can be provisionally held, we'll confirm the seven-day hold separately.";
     }
   });

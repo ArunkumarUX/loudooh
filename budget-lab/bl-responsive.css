@@ -432,7 +432,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
+    color: #FFFFFF;
   }
 
   .bl-ref-search-wrap--source {
@@ -455,7 +455,7 @@
     padding: 12px 14px !important;
     border-radius: 14px !important;
     text-align: left !important;
-    color: #0a1f3d !important;
+    color: #021234 !important;
     background: #fff !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22) !important;
@@ -469,8 +469,8 @@
     top: 50%;
     width: 8px;
     height: 8px;
-    border-right: 2px solid #ff4a00;
-    border-bottom: 2px solid #ff4a00;
+    border-right: 2px solid #FD4406;
+    border-bottom: 2px solid #FD4406;
     transform: translateY(-60%) rotate(-45deg);
   }
 
@@ -479,7 +479,7 @@
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #ff4a00;
+    color: #FD4406;
     line-height: 1.2;
   }
 
@@ -489,12 +489,12 @@
     font-size: 13px;
     font-weight: 700;
     line-height: 1.35;
-    color: #0a1f3d;
+    color: #021234;
   }
 
   .bl-campaign-mobile-pill[aria-expanded="true"] {
-    border-color: rgba(255, 74, 0, 0.45) !important;
-    box-shadow: 0 10px 28px rgba(255, 74, 0, 0.18) !important;
+    border-color: rgba(253, 68, 6, 0.45) !important;
+    box-shadow: 0 10px 28px rgba(253, 68, 6, 0.18) !important;
   }
 
   body.is-planning .bl-mobile-campaign-strip {
@@ -503,7 +503,7 @@
     z-index: 201;
     padding-top: 8px;
     padding-bottom: 10px;
-    background: linear-gradient(180deg, rgba(10, 31, 61, 0.98) 0%, rgba(10, 31, 61, 0.94) 100%);
+    background: linear-gradient(180deg, rgba(2, 18, 52, 0.98) 0%, rgba(2, 18, 52, 0.94) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -558,7 +558,7 @@
   .bl-campaign-sheet-content .bl-campaign-panel-head--sidebar,
   .bl-campaign-sheet-content .bl-campaign-panel-head--flyout,
   .bl-campaign-sheet-content .bl-adv-intro {
-    color: #0a1f3d !important;
+    color: #021234 !important;
   }
 
   .bl-campaign-sheet-content .bl-campaign-aud-row,
@@ -566,9 +566,9 @@
   .bl-campaign-sheet-content .bl-campaign-opt,
   .bl-campaign-sheet-content .bl-campaign-obj-card,
   .bl-campaign-sheet-content .bl-campaign-loc-item {
-    color: #0a1f3d !important;
+    color: #021234 !important;
     background: #f7f8fa !important;
-    border: 1px solid rgba(10, 31, 61, 0.08) !important;
+    border: 1px solid rgba(2, 18, 52, 0.08) !important;
     border-radius: 12px !important;
   }
 
@@ -577,17 +577,17 @@
   .bl-campaign-sheet-content .bl-campaign-opt.is-on,
   .bl-campaign-sheet-content .bl-campaign-obj-card.is-on,
   .bl-campaign-sheet-content .bl-campaign-loc-item.is-on {
-    background: rgba(255, 74, 0, 0.08) !important;
-    border-color: rgba(255, 74, 0, 0.35) !important;
+    background: rgba(253, 68, 6, 0.08) !important;
+    border-color: rgba(253, 68, 6, 0.35) !important;
   }
 
   .bl-campaign-sheet-content .bl-campaign-option-meta,
   .bl-campaign-sheet-content .bl-campaign-loc-text small {
-    color: rgba(10, 31, 61, 0.55) !important;
+    color: #021234 !important;
   }
 
   .bl-campaign-sheet-content .bl-sidebar-budget-display input {
-    color: #0a1f3d !important;
+    color: #021234 !important;
   }
 
   main.bl-ref-page,
@@ -642,9 +642,9 @@
   margin: 0;
   padding: 20px;
   border-radius: 20px;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   background: #fff;
-  box-shadow: 0 16px 48px -32px rgba(10, 31, 61, 0.14);
+  box-shadow: 0 16px 48px -32px rgba(2, 18, 52, 0.14);
 }
 
 #hl-mix-panel .bl-lab-mix-head {
@@ -715,7 +715,7 @@
   grid-column: 1 / -1;
   margin-top: 6px;
   padding-top: 8px;
-  border-top: 1px solid rgba(10, 31, 61, 0.06);
+  border-top: 1px solid rgba(2, 18, 52, 0.06);
 }
 
 @media (min-width: 1025px) {
@@ -824,8 +824,8 @@
     gap: 4px;
     padding: 4px;
     border-radius: 999px;
-    background: rgba(10, 31, 61, 0.06);
-    border: 1px solid rgba(10, 31, 61, 0.08);
+    background: rgba(2, 18, 52, 0.06);
+    border: 1px solid rgba(2, 18, 52, 0.08);
   }
 
   .bl-explore-toolbar .bl-mobile-view-toggle button {
@@ -834,7 +834,7 @@
     border: 0;
     border-radius: 999px;
     background: transparent;
-    color: var(--navy, #0a1f3d);
+    color: var(--navy, #021234);
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
@@ -842,8 +842,8 @@
 
   .bl-explore-toolbar .bl-mobile-view-toggle button.is-on {
     background: #fff;
-    color: var(--navy, #0a1f3d);
-    box-shadow: 0 2px 8px rgba(10, 31, 61, 0.12);
+    color: var(--navy, #021234);
+    box-shadow: 0 2px 8px rgba(2, 18, 52, 0.12);
   }
 
   #hl-map-plan-bar.bl-explore-plan-foot {

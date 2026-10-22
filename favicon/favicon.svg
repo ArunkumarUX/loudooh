@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Loud! OOH">
-  <rect width="512" height="512" rx="112" fill="#0A1F3D"/>
-  <text x="256" y="292" text-anchor="middle" font-family="Montserrat, Arial Black, system-ui, sans-serif" font-size="248" font-weight="800" font-style="italic" fill="#FF4A00">L!</text>
+  <rect width="512" height="512" rx="112" fill="#021234"/>
+  <text x="256" y="292" text-anchor="middle" font-family="Montserrat, Arial Black, system-ui, sans-serif" font-size="248" font-weight="800" font-style="italic" fill="#FD4406">L!</text>
 </svg>

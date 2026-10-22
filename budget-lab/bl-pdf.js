@@ -133,7 +133,7 @@
     container.className = "bl-pdf-export";
     container.setAttribute("aria-hidden", "true");
     container.style.cssText =
-      "position:fixed;left:-12000px;top:0;width:760px;padding:32px 36px;background:#fff;color:#0a1f3d;z-index:-1;pointer-events:none;";
+      "position:fixed;left:-12000px;top:0;width:760px;padding:32px 36px;background:#fff;color:#021234;z-index:-1;pointer-events:none;";
 
     if (opts.coverHtml) {
       var cover = document.createElement("div");

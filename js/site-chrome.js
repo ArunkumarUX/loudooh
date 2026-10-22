@@ -75,7 +75,7 @@
           '<p class="lo-footer-bio">UK Out-of-Home Media Buyer &amp; Planner. Zero Fluff. Direct Results. Let\'s make your brand <strong>Loud!</strong></p>' +
           '<p class="lo-footer-legal" style="margin-top:-.5rem">3rd Floor, 86-90 Paul Street, London, EC2A 4NE</p>' +
           '<p class="lo-footer-legal">Loud! OOH Ltd is registered in England &amp; Wales under company number 17092553.<br>VAT Registration Number: 518 5397 63.</p>' +
-          '<div class="lo-footer-flag" aria-hidden="true"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><clipPath id="lo-uk-chrome"><rect width="60" height="30"/></clipPath><g clip-path="url(#lo-uk-chrome)"><path fill="#012169" d="M0 0h60v30H0z"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="2"/><path fill="#fff" d="M25 0h10v30H25zM0 10h60v10H0z"/><path fill="#C8102E" d="M27 0h6v30h-6zM0 12h60v6H0z"/></g></svg></div>' +
+          '<div class="lo-footer-flag" aria-hidden="true"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><clipPath id="lo-uk-chrome"><rect width="60" height="30"/></clipPath><g clip-path="url(#lo-uk-chrome)"><path fill="#021234" d="M0 0h60v30H0z"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="2"/><path fill="#fff" d="M25 0h10v30H25zM0 10h60v10H0z"/><path fill="#C8102E" d="M27 0h6v30h-6zM0 12h60v6H0z"/></g></svg></div>' +
         "</div>" +
         '<div class="lo-footer-links-wrap">' +
           '<p class="lo-footer-links-title">Site Links</p>' +

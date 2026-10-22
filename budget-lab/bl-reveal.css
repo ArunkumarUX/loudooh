@@ -16,7 +16,7 @@
   border:1px solid var(--sum-border,#e2e6ed);
   border-radius:var(--sum-radius,12px);
   background:var(--sum-face,#fff);
-  box-shadow:var(--sum-shadow,0 1px 3px rgba(14,30,60,.06));
+  box-shadow:var(--sum-shadow,0 1px 3px rgba(2, 18, 52, .06));
   transform-origin:top center;
   animation:bl-rev-log-in .28s cubic-bezier(.2,.7,.3,1) both;
 }
@@ -32,9 +32,9 @@
   font-size:.75rem;
   letter-spacing:var(--track-label,.045em);
   text-transform:uppercase;
-  color:var(--sum-orange,#FF4A00);
+  color:var(--sum-orange,#FD4406);
 }
-.bl-rev-mark.is-done{ color:var(--sum-navy,#0E1E3C); }
+.bl-rev-mark.is-done{ color:var(--sum-navy,#021234); }
 
 .bl-rev-list{
   list-style:none;
@@ -69,8 +69,8 @@
   transition:border-color .18s ease, background-color .18s ease;
 }
 .bl-rev-step.is-done .bl-rev-tick{
-  border-color:var(--sum-orange,#FF4A00);
-  background:var(--sum-orange,#FF4A00);
+  border-color:var(--sum-orange,#FD4406);
+  background:var(--sum-orange,#FD4406);
 }
 .bl-rev-step.is-done .bl-rev-tick::after{
   content:"";
@@ -84,7 +84,7 @@
 .bl-rev-label{ min-width:0; }
 .bl-rev-value{
   font-weight:600;
-  color:var(--sum-navy,#0E1E3C);
+  color:var(--sum-navy,#021234);
   font-variant-numeric:tabular-nums;
   opacity:0;
   transform:translateY(2px);
@@ -103,7 +103,7 @@
   display:block;
   width:0;
   height:100%;
-  background:var(--sum-orange,#FF4A00);
+  background:var(--sum-orange,#FD4406);
   transition:width .16s linear;
 }
 

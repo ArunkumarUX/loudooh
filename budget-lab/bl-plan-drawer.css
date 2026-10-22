@@ -15,7 +15,7 @@
 .bl-plan-drawer-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(10, 31, 61, 0.42);
+  background: rgba(2, 18, 52, 0.42);
   opacity: 0;
   transition: opacity 0.32s ease;
 }
@@ -32,7 +32,7 @@
   width: min(68vw, 920px);
   min-width: min(100%, 360px);
   background: #fff;
-  box-shadow: -24px 0 64px -24px rgba(10, 31, 61, 0.35);
+  box-shadow: -24px 0 64px -24px rgba(2, 18, 52, 0.35);
   display: flex;
   flex-direction: column;
   transform: translateX(102%);
@@ -50,7 +50,7 @@
   justify-content: space-between;
   gap: 16px;
   padding: 20px 24px 14px;
-  border-bottom: 1px solid rgba(10, 31, 61, 0.08);
+  border-bottom: 1px solid rgba(2, 18, 52, 0.08);
   background: #fff;
 }
 
@@ -68,7 +68,7 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   font-weight: 800;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   letter-spacing: -0.02em;
 }
 
@@ -85,15 +85,15 @@
   height: 40px;
   border: 0;
   border-radius: 10px;
-  background: rgba(10, 31, 61, 0.06);
-  color: var(--navy, #0a1f3d);
+  background: rgba(2, 18, 52, 0.06);
+  color: var(--navy, #021234);
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
 }
 
 .bl-plan-drawer-close:hover {
-  background: rgba(10, 31, 61, 0.1);
+  background: rgba(2, 18, 52, 0.1);
 }
 
 .bl-plan-drawer-stage {
@@ -140,7 +140,7 @@
 
 /* Drawer cards — uniform border, no left accent stroke */
 #hl-drawer-plan-content .bl-exclusion-list li {
-  border-left: 1px solid rgba(16, 24, 40, 0.1);
+  border-left: 1px solid rgba(2, 18, 52, 0.1);
 }
 
 #hl-drawer-plan-content .bl-sum-tradeoff {
@@ -163,9 +163,9 @@
   align-items: center;
   gap: 10px;
   padding: 14px 24px calc(14px + env(safe-area-inset-bottom, 0));
-  border-top: 1px solid rgba(10, 31, 61, 0.08);
+  border-top: 1px solid rgba(2, 18, 52, 0.08);
   background: #fff;
-  box-shadow: 0 -8px 24px -16px rgba(10, 31, 61, 0.2);
+  box-shadow: 0 -8px 24px -16px rgba(2, 18, 52, 0.2);
 }
 
 .bl-plan-drawer-foot [hidden] {
@@ -191,18 +191,18 @@
 }
 
 .bl-plan-drawer-btn--primary {
-  background: var(--orange, #ff4a00);
-  color: #fff;
+  background: var(--orange, #FD4406);
+  color: #FFFFFF;
 }
 
 .bl-plan-drawer-btn--secondary {
-  background: var(--navy, #0a1f3d);
-  color: #fff;
+  background: var(--navy, #021234);
+  color: #FFFFFF;
 }
 
 .bl-plan-drawer-btn--ghost {
-  background: rgba(10, 31, 61, 0.06);
-  color: var(--navy, #0a1f3d);
+  background: rgba(2, 18, 52, 0.06);
+  color: var(--navy, #021234);
 }
 
 .bl-plan-drawer-email-scroll {
@@ -241,10 +241,10 @@
 .bl-plan-drawer-email-row textarea {
   width: 100%;
   padding: 9px 11px;
-  border: 1px solid rgba(10, 31, 61, 0.12);
+  border: 1px solid rgba(2, 18, 52, 0.12);
   border-radius: 10px;
   font-size: 13px;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   background: #fff;
 }
 
@@ -252,8 +252,8 @@
   margin: 0;
   padding: 14px;
   border-radius: 12px;
-  border: 1px solid rgba(10, 31, 61, 0.1);
-  background: rgba(10, 31, 61, 0.02);
+  border: 1px solid rgba(2, 18, 52, 0.1);
+  background: rgba(2, 18, 52, 0.02);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11px;
   line-height: 1.55;
@@ -266,7 +266,7 @@
 .bl-plan-drawer-error {
   margin: 10px 0 0;
   font-size: 13px;
-  color: #c2410c;
+  color: #FD4406;
 }
 
 @media (max-width: 768px) {
@@ -316,7 +316,7 @@ body.bl-plan-drawer-open {
 .bl-pdf-export .bl-print-sub {
   margin: 0 0 18px;
   font-size: 13px;
-  color: #444;
+  color: #021234;
 }
 
 .bl-pdf-export .bl-print-h {
@@ -409,7 +409,7 @@ body.bl-plan-drawer-open {
 
   body.bl-printing {
     background: #fff !important;
-    color: #000 !important;
+    color: #021234 !important;
     font-size: 10.5pt;
   }
 
@@ -443,7 +443,7 @@ body.bl-plan-drawer-open {
   .bl-print-sub {
     margin: 0 0 18px;
     font-size: 9.5pt;
-    color: #444;
+    color: #021234;
   }
 
   .bl-print-h {

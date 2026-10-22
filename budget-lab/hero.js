@@ -258,7 +258,7 @@ function renderSpendBars(spend){
   var total = spend.total;
   var rows = [
     {id:"hl-bar-media", pct:"hl-media-pct", val:spend.media, color:"#3B6FE0"},
-    {id:"hl-bar-prod", pct:"hl-prod-pct", val:spend.prod, color:"#FF4A00"},
+    {id:"hl-bar-prod", pct:"hl-prod-pct", val:spend.prod, color:"#FD4406"},
     {id:"hl-bar-install", pct:"hl-install-pct", val:spend.install, color:"#8B5CF6"}
   ];
   rows.forEach(function(r){

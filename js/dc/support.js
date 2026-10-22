@@ -95,7 +95,7 @@
     html.sc-dc-streaming .sc-placeholder::before,
     html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
       position:absolute;inset:0;pointer-events:none;
-      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background:linear-gradient(90deg,rgba(253, 68, 6, 0) 25%,rgba(247,225,211,.95) 37%,rgba(253, 68, 6, 0) 63%);
       background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
     html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
     html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;

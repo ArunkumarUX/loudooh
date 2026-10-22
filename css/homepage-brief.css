@@ -1,6 +1,6 @@
 /* Homepage rewrite (Sept 2026 SEO brief): sections added to index.html.
-   Tokens match the inline homepage styles: navy #0A1F3D, orange #FF4A00,
-   accessible orange #c93800, Montserrat headings, Inter body. */
+   Tokens match the inline homepage styles: navy #021234, orange #FD4406,
+   accessible orange #FD4406, Montserrat headings, Inter body. */
 
 .lob-sec {
   box-sizing: border-box;
@@ -8,10 +8,10 @@
   font-family: "Inter", Helvetica, system-ui, sans-serif;
 }
 .lob-sec *, .lob-sec *::before, .lob-sec *::after { box-sizing: border-box; }
-.lob-sec--light { background: #fff; color: #0A1F3D; }
-.lob-sec--mist { background: #F4F5F8; color: #0A1F3D; }
-.lob-sec--navy { background: #0A1F3D; color: #fff; }
-.lob-sec--orange { background: #FF4A00; color: #fff; }
+.lob-sec--light { background: #fff; color: #021234; }
+.lob-sec--mist { background: #F4F5F8; color: #021234; }
+.lob-sec--navy { background: #021234; color: #FFFFFF; }
+.lob-sec--orange { background: #FD4406; color: #FFFFFF; }
 
 /* Section headers share the hero header system (.lo-mz-eyebrow / .lo-mz-title). */
 .lob-eyebrow,
@@ -21,15 +21,15 @@
   display: flex; align-items: center; gap: .85rem;
   max-width: none; margin: 0 0 1.35rem; opacity: 1;
   font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase;
-  color: #c93800;
+  color: #FD4406;
 }
 .lob-eyebrow::before {
   content: ""; flex: none; width: 2.25rem; height: 2px; background: currentColor; border-radius: 2px;
 }
 .lob-sec--navy .lob-eyebrow,
 #lo-insights-teaser .lob-eyebrow,
-.lob-final .lob-eyebrow { color: #FF4A00; }
-.lob-sec--orange .lob-eyebrow { color: #0A1F3D; }
+.lob-final .lob-eyebrow { color: #FD4406; }
+.lob-sec--orange .lob-eyebrow { color: #021234; }
 
 .lob-h2,
 .lob-final h2.lob-h2,
@@ -41,8 +41,8 @@
   text-transform: uppercase;
   text-wrap: balance;
 }
-.lob-h2 em { display: block; margin-top: .08em; font-style: normal; color: #FF4A00; }
-.lob-sec--orange .lob-h2 em { color: #0A1F3D; }
+.lob-h2 em { display: block; margin-top: .08em; font-style: normal; color: #FD4406; }
+.lob-sec--orange .lob-h2 em { color: #021234; }
 .lob-lead {
   margin: 0;
   max-width: 40rem;
@@ -66,14 +66,14 @@
   transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
 }
 .lob-btn:hover { transform: translateY(-1px); }
-.lob-btn--pri { background: #c93800; color: #fff !important; }
-.lob-btn--pri:hover { background: #a93000; }
+.lob-btn--pri { background: #FD4406; color: #FFFFFF !important; }
+.lob-btn--pri:hover { background: #FD4406; }
 .lob-btn--ghost { border-color: currentColor; color: inherit !important; background: transparent; }
-.lob-sec--light .lob-btn--ghost, .lob-sec--mist .lob-btn--ghost { color: #0A1F3D !important; }
-.lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: #0A1F3D; color: #fff !important; }
-.lob-sec--navy .lob-btn--ghost:hover { background: #fff; color: #0A1F3D !important; }
-.lob-btn--navy { background: #0A1F3D; color: #fff !important; }
-.lob-btn--navy:hover { background: #061426; }
+.lob-sec--light .lob-btn--ghost, .lob-sec--mist .lob-btn--ghost { color: #021234 !important; }
+.lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: #021234; color: #FFFFFF !important; }
+.lob-sec--navy .lob-btn--ghost:hover { background: #fff; color: #021234 !important; }
+.lob-btn--navy { background: #021234; color: #FFFFFF !important; }
+.lob-btn--navy:hover { background: #021234; }
 .lob-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 
 /* Reveal (js/home-motion.js adds .is-in). Uses the independent `translate`
@@ -101,41 +101,41 @@
   display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); gap: 0 4.5rem; align-items: center;
 }
 .lob-intro-grid::before {
-  content: ""; grid-column: 2; grid-row: 1; align-self: stretch; background: rgba(10, 31, 61, .1);
+  content: ""; grid-column: 2; grid-row: 1; align-self: stretch; background: rgba(2, 18, 52, .1);
 }
 .lob-intro-grid > div:first-child { grid-column: 1; grid-row: 1; }
 .lob-intro-grid > .lob-intro-body { grid-column: 3; grid-row: 1; }
 .lob-intro-kicker {
   margin: 0; max-width: 32rem;
-  font-size: clamp(1.15rem, 1.55vw, 1.4rem); line-height: 1.55; font-weight: 400; color: #0A1F3D;
+  font-size: clamp(1.15rem, 1.55vw, 1.4rem); line-height: 1.55; font-weight: 400; color: #021234;
 }
 .lob-intro-lead {
   margin: 0 0 .9rem !important;
   font: 800 clamp(1.3rem, 1.8vw, 1.6rem)/1.25 "Montserrat", system-ui, sans-serif !important;
-  letter-spacing: -.01em; color: #0A1F3D !important;
+  letter-spacing: -.01em; color: #021234 !important;
 }
-.lob-intro-body p { margin: 0 0 1.25rem; font-size: 1.06rem; line-height: 1.65; color: rgba(10, 31, 61, .72); }
-.lob-intro-body p a { color: #FF4A00 !important; font-weight: 700; text-decoration: none; }
+.lob-intro-body p { margin: 0 0 1.25rem; font-size: 1.06rem; line-height: 1.65; color: #021234; }
+.lob-intro-body p a { color: #FD4406 !important; font-weight: 700; text-decoration: none; }
 .lob-intro-body p a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .lob-punch { list-style: none; margin: 1.9rem 0 0; padding: 0; border: 0; }
 .lob-punch li {
   position: relative; display: flex; align-items: center; gap: 1.5rem;
   padding: .7rem 0;
   font: 800 clamp(.98rem, 1.25vw, 1.12rem)/1.35 "Montserrat", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .005em;
-  color: #0A1F3D;
+  color: #021234;
 }
 .lob-punch li + li::before {
-  content: ""; position: absolute; top: 0; left: calc(3.9rem + 1.5rem); right: 0; height: 1px; background: rgba(10, 31, 61, .1);
+  content: ""; position: absolute; top: 0; left: calc(3.9rem + 1.5rem); right: 0; height: 1px; background: rgba(2, 18, 52, .1);
 }
-.lob-punch li:last-child { color: #FF4A00; }
+.lob-punch li:last-child { color: #FD4406; }
 .lob-punch-ico {
   flex: none; display: grid; place-items: center; width: 3.9rem; height: 3.9rem; border-radius: 50%;
 }
 .lob-punch-ico svg { width: 2rem; height: 2rem; }
-.lob-punch-ico--warm { background: #FFE9DF; color: #0A1F3D; }
-.lob-punch-ico--cool { background: #E7ECF8; color: #0A1F3D; }
-.lob-punch-ico--solid { background: #FFE9DF; color: #fff; position: relative; }
-.lob-punch-ico--solid::before { content: ""; position: absolute; inset: .6rem; border-radius: 50%; background: #FF4A00; }
+.lob-punch-ico--warm { background: #FFE9DF; color: #021234; }
+.lob-punch-ico--cool { background: #E7ECF8; color: #021234; }
+.lob-punch-ico--solid { background: #FFE9DF; color: #FFFFFF; position: relative; }
+.lob-punch-ico--solid::before { content: ""; position: absolute; inset: .6rem; border-radius: 50%; background: #FD4406; }
 .lob-punch-ico--solid svg { position: relative; width: 1.6rem; height: 1.6rem; }
 .lob-intro .lob-actions { margin-top: 1.9rem; }
 .lob-btn--arrow { gap: .85rem; min-height: 56px; padding: 0 1.8rem; font-size: .88rem; letter-spacing: .1em; }
@@ -146,24 +146,24 @@
 /* ---------- 6. Real campaigns ---------- */
 #lo-campaigns { padding-top: 6rem; padding-bottom: 6rem; }
 #lo-campaigns .lob-head { margin-bottom: 3.25rem; }
-#lo-campaigns .lob-lead { max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(255, 255, 255, .72); opacity: 1; }
+#lo-campaigns .lob-lead { max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: #FFFFFF; opacity: 1; }
 .lob-cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; counter-reset: lob-case; }
-a.lob-case { color: #fff; text-decoration: none; cursor: pointer; }
-a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
+a.lob-case { color: #FFFFFF; text-decoration: none; cursor: pointer; }
+a.lob-case:hover, a.lob-case:focus-visible { color: #FFFFFF; }
 .lob-case {
   counter-increment: lob-case;
   display: flex; flex-direction: column; overflow: hidden;
   border-radius: 24px;
-  background: linear-gradient(180deg, #102A4F 0%, #0C2244 100%);
+  background: linear-gradient(180deg, #021234 0%, #021234 100%);
   border: 1px solid rgba(255, 255, 255, .08);
   box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .6);
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 .lob-case:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, .16); box-shadow: 0 32px 60px -24px rgba(0, 0, 0, .7); }
-.lob-case-media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #122F57; }
+.lob-case-media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #021234; }
 .lob-case-media::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(6, 20, 40, .35) 0%, rgba(6, 20, 40, 0) 35%, rgba(12, 34, 68, 0) 70%, rgba(12, 34, 68, .9) 100%);
+  background: linear-gradient(180deg, rgba(2, 18, 52, .35) 0%, rgba(2, 18, 52, 0) 35%, rgba(2, 18, 52, 0) 70%, rgba(2, 18, 52, .9) 100%);
 }
 .lob-case-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.25, .1, .25, 1); }
 .lob-case-plate {
@@ -172,16 +172,16 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   justify-content: flex-end;
   height: 100%;
   padding: 1.25rem 1.35rem;
-  background: radial-gradient(ellipse at 80% 0%, rgba(255, 74, 0, .28), transparent 50%), linear-gradient(160deg, #16325c, #0A1F3D 70%);
-  color: #fff;
+  background: radial-gradient(ellipse at 80% 0%, rgba(253, 68, 6, .28), transparent 50%), linear-gradient(160deg, #021234, #021234 70%);
+  color: #FFFFFF;
 }
-.lob-case-plate strong { font: 800 2.1rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: -.03em; color: #FF4A00; }
-.lob-case-plate span { margin-top: .35rem; font-size: .92rem; color: rgba(255, 255, 255, .82); }
+.lob-case-plate strong { font: 800 2.1rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: -.03em; color: #FD4406; }
+.lob-case-plate span { margin-top: .35rem; font-size: .92rem; color: #FFFFFF; }
 .lob-case:hover .lob-case-media img { transform: scale(1.05); }
 .lob-case-tag {
   position: absolute; z-index: 1; left: 1.1rem; top: 1.1rem; padding: .45rem .8rem; border-radius: 999px;
-  background: rgba(10, 31, 61, .55); border: 1px solid rgba(255, 255, 255, .18);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff;
+  background: rgba(2, 18, 52, .55); border: 1px solid rgba(255, 255, 255, .18);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #FFFFFF;
   font: 800 .64rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase;
 }
 .lob-case-body { display: flex; flex-direction: column; flex: 1; padding: 1.6rem 1.75rem 1.5rem; }
@@ -191,36 +191,36 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lob-case-body h3::before {
   content: counter(lob-case, decimal-leading-zero);
   display: block; margin-bottom: .7rem;
-  font: 700 .72rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .22em; color: #FF4A00;
+  font: 700 .72rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .22em; color: #FD4406;
 }
 .lob-case-facts { display: grid; grid-template-columns: 6.25rem 1fr; margin: 0 0 1.5rem; font-size: .92rem; line-height: 1.5; }
 .lob-case-facts dt, .lob-case-facts dd { padding: .7rem 0; border-top: 1px solid rgba(255, 255, 255, .09); }
 .lob-case-facts dt {
-  font: 700 .64rem/1.9 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .5);
+  font: 700 .64rem/1.9 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #FFFFFF;
 }
-.lob-case-facts dd { margin: 0; color: rgba(255, 255, 255, .88); }
+.lob-case-facts dd { margin: 0; color: #FFFFFF; }
 .lob-case-result {
   margin: auto 0 1.4rem; padding: 1.1rem 1.25rem 1.2rem; border-radius: 14px;
   background: #fff; border: 0;
   box-shadow: 0 12px 28px -16px rgba(0, 0, 0, .55);
 }
 .lob-case-result > span {
-  display: block; margin-bottom: .45rem; font: 800 .64rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #c93800;
+  display: block; margin-bottom: .45rem; font: 800 .64rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #FD4406;
 }
-.lob-case-result p { margin: 0; font: 700 1.02rem/1.4 "Montserrat", system-ui, sans-serif; letter-spacing: -.005em; color: #0A1F3D; }
-.lob-case-result .lob-count { color: #c93800; }
+.lob-case-result p { margin: 0; font: 700 1.02rem/1.4 "Montserrat", system-ui, sans-serif; letter-spacing: -.005em; color: #021234; }
+.lob-case-result .lob-count { color: #FD4406; }
 .lob-case-cta {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding-top: 1.1rem; border-top: 1px solid rgba(255, 255, 255, .12);
-  font: 700 .72rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #fff !important; text-decoration: none;
+  font: 700 .72rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #FFFFFF !important; text-decoration: none;
 }
 .lob-case-cta svg {
   flex: none; width: 34px; height: 34px; padding: 9px; box-sizing: border-box; border-radius: 50%;
-  background: #FF4A00; color: #fff; box-shadow: 0 6px 18px rgba(255, 74, 0, .35);
+  background: #FD4406; color: #FFFFFF; box-shadow: 0 6px 18px rgba(253, 68, 6, .35);
   pointer-events: none;
   transition: transform .25s ease, background-color .25s ease;
 }
-.lob-case:hover .lob-case-cta svg, .lob-case-cta:focus-visible svg { transform: translateX(4px); background: #ff6424; }
+.lob-case:hover .lob-case-cta svg, .lob-case-cta:focus-visible svg { transform: translateX(4px); background: #FD4406; }
 @media (prefers-reduced-motion: reduce) {
   .lob-case:hover, .lob-case:hover .lob-case-media img, .lob-case:hover .lob-case-cta svg { transform: none; }
 }
@@ -229,55 +229,55 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lob-logos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
 .lob-logos li {
   display: flex; align-items: center; justify-content: center; min-height: 104px; padding: 1.1rem;
-  border-radius: 18px; background: #fff; border: 1px solid rgba(10, 31, 61, .08);
+  border-radius: 18px; background: #fff; border: 1px solid rgba(2, 18, 52, .08);
 }
 .lob-logos img { max-width: 100%; max-height: 52px; width: auto; height: auto; object-fit: contain; }
 .lob-logos .lob-logo--feature {
   grid-column: span 2; background: #FFFC00; border-color: #FFFC00;
   flex-direction: column; align-items: flex-start; justify-content: center; gap: .3rem; text-align: left;
 }
-.lob-logo--feature strong { font: 900 1.6rem/1 "Montserrat", system-ui, sans-serif; color: #0A1F3D; letter-spacing: -.01em; }
-.lob-logo--feature span { font-size: .88rem; font-weight: 600; color: #0A1F3D; }
-.lob-trust-note { margin: 1.75rem 0 0; font-size: 1rem; color: rgba(10, 31, 61, .7); }
+.lob-logo--feature strong { font: 900 1.6rem/1 "Montserrat", system-ui, sans-serif; color: #021234; letter-spacing: -.01em; }
+.lob-logo--feature span { font-size: .88rem; font-weight: 600; color: #021234; }
+.lob-trust-note { margin: 1.75rem 0 0; font-size: 1rem; color: #021234; }
 
 /* ---------- 8. Testimonials ---------- */
 .lob-quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
 .lob-quote {
-  margin: 0; display: flex; flex-direction: column; padding: 2rem; border-radius: 24px; background: #fff; border: 1px solid rgba(10, 31, 61, .08);
+  margin: 0; display: flex; flex-direction: column; padding: 2rem; border-radius: 24px; background: #fff; border: 1px solid rgba(2, 18, 52, .08);
 }
 .lob-quote-tag {
-  align-self: flex-start; margin-bottom: 1.1rem; padding: .35rem .65rem; border-radius: 999px; background: rgba(255, 74, 0, .1); color: #c93800;
+  align-self: flex-start; margin-bottom: 1.1rem; padding: .35rem .65rem; border-radius: 999px; background: rgba(253, 68, 6, .1); color: #FD4406;
   font: 800 .66rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase;
 }
-.lob-quote blockquote { margin: 0 0 1.5rem; font-size: 1.08rem; line-height: 1.65; color: #0A1F3D; }
-.lob-quote blockquote::before { content: "\201C"; display: block; font: 900 3rem/0.6 "Montserrat", system-ui, sans-serif; color: #FF4A00; margin-bottom: .6rem; }
-.lob-quote figcaption { margin-top: auto; font-size: .92rem; color: rgba(10, 31, 61, .65); }
-.lob-quote figcaption strong { display: block; color: #0A1F3D; font-size: 1rem; }
+.lob-quote blockquote { margin: 0 0 1.5rem; font-size: 1.08rem; line-height: 1.65; color: #021234; }
+.lob-quote blockquote::before { content: "\201C"; display: block; font: 900 3rem/0.6 "Montserrat", system-ui, sans-serif; color: #FD4406; margin-bottom: .6rem; }
+.lob-quote figcaption { margin-top: auto; font-size: .92rem; color: #021234; }
+.lob-quote figcaption strong { display: block; color: #021234; font-size: 1rem; }
 
 /* ---------- 9. Process ---------- */
-.lob-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(10, 31, 61, .14); }
+.lob-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(2, 18, 52, .14); }
 .lob-step { position: relative; padding: 1.75rem 1.5rem .5rem; }
 .lob-step:first-child { padding-left: 0; }
-.lob-step:not(:last-child) { border-right: 1px solid rgba(10, 31, 61, .12); }
-.lob-step::before { content: ""; position: absolute; top: -1px; left: 1.5rem; width: 2.25rem; height: 3px; background: #FF4A00; }
+.lob-step:not(:last-child) { border-right: 1px solid rgba(2, 18, 52, .12); }
+.lob-step::before { content: ""; position: absolute; top: -1px; left: 1.5rem; width: 2.25rem; height: 3px; background: #FD4406; }
 .lob-step:first-child::before { left: 0; }
-.lob-step-num { display: block; margin-bottom: 1.25rem; font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; color: #c93800; }
+.lob-step-num { display: block; margin-bottom: 1.25rem; font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; color: #FD4406; }
 .lob-step h3 { margin: 0 0 .75rem; font: 800 1.15rem/1.2 "Montserrat", system-ui, sans-serif; text-transform: uppercase; }
-.lob-step p { margin: 0; font-size: 1rem; line-height: 1.6; color: rgba(10, 31, 61, .72); }
-.lob-step:last-child h3 { color: #c93800; }
+.lob-step p { margin: 0; font-size: 1rem; line-height: 1.6; color: #021234; }
+.lob-step:last-child h3 { color: #FD4406; }
 
 /* ---------- 10. PR / authority ---------- */
 /* White band so it separates cleanly from the navy Insights section that follows. */
-.lob-press { padding-top: 6rem; padding-bottom: 6rem; border-top: 1px solid rgba(10, 31, 61, .06); }
+.lob-press { padding-top: 6rem; padding-bottom: 6rem; border-top: 1px solid rgba(2, 18, 52, .06); }
 .lob-press-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 4rem; align-items: center; }
-.lob-press .lob-lead { max-width: 34rem; font-size: 1.1rem; line-height: 1.7; color: rgba(10, 31, 61, .72); opacity: 1; }
-.lob-press .lob-lead a { color: #0A1F3D !important; font-weight: 700; text-decoration: underline; text-decoration-color: #FF4A00; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.lob-press .lob-lead { max-width: 34rem; font-size: 1.1rem; line-height: 1.7; color: #021234; opacity: 1; }
+.lob-press .lob-lead a { color: #021234 !important; font-weight: 700; text-decoration: underline; text-decoration-color: #FD4406; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .lob-press-logos {
   display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1px;
   margin: 0; padding: 0; list-style: none;
   border-radius: 22px; overflow: hidden;
-  background: rgba(10, 31, 61, .08); border: 1px solid rgba(10, 31, 61, .08);
-  box-shadow: 0 24px 48px -32px rgba(10, 31, 61, .35);
+  background: rgba(2, 18, 52, .08); border: 1px solid rgba(2, 18, 52, .08);
+  box-shadow: 0 24px 48px -32px rgba(2, 18, 52, .35);
 }
 .lob-press-logos li {
   grid-column: span 2; display: grid; place-items: center; min-height: 118px; padding: 1.5rem;
@@ -296,18 +296,18 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 #lo-insights-teaser .lo-insights2-head { max-width: none; margin: 0 0 3rem; }
 .lo-insights2 .lob-insights-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.5rem 3rem; margin: 0; }
 .lo-insights2 .lob-insights-head > div { max-width: 44rem; }
-#lo-insights-teaser .lob-h2, .lob-final .lob-h2 { color: #fff; }
-#lo-insights-teaser .lob-lead { max-width: 36rem; font-size: 1.1rem; line-height: 1.65; color: rgba(255, 255, 255, .72); opacity: 1; }
+#lo-insights-teaser .lob-h2, .lob-final .lob-h2 { color: #FFFFFF; }
+#lo-insights-teaser .lob-lead { max-width: 36rem; font-size: 1.1rem; line-height: 1.65; color: #FFFFFF; opacity: 1; }
 #lo-insights-teaser .lo-insights2-grid { gap: 1.25rem; }
 #lo-insights-teaser .lo-insight2-card { border-radius: 22px; border: 1px solid rgba(255, 255, 255, .08); }
 #lo-insights-teaser .lo-insight2-card::before { display: none; }
-#lo-insights-teaser .lo-insight2-scrim { background: linear-gradient(180deg, rgba(6, 20, 40, 0) 25%, rgba(6, 20, 40, .6) 60%, rgba(6, 20, 40, .95) 100%); }
+#lo-insights-teaser .lo-insight2-scrim { background: linear-gradient(180deg, rgba(2, 18, 52, 0) 25%, rgba(2, 18, 52, .6) 60%, rgba(2, 18, 52, .95) 100%); }
 #lo-insights-teaser .lo-insight2-content { padding: 1.35rem 1.4rem 1.3rem; }
 #lo-insights-teaser .lo-insight2-tag {
   display: inline-block; margin-bottom: .6rem; padding: .35rem .6rem; border-radius: 999px;
-  background: rgba(10, 31, 61, .55); border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(2, 18, 52, .55); border: 1px solid rgba(255, 255, 255, .16);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  font-size: .6rem; letter-spacing: .16em; color: #fff;
+  font-size: .6rem; letter-spacing: .16em; color: #FFFFFF;
 }
 #lo-insights-teaser .lo-insight2-title { text-transform: none; letter-spacing: -.01em; line-height: 1.2; text-wrap: balance; }
 #lo-insights-teaser .lo-insight2-card--xl .lo-insight2-title { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
@@ -317,84 +317,84 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 #lo-insights-teaser .lo-insight2-cta {
   display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: .9rem; padding-top: .8rem;
   border-top: 1px solid rgba(255, 255, 255, .14);
-  font: 700 .66rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #fff;
+  font: 700 .66rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #FFFFFF;
 }
 #lo-insights-teaser .lo-insight2-card--sm .lo-insight2-cta > span { display: none; }
 #lo-insights-teaser .lo-insight2-card--sm .lo-insight2-cta { border-top: 0; padding-top: 0; margin-top: .6rem; justify-content: flex-end; position: absolute; right: 1.1rem; bottom: 1.1rem; }
 #lo-insights-teaser .lo-insight2-card--sm .lo-insight2-content { padding-right: 4rem; }
 #lo-insights-teaser .lo-insight2-cta svg {
   flex: none; width: 30px; height: 30px; padding: 8px; box-sizing: border-box; border-radius: 50%;
-  background: #FF4A00; color: #fff; box-shadow: 0 6px 18px rgba(255, 74, 0, .35); transition: transform .25s ease;
+  background: #FD4406; color: #FFFFFF; box-shadow: 0 6px 18px rgba(253, 68, 6, .35); transition: transform .25s ease;
 }
 #lo-insights-teaser .lo-insight2-card:hover .lo-insight2-cta svg { transform: translateX(3px); }
 
 /* ---------- 12. Pricing ---------- */
 .lob-pricing { padding-top: 6rem; padding-bottom: 6rem; }
 .lob-pricing-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4.5rem; align-items: center; }
-.lob-pricing .lob-lead { max-width: 34rem; font-size: 1.15rem; line-height: 1.65; color: rgba(10, 31, 61, .72); opacity: 1; }
+.lob-pricing .lob-lead { max-width: 34rem; font-size: 1.15rem; line-height: 1.65; color: #021234; opacity: 1; }
 
 /* Formats as a two-column rate-card ledger */
 .lob-ledger {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.25rem;
   margin: 2.5rem 0 0; padding: 0; list-style: none; max-width: 38rem;
-  border-top: 1px solid rgba(10, 31, 61, .12);
+  border-top: 1px solid rgba(2, 18, 52, .12);
 }
-.lob-ledger li { border-bottom: 1px solid rgba(10, 31, 61, .12); }
+.lob-ledger li { border-bottom: 1px solid rgba(2, 18, 52, .12); }
 .lob-ledger a {
   display: flex; align-items: center; gap: .85rem; min-height: 58px; padding: .5rem 0;
-  color: #0A1F3D !important; text-decoration: none;
+  color: #021234 !important; text-decoration: none;
   font: 700 1rem/1.25 "Montserrat", system-ui, sans-serif; letter-spacing: -.005em;
   transition: color .2s ease;
 }
 .lob-ledger-mark {
   flex: none; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%;
-  background: #FFE9DF; color: #c93800; font: 800 .82rem/1 "Montserrat", system-ui, sans-serif;
+  background: #FFE9DF; color: #FD4406; font: 800 .82rem/1 "Montserrat", system-ui, sans-serif;
   transition: background-color .2s ease, color .2s ease;
 }
 .lob-ledger-name { flex: 1; }
-.lob-ledger a svg { flex: none; width: 1.05rem; height: 1.05rem; color: rgba(10, 31, 61, .35); transition: transform .2s ease, color .2s ease; }
-.lob-ledger a:hover, .lob-ledger a:focus-visible { color: #c93800 !important; }
-.lob-ledger a:hover .lob-ledger-mark, .lob-ledger a:focus-visible .lob-ledger-mark { background: #FF4A00; color: #fff; }
-.lob-ledger a:hover svg, .lob-ledger a:focus-visible svg { color: #c93800; transform: translateX(3px); }
+.lob-ledger a svg { flex: none; width: 1.05rem; height: 1.05rem; color: rgba(2, 18, 52, 0.35); transition: transform .2s ease, color .2s ease; }
+.lob-ledger a:hover, .lob-ledger a:focus-visible { color: #FD4406 !important; }
+.lob-ledger a:hover .lob-ledger-mark, .lob-ledger a:focus-visible .lob-ledger-mark { background: #FD4406; color: #FFFFFF; }
+.lob-ledger a:hover svg, .lob-ledger a:focus-visible svg { color: #FD4406; transform: translateX(3px); }
 
 /* Rate card */
 .lob-price-card {
   position: relative; overflow: hidden; isolation: isolate;
   padding: 2.75rem 2.5rem 2.5rem; border-radius: 28px;
   background:
-    radial-gradient(120% 90% at 100% 0%, rgba(255, 74, 0, .28) 0%, rgba(255, 74, 0, 0) 55%),
-    linear-gradient(160deg, #13315C 0%, #0A1F3D 55%, #07172E 100%);
-  color: #fff;
-  box-shadow: 0 30px 60px -24px rgba(10, 31, 61, .55), inset 0 1px 0 rgba(255, 255, 255, .08);
+    radial-gradient(120% 90% at 100% 0%, rgba(253, 68, 6, .28) 0%, rgba(253, 68, 6, 0) 55%),
+    linear-gradient(160deg, #021234 0%, #021234 55%, #021234 100%);
+  color: #FFFFFF;
+  box-shadow: 0 30px 60px -24px rgba(2, 18, 52, .55), inset 0 1px 0 rgba(255, 255, 255, .08);
 }
 .lob-price-card::after {
   content: "£"; position: absolute; z-index: -1; right: -.5rem; bottom: -3.5rem;
-  font: 900 15rem/1 "Montserrat", system-ui, sans-serif; color: rgba(255, 255, 255, .045);
+  font: 900 15rem/1 "Montserrat", system-ui, sans-serif; color: rgba(255, 255, 255, 0.045);
   pointer-events: none;
 }
 .lob-price-kicker {
   display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 1.4rem !important;
   padding: .4rem .75rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06);
-  font: 800 .68rem/1 "Montserrat", system-ui, sans-serif !important; letter-spacing: .18em; text-transform: uppercase; color: rgba(255, 255, 255, .85) !important;
+  font: 800 .68rem/1 "Montserrat", system-ui, sans-serif !important; letter-spacing: .18em; text-transform: uppercase; color: #FFFFFF !important;
 }
-.lob-price-kicker::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: #FF4A00; box-shadow: 0 0 0 4px rgba(255, 74, 0, .22); }
+.lob-price-kicker::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: #FD4406; box-shadow: 0 0 0 4px rgba(253, 68, 6, .22); }
 .lob-price-card strong {
   display: block; margin-bottom: 1.4rem;
-  font: 900 clamp(1.6rem, 2.3vw, 2.05rem)/1.06 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; text-transform: uppercase; color: #fff;
+  font: 900 clamp(1.6rem, 2.3vw, 2.05rem)/1.06 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; text-transform: uppercase; color: #FFFFFF;
   text-wrap: balance;
 }
-.lob-price-card strong em { display: block; font-style: normal; color: #FF4A00; }
-.lob-price-card p { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+.lob-price-card strong em { display: block; font-style: normal; color: #FD4406; }
+.lob-price-card p { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.6; color: #FFFFFF; }
 .lob-price-card .lob-price-formats {
   margin-bottom: 1.1rem; padding: 1.1rem 0; border-top: 1px solid rgba(255, 255, 255, .12); border-bottom: 1px solid rgba(255, 255, 255, .12);
-  font-weight: 600; color: #fff; letter-spacing: .005em;
+  font-weight: 600; color: #FFFFFF; letter-spacing: .005em;
 }
 .lob-price-card .lob-actions { margin-top: 1.9rem; }
 
 /* ---------- 13. Budget Lab promotion ---------- */
 .lob-budget {
   position: relative; overflow: hidden; isolation: isolate; padding-top: 6.5rem; padding-bottom: 6.5rem;
-  background: radial-gradient(55% 75% at 100% 0%, rgba(255, 74, 0, .14) 0%, rgba(255, 74, 0, 0) 60%), #0A1F3D;
+  background: radial-gradient(55% 75% at 100% 0%, rgba(253, 68, 6, .14) 0%, rgba(253, 68, 6, 0) 60%), #021234;
 }
 .lob-budget-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4.5rem; align-items: center; }
 /* Three budgets in one calm row; the thin bar under each shows relative scale. */
@@ -405,7 +405,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 }
 .lob-budgets li {
   position: relative; padding-bottom: 1rem;
-  font: 800 clamp(1.6rem, 2.6vw, 2.3rem)/1 "Montserrat", system-ui, sans-serif; letter-spacing: -.02em; color: #fff;
+  font: 800 clamp(1.6rem, 2.6vw, 2.3rem)/1 "Montserrat", system-ui, sans-serif; letter-spacing: -.02em; color: #FFFFFF;
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .lob-budgets li::before, .lob-budgets li::after {
@@ -413,7 +413,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 }
 .lob-budgets li::before { right: 0; background: rgba(255, 255, 255, .1); }
 .lob-budgets li::after {
-  width: var(--lob-bar); background: #FF4A00;
+  width: var(--lob-bar); background: #FD4406;
   transform-origin: left center; transition: transform 1s cubic-bezier(.22, 1, .36, 1);
 }
 .lob-js .lob-budgets.lob-reveal { opacity: 1; translate: none; }
@@ -421,8 +421,8 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lob-js .lob-budgets.lob-reveal.is-in li::after { transform: scaleX(1); }
 .lob-budgets li:nth-child(2)::after { transition-delay: .15s; }
 .lob-budgets li:nth-child(3)::after { transition-delay: .3s; }
-.lob-budgets li:nth-child(1), .lob-budgets li:nth-child(2) { color: rgba(255, 255, 255, .78); }
-.lob-budgets li:nth-child(3) { color: #FF4A00; }
+.lob-budgets li:nth-child(1), .lob-budgets li:nth-child(2) { color: #FFFFFF; }
+.lob-budgets li:nth-child(3) { color: #FD4406; }
 @media (prefers-reduced-motion: reduce) {
   .lob-js .lob-budgets.lob-reveal li::after { transform: none; transition: none; }
 }
@@ -437,10 +437,10 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .1);
 }
-.lob-budget-card p { margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.65; color: rgba(255, 255, 255, .74); }
+.lob-budget-card p { margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.65; color: #FFFFFF; }
 .lob-budget-card .lob-budget-card-lead {
   margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid rgba(255, 255, 255, .12);
-  font: 800 clamp(1.2rem, 1.7vw, 1.45rem)/1.3 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; color: #fff;
+  font: 800 clamp(1.2rem, 1.7vw, 1.45rem)/1.3 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; color: #FFFFFF;
 }
 .lob-budget-card .lob-actions { margin-top: 1.75rem; }
 .lob-budget-card .lob-btn { width: 100%; }
@@ -449,7 +449,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lo-gallery .lo-work-grid { counter-reset: lob-fmt; }
 .lo-gallery .lo-work-card { counter-increment: lob-fmt; }
 .lo-gallery .lo-work-card::after {
-  background: linear-gradient(180deg, rgba(6, 20, 40, 0) 30%, rgba(6, 20, 40, .55) 58%, rgba(6, 20, 40, .94) 100%);
+  background: linear-gradient(180deg, rgba(2, 18, 52, 0) 30%, rgba(2, 18, 52, .55) 58%, rgba(2, 18, 52, .94) 100%);
 }
 .lo-gallery .lo-work-card::before { display: none; }
 .lo-gallery .lo-work-meta { padding: 1.6rem 1.6rem 1.4rem; }
@@ -460,68 +460,68 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lo-gallery .lo-work-brand::before {
   content: counter(lob-fmt, decimal-leading-zero);
   display: flex; align-items: center; gap: .6rem; margin-bottom: .75rem;
-  font: 700 .72rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .22em; color: #FF4A00;
+  font: 700 .72rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .22em; color: #FD4406;
 }
 .lo-gallery .lo-work-card .lob-work-desc {
   margin: 0 0 1.1rem; max-width: 24rem;
   font-family: "Inter", Helvetica, system-ui, sans-serif; font-size: .92rem; line-height: 1.55; font-weight: 400;
-  color: rgba(255, 255, 255, .74); text-transform: none; letter-spacing: 0; text-wrap: pretty;
+  color: #FFFFFF; text-transform: none; letter-spacing: 0; text-wrap: pretty;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .lo-gallery .lo-work-view {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%;
   padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .16);
-  font: 700 .7rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #fff;
+  font: 700 .7rem/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #FFFFFF;
 }
 .lo-gallery .lo-work-view svg {
   flex: none; width: 32px; height: 32px; padding: 9px; box-sizing: border-box;
-  border-radius: 50%; background: #FF4A00; color: #fff;
-  box-shadow: 0 6px 18px rgba(255, 74, 0, .35);
+  border-radius: 50%; background: #FD4406; color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(253, 68, 6, .35);
   transition: transform .25s ease, background-color .25s ease;
 }
 .lo-gallery .lo-work-card:hover .lo-work-view svg,
-.lo-gallery .lo-work-card:focus-visible .lo-work-view svg { transform: translateX(4px); background: #ff6424; }
+.lo-gallery .lo-work-card:focus-visible .lo-work-view svg { transform: translateX(4px); background: #FD4406; }
 @media (prefers-reduced-motion: reduce) {
   .lo-gallery .lo-work-card:hover .lo-work-view svg { transform: none; }
 }
 @media (max-width: 719px) {
   .lo-gallery .lo-work-card { aspect-ratio: 4 / 5 !important; }
   .lo-gallery .lo-work-card::after {
-    background: linear-gradient(180deg, rgba(6, 20, 40, 0) 22%, rgba(6, 20, 40, .7) 50%, rgba(6, 20, 40, .96) 100%);
+    background: linear-gradient(180deg, rgba(2, 18, 52, 0) 22%, rgba(2, 18, 52, .7) 50%, rgba(2, 18, 52, .96) 100%);
   }
   .lo-gallery .lo-work-meta { padding: 1.25rem 1.25rem 1.15rem; }
   .lo-gallery .lo-work-card .lob-work-desc { font-size: .88rem; margin-bottom: .9rem; }
 }
-.lob-also { margin: 2rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
-.lob-also a { color: #fff !important; font-weight: 600; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+.lob-also { margin: 2rem 0 0; font-size: 1rem; line-height: 1.6; color: #FFFFFF; }
+.lob-also a { color: #FFFFFF !important; font-weight: 600; text-decoration: underline; text-decoration-color: #FD4406; text-underline-offset: 3px; }
 
 /* ---------- Stacking card CTA ---------- */
 .lo-wwd-card .lob-wwd-cta { margin-top: 1.5rem; align-self: flex-start; }
 
 /* ---------- Difference intro ---------- */
-.lo-diff .lob-diff-intro { margin: .75rem 0 2.25rem; max-width: 40rem; font-size: 1.15rem; line-height: 1.6; color: rgba(10, 31, 61, .75); }
+.lo-diff .lob-diff-intro { margin: .75rem 0 2.25rem; max-width: 40rem; font-size: 1.15rem; line-height: 1.6; color: #021234; }
 
 /* ---------- Insights intro ---------- */
 .lo-insights2 .lob-insights-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
-.lo-insights2 .lob-insights-head p { margin: .5rem 0 0; max-width: 38rem; font-size: 1.08rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+.lo-insights2 .lob-insights-head p { margin: .5rem 0 0; max-width: 38rem; font-size: 1.08rem; line-height: 1.6; color: #FFFFFF; }
 
 /* ---------- Final CTA ---------- */
 .lo-final-cta.lob-final { padding: 6.5rem max(1.5rem, calc(50% - 640px)) !important; }
 .lo-final-cta.lob-final::after {
   background:
-    radial-gradient(55% 80% at 100% 100%, rgba(255, 74, 0, .2) 0%, rgba(255, 74, 0, 0) 60%),
-    linear-gradient(90deg, rgba(8, 25, 50, .96) 0%, rgba(10, 31, 61, .86) 55%, rgba(10, 31, 61, .7) 100%);
+    radial-gradient(55% 80% at 100% 100%, rgba(253, 68, 6, .2) 0%, rgba(253, 68, 6, 0) 60%),
+    linear-gradient(90deg, rgba(2, 18, 52, .96) 0%, rgba(2, 18, 52, .86) 55%, rgba(2, 18, 52, .7) 100%);
 }
 /* Single column, same rhythm as the hero: header, lead, promise chips, actions. */
 .lob-final-inner { max-width: 46rem; font-family: "Inter", Helvetica, system-ui, sans-serif; }
-.lob-final .lob-lead { margin: 0; max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(255, 255, 255, .78); opacity: 1; }
+.lob-final .lob-lead { margin: 0; max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: #FFFFFF; opacity: 1; }
 .lo-final-cta .lob-final-lines { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.75rem 0 2.25rem; padding: 0; list-style: none; }
 .lo-final-cta .lob-final-lines li {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .45rem .9rem .45rem .6rem; border-radius: 999px;
   background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  font: 500 .9rem/1.2 "Inter", Helvetica, system-ui, sans-serif; color: rgba(255, 255, 255, .92);
+  font: 500 .9rem/1.2 "Inter", Helvetica, system-ui, sans-serif; color: #FFFFFF;
   text-transform: none; letter-spacing: 0;
 }
 .lo-final-cta .lob-final-lines li::before {
@@ -531,30 +531,30 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
     linear-gradient(-45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%) center / 55% 55% no-repeat,
     rgba(255, 255, 255, .22);
 }
-.lo-final-cta .lob-final-lines li:last-child { color: #fff; border-color: rgba(255, 74, 0, .45); background: rgba(255, 74, 0, .12); }
+.lo-final-cta .lob-final-lines li:last-child { color: #FFFFFF; border-color: rgba(253, 68, 6, .45); background: rgba(253, 68, 6, .12); }
 .lo-final-cta .lob-final-lines li:last-child::before {
-  background: #FF4A00 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 12.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / 64% no-repeat;
+  background: #FD4406 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 12.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / 64% no-repeat;
 }
 .lob-final-actions { display: flex; flex-wrap: wrap; gap: .85rem; }
 /* Beat the legacy ".lo-final-cta a" button rules */
 .lo-final-cta .lob-btn { width: auto; margin: 0; min-height: 54px; padding: 0 1.5rem; border-radius: 12px; font-size: .82rem; letter-spacing: .08em; }
-.lo-final-cta .lob-btn--pri { background: #FF4A00 !important; color: #fff !important; border: 0; box-shadow: 0 10px 30px rgba(255, 74, 0, .32); }
-.lo-final-cta .lob-btn--pri:hover { background: #e64300 !important; }
-.lo-final-cta .lob-btn--ghost { color: #fff !important; border: 1px solid rgba(255, 255, 255, .32); background: rgba(255, 255, 255, .06); }
-.lo-final-cta .lob-btn--ghost:hover { background: #fff; color: #0A1F3D !important; }
+.lo-final-cta .lob-btn--pri { background: #FD4406 !important; color: #FFFFFF !important; border: 0; box-shadow: 0 10px 30px rgba(253, 68, 6, .32); }
+.lo-final-cta .lob-btn--pri:hover { background: #FD4406 !important; }
+.lo-final-cta .lob-btn--ghost { color: #FFFFFF !important; border: 1px solid rgba(255, 255, 255, .32); background: rgba(255, 255, 255, .06); }
+.lo-final-cta .lob-btn--ghost:hover { background: #fff; color: #021234 !important; }
 
 /* ---------- Hero ---------- */
 /* Deeper left-hand scrim so copy stays legible over any carousel photo. */
 #home-banner .lo-mz-scrim {
   background:
-    linear-gradient(90deg, rgba(6, 20, 40, .9) 0%, rgba(8, 26, 52, .78) 34%, rgba(10, 31, 61, .38) 62%, rgba(10, 31, 61, .12) 100%),
-    linear-gradient(180deg, rgba(10, 31, 61, .25) 0%, rgba(10, 31, 61, 0) 30%, rgba(6, 20, 40, .55) 100%);
+    linear-gradient(90deg, rgba(2, 18, 52, .9) 0%, rgba(2, 18, 52, .78) 34%, rgba(2, 18, 52, .38) 62%, rgba(2, 18, 52, .12) 100%),
+    linear-gradient(180deg, rgba(2, 18, 52, .25) 0%, rgba(2, 18, 52, 0) 30%, rgba(2, 18, 52, .55) 100%);
 }
 #home-banner .lo-mz-copy { max-width: 46rem; }
 .lo-mz-eyebrow {
   display: flex; align-items: center; gap: .85rem;
   margin: 0 0 1.35rem;
-  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FF4A00;
+  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FD4406;
 }
 .lo-mz-eyebrow::before { content: ""; width: 2.25rem; height: 2px; background: currentColor; border-radius: 2px; }
 #home-banner .lo-mz-title {
@@ -571,7 +571,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   font-size: clamp(1.05rem, 1.25vw, 1.15rem);
   line-height: 1.65;
   font-weight: 400;
-  color: rgba(255, 255, 255, .9);
+  color: #FFFFFF;
   text-wrap: pretty;
 }
 /* The three "No ..." promises as quiet chips instead of a dense bold sentence. */
@@ -587,7 +587,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   border: 1px solid rgba(255, 255, 255, .14);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   font: 500 .86rem/1.2 "Inter", Helvetica, system-ui, sans-serif;
-  color: rgba(255, 255, 255, .92);
+  color: #FFFFFF;
   white-space: nowrap;
 }
 .lo-mz-nos li::before {
@@ -595,7 +595,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   background:
     linear-gradient(45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%) center / 55% 55% no-repeat,
     linear-gradient(-45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%) center / 55% 55% no-repeat,
-    #FF4A00;
+    #FD4406;
 }
 #home-banner .lo-mz-sub {
   margin: 0 0 2.25rem;
@@ -605,7 +605,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   font-size: .98rem;
   line-height: 1.6;
   font-weight: 400;
-  color: rgba(255, 255, 255, .66);
+  color: #FFFFFF;
   text-shadow: none;
   text-wrap: pretty;
 }
@@ -619,15 +619,15 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   transition: background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 #home-banner .lo-mz-btn {
-  background: #FF4A00; color: #fff;
-  box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
+  background: #FD4406; color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(253, 68, 6, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
 }
-#home-banner .lo-mz-btn:hover { background: #e64300; color: #fff; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255, 74, 0, .4); }
+#home-banner .lo-mz-btn:hover { background: #FD4406; color: #FFFFFF; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(253, 68, 6, .4); }
 #home-banner .lo-mz-link {
   /* smooth-experience.css forces the old underline style with !important */
   display: inline-flex !important; width: auto !important; min-height: 54px !important;
   padding: 0 1.5rem 0 1.6rem !important; line-height: 1 !important; align-self: auto;
-  color: #fff !important;
+  color: #FFFFFF !important;
   border: 1px solid rgba(255, 255, 255, .32);
   background: rgba(255, 255, 255, .08);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
@@ -654,7 +654,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   .lob-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .lob-intro-grid::before { display: none; }
   .lob-intro-grid > div:first-child, .lob-intro-grid > .lob-intro-body { grid-column: 1; grid-row: auto; }
-  .lob-intro-grid > .lob-intro-body { padding-top: 2.5rem; border-top: 1px solid rgba(10, 31, 61, .1); }
+  .lob-intro-grid > .lob-intro-body { padding-top: 2.5rem; border-top: 1px solid rgba(2, 18, 52, .1); }
   .lob-cases { grid-template-columns: 1fr 1fr; }
   #lo-campaigns { padding-top: 4.5rem; padding-bottom: 4.5rem; }
   .lob-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -662,7 +662,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   .lob-step:nth-child(2n) { border-right: 0; }
   .lob-step:nth-child(2n-1) { padding-left: 0; }
   .lob-step:nth-child(2n-1)::before { left: 0; }
-  .lob-step:nth-child(n+3) { border-top: 1px solid rgba(10, 31, 61, .12); }
+  .lob-step:nth-child(n+3) { border-top: 1px solid rgba(2, 18, 52, .12); }
 }
 @media (max-width: 900px) {
   .lob-sec { padding: 4rem 1.5rem; }
@@ -673,7 +673,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   .lob-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lob-logos li { min-height: 84px; }
   .lob-steps { grid-template-columns: 1fr; }
-  .lob-step { padding: 1.5rem 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 1px solid rgba(10, 31, 61, .12); }
+  .lob-step { padding: 1.5rem 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 1px solid rgba(2, 18, 52, .12); }
   .lob-step::before { left: 0 !important; }
   .lob-quote { padding: 1.5rem; }
   #lo-insights-teaser { padding-left: 1rem !important; padding-right: 1rem !important; }
@@ -695,7 +695,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   #home-banner .lo-mz-title { font-size: clamp(1.9rem, 9vw, 2.5rem) !important; margin-bottom: 1.2rem; }
   .lob-h2, .lob-final h2.lob-h2, #lo-insights-teaser .lob-h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); margin-bottom: 1.2rem; }
   .lob-eyebrow, .lob-sec .lob-eyebrow, #lo-insights-teaser .lob-eyebrow, .lob-final .lob-eyebrow { margin-bottom: 1rem; letter-spacing: .22em; }
-  #home-banner .lo-mz-scrim { background: linear-gradient(180deg, rgba(6, 20, 40, .55) 0%, rgba(8, 26, 52, .72) 40%, rgba(6, 20, 40, .92) 100%); }
+  #home-banner .lo-mz-scrim { background: linear-gradient(180deg, rgba(2, 18, 52, .55) 0%, rgba(2, 18, 52, .72) 40%, rgba(2, 18, 52, .92) 100%); }
   .lo-mz-eyebrow { margin-bottom: 1rem; letter-spacing: .22em; }
   #home-banner .lo-mz-sub { margin-bottom: 1.75rem; }
   /* Let the copy set the hero height on phones so nothing is clipped on short screens. */
@@ -757,7 +757,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   .lob-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lob-cases > .lob-case:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; }
   .lob-cases > .lob-case:last-child:nth-child(odd) .lob-case-media { flex: 0 0 46%; aspect-ratio: auto; }
-  .lob-cases > .lob-case:last-child:nth-child(odd) .lob-case-media::after { background: linear-gradient(90deg, rgba(12, 34, 68, 0) 60%, rgba(12, 34, 68, .9) 100%); }
+  .lob-cases > .lob-case:last-child:nth-child(odd) .lob-case-media::after { background: linear-gradient(90deg, rgba(2, 18, 52, 0) 60%, rgba(2, 18, 52, .9) 100%); }
 }
 
 /* Small phones. */
@@ -825,7 +825,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 /* 2. Process: the line draws from brief to billboard, each step lighting up in turn. */
 #lo-process .lob-steps { position: relative; }
 #lo-process .lob-steps::after {
-  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: #FF4A00;
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: #FD4406;
   transform-origin: left center; transform: scaleX(1);
 }
 .lob-js #lo-process .lob-steps.lob-reveal { opacity: 1; translate: none; }
@@ -863,7 +863,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 #lo-insights-teaser .lo-insight2-cta svg {
   background: transparent !important;
   border: 1.5px solid rgba(255, 255, 255, .85);
-  color: #fff;
+  color: #FFFFFF;
   box-shadow: none !important;
 }
 .lo-gallery .lo-work-card:hover .lo-work-view svg,
@@ -872,8 +872,8 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 .lob-case-cta:focus-visible svg,
 #lo-insights-teaser .lo-insight2-card:hover .lo-insight2-cta svg,
 #lo-insights-teaser .lo-insight2-card:focus-visible .lo-insight2-cta svg {
-  background: #FF4A00 !important;
-  border-color: #FF4A00;
+  background: #FD4406 !important;
+  border-color: #FD4406;
 }
 
 /* Final CTA buttons mirror the hero pair (same type, size, radius and states). */
@@ -882,9 +882,9 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   font: 600 .98rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em; text-transform: none;
 }
 .lo-final-cta .lob-btn--pri {
-  box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
+  box-shadow: 0 10px 30px rgba(253, 68, 6, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
 }
-.lo-final-cta .lob-btn--pri:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255, 74, 0, .4); }
+.lo-final-cta .lob-btn--pri:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(253, 68, 6, .4); }
 .lo-final-cta .lob-btn--pri svg { width: 1.05rem; height: 1.05rem; }
 .lo-final-cta .lob-btn--ghost {
   padding: 0 1.5rem 0 1.6rem;
@@ -896,7 +896,7 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
   border-top: 2px solid currentColor; border-right: 2px solid currentColor;
   transform: rotate(45deg); transition: transform .2s ease;
 }
-.lo-final-cta .lob-btn--ghost:hover { background: rgba(255, 255, 255, .16) !important; border-color: rgba(255, 255, 255, .7); color: #fff !important; }
+.lo-final-cta .lob-btn--ghost:hover { background: rgba(255, 255, 255, .16) !important; border-color: rgba(255, 255, 255, .7); color: #FFFFFF !important; }
 .lo-final-cta .lob-btn--ghost:hover::after { transform: translateX(3px) rotate(45deg); }
 @media (prefers-reduced-motion: reduce) {
   .lo-final-cta .lob-btn--pri:hover { transform: none; }
@@ -904,9 +904,9 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 }
 
 /* Insights: three guide cards built like the case study cards. */
-.lob-insight { color: #fff !important; text-decoration: none; }
+.lob-insight { color: #FFFFFF !important; text-decoration: none; }
 .lob-insight .lob-case-body h3 { margin-bottom: .75rem; }
-.lob-insight-desc { margin: 0 0 1.5rem; font-size: .98rem; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+.lob-insight-desc { margin: 0 0 1.5rem; font-size: .98rem; line-height: 1.6; color: #FFFFFF; }
 .lob-insight .lob-case-cta { margin-top: auto; }
 
 /* Final CTA: text on the left, actions on the right (same split as the section headers). */
@@ -940,36 +940,36 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 }
 .lob-budget-card .lob-budget-card-lead {
   margin: 0 0 1.25rem; padding: 0; border: 0;
-  font: 800 clamp(1.5rem, 2.3vw, 2rem)/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: -.015em; color: #fff; text-wrap: balance;
+  font: 800 clamp(1.5rem, 2.3vw, 2rem)/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: -.015em; color: #FFFFFF; text-wrap: balance;
 }
-.lob-budget-card p { font-size: 1.1rem; line-height: 1.65; color: rgba(255, 255, 255, .72); max-width: 30rem; }
+.lob-budget-card p { font-size: 1.1rem; line-height: 1.65; color: #FFFFFF; max-width: 30rem; }
 .lob-budget-card .lob-actions { margin-top: 2rem; }
 .lob-budget-card .lob-btn {
   width: auto; min-height: 54px; padding: 0 1.6rem; border-radius: 12px; gap: .6rem;
   font: 600 .98rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em; text-transform: none;
-  background: #FF4A00; box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
+  background: #FD4406; box-shadow: 0 10px 30px rgba(253, 68, 6, .32), inset 0 1px 0 rgba(255, 255, 255, .18);
 }
-.lob-budget-card .lob-btn:hover { background: #e64300; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255, 74, 0, .4); }
+.lob-budget-card .lob-btn:hover { background: #FD4406; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(253, 68, 6, .4); }
 @media (max-width: 719px) {
   .lob-budget-card .lob-btn { width: 100%; font-size: .95rem !important; letter-spacing: -.005em; }
 }
 
 /* Formats, What Loud! does and The Loud! difference use the shared section header. */
-.lo-gallery-head .lob-eyebrow { color: #FF4A00; }
-.lo-gallery-head .lob-h2 { margin: 0 0 1.6rem; color: #fff; }
-#services .lo-gallery-head p.lob-lead { max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(255, 255, 255, .72); }
+.lo-gallery-head .lob-eyebrow { color: #FD4406; }
+.lo-gallery-head .lob-h2 { margin: 0 0 1.6rem; color: #FFFFFF; }
+#services .lo-gallery-head p.lob-lead { max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: #FFFFFF; }
 .lo-gallery .lo-gallery-head { margin-bottom: 3rem; }
 .lo-wwd-head-wrap { margin-bottom: 3rem; }
-.lo-wwd-head-wrap .lob-h2 { margin: 0; color: #0A1F3D; }
-.lo-diff .lob-h2 { color: #0A1F3D; }
-.lo-diff .lob-diff-intro.lob-lead { margin: 0 0 3rem; max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: rgba(10, 31, 61, .72); }
+.lo-wwd-head-wrap .lob-h2 { margin: 0; color: #021234; }
+.lo-diff .lob-h2 { color: #021234; }
+.lo-diff .lob-diff-intro.lob-lead { margin: 0 0 3rem; max-width: 36rem; font-size: 1.12rem; line-height: 1.65; color: #021234; }
 .lo-gallery-head h2.lob-h2 {
   margin: 0 0 1.6rem; font: 900 clamp(2.2rem, 3.9vw, 3.4rem)/1.02 "Montserrat", system-ui, sans-serif;
-  letter-spacing: -.012em; text-transform: uppercase; text-wrap: balance; color: #fff;
+  letter-spacing: -.012em; text-transform: uppercase; text-wrap: balance; color: #FFFFFF;
 }
 #services .lo-gallery-head p.lob-eyebrow {
   display: flex; align-items: center; gap: .85rem; max-width: none; margin: 0 0 1.35rem;
-  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FF4A00;
+  font: 800 .8rem/1 "Montserrat", system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: #FD4406;
 }
 @media (max-width: 719px) {
   .lo-gallery-head h2.lob-h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); margin-bottom: 1.2rem; }
@@ -983,18 +983,18 @@ a.lob-case:hover, a.lob-case:focus-visible { color: #fff; }
 @media (hover: none) {
   #home-banner .lo-mz-link:hover { border-color: rgba(255, 255, 255, .32); background: rgba(255, 255, 255, .08); }
   #home-banner .lo-mz-link:hover::after { transform: rotate(45deg); }
-  #home-banner .lo-mz-btn:hover { background: #FF4A00; transform: none; box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
+  #home-banner .lo-mz-btn:hover { background: #FD4406; transform: none; box-shadow: 0 10px 30px rgba(253, 68, 6, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
   .lob-btn:hover, .lo-final-cta .lob-btn--pri:hover, .lob-budget-card .lob-btn:hover { transform: none; }
-  .lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: transparent; color: #0A1F3D !important; }
-  .lob-sec--navy .lob-btn--ghost:hover, #lo-insights-teaser .lob-btn--ghost:hover { background: transparent; color: #fff !important; }
+  .lob-sec--light .lob-btn--ghost:hover, .lob-sec--mist .lob-btn--ghost:hover { background: transparent; color: #021234 !important; }
+  .lob-sec--navy .lob-btn--ghost:hover, #lo-insights-teaser .lob-btn--ghost:hover { background: transparent; color: #FFFFFF !important; }
   .lo-final-cta .lob-btn--ghost:hover { background: rgba(255, 255, 255, .08) !important; border-color: rgba(255, 255, 255, .32); }
   .lo-final-cta .lob-btn--ghost:hover::after { transform: rotate(45deg); }
   .lob-case:hover, .lo-work-card:hover, .lo-diff-vcard:hover, .lo-insight2-card.is-in:hover { transform: none; }
   .lob-case:hover .lob-case-media img, .lo-work-card:hover img, .lo-diff-vcard:hover img { transform: none; }
   .lo-gallery .lo-work-card:hover .lo-work-view svg, .lob-case:hover .lob-case-cta svg { transform: none; background: transparent !important; border-color: rgba(255, 255, 255, .85); }
-  .lob-ledger a:hover { color: #0A1F3D !important; }
-  .lob-ledger a:hover .lob-ledger-mark { background: #FFE9DF; color: #c93800; }
-  .lob-ledger a:hover svg { color: rgba(10, 31, 61, .35); transform: none; }
+  .lob-ledger a:hover { color: #021234 !important; }
+  .lob-ledger a:hover .lob-ledger-mark { background: #FFE9DF; color: #FD4406; }
+  .lob-ledger a:hover svg { color: rgba(2, 18, 52, 0.35); transform: none; }
 }
 
 /* ==========================================================================
@@ -1006,7 +1006,7 @@ html, body { margin: 0; padding: 0; }
 #home-banner.lo-hero-monzo,
 #home-banner.lo-hero-monzo > .h-screen > .h-full,
 #home-banner.lo-hero-monzo .h-full.relative.overflow-hidden {
-  padding: 0 !important; background: #0A1F3D !important;
+  padding: 0 !important; background: #021234 !important;
 }
 #home-banner .lo-mz-shell,
 #home-banner .lo-mz-frame { min-height: 100vh; min-height: 100svh; }
@@ -1016,7 +1016,7 @@ html, body { margin: 0; padding: 0; }
 /* Top of the scrim darkens slightly so the white header text reads on any photo. */
 #home-banner .lo-mz-scrim::after {
   content: ""; position: absolute; inset: 0 0 auto 0; height: 180px; pointer-events: none;
-  background: linear-gradient(180deg, rgba(6, 20, 40, .55) 0%, rgba(6, 20, 40, 0) 100%);
+  background: linear-gradient(180deg, rgba(2, 18, 52, .55) 0%, rgba(2, 18, 52, 0) 100%);
 }
 #home-banner .lo-mz-copy { bottom: 11%; }
 #home-banner .lo-mz-dots { bottom: 2rem; }
@@ -1030,9 +1030,9 @@ html, body { margin: 0; padding: 0; }
   background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .16);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
-.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { color: rgba(255, 255, 255, .86) !important; }
-.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link:hover { color: #fff !important; }
-.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #0A1F3D !important; background: #fff !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { color: #FFFFFF !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link:hover { color: #FFFFFF !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #021234 !important; background: #fff !important; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-toggle span { background: #fff !important; }
 @media (max-width: 719px) {
   #home-banner .lo-mz-copy { padding-top: 6.5rem; padding-bottom: 4.5rem; }
@@ -1042,31 +1042,31 @@ html, body { margin: 0; padding: 0; }
 /* Plain navigation: no pill container; the current page gets an orange underline. */
 .lo-amenu .lo-amenu-links { background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; padding: 0 !important; gap: .25rem !important; }
 .lo-amenu .lo-amenu-link { position: relative; background: none !important; border-radius: 0 !important; }
-.lo-amenu .lo-amenu-link.is-current { background: none !important; box-shadow: none !important; border: 0 !important; color: #0A1F3D !important; }
-.lo-amenu .lo-amenu-link.is-current::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 18px; height: 2px; margin-left: -9px; border-radius: 2px; background: #FF4A00; }
+.lo-amenu .lo-amenu-link.is-current { background: none !important; box-shadow: none !important; border: 0 !important; color: #021234 !important; }
+.lo-amenu .lo-amenu-link.is-current::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 18px; height: 2px; margin-left: -9px; border-radius: 2px; background: #FD4406; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-links { background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #fff !important; background: none !important; }
+.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link.is-current { color: #FFFFFF !important; background: none !important; }
 .lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-link { text-shadow: 0 1px 8px rgba(0, 0, 0, .35) !important; }
 
 /* One button system everywhere (matches the hero pair). */
 .lo-amenu .lo-amenu-cta {
   min-height: 44px !important; padding: 0 1.25rem !important; border-radius: 12px !important;
   font: 600 .92rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em !important; text-transform: none !important;
-  background: #FF4A00 !important; color: #fff !important; border: 0 !important;
-  box-shadow: 0 8px 22px rgba(255, 74, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+  background: #FD4406 !important; color: #FFFFFF !important; border: 0 !important;
+  box-shadow: 0 8px 22px rgba(253, 68, 6, .28), inset 0 1px 0 rgba(255, 255, 255, .18) !important;
   transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
-.lo-amenu .lo-amenu-cta:hover { background: #e64300 !important; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(255, 74, 0, .36) !important; }
+.lo-amenu .lo-amenu-cta:hover { background: #FD4406 !important; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(253, 68, 6, .36) !important; }
 .lo-amenu .lo-amenu-cta:active { transform: scale(.97); }
-@media (hover: none) { .lo-amenu .lo-amenu-cta:hover { background: #FF4A00 !important; transform: none; } }
+@media (hover: none) { .lo-amenu .lo-amenu-cta:hover { background: #FD4406 !important; transform: none; } }
 .lob-btn, .lob-btn--arrow, .lo-final-cta .lob-btn, .lob-budget-card .lob-btn, .lo-wwd-card .lob-btn {
   min-height: 54px; padding: 0 1.6rem; border-radius: 12px; gap: .6rem;
   font: 600 .98rem/1 "Inter", Helvetica, system-ui, sans-serif !important; letter-spacing: -.005em !important; text-transform: none !important;
 }
-.lob-btn--pri, .lob-btn--navy { box-shadow: 0 10px 30px rgba(255, 74, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
-.lob-btn--pri { background: #FF4A00; }
-.lob-btn--pri:hover { background: #e64300; }
-.lob-btn--navy { box-shadow: 0 10px 26px rgba(10, 31, 61, .28), inset 0 1px 0 rgba(255, 255, 255, .12); }
+.lob-btn--pri, .lob-btn--navy { box-shadow: 0 10px 30px rgba(253, 68, 6, .32), inset 0 1px 0 rgba(255, 255, 255, .18); }
+.lob-btn--pri { background: #FD4406; }
+.lob-btn--pri:hover { background: #FD4406; }
+.lob-btn--navy { box-shadow: 0 10px 26px rgba(2, 18, 52, .28), inset 0 1px 0 rgba(255, 255, 255, .12); }
 .lob-btn--arrow svg { width: 1.05rem; height: 1.05rem; }
 .lob-btn--ghost { border-width: 1px; }
 /* Mobile sticky bar: same shape and type. */
@@ -1078,15 +1078,15 @@ html, body { margin: 0; padding: 0; }
    ========================================================================== */
 
 /* POV: entity sentence and the Big Brand Exposure statement. */
-.lob-intro-entity { margin: 1.5rem 0 0; max-width: 32rem; font-size: 1rem; line-height: 1.65; color: rgba(10, 31, 61, .65); }
-.lob-intro-lead { color: #c93800 !important; }
+.lob-intro-entity { margin: 1.5rem 0 0; max-width: 32rem; font-size: 1rem; line-height: 1.65; color: #021234; }
+.lob-intro-lead { color: #FD4406 !important; }
 
 /* Press: compact; button under the copy. */
 .lob-press .lob-actions { margin-top: 1.5rem; }
-.lob-press .lob-btn--ghost { color: #0A1F3D !important; border-color: rgba(10, 31, 61, .25); }
+.lob-press .lob-btn--ghost { color: #021234 !important; border-color: rgba(2, 18, 52, .25); }
 
 /* Budget Lab link in copy. */
-.lob-budget-card p a { color: #fff !important; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; font-weight: 600; }
+.lob-budget-card p a { color: #FFFFFF !important; text-decoration: underline; text-decoration-color: #FD4406; text-underline-offset: 3px; font-weight: 600; }
 
 /* What we buy: eight formats, four across on desktop. */
 .lob-formats8 .lo-work-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
@@ -1099,19 +1099,19 @@ html, body { margin: 0; padding: 0; }
 
 /* DON'T LOOK UP brand moment. */
 .lob-dlu {
-  position: relative; overflow: hidden; isolation: isolate; background: #FF4A00; color: #0A1F3D;
+  position: relative; overflow: hidden; isolation: isolate; background: #FD4406; color: #021234;
   padding-top: clamp(5rem, 10vw, 9rem); padding-bottom: clamp(5rem, 10vw, 9rem);
 }
 .lob-dlu::before {
   content: "\2191"; position: absolute; z-index: -1; right: max(1.5rem, calc(50% - 640px)); top: 50%; translate: 0 -50%;
-  font: 900 clamp(14rem, 34vw, 30rem)/1 "Montserrat", system-ui, sans-serif; color: rgba(255, 255, 255, .14); pointer-events: none;
+  font: 900 clamp(14rem, 34vw, 30rem)/1 "Montserrat", system-ui, sans-serif; color: rgba(255, 255, 255, 0.14); pointer-events: none;
 }
 .lob-dlu-inner { max-width: 52rem; }
 .lob-dlu-title {
-  margin: 0; font: 900 clamp(3.4rem, 10vw, 8.5rem)/.92 "Montserrat", system-ui, sans-serif; letter-spacing: -.03em; text-transform: uppercase; color: #fff;
+  margin: 0; font: 900 clamp(3.4rem, 10vw, 8.5rem)/.92 "Montserrat", system-ui, sans-serif; letter-spacing: -.03em; text-transform: uppercase; color: #FFFFFF;
 }
-.lob-dlu-sub { margin: 1.25rem 0 2.25rem; font: 800 clamp(1.3rem, 2.4vw, 2rem)/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; color: #0A1F3D; }
-.lob-dlu-body { margin: 0 0 .6rem; max-width: 36rem; font-size: 1.15rem; line-height: 1.6; font-weight: 500; color: #0A1F3D; }
+.lob-dlu-sub { margin: 1.25rem 0 2.25rem; font: 800 clamp(1.3rem, 2.4vw, 2rem)/1.2 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; color: #021234; }
+.lob-dlu-body { margin: 0 0 .6rem; max-width: 36rem; font-size: 1.15rem; line-height: 1.6; font-weight: 500; color: #021234; }
 
 /* Clients: eight logos, four across. */
 .lob-logos--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -1136,15 +1136,15 @@ html, body { margin: 0; padding: 0; }
   text-align: center; text-wrap: balance; line-height: 1.15 !important; font-size: .9rem !important;
 }
 .lo-sticky-cta .pri {
-  background: #FF4A00 !important; border: 1px solid #FF4A00 !important; color: #fff !important;
-  box-shadow: 0 8px 22px rgba(255, 74, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .18);
+  background: #FD4406 !important; border: 1px solid #FD4406 !important; color: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(253, 68, 6, .28), inset 0 1px 0 rgba(255, 255, 255, .18);
 }
 .lo-sticky-cta .sec { border: 1px solid rgba(255, 255, 255, .32) !important; background: rgba(255, 255, 255, .06) !important; }
 @media (min-width: 500px) { .lo-sticky-cta a { white-space: nowrap; } }
 @media (max-width: 359px) { .lo-sticky-cta a { font-size: .84rem !important; padding: .35rem .5rem !important; } }
 /* POV: follow-on paragraphs sit tight under the entity sentence; list starts the right column. */
 .lob-intro-entity + .lob-intro-entity { margin-top: .9rem; }
-.lob-intro-entity a { color: #c93800 !important; font-weight: 700; text-decoration: none; }
+.lob-intro-entity a { color: #FD4406 !important; font-weight: 700; text-decoration: none; }
 .lob-intro-body .lob-punch { margin-top: 0; }
 /* Press and point of view are both white: close the gap between them. */
 #lo-press.lob-press { padding-bottom: 3rem; }
@@ -1157,7 +1157,7 @@ html, body { margin: 0; padding: 0; }
 .lob-dlu { text-align: center; }
 .lob-dlu-inner { margin: 0 auto; }
 .lob-dlu-body { margin-left: auto; margin-right: auto; }
-.lob-dlu::before { right: max(1rem, calc(50% - 720px)); translate: 0 -50%; color: rgba(255, 255, 255, .1); }
+.lob-dlu::before { right: max(1rem, calc(50% - 720px)); translate: 0 -50%; color: rgba(255, 255, 255, 0.1); }
 .lob-dlu-body { text-wrap: balance; }
 @media (max-width: 1023px) { .lob-dlu::before { display: none; } }
 /* Current page: orange underline only, same as the other pages (no white box). */
@@ -1174,34 +1174,34 @@ html, body { margin: 0; padding: 0; }
   font: 600 1.05rem/1.4 "Inter", Helvetica, system-ui, sans-serif;
   letter-spacing: normal !important;
   text-transform: none !important;
-  color: #c93800;
+  color: #FD4406;
 }
-.lob-sec--navy .lob-lead-in, .lob-budget .lob-lead-in, .lo-gallery .lob-lead-in { color: #FF4A00; }
+.lob-sec--navy .lob-lead-in, .lob-budget .lob-lead-in, .lo-gallery .lob-lead-in { color: #FD4406; }
 .lob-lead-in::before, .lob-lead-in::after,
 .hero-lead-in::before, .hero-lead-in::after { content: none !important; display: none !important; }
 #home-banner .lo-mz-title .hero-lead-in {
   margin: 0 0 .9rem;
   font-size: clamp(.95rem, 1.3vw, 1.1rem);
-  color: #FF4A00;
+  color: #FD4406;
   text-shadow: none;
 }
-#home-banner .lo-mz-prop a { color: #fff; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+#home-banner .lo-mz-prop a { color: #FFFFFF; text-decoration: underline; text-decoration-color: #FD4406; text-underline-offset: 3px; }
 .lob-intro-entity a { font-weight: 700; }
 #lo-process .lob-head .lob-lead { margin-top: -.6rem; }
 .lob-steps--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.lob-step p a { color: inherit; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
+.lob-step p a { color: inherit; text-decoration: underline; text-decoration-color: #FD4406; text-underline-offset: 3px; }
 @media (max-width: 900px) { .lob-steps--3 { grid-template-columns: minmax(0, 1fr); } }
 
 /* Brief sections 04, 07, 08: Why / Sectors / Pricing guides. */
 #lo-sectors { padding-top: 0; }
 .lob-why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 .lob-why-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.lob-why-card { padding: 1.75rem 1.5rem; border-radius: 20px; background: #F4F5F8; border: 1px solid rgba(10, 31, 61, .06); }
-.lob-why-num { display: block; margin: 0 0 1.1rem; font: 800 .95rem/1 "Montserrat", system-ui, sans-serif; color: #c93800; }
-.lob-why-card h3 { margin: 0 0 .6rem; font: 800 1.2rem/1.25 "Montserrat", system-ui, sans-serif; color: #0A1F3D; }
-.lob-why-card p { margin: 0; font-size: 1rem; line-height: 1.6; color: rgba(10, 31, 61, .72); }
-.lob-why-card a { color: #0A1F3D; font-weight: 700; text-decoration: underline; text-decoration-color: #FF4A00; text-underline-offset: 3px; }
-#lo-guides .lob-lead { max-width: 36rem; color: rgba(255, 255, 255, .72); opacity: 1; }
+.lob-why-card { padding: 1.75rem 1.5rem; border-radius: 20px; background: #F4F5F8; border: 1px solid rgba(2, 18, 52, .06); }
+.lob-why-num { display: block; margin: 0 0 1.1rem; font: 800 .95rem/1 "Montserrat", system-ui, sans-serif; color: #FD4406; }
+.lob-why-card h3 { margin: 0 0 .6rem; font: 800 1.2rem/1.25 "Montserrat", system-ui, sans-serif; color: #021234; }
+.lob-why-card p { margin: 0; font-size: 1rem; line-height: 1.6; color: #021234; }
+.lob-why-card a { color: #021234; font-weight: 700; text-decoration: underline; text-decoration-color: #FD4406; text-underline-offset: 3px; }
+#lo-guides .lob-lead { max-width: 36rem; color: #FFFFFF; opacity: 1; }
 .lob-guides-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
 @media (max-width: 1100px) {
   .lob-why-grid, .lob-guides-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }

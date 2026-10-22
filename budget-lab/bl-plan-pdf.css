@@ -38,7 +38,7 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 9.5pt;
     line-height: 1.5;
-    color: #16233a;
+    color: #021234;
   }
 
   /* ---------- what prints ---------- */
@@ -109,7 +109,7 @@
   /* the checklist keeps its content, loses its form controls */
   body.bl-printing .bl-act-check li{
     padding-left: 12px;
-    border-left: 2px solid #ff4a00;
+    border-left: 2px solid #FD4406;
     margin-bottom: 7px;
   }
   body.bl-printing .bl-act-check label{ display: block; }
@@ -122,7 +122,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    border-bottom: 2px solid #ff4a00;
+    border-bottom: 2px solid #FD4406;
     padding-bottom: 6px;
     margin-bottom: 26px;
   }
@@ -131,11 +131,11 @@
     font-weight: 900;
     font-size: 12pt;
     letter-spacing: .02em;
-    color: #0E1E3C;
+    color: #021234;
     text-transform: uppercase;
   }
-  .bl-pdf-brand em{ font-style: normal; color: #ff4a00; }
-  .bl-pdf-brandmeta{ font-size: 8pt; color: #5b6678; }
+  .bl-pdf-brand em{ font-style: normal; color: #FD4406; }
+  .bl-pdf-brandmeta{ font-size: 8pt; color: #021234; }
 
   .bl-pdf-eyebrow{
     margin: 0 0 8px;
@@ -144,7 +144,7 @@
     font-size: 8pt;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: #ff4a00;
+    color: #FD4406;
   }
   .bl-pdf-title{
     margin: 0 0 10px;
@@ -154,12 +154,12 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: #0E1E3C;
+    color: #021234;
   }
   .bl-pdf-sub{
     margin: 0 0 26px;
     font-size: 10pt;
-    color: #4d5969;
+    color: #021234;
   }
 
   /* headline figures, in the plan's own tile language */
@@ -181,24 +181,24 @@
     font-weight: 900;
     font-size: 17pt;
     line-height: 1.1;
-    color: #0E1E3C;
+    color: #021234;
     font-variant-numeric: tabular-nums;
   }
-  .bl-pdf-fig.is-lead b{ color: #ff4a00; }
+  .bl-pdf-fig.is-lead b{ color: #FD4406; }
   .bl-pdf-fig span{
     display: block;
     margin-top: 4px;
     font-size: 7.5pt;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: #6b7789;
+    color: #021234;
   }
-  .bl-pdf-fig i{ display:block; margin-top:3px; font-style:normal; font-size:8pt; color:#4d5969; }
+  .bl-pdf-fig i{ display:block; margin-top:3px; font-style:normal; font-size:8pt; color:#021234; }
 
   .bl-pdf-verdict{
-    background: #0E1E3C;
-    color: #fff;
-    border-left: 4px solid #ff4a00;
+    background: #021234;
+    color: #FFFFFF;
+    border-left: 4px solid #FD4406;
     padding: 16px 18px;
     margin: 0 0 22px;
     break-inside: avoid;
@@ -210,27 +210,27 @@
     font-size: 8pt;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #ff7a45;
+    color: #FD4406;
   }
   .bl-pdf-verdict h2{
     margin: 0 0 6px;
     font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 13pt;
     font-weight: 800;
-    color: #fff;
+    color: #FFFFFF;
   }
-  .bl-pdf-verdict p:last-child{ margin: 0; font-size: 9.5pt; color: #d7dEEA; }
+  .bl-pdf-verdict p:last-child{ margin: 0; font-size: 9.5pt; color: #FFFFFF; }
 
   .bl-pdf-note{
     font-size: 8.5pt;
-    color: #6b7789;
+    color: #021234;
     border-top: 1px solid #e6eaf0;
     padding-top: 10px;
   }
 
   .bl-pdf-disclaimer{
     font-size: 8pt;
-    color: #6b7789;
+    color: #021234;
     margin-top: 8px;
     font-style: italic;
   }
@@ -300,8 +300,8 @@
     font-size: 12pt;
     text-transform: uppercase;
     letter-spacing: .02em;
-    color: #0E1E3C;
-    border-bottom: 2px solid #ff4a00;
+    color: #021234;
+    border-bottom: 2px solid #FD4406;
     padding-bottom: 6px;
   }
   .bl-pdf-subject{ margin: 0 0 12px; font-size: 9.5pt; }

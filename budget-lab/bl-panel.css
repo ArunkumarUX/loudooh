@@ -11,7 +11,7 @@
   position:fixed;
   inset:0;
   z-index:1200;
-  background:rgba(14,30,60,.42);
+  background:rgba(2, 18, 52, .42);
   opacity:0;
   pointer-events:none;
   transition:opacity .24s ease;
@@ -19,11 +19,11 @@
 .bl-drawer-scrim.is-open{ opacity:1; pointer-events:auto; }
 
 .bl-drawer{
-  --pan-navy:#0E1E3C;
-  --pan-orange:#FF4A00;
+  --pan-navy:#021234;
+  --pan-orange:#FD4406;
   --pan-border:#e2e6ed;
   --pan-face:#fff;
-  --pan-muted:#4d5969;
+  --pan-muted:#021234;
   --pan-head-font:'Montserrat', system-ui, sans-serif;
   --pan-body-font:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
   --pan-chrome:var(--lo-chrome-h, 72px);
@@ -40,7 +40,7 @@
   height:calc(100dvh - var(--pan-chrome));
   border-left:1px solid var(--pan-border);
   background:var(--pan-face);
-  box-shadow:-18px 0 48px rgba(14,30,60,.16);
+  box-shadow:-18px 0 48px rgba(2, 18, 52, .16);
   overflow:hidden;
   font-family:var(--pan-body-font);
 
@@ -90,7 +90,7 @@
 .bl-drawer-tab.is-on{
   background:var(--pan-navy);
   border-color:var(--pan-navy);
-  color:#fff;
+  color:#FFFFFF;
 }
 .bl-drawer-tab:focus-visible{ outline:2px solid var(--pan-orange); outline-offset:2px; }
 

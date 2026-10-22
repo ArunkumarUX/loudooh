@@ -2,7 +2,7 @@
 
 body.bl-lab-asleep {
   background: var(--bg, #edebe8);
-  color: var(--ink, #121826);
+  color: var(--ink, #021234);
 }
 
 body.bl-lab-asleep main.bl-ref-page,
@@ -20,8 +20,8 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
 
 .bl-lab-landing-preview[data-bl-lab-wake]:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 44px rgba(10, 31, 61, 0.16),
-              0 0 0 3px rgba(255, 100, 34, 0.28);
+  box-shadow: 0 18px 44px rgba(2, 18, 52, 0.16),
+              0 0 0 3px rgba(253, 68, 6, 0.28);
 }
 
 .bl-lab-landing-preview[data-bl-lab-wake]:active {
@@ -29,7 +29,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
 }
 
 .bl-lab-landing-preview[data-bl-lab-wake]:focus-visible {
-  outline: 2px solid var(--orange, #ff4a00);
+  outline: 2px solid var(--orange, #FD4406);
   outline-offset: 4px;
   border-radius: 12px;
 }
@@ -62,7 +62,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   overflow: visible;
   min-height: 100svh;
   min-height: 100vh;
-  background: var(--navy, #0a1f3d);
+  background: var(--navy, #021234);
   box-shadow: none;
 }
 
@@ -90,16 +90,16 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   background:
     linear-gradient(
       105deg,
-      rgba(8, 25, 50, 0.94) 0%,
-      rgba(10, 31, 61, 0.84) 34%,
-      rgba(10, 31, 61, 0.5) 62%,
-      rgba(10, 31, 61, 0.7) 100%
+      rgba(2, 18, 52, 0.94) 0%,
+      rgba(2, 18, 52, 0.84) 34%,
+      rgba(2, 18, 52, 0.5) 62%,
+      rgba(2, 18, 52, 0.7) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(8, 25, 50, 0.45) 0%,
+      rgba(2, 18, 52, 0.45) 0%,
       transparent 38%,
-      rgba(8, 25, 50, 0.52) 100%
+      rgba(2, 18, 52, 0.52) 100%
     );
 }
 
@@ -138,7 +138,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
   line-height: 1.2;
 }
 
@@ -150,11 +150,11 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-title .bl-accent {
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-lead {
@@ -162,7 +162,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   max-width: 40ch;
   font-size: clamp(0.95rem, 1.4vw, 1.05rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-checks {
@@ -179,7 +179,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   gap: 12px;
   font-size: 14px;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-checks li::before {
@@ -192,8 +192,8 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   place-items: center;
   font-size: 11px;
   font-weight: 800;
-  color: #fff;
-  background: var(--orange, #ff4a00);
+  color: #FFFFFF;
+  background: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-cta {
@@ -204,31 +204,31 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
   padding: 14px 22px;
   border: 0;
   border-radius: 0;
-  background: var(--orange, #ff4a00);
-  color: #fff;
+  background: var(--orange, #FD4406);
+  color: #FFFFFF;
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
-  box-shadow: 0 12px 32px -12px rgba(255, 74, 0, 0.55);
+  box-shadow: 0 12px 32px -12px rgba(253, 68, 6, 0.55);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .bl-lab-landing-cta:hover {
-  background: var(--orange-hover, #e64100);
+  background: var(--orange-hover, #FD4406);
   transform: translateY(-1px);
 }
 
 .bl-lab-landing-cta:focus-visible {
-  outline: 2px solid var(--orange, #ff4a00);
+  outline: 2px solid var(--orange, #FD4406);
   outline-offset: 2px;
 }
 
 .bl-lab-landing-note {
   margin: 0;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.52);
+  color: #FFFFFF;
 }
 
 /* Trust bar */
@@ -294,10 +294,10 @@ body.bl-lab-awake .lo-amenu-row .bl-lab-back-btn {
   flex: 0 0 auto;
   margin-right: clamp(8px, 1.5vw, 16px);
   padding: 7px 12px;
-  border: 1px solid rgba(10, 31, 61, 0.12);
+  border: 1px solid rgba(2, 18, 52, 0.12);
   border-radius: 999px;
   background: #fff;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -307,7 +307,7 @@ body.bl-lab-awake .lo-amenu-row .bl-lab-back-btn {
 }
 
 body.bl-lab-awake .lo-amenu-row .bl-lab-back-btn:hover {
-  border-color: rgba(10, 31, 61, 0.22);
+  border-color: rgba(2, 18, 52, 0.22);
   background: #f7f8fa;
 }
 
@@ -330,15 +330,15 @@ body.bl-lab-awake .lo-amenu-row .lo-breadcrumb--menu .lo-breadcrumb-list {
   flex-wrap: nowrap;
   font-size: 12px;
   font-weight: 600;
-  color: rgba(10, 31, 61, 0.45);
+  color: rgba(2, 18, 52, 0.45);
 }
 
 body.bl-lab-awake .lo-amenu-row .lo-breadcrumb--menu .lo-breadcrumb-list a {
-  color: rgba(10, 31, 61, 0.62);
+  color: #021234;
 }
 
 body.bl-lab-awake .lo-amenu-row .lo-breadcrumb--menu .lo-breadcrumb-current {
-  color: rgba(10, 31, 61, 0.88);
+  color: #021234;
 }
 
 body.bl-lab-awake .lo-amenu-row {
@@ -363,10 +363,10 @@ body.bl-lab-awake main.bl-ref-page {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  border: 1px solid rgba(10, 31, 61, 0.12);
+  border: 1px solid rgba(2, 18, 52, 0.12);
   border-radius: 999px;
   background: #fff;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -375,7 +375,7 @@ body.bl-lab-awake main.bl-ref-page {
 }
 
 .bl-lab-back-btn:hover {
-  border-color: rgba(10, 31, 61, 0.22);
+  border-color: rgba(2, 18, 52, 0.22);
   background: #f7f8fa;
 }
 
@@ -419,9 +419,9 @@ body.bl-lab-awake .bl-lab-marketing {
     background:
       linear-gradient(
         180deg,
-        rgba(8, 25, 50, 0.92) 0%,
-        rgba(10, 31, 61, 0.78) 42%,
-        rgba(10, 31, 61, 0.55) 100%
+        rgba(2, 18, 52, 0.92) 0%,
+        rgba(2, 18, 52, 0.78) 42%,
+        rgba(2, 18, 52, 0.55) 100%
       );
   }
 }
@@ -435,7 +435,7 @@ body.bl-lab-awake .bl-lab-marketing {
 
 /* Trademark mark — superscript, brand orange */
 .bl-tm {
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
   font-size: 0.55em;
   vertical-align: super;
   margin-left: 0.12em;

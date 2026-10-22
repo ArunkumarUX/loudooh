@@ -111,7 +111,7 @@
 .bl-act-cancel:focus-visible,
 #hl-opp-sort:focus-visible,
 #hl-budget-input:focus-visible{
-  outline:2px solid #FF4A00;
+  outline:2px solid #FD4406;
   outline-offset:2px;
 }
 

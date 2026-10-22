@@ -1,5 +1,5 @@
 /* Loud! OOH — Budget Lab brand alignment
-   Tokens: navy #0A1F3D · orange #FF4A00 · sand #EDEBE8
+   Tokens: navy #021234 · orange #FD4406 · sand #EDEBE8
    Type: Montserrat headings · Inter body */
 
 .bl-ref-page {
@@ -22,7 +22,7 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #fff !important;
+  color: #FFFFFF !important;
 }
 
 .bl-sidebar-ai-apply {
@@ -35,19 +35,19 @@
 .bl-sidebar-ai-apply:hover,
 .bl-mock-plan-cta:hover {
   background: var(--orange-hover) !important;
-  color: #fff !important;
+  color: #FFFFFF !important;
 }
 
 .bl-sidebar-ai-preview {
   border-color: rgba(255, 255, 255, 0.22) !important;
-  color: #fff !important;
+  color: #FFFFFF !important;
   background: transparent !important;
 }
 
 .bl-sidebar-ai-preview:hover {
   border-color: var(--orange) !important;
-  color: #fff !important;
-  background: rgba(255, 74, 0, 0.14) !important;
+  color: #FFFFFF !important;
+  background: rgba(253, 68, 6, 0.14) !important;
 }
 
 /* Sidebar AI insight — flat on navy panel */
@@ -58,7 +58,7 @@
 }
 
 .bl-sidebar-ai-copy {
-  color: rgba(255, 255, 255, 0.88) !important;
+  color: #FFFFFF !important;
 }
 
 /* Sidebar brand lockup */
@@ -108,25 +108,25 @@
 
 .bl-ref-search-wrap .bl-campaign-obj-card strong,
 .bl-ref-search-wrap .bl-campaign-obj-card .bl-campaign-option-name {
-  color: rgba(255, 255, 255, 0.96) !important;
+  color: #FFFFFF !important;
 }
 
 .bl-ref-search-wrap .bl-campaign-obj-card > span:not(.bl-campaign-picker-check),
 .bl-ref-search-wrap .bl-campaign-obj-card .bl-campaign-option-meta {
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: #FFFFFF !important;
 }
 
 .bl-ref-search-wrap .bl-campaign-obj-card.is-on {
-  background: rgba(255, 74, 0, 0.18) !important;
-  border-color: rgba(255, 74, 0, 0.45) !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 74, 0, 0.15);
+  background: rgba(253, 68, 6, 0.18) !important;
+  border-color: rgba(253, 68, 6, 0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(253, 68, 6, 0.15);
 }
 
 .bl-ref-search-wrap .bl-campaign-obj-card.is-on strong,
 .bl-ref-search-wrap .bl-campaign-obj-card.is-on .bl-campaign-option-name,
 .bl-ref-search-wrap .bl-campaign-obj-card.is-on > span:not(.bl-campaign-picker-check),
 .bl-ref-search-wrap .bl-campaign-obj-card.is-on .bl-campaign-option-meta {
-  color: #fff !important;
+  color: #FFFFFF !important;
 }
 
 /* Opportunity cards — insights guide-list parity */
@@ -177,7 +177,7 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: #06182f;
+  color: #021234;
   background: none;
   border: 0;
   width: 100%;
@@ -188,7 +188,7 @@
 .lo-faq-q .lo-faq-plus {
   flex-shrink: 0;
   font-size: 20px;
-  color: #ff4a00;
+  color: #FD4406;
   transition: transform 0.25s ease;
   font-weight: 400;
 }
@@ -213,7 +213,7 @@
   font-family: "Inter", system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(34, 48, 63, 0.72);
+  color: #021234;
 }
 
 .lo-faq-a > p {
@@ -222,7 +222,7 @@
   font-family: "Inter", system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.6;
-  color: #5a6472;
+  color: #021234;
 }
 
 @media (max-width: 1023px) {
@@ -327,13 +327,13 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.35;
-  color: #06182f;
+  color: #021234;
   text-transform: none;
   letter-spacing: 0;
 }
 
 #bl-matrix-body .bl-cat-head:hover .bl-cat-name {
-  color: #ff4a00;
+  color: #FD4406;
 }
 
 .bl-cat-head-meta {
@@ -349,7 +349,7 @@
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0;
-  color: #5a6472;
+  color: #021234;
 }
 
 #bl-matrix-body .bl-cat-body {
@@ -367,7 +367,7 @@
   overflow: hidden;
   border: 1px solid #e4e8ef;
   background: #fff;
-  box-shadow: 0 18px 46px rgba(19, 50, 92, 0.1);
+  box-shadow: 0 18px 46px rgba(2, 18, 52, 0.1);
   max-width: 100%;
 }
 
@@ -406,8 +406,8 @@
 }
 
 #bl-matrix-body table.bl-pricing-table thead th {
-  background: #13325c;
-  color: #fff;
+  background: #021234;
+  color: #FFFFFF;
   text-align: left;
   padding: 13px 16px;
   font-weight: 900;
@@ -427,7 +427,7 @@
   padding: 16px;
   border-top: 1px solid #edeff4;
   border-right: 1px solid #edeff4;
-  color: #13325c;
+  color: #021234;
   vertical-align: top;
   background: #fff;
 }
@@ -439,27 +439,27 @@
 .bl-format-title {
   font-weight: 900;
   font-size: 14px;
-  color: #13325c;
+  color: #021234;
   margin: 0 0 6px;
 }
 
 .bl-format-desc {
   font-size: 12px;
   line-height: 1.45;
-  color: #6b7a92;
+  color: #021234;
   margin: 0;
 }
 
 .bl-price-val {
   font-weight: 900;
   font-size: 14px;
-  color: #13325c;
+  color: #021234;
   margin: 0 0 4px;
 }
 
 .bl-price-sub {
   font-size: 11.5px;
-  color: #8593a8;
+  color: #021234;
   margin: 0;
 }
 
@@ -474,19 +474,19 @@
   border-radius: 999px;
   border: 1px solid #e4e8ef;
   background: #f7f9fc;
-  color: #13325c;
+  color: #021234;
 }
 
 .bl-format-tag--published {
-  border-color: rgba(254, 72, 27, 0.35);
-  background: rgba(254, 72, 27, 0.08);
-  color: #fe481b;
+  border-color: rgba(253, 68, 6, 0.35);
+  background: rgba(253, 68, 6, 0.08);
+  color: #FD4406;
 }
 
 .bl-format-tag--planning {
-  border-color: rgba(19, 50, 92, 0.25);
-  background: rgba(19, 50, 92, 0.06);
-  color: #13325c;
+  border-color: rgba(2, 18, 52, 0.25);
+  background: rgba(2, 18, 52, 0.06);
+  color: #021234;
 }
 
 @media (max-width: 1023px) {

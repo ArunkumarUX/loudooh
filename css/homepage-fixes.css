@@ -16,7 +16,7 @@
   --lo-space-5: 32px;
   --lo-space-6: 48px;
   --lo-space-7: 64px;
-  --lo-orange-accessible: #c93800;
+  --lo-orange-accessible: #FD4406;
   --lo-radius-card: 24px;
   --lo-radius-btn: 12px;
 }
@@ -46,7 +46,7 @@ video {
 
 /* ---- Accessibility: focus ---- */
 :where(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
-  outline: 2px solid #ff4a00;
+  outline: 2px solid #FD4406;
   outline-offset: 3px;
 }
 
@@ -59,21 +59,21 @@ video {
 /* Final CTA + sticky bar: white on accessible orange (AA at 14px) */
 .lo-final-cta .pri,
 .lo-sticky-cta .pri {
-  color: #fff !important;
-  background: #c93800 !important;
-  border: 1px solid #c93800;
+  color: #FFFFFF !important;
+  background: #FD4406 !important;
+  border: 1px solid #FD4406;
 }
 
 .lo-final-cta .pri:hover,
 .lo-sticky-cta .pri:hover {
-  background: #a93000 !important;
-  border-color: #a93000;
-  color: #fff !important;
+  background: #FD4406 !important;
+  border-color: #FD4406;
+  color: #FFFFFF !important;
 }
 
 .lo-final-cta .sec,
 .lo-sticky-cta .sec {
-  color: #fff !important;
+  color: #FFFFFF !important;
 }
 
 /* ---- Hide Mude template chrome (replaced by Loud scripts) ---- */
@@ -107,11 +107,11 @@ video {
   font-size: clamp(1.5rem, 2.8vw, 2.1rem);
   letter-spacing: -0.01em;
   line-height: 1.12;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 #services.lo-gallery .lo-gallery-head h2.bl-ref-title .bl-accent {
-  color: #fff;
+  color: #FFFFFF;
 }
 
 #services.lo-gallery .lo-gallery-head p {
@@ -120,7 +120,7 @@ video {
   font-family: "Inter", Helvetica, system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: #FFFFFF;
 }
 
 /* ---- Hero (Monzo shell) ---- */
@@ -160,12 +160,12 @@ video {
 
 .lo-mz-scrim {
   background:
-    linear-gradient(90deg, rgba(10, 31, 61, 0.94) 0%, rgba(10, 31, 61, 0.82) 28%, rgba(10, 31, 61, 0.4) 52%, rgba(10, 31, 61, 0.12) 72%, rgba(10, 31, 61, 0.18) 100%),
-    linear-gradient(180deg, rgba(10, 31, 61, 0.36) 0%, transparent 30%, rgba(10, 31, 61, 0.4) 100%) !important;
+    linear-gradient(90deg, rgba(2, 18, 52, 0.94) 0%, rgba(2, 18, 52, 0.82) 28%, rgba(2, 18, 52, 0.4) 52%, rgba(2, 18, 52, 0.12) 72%, rgba(2, 18, 52, 0.18) 100%),
+    linear-gradient(180deg, rgba(2, 18, 52, 0.36) 0%, transparent 30%, rgba(2, 18, 52, 0.4) 100%) !important;
 }
 
 .lo-mz-copy {
-  text-shadow: 0 2px 24px rgba(10, 31, 61, 0.55);
+  text-shadow: 0 2px 24px rgba(2, 18, 52, 0.55);
 }
 
 .lo-mz-title {
@@ -189,8 +189,8 @@ video {
 }
 
 .lo-mz-btn:hover {
-  background: #e64300;
-  color: #fff;
+  background: #FD4406;
+  color: #FFFFFF;
 }
 
 .lo-mz-actions {
@@ -247,8 +247,8 @@ video {
   /* Copy sits at the bottom on phones — wash the lower half, crop the quote. */
   .lo-mz-scrim {
     background:
-      linear-gradient(180deg, rgba(10, 31, 61, 0.42) 0%, rgba(10, 31, 61, 0.55) 38%, rgba(10, 31, 61, 0.88) 100%),
-      linear-gradient(90deg, rgba(10, 31, 61, 0.62) 0%, rgba(10, 31, 61, 0.22) 100%) !important;
+      linear-gradient(180deg, rgba(2, 18, 52, 0.42) 0%, rgba(2, 18, 52, 0.55) 38%, rgba(2, 18, 52, 0.88) 100%),
+      linear-gradient(90deg, rgba(2, 18, 52, 0.62) 0%, rgba(2, 18, 52, 0.22) 100%) !important;
   }
 
   .lo-mz-slide img[src*="york-street"] {

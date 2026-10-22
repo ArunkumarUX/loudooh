@@ -22,7 +22,7 @@
 
 /* Hero split — navy band */
 .bl-ref-hero-band {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 55%, #061528 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 55%, #021234 100%);
   padding: clamp(36px, 5vw, 56px) 0 clamp(32px, 4vw, 48px);
   position: relative;
   overflow: visible;
@@ -32,7 +32,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(255, 74, 0, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(253, 68, 6, 0.12), transparent 55%),
     radial-gradient(ellipse 40% 60% at 0% 100%, rgba(255, 255, 255, 0.04), transparent 50%);
   pointer-events: none;
 }
@@ -50,7 +50,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
 }
 .bl-ref-title {
   margin: 0 0 14px;
@@ -59,7 +59,7 @@
   font-size: clamp(34px, 4.5vw, 52px);
   line-height: 1.06;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: #FFFFFF;
   text-transform: uppercase;
 }
 .bl-ref-title .bl-accent {
@@ -81,7 +81,7 @@
   margin: 0;
   font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
+  color: #FFFFFF;
   max-width: 34rem;
 }
 .bl-ref-hero-visual {
@@ -186,7 +186,7 @@
 }
 .bl-ref-search-wrap .bl-lab-status {
   padding: 12px 4px 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: #FFFFFF;
 }
 .bl-ref-search-wrap .bl-lab-live {
   color: #6ee7b7;
@@ -241,7 +241,7 @@
   background: #fff;
   color: var(--ink);
   border-radius: 28px;
-  box-shadow: 0 24px 64px -28px rgba(10, 31, 61, 0.14);
+  box-shadow: 0 24px 64px -28px rgba(2, 18, 52, 0.14);
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
@@ -298,13 +298,13 @@
   background: #fff;
   border-radius: 20px;
   box-shadow:
-    0 8px 32px -12px rgba(10, 31, 61, 0.14),
-    0 0 0 1px rgba(10, 31, 61, 0.06);
+    0 8px 32px -12px rgba(2, 18, 52, 0.14),
+    0 0 0 1px rgba(2, 18, 52, 0.06);
   overflow: hidden;
 }
 .bl-lab-field {
   padding: 20px 18px;
-  border-right: 1px solid rgba(10, 31, 61, 0.06);
+  border-right: 1px solid rgba(2, 18, 52, 0.06);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -316,7 +316,7 @@
 }
 .bl-lab-field:hover,
 .bl-lab-field:focus-within {
-  background: rgba(255, 74, 0, 0.025);
+  background: rgba(253, 68, 6, 0.025);
 }
 .bl-lab-field label {
   font-size: 10px;
@@ -367,7 +367,7 @@
   border: 0;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-  color: #fff;
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -377,7 +377,7 @@
   justify-content: center;
   gap: 8px;
   white-space: nowrap;
-  box-shadow: 0 8px 24px -8px rgba(10, 31, 61, 0.45);
+  box-shadow: 0 8px 24px -8px rgba(2, 18, 52, 0.45);
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background 0.25s ease;
 }
 .bl-lab-recalc-icon {
@@ -387,7 +387,7 @@
 .bl-lab-recalc:hover {
   background: linear-gradient(135deg, var(--orange) 0%, var(--orange-hover) 100%);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 14px 32px -10px rgba(255, 74, 0, 0.5);
+  box-shadow: 0 14px 32px -10px rgba(253, 68, 6, 0.5);
 }
 .bl-lab-recalc:active {
   transform: translateY(0) scale(0.98);
@@ -416,7 +416,7 @@
 .bl-lab-status-spin {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(255, 74, 0, 0.2);
+  border: 2px solid rgba(253, 68, 6, 0.2);
   border-top-color: var(--orange);
   border-radius: 50%;
   animation: blLabSpin 0.7s linear infinite;
@@ -455,8 +455,8 @@
   padding: 24px 20px;
   background: #fff;
   border-radius: 20px;
-  border: 1px solid rgba(10, 31, 61, 0.05);
-  box-shadow: 0 6px 24px -14px rgba(10, 31, 61, 0.12);
+  border: 1px solid rgba(2, 18, 52, 0.05);
+  box-shadow: 0 6px 24px -14px rgba(2, 18, 52, 0.12);
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s ease,
@@ -466,7 +466,7 @@
 .bl-lab-widget-lux.is-recalc .bl-lab-kpi,
 .bl-plan-builder.is-recalc .bl-lab-kpi {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px -16px rgba(10, 31, 61, 0.18);
+  box-shadow: 0 14px 36px -16px rgba(2, 18, 52, 0.18);
   background: #fff;
 }
 .bl-lab-kpi-icon {
@@ -481,15 +481,15 @@
   display: block;
 }
 .bl-lab-kpi-icon-navy {
-  background: linear-gradient(135deg, rgba(10, 31, 61, 0.08), rgba(10, 31, 61, 0.04));
+  background: linear-gradient(135deg, rgba(2, 18, 52, 0.08), rgba(2, 18, 52, 0.04));
   color: var(--navy);
 }
 .bl-lab-kpi-icon-blue {
   background: linear-gradient(135deg, rgba(59, 111, 224, 0.14), rgba(59, 111, 224, 0.06));
-  color: #3b6fe0;
+  color: #021234;
 }
 .bl-lab-kpi-icon-orange {
-  background: linear-gradient(135deg, var(--orange-soft), rgba(255, 74, 0, 0.06));
+  background: linear-gradient(135deg, var(--orange-soft), rgba(253, 68, 6, 0.06));
   color: var(--orange);
 }
 .bl-lab-kpi-icon-green {
@@ -542,7 +542,7 @@
 }
 .bl-lab-delta-flat {
   color: var(--muted);
-  background: rgba(10, 31, 61, 0.05);
+  background: rgba(2, 18, 52, 0.05);
 }
 
 /* Split panels */
@@ -555,8 +555,8 @@
   padding: 28px 24px;
   background: #fff;
   border-radius: 22px;
-  border: 1px solid rgba(10, 31, 61, 0.05);
-  box-shadow: 0 8px 32px -16px rgba(10, 31, 61, 0.1);
+  border: 1px solid rgba(2, 18, 52, 0.05);
+  box-shadow: 0 8px 32px -16px rgba(2, 18, 52, 0.1);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
 .bl-lab-widget.is-recalc .bl-lab-card,
@@ -599,10 +599,10 @@
   background: linear-gradient(145deg, #fff 0%, var(--lux-cream) 100%);
   border-radius: 20px;
   padding: 24px 22px;
-  border: 1px solid rgba(10, 31, 61, 0.05);
+  border: 1px solid rgba(2, 18, 52, 0.05);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    0 12px 40px -20px rgba(10, 31, 61, 0.1);
+    0 12px 40px -20px rgba(2, 18, 52, 0.1);
 }
 .bl-lab-donut-lux {
   position: relative;
@@ -627,7 +627,7 @@
   gap: 12px 14px;
   align-items: center;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(10, 31, 61, 0.05);
+  border-bottom: 1px solid rgba(2, 18, 52, 0.05);
   font-size: 13px;
   color: var(--muted);
   transition: background 0.25s ease;
@@ -667,7 +667,7 @@
   display: block;
   height: 3px;
   border-radius: 99px;
-  background: rgba(10, 31, 61, 0.06);
+  background: rgba(2, 18, 52, 0.06);
   overflow: hidden;
 }
 .bl-legend-fill {
@@ -707,8 +707,8 @@
   margin-top: 14px;
   padding: 14px 16px;
   border-radius: 12px;
-  background: rgba(10, 31, 61, 0.03);
-  border: 1px solid rgba(10, 31, 61, 0.05);
+  background: rgba(2, 18, 52, 0.03);
+  border: 1px solid rgba(2, 18, 52, 0.05);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -731,7 +731,7 @@
   padding: 16px 18px;
   border-radius: 16px;
   background: linear-gradient(135deg, var(--orange-soft) 0%, rgba(255, 241, 234, 0.5) 100%);
-  border: 1px solid rgba(255, 74, 0, 0.1);
+  border: 1px solid rgba(253, 68, 6, 0.1);
 }
 .bl-lab-tip-icon {
   color: var(--orange);
@@ -784,7 +784,7 @@
   width: 168px;
   height: 168px;
   display: block;
-  filter: drop-shadow(0 4px 12px rgba(10, 31, 61, 0.06));
+  filter: drop-shadow(0 4px 12px rgba(2, 18, 52, 0.06));
 }
 .bl-donut-wrap-lux::before {
   content: "";
@@ -794,7 +794,7 @@
   background: radial-gradient(circle at 35% 30%, #fff 0%, var(--lux-cream) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 8px 24px -12px rgba(10, 31, 61, 0.12);
+    0 8px 24px -12px rgba(2, 18, 52, 0.12);
   z-index: 0;
 }
 .bl-donut-wrap-lux svg {
@@ -831,8 +831,8 @@
 .bl-lab-card:has(.bl-lab-donut-lux) {
   background: linear-gradient(180deg, #fff 0%, #fdfcfb 100%);
   box-shadow:
-    0 16px 48px -24px rgba(10, 31, 61, 0.14),
-    0 0 0 1px rgba(10, 31, 61, 0.04);
+    0 16px 48px -24px rgba(2, 18, 52, 0.14),
+    0 0 0 1px rgba(2, 18, 52, 0.04);
 }
 .bl-lab-card:has(.bl-lab-donut-lux) h2 {
   font-size: 13px;
@@ -871,10 +871,10 @@
   border-radius: 18px;
   overflow: hidden;
   background: #eef2f6;
-  border: 1px solid rgba(10, 31, 61, 0.06);
+  border: 1px solid rgba(2, 18, 52, 0.06);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    0 12px 40px -24px rgba(10, 31, 61, 0.12);
+    0 12px 40px -24px rgba(2, 18, 52, 0.12);
 }
 .bl-lab-map-live {
   isolation: isolate;
@@ -897,7 +897,7 @@
   pointer-events: none;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
-    linear-gradient(0deg, rgba(10, 31, 61, 0.04) 0%, transparent 22%);
+    linear-gradient(0deg, rgba(2, 18, 52, 0.04) 0%, transparent 22%);
 }
 .bl-lab-map-ui {
   position: absolute;
@@ -911,7 +911,7 @@
 .bl-lab-map-ui button {
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   border-radius: 11px;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
@@ -919,13 +919,13 @@
   line-height: 1;
   cursor: pointer;
   color: var(--navy);
-  box-shadow: 0 4px 14px -8px rgba(10, 31, 61, 0.2);
+  box-shadow: 0 4px 14px -8px rgba(2, 18, 52, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .bl-lab-map-ui button:hover {
   transform: scale(1.04);
   background: #fff;
-  box-shadow: 0 8px 20px -10px rgba(10, 31, 61, 0.25);
+  box-shadow: 0 8px 20px -10px rgba(2, 18, 52, 0.25);
 }
 .bl-lab-map-ui button:active {
   transform: scale(0.98);
@@ -939,12 +939,12 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(10, 31, 61, 0.06);
+  border: 1px solid rgba(2, 18, 52, 0.06);
   font-size: 11px;
   font-weight: 600;
   color: var(--navy);
   letter-spacing: 0.01em;
-  box-shadow: 0 4px 14px -10px rgba(10, 31, 61, 0.18);
+  box-shadow: 0 4px 14px -10px rgba(2, 18, 52, 0.18);
   pointer-events: none;
 }
 .bl-lab-map .leaflet-control-attribution {
@@ -953,10 +953,10 @@
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.75);
   font-size: 9px;
-  color: rgba(10, 31, 61, 0.55);
+  color: #021234;
 }
 .bl-lab-map .leaflet-control-attribution a {
-  color: rgba(10, 31, 61, 0.65);
+  color: #021234;
 }
 .bl-map-marker-wrap {
   background: transparent !important;
@@ -977,7 +977,7 @@
   border-radius: 50%;
   background: var(--c);
   border: 2px solid #fff;
-  box-shadow: 0 4px 12px -4px rgba(10, 31, 61, 0.35);
+  box-shadow: 0 4px 12px -4px rgba(2, 18, 52, 0.35);
   z-index: 2;
 }
 .bl-map-marker-ring {
@@ -1009,8 +1009,8 @@
 .bl-map-popup-wrap .leaflet-popup-content-wrapper {
   border-radius: 12px;
   padding: 0;
-  border: 1px solid rgba(10, 31, 61, 0.06);
-  box-shadow: 0 12px 32px -16px rgba(10, 31, 61, 0.25);
+  border: 1px solid rgba(2, 18, 52, 0.06);
+  box-shadow: 0 12px 32px -16px rgba(2, 18, 52, 0.25);
 }
 .bl-map-popup-wrap .leaflet-popup-content {
   margin: 10px 12px;
@@ -1071,7 +1071,7 @@
   color: var(--ink);
 }
 .bl-planner-details {
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   border-radius: 18px;
   background: transparent;
   overflow: hidden;
@@ -1089,7 +1089,7 @@
   border-bottom-color: var(--muted);
 }
 .bl-planner-details .bl-calc {
-  border-top: 1px solid rgba(10, 31, 61, 0.08);
+  border-top: 1px solid rgba(2, 18, 52, 0.08);
 }
 
 /* Below hero */
@@ -1104,14 +1104,14 @@
   padding: 32px;
   border-radius: 24px;
   background: #fff;
-  border: 1px solid rgba(10, 31, 61, 0.05);
-  box-shadow: 0 12px 40px -20px rgba(10, 31, 61, 0.12);
+  border: 1px solid rgba(2, 18, 52, 0.05);
+  box-shadow: 0 12px 40px -20px rgba(2, 18, 52, 0.12);
 }
 .bl-lab-insight-badge {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 74, 0, 0.1);
+  background: rgba(253, 68, 6, 0.1);
   color: var(--orange);
   font-size: 11px;
   font-weight: 700;
@@ -1132,7 +1132,7 @@
   font-family: "Inter", Helvetica, system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.6;
-  color: rgba(10, 31, 61, 0.62);
+  color: #021234;
 }
 .bl-lab-insight-cols {
   display: grid;
@@ -1143,12 +1143,12 @@
   background: var(--sand);
   border-radius: 16px;
   padding: 20px 18px;
-  border: 1px solid rgba(10, 31, 61, 0.04);
+  border: 1px solid rgba(2, 18, 52, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .bl-lab-insight-col:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -12px rgba(10, 31, 61, 0.1);
+  box-shadow: 0 8px 24px -12px rgba(2, 18, 52, 0.1);
 }
 .bl-lab-insight-col strong {
   display: block;
@@ -1182,7 +1182,7 @@
   gap: 14px;
 }
 .bl-lab-tier-card {
-  border: 2px solid rgba(10, 31, 61, 0.08);
+  border: 2px solid rgba(2, 18, 52, 0.08);
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -1194,11 +1194,11 @@
 }
 .bl-lab-tier-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px -12px rgba(10, 31, 61, 0.15);
+  box-shadow: 0 12px 28px -12px rgba(2, 18, 52, 0.15);
 }
 .bl-lab-tier-card.is-active {
   border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(255, 74, 0, 0.12), 0 12px 32px -12px rgba(255, 74, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(253, 68, 6, 0.12), 0 12px 32px -12px rgba(253, 68, 6, 0.2);
 }
 .bl-lab-tier-card img {
   width: 100%;
@@ -1232,10 +1232,10 @@
 .bl-ref-cta-band {
   margin: 8px 24px 48px;
   border-radius: 24px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 45%, #0d2848 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 45%, #021234 100%);
   padding: clamp(40px, 5vw, 56px) 24px;
   text-align: center;
-  color: #fff;
+  color: #FFFFFF;
   position: relative;
   overflow: hidden;
 }
@@ -1243,7 +1243,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 85% 20%, rgba(255, 74, 0, 0.35), transparent 45%);
+  background: radial-gradient(circle at 85% 20%, rgba(253, 68, 6, 0.35), transparent 45%);
   pointer-events: none;
 }
 .bl-ref-cta-inner {
@@ -1264,7 +1264,7 @@
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: #FFFFFF;
 }
 .bl-ref-cta-inner > p {
   margin: 0 0 24px;
@@ -1292,7 +1292,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--orange);
-  color: #fff;
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -1394,7 +1394,7 @@
   }
   .bl-lab-field {
     border-right: 0;
-    border-bottom: 1px solid rgba(10, 31, 61, 0.06);
+    border-bottom: 1px solid rgba(2, 18, 52, 0.06);
     padding: 16px 14px;
   }
   .bl-lab-field-budget,

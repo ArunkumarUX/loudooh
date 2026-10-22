@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UK OOH Pricing 2026 | Loud! OOH</title>
 <meta name="description" content="Real out-of-home prices for every UK format - billboard, rail, airport, taxi, bus and more. Published openly, no markups.">
-<meta name="theme-color" content="#13325C">
+<meta name="theme-color" content="#021234">
 <script src="../../js/dc/support.js?v=20260715"></script>
 </head>
 <body>
@@ -14,20 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../css/styles.css?v=20260715">
-  <link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2">
+<link rel="stylesheet" href="../../css/styles.css?v=20260715-lc2">
+  <link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2-lc2">
 <link rel="stylesheet" href="/css/ashii-type.css?v=7">
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #FFFFFF; color: #13325C; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #FE481B; text-decoration: none; }
-  a:hover { color: #d43a12; }
-  ::selection { background: #FE481B; color: #fff; }
+  body { margin: 0; background: #FFFFFF; color: #021234; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #FD4406; text-decoration: none; }
+  a:hover { color: #FD4406; }
+  ::selection { background: #FD4406; color: #FFFFFF; }
   .pricing-hero {
     position: relative;
-    background: #0e1e3c;
-    color: #fff;
+    background: #021234;
+    color: #FFFFFF;
     overflow: hidden;
   }
   .pricing-hero::before{
@@ -35,7 +35,7 @@
     position:absolute;
     inset:-18% -8% -14%;
     background:
-      linear-gradient(180deg, rgba(8,18,40,0.42) 0%, rgba(8,18,40,0.26) 42%, rgba(8,18,40,0.55) 100%),
+      linear-gradient(180deg, rgba(2, 18, 52, 0.42) 0%, rgba(2, 18, 52, 0.26) 42%, rgba(2, 18, 52, 0.55) 100%),
       url("/images/hero/york-street-pricing.jpg") center 42% / cover no-repeat;
     transform: translate3d(0, var(--hero-bg-parallax, 0px), 0);
     will-change: transform;
@@ -45,7 +45,7 @@
     content:'';
     position:absolute;
     inset:0;
-    background: linear-gradient(180deg, rgba(7,23,51,0.06) 0%, rgba(7,23,51,0.16) 100%);
+    background: linear-gradient(180deg, rgba(2, 18, 52, 0.06) 0%, rgba(2, 18, 52, 0.16) 100%);
     pointer-events:none;
   }
   .pricing-hero-inner {
@@ -64,8 +64,8 @@
     padding: 9px 16px;
     border-radius: 999px;
     border: 1px solid rgba(255, 138, 112, 0.28);
-    background: rgba(18, 43, 79, 0.42);
-    color: rgba(255, 171, 149, 0.96);
+    background: rgba(2, 18, 52, 0.42);
+    color: #FD4406;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.13em;
@@ -80,7 +80,7 @@
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.18);
     background: rgba(255,255,255,0.06);
-    color: rgba(255,154,127,0.95);
+    color: #FD4406;
     font-weight: 800;
     font-size: 11px;
     letter-spacing: 0.14em;
@@ -100,20 +100,20 @@
   }
   .pricing-title-solid,
   .pricing-title-outline{ display:block; }
-  .pricing-title-solid{ color:#fff; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+  .pricing-title-solid{ color:#FFFFFF; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
   .pricing-subtitle { text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
   .pricing-title-outline{
     margin-top: 6px;
     color: transparent;
-    -webkit-text-stroke: 2px rgba(254,72,27,0.92);
-    text-stroke: 2px rgba(254,72,27,0.92);
+    -webkit-text-stroke: 2px rgba(253, 68, 6, 0.92);
+    text-stroke: 2px rgba(253, 68, 6, 0.92);
     letter-spacing: -0.02em;
   }
   .pricing-subtitle {
     margin: 0 auto 20px;
     font-size: clamp(18px, 1.85vw, 24px);
     line-height: 1.36;
-    color: rgba(220,228,240,0.94);
+    color: #FFFFFF;
     max-width: 640px;
     font-weight: 500;
     text-wrap: balance;
@@ -122,7 +122,7 @@
     margin: 0 auto 30px;
     max-width: 620px;
     font-size: 11px;
-    color: rgba(178,193,215,0.9);
+    color: #FFFFFF;
     line-height: 1.5;
     letter-spacing: 0.01em;
   }
@@ -138,10 +138,10 @@
     transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
     will-change: transform;
   }
-  .pricing-btn-primary { background:#FE481B; color:#fff; border:1px solid #FE481B; box-shadow: 0 14px 34px rgba(254,72,27,0.26); }
-  .pricing-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(254,72,27,0.32); color:#fff; }
-  .pricing-btn-secondary { background: rgba(255,255,255,0.06); color:#fff; border:1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-  .pricing-btn-secondary:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.35); color:#fff; }
+  .pricing-btn-primary { background:#FD4406; color:#FFFFFF; border:1px solid #FD4406; box-shadow: 0 14px 34px rgba(253, 68, 6, 0.26); }
+  .pricing-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(253, 68, 6, 0.32); color:#FFFFFF; }
+  .pricing-btn-secondary { background: rgba(255,255,255,0.06); color:#FFFFFF; border:1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .pricing-btn-secondary:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.35); color:#FFFFFF; }
   .pricing-stats {
     display:grid;
     grid-template-columns: repeat(4, 1fr);
@@ -157,14 +157,14 @@
   }
   .pricing-stat {
     padding: 13px 12px 11px;
-    background: rgba(19,50,92,0.92);
+    background: rgba(2, 18, 52, 0.92);
     border-radius: 0;
     border: 0;
     box-shadow: none;
     text-align: center;
   }
-  .pricing-stat-value { font-weight: 900; font-size: 34px; letter-spacing: -0.02em; color: #FE481B; line-height: 1.02; }
-  .pricing-stat-label { font-size: 13px; line-height: 1.35; color: rgba(236,241,250,0.92); margin-top: 4px; text-transform: none; letter-spacing: 0; }
+  .pricing-stat-value { font-weight: 900; font-size: 34px; letter-spacing: -0.02em; color: #FD4406; line-height: 1.02; }
+  .pricing-stat-label { font-size: 13px; line-height: 1.35; color: #FFFFFF; margin-top: 4px; text-transform: none; letter-spacing: 0; }
   .pricing-jump-wrap{
     position: sticky;
     top: 66px;
@@ -242,14 +242,14 @@
     right:0;
     bottom:-2px;
     height:3px;
-    background:#FE481B;
+    background:#FD4406;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform .22s cubic-bezier(.2,.8,.2,1);
   }
   .pricing-tab:hover{
-    color:#13325C !important;
-    border-bottom-color: rgba(254,72,27,0.25);
+    color:#021234 !important;
+    border-bottom-color: rgba(253, 68, 6, 0.25);
     transform: translateY(-1px);
     text-shadow: 0 0 0.01px currentColor;
   }
@@ -257,17 +257,17 @@
     transform: translateY(0);
   }
   .pricing-tab.is-active{
-    color:#13325C !important;
+    color:#021234 !important;
     background: transparent;
-    border-bottom-color: #FE481B;
+    border-bottom-color: #FD4406;
   }
   .pricing-tab.is-active::after{
     transform: scaleX(1);
   }
   .pricing-tab:focus-visible{
     outline: none;
-    box-shadow: inset 0 0 0 1px rgba(19,50,92,0.15);
-    border-bottom-color: rgba(254,72,27,0.6);
+    box-shadow: inset 0 0 0 1px rgba(2, 18, 52, 0.15);
+    border-bottom-color: rgba(253, 68, 6, 0.6);
   }
   .pricing-section-kicker{
     display:block;
@@ -275,7 +275,7 @@
     font-size:11px;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:#FE481B;
+    color:#FD4406;
     margin:0 0 10px;
   }
   .pricing-section-title{
@@ -284,13 +284,13 @@
     line-height:1.02;
     letter-spacing:-0.025em;
     text-transform:uppercase;
-    color:#13325C;
+    color:#021234;
     margin:0 0 10px;
   }
   .pricing-section-sub{
     font-size:15px;
     line-height:1.65;
-    color:#4A596E;
+    color:#021234;
     margin:0 0 18px;
     max-width:720px;
   }
@@ -301,9 +301,9 @@
     margin-top: 12px;
     padding: 12px 14px;
     border-radius: 999px;
-    border: 1px solid rgba(19,50,92,0.18);
+    border: 1px solid rgba(2, 18, 52, 0.18);
     background: rgba(255,255,255,0.7);
-    color:#13325C;
+    color:#021234;
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 0.08em;
@@ -312,7 +312,7 @@
   }
   .pricing-section-cta:hover{
     transform: translateY(-1px);
-    border-color: rgba(19,50,92,0.28);
+    border-color: rgba(2, 18, 52, 0.28);
     background: rgba(255,255,255,0.9);
   }
   .pricing-section-cta:active{ transform: translateY(0); }
@@ -327,27 +327,27 @@
     font-size:13px;
     letter-spacing:0.08em;
     text-transform:uppercase;
-    border:2px solid rgba(19,50,92,0.55);
-    color:#13325C;
+    border:2px solid rgba(2, 18, 52, 0.55);
+    color:#021234;
     background: transparent;
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
   }
   .package-cta:hover{
     transform: translateY(-1px);
-    border-color: rgba(19,50,92,0.75);
-    background: rgba(19,50,92,0.04);
+    border-color: rgba(2, 18, 52, 0.75);
+    background: rgba(2, 18, 52, 0.04);
   }
   .package-cta:active{ transform: translateY(0); }
   .package-cta.is-primary{
-    border-color:#FE481B;
-    background:#FE481B;
-    color:#fff;
-    box-shadow: 0 14px 34px rgba(254,72,27,0.22);
+    border-color:#FD4406;
+    background:#FD4406;
+    color:#FFFFFF;
+    box-shadow: 0 14px 34px rgba(253, 68, 6, 0.22);
   }
   .package-cta.is-primary:hover{
-    background:#ff5a33;
-    border-color:#ff5a33;
-    box-shadow: 0 18px 44px rgba(254,72,27,0.28);
+    background:#FD4406;
+    border-color:#FD4406;
+    box-shadow: 0 18px 44px rgba(253, 68, 6, 0.28);
   }
   .package-card{
     transform: translateY(0);
@@ -356,14 +356,14 @@
   }
   .package-card:hover{
     transform: translateY(-6px);
-    box-shadow: 0 26px 60px rgba(19,50,92,0.14);
+    box-shadow: 0 26px 60px rgba(2, 18, 52, 0.14);
   }
   .package-card.is-dark:hover{
-    box-shadow: 0 28px 70px rgba(19,50,92,0.28);
+    box-shadow: 0 28px 70px rgba(2, 18, 52, 0.28);
   }
   .package-card:focus-within{
     transform: translateY(-4px);
-    box-shadow: 0 22px 54px rgba(19,50,92,0.16);
+    box-shadow: 0 22px 54px rgba(2, 18, 52, 0.16);
   }
   .pricing-section-cta::after{
     content:'→';
@@ -375,8 +375,8 @@
   }
   .pricing-section-cta:hover::after{ transform: translateX(2px); }
   .pricing-section-cta.is-prompt{
-    border-color: rgba(254,72,27,0.35);
-    box-shadow: 0 10px 26px rgba(19,50,92,0.10);
+    border-color: rgba(253, 68, 6, 0.35);
+    box-shadow: 0 10px 26px rgba(2, 18, 52, 0.10);
     animation: pricingCtaPulse 2.1s ease-in-out infinite;
   }
   .pricing-section-cta.is-prompt::after{
@@ -394,8 +394,8 @@
     border-radius:18px;
     overflow:hidden;
     border:1px solid #E4E8EF;
-    box-shadow: 0 16px 50px rgba(19,50,92,0.12);
-    background:#0f2547;
+    box-shadow: 0 16px 50px rgba(2, 18, 52, 0.12);
+    background:#021234;
   }
   .pricing-media img{ width:100%; height:100%; display:block; object-fit:cover; }
   .pricing-table-wrap{
@@ -403,12 +403,12 @@
     overflow:hidden;
     border:1px solid #E4E8EF;
     background:#fff;
-    box-shadow: 0 18px 46px rgba(19,50,92,0.10);
+    box-shadow: 0 18px 46px rgba(2, 18, 52, 0.10);
   }
   table.pricing-table{ width:100%; border-collapse:collapse; font-size:13.5px; min-width:920px; }
   table.pricing-table thead th{
-    background:#13325C;
-    color:#fff;
+    background:#021234;
+    color:#FFFFFF;
     text-align:left;
     padding:13px 16px;
     font-weight:900;
@@ -425,38 +425,38 @@
     border-right:1px solid #EDEFF4;
   }
   table.pricing-table tbody td:last-child{ border-right:none; }
-  .format-cell-title{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 6px; }
-  .format-cell-desc{ font-size:12px; line-height:1.45; color:#6b7a92; margin:0 0 10px; }
+  .format-cell-title{ font-weight:900; font-size:14px; color:#021234; margin:0 0 6px; }
+  .format-cell-desc{ font-size:12px; line-height:1.45; color:#021234; margin:0 0 10px; }
   .format-tag{
     display:inline-flex; align-items:center; gap:8px;
     font-weight:800; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
     padding:5px 9px; border-radius:999px;
     border:1px solid #E4E8EF;
     background:#F7F9FC;
-    color:#13325C;
+    color:#021234;
   }
-  .format-tag.tag-entry{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.08); color:#FE481B; }
-  .format-tag.tag-digital{ border-color: rgba(19,50,92,0.25); background: rgba(19,50,92,0.06); color:#13325C; }
-  .format-tag.tag-premium{ border-color: rgba(254,72,27,0.35); background: rgba(254,72,27,0.10); color:#FE481B; }
-  .price-val{ font-weight:900; font-size:14px; color:#13325C; margin:0 0 4px; }
-  .price-sub{ font-size:11.5px; color:#8593a8; margin:0; }
-  .notes-text{ font-size:12.5px; line-height:1.5; color:#6b7a92; }
+  .format-tag.tag-entry{ border-color: rgba(253, 68, 6, 0.35); background: rgba(253, 68, 6, 0.08); color:#FD4406; }
+  .format-tag.tag-digital{ border-color: rgba(2, 18, 52, 0.25); background: rgba(2, 18, 52, 0.06); color:#021234; }
+  .format-tag.tag-premium{ border-color: rgba(253, 68, 6, 0.35); background: rgba(253, 68, 6, 0.10); color:#FD4406; }
+  .price-val{ font-weight:900; font-size:14px; color:#021234; margin:0 0 4px; }
+  .price-sub{ font-size:11.5px; color:#021234; margin:0; }
+  .notes-text{ font-size:12.5px; line-height:1.5; color:#021234; }
   .tip-strip{
     margin-top:14px;
     border-radius:16px;
-    border:1px solid rgba(254,72,27,0.18);
-    background: rgba(254,72,27,0.06);
+    border:1px solid rgba(253, 68, 6, 0.18);
+    background: rgba(253, 68, 6, 0.06);
     padding:14px 16px;
     display:flex;
     gap:10px;
     align-items:flex-start;
-    color:#4A596E;
+    color:#021234;
     font-size:13px;
     line-height:1.5;
   }
-  .tip-strip strong{ color:#FE481B; }
-  .tip-strip a{ color:#FE481B; font-weight:800; }
-  .tip-strip a:hover{ color:#d43a12; }
+  .tip-strip strong{ color:#FD4406; }
+  .tip-strip a{ color:#FD4406; font-weight:800; }
+  .tip-strip a:hover{ color:#FD4406; }
   .industry-news-card{
     display: grid;
     grid-template-columns: minmax(280px, 0.95fr) 1.05fr;
@@ -465,12 +465,12 @@
     border-radius: 18px;
     border: 1px solid #E4E8EF;
     background: #fff;
-    box-shadow: 0 16px 50px rgba(19,50,92,0.12);
+    box-shadow: 0 16px 50px rgba(2, 18, 52, 0.12);
   }
   .industry-news-media{
     position: relative;
     min-height: 280px;
-    background: #0f2547;
+    background: #021234;
     overflow: hidden;
   }
   .industry-news-media img{
@@ -491,7 +491,7 @@
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FE481B;
+    color: #FD4406;
     margin-bottom: 10px;
   }
   .industry-news-title{
@@ -499,19 +499,19 @@
     font-size: 22px;
     line-height: 1.25;
     letter-spacing: -0.02em;
-    color: #13325C;
+    color: #021234;
     margin: 0 0 14px;
   }
   .industry-news-copy{
     font-size: 15px;
     line-height: 1.7;
-    color: #4A596E;
+    color: #021234;
     margin: 0;
   }
   .industry-news-source{
     margin-top: 18px;
     font-size: 13px;
-    color: #8ea3c4;
+    color: #021234;
   }
   @media (max-width: 860px) {
     .industry-news-card{
@@ -551,8 +551,8 @@
       letter-spacing: -0.8px;
     }
     .pricing-title-outline{
-      -webkit-text-stroke: 1.5px rgba(254,72,27,0.92);
-      text-stroke: 1.5px rgba(254,72,27,0.92);
+      -webkit-text-stroke: 1.5px rgba(253, 68, 6, 0.92);
+      text-stroke: 1.5px rgba(253, 68, 6, 0.92);
     }
     .pricing-subtitle { margin-bottom: 16px; font-size: clamp(18px, 5vw, 24px); }
     .pricing-meta { margin-bottom: 24px; font-size: 11px; line-height: 1.45; }
@@ -621,7 +621,7 @@
     }
     .pricing-table-wrap{
       border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(19,50,92,0.10);
+      box-shadow: 0 12px 30px rgba(2, 18, 52, 0.10);
     }
     table.pricing-table{ min-width: 760px; font-size: 13px; }
     table.pricing-table thead th{ padding: 11px 12px; font-size: 9px; }
@@ -685,12 +685,12 @@
 </style>
 <script src="../../js/dc/image-slot.js?v=20260715"></script>
 </helmet>
-<template id="__bundler_thumbnail" data-bg-color="#13325C">
+<template id="__bundler_thumbnail" data-bg-color="#021234">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#13325C"/>
-    <text x="600" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="140" letter-spacing="-5" fill="#ffffff">LOUD<tspan fill="#FE481B">!</tspan></text>
+    <rect width="1200" height="800" fill="#021234"/>
+    <text x="600" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="140" letter-spacing="-5" fill="#ffffff">LOUD<tspan fill="#FD4406">!</tspan></text>
     <text x="600" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="42" letter-spacing="20" fill="#8ea3c4">OOH · PRICING</text>
-    <rect x="480" y="540" width="240" height="10" fill="#FE481B"/>
+    <rect x="480" y="540" width="240" height="10" fill="#FD4406"/>
   </svg>
 </template>
 <div style="position:relative;">
@@ -758,14 +758,14 @@
   <!-- PACKAGES -->
   <section id="packages-start" style="scroll-margin-top:132px;max-width:1280px;margin:0 auto;padding:64px 28px 20px;">
     <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Not sure where to start?</div>
-      <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0 0 10px;color:#13325C;">Three real packages. Real prices. No quote required.</h2>
-      <p style="font-size:15px;line-height:1.6;color:#4A596E;max-width:720px;margin:0 auto 0;">If you&#8217;d rather not read the full rate card, here&#8217;s what your budget actually buys. Every package below is a genuine starting point we build from - not a teaser price.</p>
+      <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FD4406;margin-bottom:12px;">Not sure where to start?</div>
+      <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0 0 10px;color:#021234;">Three real packages. Real prices. No quote required.</h2>
+      <p style="font-size:15px;line-height:1.6;color:#021234;max-width:720px;margin:0 auto 0;">If you&#8217;d rather not read the full rate card, here&#8217;s what your budget actually buys. Every package below is a genuine starting point we build from - not a teaser price.</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;">
-        <a href="#pkg-starter" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Starter</a>
-        <a href="#pkg-local" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">Local impact</a>
-        <a href="#pkg-city" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#13325C;font-weight:700;font-size:12px;">City presence</a>
-        <a href="#billboard" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(254,72,27,0.28);background:rgba(254,72,27,0.06);color:#FE481B;font-weight:800;font-size:12px;">Detailed rate card ↓</a>
+        <a href="#pkg-starter" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#021234;font-weight:700;font-size:12px;">Starter</a>
+        <a href="#pkg-local" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#021234;font-weight:700;font-size:12px;">Local impact</a>
+        <a href="#pkg-city" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #D5DEEC;background:#fff;color:#021234;font-weight:700;font-size:12px;">City presence</a>
+        <a href="#billboard" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(253, 68, 6, 0.28);background:rgba(253, 68, 6, 0.06);color:#FD4406;font-weight:800;font-size:12px;">Detailed rate card ↓</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
@@ -774,12 +774,12 @@
           <div>
             <div style="{{ p.badgeStyle }}">{{ p.badge }}</div>
             <div style="font-weight:900;font-size:22px;letter-spacing:-0.01em;margin:14px 0 2px;color:{{ p.titleColor }};text-transform:uppercase;">{{ p.name }}</div>
-            <div style="font-weight:900;font-size:32px;letter-spacing:-0.02em;color:#FE481B;line-height:1.05;margin-bottom:4px;">{{ p.price }}</div>
+            <div style="font-weight:900;font-size:32px;letter-spacing:-0.02em;color:#FD4406;line-height:1.05;margin-bottom:4px;">{{ p.price }}</div>
             <div style="font-size:13px;color:{{ p.subColor }};margin:0 0 14px;">{{ p.per }}</div>
             <ul style="list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;line-height:1.6;color:{{ p.bodyColor }};">
               <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="4">
                 <li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                  <span style="color:#FE481B;font-size:13px;line-height:1.6;">✓</span>
+                  <span style="color:#FD4406;font-size:13px;line-height:1.6;">✓</span>
                   <span>{{ it }}</span>
                 </li>
               </sc-for>
@@ -793,8 +793,8 @@
       </sc-for>
     </div>
     <div style="margin:22px auto 0;max-width:900px;padding-top:18px;border-top:1px solid #E4E8EF;">
-      <div style="font-size:14px;line-height:1.65;color:#6b7a92;text-align:center;">
-        Prices are realistic 2026 starting rates and vary by location and availability. Want something between these, or a different format mix entirely? Tell us your budget and we'll build a plan around it. <strong style="color:#13325C;">No markup, ever.</strong>
+      <div style="font-size:14px;line-height:1.65;color:#021234;text-align:center;">
+        Prices are realistic 2026 starting rates and vary by location and availability. Want something between these, or a different format mix entirely? Tell us your budget and we'll build a plan around it. <strong style="color:#021234;">No markup, ever.</strong>
       </div>
     </div>
   </section>
@@ -896,11 +896,11 @@
                       <tr style="{{ r.rowStyle }}">
                         <td colspan="4" style="padding:14px 16px;">
                           <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
-                            <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#c7d3e6;">
-                              <span style="display:inline-flex;width:8px;height:8px;border-radius:999px;background:#FE481B;"></span>
+                            <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#FFFFFF;">
+                              <span style="display:inline-flex;width:8px;height:8px;border-radius:999px;background:#FD4406;"></span>
                               <span>{{ r.summaryLabel }}</span>
                             </div>
-                            <div style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:rgba(254,72,27,0.16);border:1px solid rgba(254,72,27,0.4);font-weight:900;font-size:14px;line-height:1;color:#FE481B;">
+                            <div style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:rgba(253, 68, 6, 0.16);border:1px solid rgba(253, 68, 6, 0.4);font-weight:900;font-size:14px;line-height:1;color:#FD4406;">
                               {{ r.summaryValue }}
                             </div>
                           </div>
@@ -924,17 +924,17 @@
   </sc-for>
 
   <!-- BUYING INTELLIGENCE -->
-  <section id="buying" style="scroll-margin-top:132px;background:#13325C;color:#fff;padding:60px 28px;">
+  <section id="buying" style="scroll-margin-top:132px;background:#021234;color:#FFFFFF;padding:60px 28px;">
     <div style="max-width:1180px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:38px;">
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Buying intelligence</div>
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FD4406;margin-bottom:12px;">Buying intelligence</div>
         <h2 style="font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.02em;text-transform:uppercase;margin:0;">How to buy smarter</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
         <sc-for list="{{ buyingCards }}" as="b" hint-placeholder-count="2">
-          <div style="background:#0f2547;border:1px solid rgba(255,255,255,0.12);padding:28px 26px;">
-            <div style="font-weight:900;font-size:18px;color:#fff;margin-bottom:10px;">{{ b.h }}</div>
-            <div style="font-size:14.5px;line-height:1.65;color:#a7b7d1;">{{ b.d }}</div>
+          <div style="background:#021234;border:1px solid rgba(255,255,255,0.12);padding:28px 26px;">
+            <div style="font-weight:900;font-size:18px;color:#FFFFFF;margin-bottom:10px;">{{ b.h }}</div>
+            <div style="font-size:14.5px;line-height:1.65;color:#FFFFFF;">{{ b.d }}</div>
           </div>
         </sc-for>
       </div>
@@ -945,14 +945,14 @@
   <section id="faq" style="scroll-margin-top:132px;background:#F7F9FC;padding:56px 28px;border-top:1px solid #EDEFF4;">
     <div style="max-width:900px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:34px;">
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Common questions</div>
-        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0;">Pricing FAQ</h2>
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FD4406;margin-bottom:12px;">Common questions</div>
+        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#021234;margin:0;">Pricing FAQ</h2>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
           <div style="background:#fff;border:1px solid #E4E8EF;padding:20px 22px;">
-            <div style="font-weight:800;font-size:15px;color:#13325C;margin-bottom:8px;">{{ q.h }}</div>
-            <div style="font-size:14.5px;line-height:1.6;color:#4A596E;">{{ q.d }}</div>
+            <div style="font-weight:800;font-size:15px;color:#021234;margin-bottom:8px;">{{ q.h }}</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#021234;">{{ q.d }}</div>
           </div>
         </sc-for>
       </div>
@@ -963,15 +963,15 @@
   <section style="background:#fff;padding:56px 28px;border-top:1px solid #EDEFF4;">
     <div style="max-width:1180px;margin:0 auto;display:grid;gap:34px;grid-template-columns:{{ notIncludedCols }};align-items:start;">
       <div>
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Full transparency</div>
-        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0 0 14px;">What's not included</h2>
-        <p style="font-size:16px;line-height:1.6;color:#4A596E;margin:0;">Every price on this card is <strong style="color:#13325C;">media cost only</strong>. So there are no surprises, here's exactly what sits on top - the same for us as for every buyer in the market.</p>
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FD4406;margin-bottom:12px;">Full transparency</div>
+        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#021234;margin:0 0 14px;">What's not included</h2>
+        <p style="font-size:16px;line-height:1.6;color:#021234;margin:0;">Every price on this card is <strong style="color:#021234;">media cost only</strong>. So there are no surprises, here's exactly what sits on top - the same for us as for every buyer in the market.</p>
       </div>
       <div style="display:flex;flex-direction:column;">
         <sc-for list="{{ notIncluded }}" as="n" hint-placeholder-count="4">
           <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #EDEFF4;">
-            <div style="flex:none;font-weight:900;color:#FE481B;font-size:14px;width:120px;">{{ n.k }}</div>
-            <div style="font-size:14.5px;line-height:1.55;color:#4A596E;">{{ n.d }}</div>
+            <div style="flex:none;font-weight:900;color:#FD4406;font-size:14px;width:120px;">{{ n.k }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#021234;">{{ n.d }}</div>
           </div>
         </sc-for>
       </div>
@@ -982,9 +982,9 @@
   <section id="industry-news" style="scroll-margin-top:132px;background:#fff;padding:56px 28px;border-top:1px solid #EDEFF4;">
     <div style="max-width:1180px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:34px;max-width:900px;margin-left:auto;margin-right:auto;">
-        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FE481B;margin-bottom:12px;">Market updates</div>
-        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#13325C;margin:0 0 12px;">OOH Industry News</h2>
-        <p style="font-size:15px;line-height:1.6;color:#4A596E;max-width:640px;margin:0 auto;">Genuinely useful market updates for anyone researching OOH costs and planning budgets. We add an entry only when there is real, current information worth knowing - new revenue figures, significant industry developments, or new audience data.</p>
+        <div style="font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#FD4406;margin-bottom:12px;">Market updates</div>
+        <h2 style="font-weight:900;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;text-transform:uppercase;color:#021234;margin:0 0 12px;">OOH Industry News</h2>
+        <p style="font-size:15px;line-height:1.6;color:#021234;max-width:640px;margin:0 auto;">Genuinely useful market updates for anyone researching OOH costs and planning budgets. We add an entry only when there is real, current information worth knowing - new revenue figures, significant industry developments, or new audience data.</p>
       </div>
       <article class="industry-news-card">
         <div class="industry-news-media">
@@ -1001,23 +1001,23 @@
   </section>
 
   <!-- CTA -->
-  <section id="cta" style="scroll-margin-top:132px;background:#FE481B;color:#fff;padding:64px 28px;">
+  <section id="cta" style="scroll-margin-top:132px;background:#FD4406;color:#FFFFFF;padding:64px 28px;">
     <div style="max-width:820px;margin:0 auto;text-align:center;">
       <h2 style="font-weight:900;font-size:clamp(28px,4.5vw,46px);line-height:1.02;letter-spacing:-0.03em;text-transform:uppercase;margin:0 0 18px;">Ready to plan your campaign?</h2>
-      <p style="font-size:18px;line-height:1.55;color:#ffe4db;max-width:560px;margin:0 auto 32px;">Tell us your budget and your goal. We'll build a plan across the right formats - with the same open pricing you see here, and no media markup.</p>
+      <p style="font-size:18px;line-height:1.55;color:#FFFFFF;max-width:560px;margin:0 auto 32px;">Tell us your budget and your goal. We'll build a plan across the right formats - with the same open pricing you see here, and no media markup.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-        <a href="mailto:hello@loudooh.co.uk" style="background:#13325C;color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;">Get your free plan</a>
-        <a href="mailto:hello@loudooh.co.uk" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">Contact us</a>
-        <a href="../../" style="background:rgba(255,255,255,0.16);color:#fff;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">View portfolio</a>
+        <a href="mailto:hello@loudooh.co.uk" style="background:#021234;color:#FFFFFF;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;">Get your free plan</a>
+        <a href="mailto:hello@loudooh.co.uk" style="background:rgba(255,255,255,0.16);color:#FFFFFF;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">Contact us</a>
+        <a href="../../" style="background:rgba(255,255,255,0.16);color:#FFFFFF;font-weight:800;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(255,255,255,0.5);">View portfolio</a>
       </div>
-      <div style="margin-top:26px;font-size:14px;color:#ffd7cb;">hello@loudooh.co.uk &nbsp;·&nbsp; 020 4514 9147 &nbsp;·&nbsp; No markups. No hidden fees.</div>
+      <div style="margin-top:26px;font-size:14px;color:#FFFFFF;">hello@loudooh.co.uk &nbsp;·&nbsp; 020 4514 9147 &nbsp;·&nbsp; No markups. No hidden fees.</div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer style="background:#0f2547;color:#8ea3c4;padding:44px 28px;">
+  <footer style="background:#021234;color:#FFFFFF;padding:44px 28px;">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
-      <div style="display:flex;align-items:baseline;font-weight:900;font-size:22px;letter-spacing:-0.02em;color:#fff;">LOUD<span style="color:#FE481B;">!</span><span style="font-weight:700;font-size:12px;letter-spacing:0.26em;margin-left:8px;align-self:center;color:#8ea3c4;">OOH</span></div>
+      <div style="display:flex;align-items:baseline;font-weight:900;font-size:22px;letter-spacing:-0.02em;color:#FFFFFF;">LOUD<span style="color:#FD4406;">!</span><span style="font-weight:700;font-size:12px;letter-spacing:0.26em;margin-left:8px;align-self:center;color:#FFFFFF;">OOH</span></div>
       <div style="font-size:13px;">&copy; 2026 Loud! OOH Ltd &nbsp;·&nbsp; Registered in England &nbsp;·&nbsp; Bigger. Bolder. Louder.</div>
     </div>
   </footer>
@@ -1093,7 +1093,7 @@ class Component extends DCLogic {
     const tabs = tabDefs.map(([id,label]) => {
       const on = this.state.active === id;
       return { label, onClick: this.go(id), style:
-        'color:' + (on ? '#13325C' : '#6b7a92') + ';',
+        'color:' + (on ? '#021234' : '#6b7a92') + ';',
         id,
         className: on ? 'is-active' : '' };
     });
@@ -1155,11 +1155,11 @@ class Component extends DCLogic {
       ...p,
       ctaClass: p.primary ? 'is-primary' : '',
       cardClass: p.dark ? 'is-dark' : '',
-      cardStyle: 'border:1px solid ' + (p.dark ? '#13325C' : '#E4E8EF') + ';background:' + (p.dark ? '#13325C' : '#fff') + ';padding:26px 26px 30px;'
-        + (p.dark ? 'box-shadow:0 18px 40px rgba(19,50,92,0.22);' : ''),
+      cardStyle: 'border:1px solid ' + (p.dark ? '#021234' : '#E4E8EF') + ';background:' + (p.dark ? '#021234' : '#fff') + ';padding:26px 26px 30px;'
+        + (p.dark ? 'box-shadow:0 18px 40px rgba(2, 18, 52, 0.22);' : ''),
       badgeStyle: 'display:inline-block;font-weight:800;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:5px 10px;'
-        + (p.dark ? 'background:#FE481B;color:#fff;' : 'background:#FFF0EC;color:#FE481B;'),
-      titleColor: p.dark ? '#fff' : '#13325C',
+        + (p.dark ? 'background:#FD4406;color:#fff;' : 'background:#FFF0EC;color:#FD4406;'),
+      titleColor: p.dark ? '#fff' : '#021234',
       subColor: p.dark ? '#8ea3c4' : '#8593a8',
       bodyColor: p.dark ? '#c7d3e6' : '#4A596E',
     }));
@@ -1388,7 +1388,7 @@ class Component extends DCLogic {
           { leftCity:'Birmingham', leftPrice:'£325+', rightCity:'Leeds', rightPrice:'£325+' },
           { leftCity:'Liverpool', leftPrice:'£325+', rightCity:'Newcastle', rightPrice:'£325+' },
           { leftCity:'Sheffield', leftPrice:'£325+', rightCity:'Bristol', rightPrice:'£325+' },
-          { isSummary:true, summaryLabel:'North vs London average:', summaryValue:'40–45% cheaper', rowStyle:'background:#13325C;color:#fff;' },
+          { isSummary:true, summaryLabel:'North vs London average:', summaryValue:'40–45% cheaper', rowStyle:'background:#021234;color:#fff;' },
         ],
         hasTip: true,
         tipText: 'Secondary city locations vs city centres stretch your budget further. Ask us about remnant inventory for heavily discounted last-minute space.',
@@ -1436,7 +1436,7 @@ class Component extends DCLogic {
       notIncludedCols: narrow ? '1fr' : '0.85fr 1.15fr',
       navStyle: 'display:flex;align-items:center;gap:' + (narrow ? '10px' : '22px') + ';',
       navLinkStyle: narrow ? 'display:none;' : 'color:#c7d3e6;font-weight:600;font-size:14px;',
-      navLinkPrimaryStyle: narrow ? 'display:none;' : 'color:#fff;font-weight:700;font-size:14px;border-bottom:2px solid #FE481B;padding-bottom:4px;',
+      navLinkPrimaryStyle: narrow ? 'display:none;' : 'color:#fff;font-weight:700;font-size:14px;border-bottom:2px solid #FD4406;padding-bottom:4px;',
     };
   }
 }

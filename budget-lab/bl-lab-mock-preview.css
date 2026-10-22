@@ -1,5 +1,5 @@
 /* Landing preview — Loud! OOH brand
-   Navy #0A1F3D · Orange #FF4A00 · Sand #EDEBE8 · Champagne #C9B896
+   Navy #021234 · Orange #FD4406 · Sand #EDEBE8 · Champagne #C9B896
    Montserrat headings · Inter body */
 
 .bl-lab-landing-preview {
@@ -21,8 +21,8 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: var(--lux-shadow-soft, 0 24px 64px -28px rgba(10, 31, 61, 0.45));
-  background: var(--navy, #0a1f3d);
+  box-shadow: var(--lux-shadow-soft, 0 24px 64px -28px rgba(2, 18, 52, 0.45));
+  background: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview-input {
@@ -30,8 +30,8 @@
   flex-direction: column;
   gap: 16px;
   padding: 22px 20px 20px;
-  background: linear-gradient(165deg, #0f2848 0%, var(--navy, #0a1f3d) 52%, var(--navy-deep, #081932) 100%);
-  color: #fff;
+  background: linear-gradient(165deg, #021234 0%, var(--navy, #021234) 52%, var(--navy-deep, #021234) 100%);
+  color: #FFFFFF;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -42,7 +42,7 @@
   min-height: 100%;
   padding: 14px 14px 0;
   background: #f2f2f7;
-  color: var(--ink, #121826);
+  color: var(--ink, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-results-body {
@@ -56,15 +56,15 @@
 
 .bl-lab-landing-preview .bl-mock-preview-card {
   background: #fff;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(10, 31, 61, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 18, 52, 0.04);
 }
 
 .bl-lab-landing-preview .bl-mock-spark {
   flex-shrink: 0;
-  color: var(--orange, #ff4a00);
-  filter: drop-shadow(0 0 8px rgba(255, 74, 0, 0.45));
+  color: var(--orange, #FD4406);
+  filter: drop-shadow(0 0 8px rgba(253, 68, 6, 0.45));
 }
 
 .bl-lab-landing-preview .bl-mock-spark svg {
@@ -90,14 +90,14 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-preview .bl-mock-input-head p {
   margin: 0;
   font-size: 11.5px;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.62);
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-preview .bl-mock-field-label {
@@ -117,7 +117,7 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-preview .bl-mock-slider {
@@ -135,7 +135,7 @@
   bottom: 0;
   width: 48%;
   border-radius: 99px;
-  background: linear-gradient(90deg, rgba(255, 74, 0, 0.55), var(--orange, #ff4a00));
+  background: linear-gradient(90deg, rgba(253, 68, 6, 0.55), var(--orange, #FD4406));
 }
 
 .bl-lab-landing-preview .bl-mock-slider-thumb {
@@ -146,9 +146,9 @@
   height: 14px;
   margin: -7px 0 0 -7px;
   border-radius: 50%;
-  background: var(--orange, #ff4a00);
+  background: var(--orange, #FD4406);
   border: 2px solid #fff;
-  box-shadow: 0 0 12px rgba(255, 74, 0, 0.55);
+  box-shadow: 0 0 12px rgba(253, 68, 6, 0.55);
 }
 
 .bl-lab-landing-preview .bl-mock-slider-ends {
@@ -172,13 +172,13 @@
   font-size: 10px;
   font-weight: 600;
   text-align: center;
-  color: rgba(255, 255, 255, 0.78);
+  color: #FFFFFF;
   background: rgba(255, 255, 255, 0.05);
 }
 
 .bl-lab-landing-preview .bl-mock-pills span.is-on {
   background: #fff;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   border-color: #fff;
   box-shadow: none;
   font-weight: 700;
@@ -186,7 +186,7 @@
 
 .bl-lab-landing-preview .bl-mock-pills--market span.is-on {
   background: #fff;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   border-color: #fff;
   box-shadow: none;
   font-weight: 700;
@@ -225,12 +225,12 @@
   height: 28px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-preview .bl-mock-goal.is-on .bl-mock-goal-icon {
-  color: var(--navy, #0a1f3d);
-  background: rgba(10, 31, 61, 0.06);
+  color: var(--navy, #021234);
+  background: rgba(2, 18, 52, 0.06);
 }
 
 .bl-lab-landing-preview .bl-mock-goal-icon svg {
@@ -242,12 +242,12 @@
   display: block;
   font-size: 11px;
   font-weight: 600;
-  color: #fff;
+  color: #FFFFFF;
   line-height: 1.2;
 }
 
 .bl-lab-landing-preview .bl-mock-goal.is-on .bl-mock-goal-text strong {
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-goal-text small {
@@ -255,12 +255,12 @@
   margin-top: 2px;
   font-size: 9px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
   line-height: 1.25;
 }
 
 .bl-lab-landing-preview .bl-mock-goal.is-on .bl-mock-goal-text small {
-  color: rgba(10, 31, 61, 0.55);
+  color: #021234;
 }
 
 .bl-lab-landing-preview .bl-mock-radio {
@@ -271,9 +271,9 @@
 }
 
 .bl-lab-landing-preview .bl-mock-goal.is-on .bl-mock-radio {
-  border-color: var(--orange, #ff4a00);
+  border-color: var(--orange, #FD4406);
   background: #fff;
-  box-shadow: inset 0 0 0 3px var(--orange, #ff4a00);
+  box-shadow: inset 0 0 0 3px var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-insight {
@@ -283,7 +283,7 @@
   padding: 12px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 74, 0, 0.22);
+  border: 1px solid rgba(253, 68, 6, 0.22);
 }
 
 .bl-lab-landing-preview .bl-mock-insight strong {
@@ -293,14 +293,14 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-insight p {
   margin: 0 0 6px;
   font-size: 10px;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.72);
+  color: #FFFFFF;
 }
 
 .bl-lab-landing-preview .bl-mock-insight a {
@@ -311,7 +311,7 @@
 }
 
 .bl-lab-landing-preview .bl-mock-insight a:hover {
-  color: #fff;
+  color: #FFFFFF;
 }
 
 /* —— Right results —— */
@@ -331,7 +331,7 @@
   pointer-events: none;
   opacity: 0.5;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 74, 0, 0.05), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(253, 68, 6, 0.05), transparent 70%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='120' viewBox='0 0 400 120'%3E%3Cpath d='M0 80 Q50 60 100 80 T200 80 T300 80 T400 80' fill='none' stroke='%23e6eaf0' stroke-width='1'/%3E%3Cpath d='M0 95 Q50 75 100 95 T200 95 T300 95 T400 95' fill='none' stroke='%23f2efeb' stroke-width='1'/%3E%3C/svg%3E") center top / 100% auto no-repeat;
 }
 
@@ -361,7 +361,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-reach-val {
@@ -372,7 +372,7 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-reach-val small {
@@ -389,7 +389,7 @@
   background: var(--orange-soft, #fff1ea);
   font-size: 10px;
   font-weight: 700;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-score-wrap {
@@ -403,10 +403,10 @@
 .bl-lab-landing-preview .bl-mock-plan-score {
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   text-align: right;
   background: #fff;
-  box-shadow: 0 1px 2px rgba(10, 31, 61, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 18, 52, 0.04);
 }
 
 .bl-lab-landing-preview .bl-mock-plan-score span {
@@ -422,7 +422,7 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 18px;
   font-weight: 800;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   line-height: 1.1;
 }
 
@@ -441,7 +441,7 @@
   background: var(--orange-soft, #fff1ea);
   font-size: 9px;
   font-weight: 700;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-stats {
@@ -465,15 +465,15 @@
   padding: 12px 14px !important;
   margin: 0;
   border-radius: 12px !important;
-  border: 1px solid rgba(10, 31, 61, 0.08) !important;
+  border: 1px solid rgba(2, 18, 52, 0.08) !important;
   background: #fff !important;
-  box-shadow: 0 1px 2px rgba(10, 31, 61, 0.04) !important;
+  box-shadow: 0 1px 2px rgba(2, 18, 52, 0.04) !important;
   transform: none !important;
 }
 
 .bl-lab-landing-preview .bl-mock-stat:hover {
-  border-color: rgba(10, 31, 61, 0.1) !important;
-  box-shadow: 0 2px 8px rgba(10, 31, 61, 0.06) !important;
+  border-color: rgba(2, 18, 52, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(2, 18, 52, 0.06) !important;
   transform: none !important;
 }
 
@@ -493,7 +493,7 @@
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   line-height: 1.1;
 }
 
@@ -503,10 +503,10 @@
   margin: 0;
   padding: 14px 16px 16px;
   flex-shrink: 0;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   border-radius: 12px;
   background: #fff;
-  box-shadow: 0 1px 2px rgba(10, 31, 61, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 18, 52, 0.04);
 }
 
 .bl-lab-landing-preview .bl-mock-mix-head {
@@ -516,7 +516,7 @@
   gap: 8px;
   margin: 0 0 12px;
   padding: 0 0 10px;
-  border-bottom: 1px solid rgba(10, 31, 61, 0.06);
+  border-bottom: 1px solid rgba(2, 18, 52, 0.06);
 }
 
 .bl-lab-landing-preview .bl-mock-mix-kicker {
@@ -525,7 +525,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-family: "Montserrat", system-ui, sans-serif;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-mix-meta {
@@ -616,7 +616,7 @@
   flex-shrink: 0;
   font-size: 10px;
   font-weight: 700;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-details {
@@ -633,9 +633,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   border-radius: 12px;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   background: #fff;
-  box-shadow: 0 1px 2px rgba(10, 31, 61, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 18, 52, 0.04);
   overflow: hidden;
 }
 
@@ -647,7 +647,7 @@
 }
 
 .bl-lab-landing-preview .bl-mock-recommends {
-  border-left: 1px solid rgba(10, 31, 61, 0.08);
+  border-left: 1px solid rgba(2, 18, 52, 0.08);
   background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
 }
 
@@ -657,7 +657,7 @@
   gap: 8px;
   margin: 0 0 12px;
   padding: 0 0 10px;
-  border-bottom: 1px solid rgba(10, 31, 61, 0.06);
+  border-bottom: 1px solid rgba(2, 18, 52, 0.06);
 }
 
 .bl-lab-landing-preview .bl-mock-detail-mark {
@@ -667,8 +667,8 @@
   height: 22px;
   border-radius: 6px;
   flex-shrink: 0;
-  background: var(--navy, #0a1f3d);
-  color: var(--orange, #ff4a00);
+  background: var(--navy, #021234);
+  color: var(--orange, #FD4406);
 }
 
 .bl-lab-landing-preview .bl-mock-detail-mark svg {
@@ -687,7 +687,7 @@
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   line-height: 1.2;
 }
 
@@ -707,7 +707,7 @@
   font-size: 10px;
   font-weight: 500;
   line-height: 1.4;
-  color: var(--ink, #121826);
+  color: var(--ink, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-check {
@@ -717,7 +717,7 @@
   margin-top: 1px;
   display: grid;
   place-items: center;
-  color: var(--orange, #ff4a00);
+  color: var(--orange, #FD4406);
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -732,7 +732,7 @@
   margin: 0;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid rgba(10, 31, 61, 0.08);
+  border: 1px solid rgba(2, 18, 52, 0.08);
   background: rgba(255, 241, 234, 0.55);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
@@ -742,18 +742,18 @@
   font-size: 10.5px;
   font-weight: 600;
   line-height: 1.45;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-rec-lead strong {
   font-weight: 800;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-rec-note {
   margin: 8px 0 0;
   padding-top: 8px;
-  border-top: 1px solid rgba(10, 31, 61, 0.08);
+  border-top: 1px solid rgba(2, 18, 52, 0.08);
   font-size: 9px;
   font-weight: 500;
   line-height: 1.45;
@@ -771,7 +771,7 @@
   margin-right: -14px;
   padding: 14px 14px 14px;
   background: #fff;
-  border-top: 1px solid rgba(10, 31, 61, 0.08);
+  border-top: 1px solid rgba(2, 18, 52, 0.08);
 }
 
 .bl-lab-landing-preview .bl-mock-total span {
@@ -787,7 +787,7 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 800;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-foot-actions {
@@ -807,7 +807,7 @@
   font-family: "Inter", system-ui, sans-serif;
   font-size: 10px;
   font-weight: 600;
-  color: var(--navy, #0a1f3d);
+  color: var(--navy, #021234);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -818,25 +818,25 @@
 }
 
 .bl-lab-landing-preview .bl-mock-btn-outline:hover {
-  border-color: var(--navy, #0a1f3d);
+  border-color: var(--navy, #021234);
 }
 
 .bl-lab-landing-preview .bl-mock-btn-primary {
   padding: 8px 14px;
   border: 0;
   border-radius: 0;
-  background: var(--orange, #ff4a00);
+  background: var(--orange, #FD4406);
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: #FFFFFF;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .bl-lab-landing-preview .bl-mock-btn-primary:hover {
-  background: var(--orange-hover, #e64100);
+  background: var(--orange-hover, #FD4406);
 }
 
 @media (max-width: 1100px) {
@@ -863,7 +863,7 @@
 
   .bl-lab-landing-preview .bl-mock-recommends {
     border-left: 0;
-    border-top: 1px solid rgba(10, 31, 61, 0.08);
+    border-top: 1px solid rgba(2, 18, 52, 0.08);
   }
 
   .bl-lab-landing-preview .bl-mock-results-foot {

@@ -1,10 +1,10 @@
 /* Loud AI campaign control — Airbnb-style search interaction */
 
 :root {
-  --lai-purple: #FF4A00;
-  --lai-purple-soft: rgba(255, 74, 0, 0.08);
-  --lai-ink: #222222;
-  --lai-muted: #717171;
+  --lai-purple: #FD4406;
+  --lai-purple-soft: rgba(253, 68, 6, 0.08);
+  --lai-ink: #021234;
+  --lai-muted: #021234;
   --lai-shell: #ebebeb;
   --lai-surface: #ffffff;
   --lai-border: rgba(0, 0, 0, 0.08);
@@ -417,7 +417,7 @@
   gap: 8px;
   padding: 12px 4px 0;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.75);
+  color: #FFFFFF;
 }
 .bl-campaign-live-dot {
   width: 7px;
@@ -430,7 +430,7 @@
   width: 12px;
   height: 12px;
   background: transparent;
-  border: 2px solid rgba(255, 74, 0, 0.25);
+  border: 2px solid rgba(253, 68, 6, 0.25);
   border-top-color: var(--lai-purple);
   animation: blCampaignSpin 0.7s linear infinite;
 }
@@ -526,8 +526,8 @@
   margin-top: 8px;
   border: 0;
   border-radius: 12px;
-  background: #ff4a00;
-  color: #fff;
+  background: #FD4406;
+  color: #FFFFFF;
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 14px;
   font-weight: 800;

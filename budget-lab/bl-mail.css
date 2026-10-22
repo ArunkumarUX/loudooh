@@ -5,13 +5,13 @@
    ========================================================================== */
 
 .bl-mail{
-  --mail-navy:#0E1E3C;
-  --mail-orange:#FF4A00;
+  --mail-navy:#021234;
+  --mail-orange:#FD4406;
   --mail-border:#e2e6ed;
-  --mail-muted:#4d5969;
-  --mail-soft:#6b7789;
+  --mail-muted:#021234;
+  --mail-soft:#021234;
   max-width:820px;
-  color:#1a2332;
+  color:#021234;
 }
 .bl-mail-lead{
   margin:0 0 20px;
@@ -47,7 +47,7 @@
   background:#fff;
   font-family:inherit;
   font-size:.9375rem;
-  color:#1a2332;
+  color:#021234;
 }
 .bl-mail-field textarea{
   min-height:340px;
@@ -73,7 +73,7 @@
   border-radius:10px;
   background:#fff7f2;
   font-size:.875rem;
-  color:#8a4b22;
+  color:#FD4406;
 }
 .bl-mail-relink{
   appearance:none;
@@ -86,7 +86,7 @@
   text-decoration:underline;
   cursor:pointer;
 }
-.bl-mail-error{ margin:0 0 12px; font-size:.875rem; color:#C2410C; }
+.bl-mail-error{ margin:0 0 12px; font-size:.875rem; color:#FD4406; }
 .bl-mail-done{ margin:12px 0 0; font-size:.875rem; color:#1E7A55; }
 
 .bl-mail-acts{
@@ -160,7 +160,7 @@
 
   body.bl-printing{
     background:#fff !important;
-    color:#000 !important;
+    color:#021234 !important;
     font-size:10.5pt;
   }
   body.bl-printing .bl-results{ padding:0 !important; }
@@ -184,7 +184,7 @@
     text-transform:uppercase;
     letter-spacing:.01em;
   }
-  .bl-print-sub{ margin:0 0 18px; font-size:9.5pt; color:#444; }
+  .bl-print-sub{ margin:0 0 18px; font-size:9.5pt; color:#021234; }
   .bl-print-h{
     margin:0 0 8px;
     font-family:'Montserrat', system-ui, sans-serif;

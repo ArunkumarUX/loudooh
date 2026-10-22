@@ -6,18 +6,18 @@
 /* P1 (Design): global keyboard focus baseline — no interactive element
    should ever lose its focus indicator. */
 :where(a[href], button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 2px solid var(--orange, #ff4a00);
+  outline: 2px solid var(--orange, #FD4406);
   outline-offset: 3px;
 }
 
-/* P1 (Design): orange #FF4A00 on white fails WCAG AA (≈3.1:1).
-   Darken to #C93800 (≈5.1:1) wherever it sits on light surfaces. */
+/* P1 (Design): orange #FD4406 on white fails WCAG AA (≈3.1:1).
+   Darken to #FD4406 (≈5.1:1) wherever it sits on light surfaces. */
 .bl-lab-opp-eyebrow,
 .bl-lab-mix-eyebrow,
 .bl-lab-map-eyebrow,
 body.is-planning .bl-filter-chip.is-on,
 .bl-lab-ai-experiment .bl-lab-tip-icon {
-  color: #c93800;
+  color: #FD4406;
 }
 
 /* P0 (Design): mobile landing preview forced min-width 620px → overflow
