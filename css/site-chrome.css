@@ -226,17 +226,11 @@ html body :is(h1, h2, h3, h4, h5, h6) { letter-spacing: -0.02em !important; }
 .lo-amenu .lo-amenu-cta { background: #FD4406 !important; }
 .lo-amenu .lo-amenu-cta:hover { background: #FD4406 !important; }
 
-/* Header: Prolific North "As featured in" mark, top right (Jamie, 23 Oct). The
-   real logo, no card: original colours on the white header, white lettering on the
-   navy/over-photo header (same condition that turns the nav links white). */
-.lo-amenu-badge{margin-left:auto;flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:4px 0;text-decoration:none;transition:opacity .2s ease}
-.lo-amenu-badge:hover{opacity:.8}
-.lo-amenu-badge:focus-visible{outline:2px solid #FD4406;outline-offset:4px;border-radius:4px}
-.lo-amenu-badge-label{font:600 10px/1 "Inter",Helvetica,system-ui,sans-serif;color:#021234;transition:color .28s ease}
-.lo-amenu-badge img{display:block;width:118px;height:auto}
-.lo-amenu-badge .lo-amenu-badge-light{display:none}
-html.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-badge-label{color:#FFFFFF}
-html.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-badge-dark{display:none}
-html.lob-hero-top .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open) .lo-amenu-badge-light{display:block}
+/* Header: Prolific North Marketing Awards 2026 logo, top right (Jamie, 23 Oct).
+   The logo's own black panel reads on both the navy and the white header. */
+.lo-amenu-badge{margin-left:auto;flex:none;display:block;line-height:0;border-radius:6px;overflow:hidden;box-shadow:0 6px 16px -8px rgba(2,18,52,.5);transition:transform .2s ease,box-shadow .2s ease}
+.lo-amenu-badge:hover{transform:translateY(-1px);box-shadow:0 10px 20px -8px rgba(2,18,52,.6)}
+.lo-amenu-badge:focus-visible{outline:2px solid #FD4406;outline-offset:3px}
+.lo-amenu-badge img{display:block;height:46px;width:auto}
 @media (max-width:1100px){.lo-amenu .lo-amenu-row .lo-amenu-toggle{margin-left:14px!important}}
-@media (max-width:900px){.lo-amenu-badge{gap:4px}.lo-amenu-badge img{width:92px}.lo-amenu-badge-label{font-size:9px}}
+@media (max-width:900px){.lo-amenu-badge img{height:38px}}

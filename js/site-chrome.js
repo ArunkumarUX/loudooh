@@ -49,7 +49,7 @@
           '<li class="lo-amenu-item"><a' + linkClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
           '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-footer">Contact</a></li>' +
         "</ul>" +
-        '<a class="lo-amenu-badge" href="https://www.prolificnorth.co.uk/news/new-leeds-ooh-agency-turns-to-ooh-unsurprisingly-for-launch-campaign/" target="_blank" rel="noopener" aria-label="As featured in Prolific North (opens in a new tab)"><span class="lo-amenu-badge-label">As featured in</span><img class="lo-amenu-badge-dark" src="/images/press/prolific-north.png" alt="Prolific North" width="640" height="89" decoding="async"><img class="lo-amenu-badge-light" src="/images/press/prolific-north-light.png" alt="" width="640" height="89" decoding="async"></a>' +
+        '<a class="lo-amenu-badge" href="https://www.prolificnorth.co.uk/news/new-leeds-ooh-agency-turns-to-ooh-unsurprisingly-for-launch-campaign/" target="_blank" rel="noopener"><img src="/images/press/prolific-north-marketing-awards-2026.webp" alt="Prolific North Marketing Awards 2026" width="247" height="132" decoding="async"></a>' +
         '<button type="button" class="lo-amenu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
     "</div>" +
