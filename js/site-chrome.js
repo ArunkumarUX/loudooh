@@ -124,6 +124,10 @@
     "</footer>";
 
   function pageTitle() {
+    /* A page can set a short breadcrumb name (<body data-crumb="...">) so a long
+       headline is not repeated in full above itself. */
+    var short = document.body && document.body.getAttribute("data-crumb");
+    if (short) return short;
     var h1 = document.querySelector(".hero h1, .pricing-title, main h1, article h1, #main-content h1");
     if (h1) {
       var text = (h1.textContent || "").replace(/\s+/g, " ").trim();

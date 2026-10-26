@@ -44,3 +44,10 @@ html body :is(h5, h6):not(#lo-nocaps) { font-weight: 600 !important; letter-spac
 .lo-amenu-mobile-list > li:last-child .lo-amenu-mobile-link {
   border-radius: 999px !important;
 }
+
+/* Case-study and insights heroes: headline in capitals, like the homepage hero
+   (user, 26 Oct). Only the hero H1; everything below stays sentence case. */
+body[data-hero-caps] :is(.hero h1, .insights-hub-inner > h1, .pricing-title):not(#lo-nocaps) {
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+}

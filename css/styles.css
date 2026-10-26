@@ -3235,6 +3235,12 @@ body.case-study.is-reading .cs-section {
   margin-top: 20px;
   margin-bottom: 0;
 }
+/* Case-study text column (26 Oct): the intro and the paragraphs that follow it
+   share one reading width so their edges line up, and the gap after the intro
+   matches the normal paragraph gap when more copy follows. */
+.cs-section-lead,
+.cs-section > p:not([class]) { max-width: 35rem; }
+.cs-section-lead:has(+ p:not([class])) { margin-bottom: 16px; }
 
 .cs-contrast {
   display: grid;
