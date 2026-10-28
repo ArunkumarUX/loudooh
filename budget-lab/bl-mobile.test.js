@@ -1,4 +1,4 @@
-/* bl-mobile.test.js — full-screen plan drawer on mobile; email/download after review.
+/* bl-mobile.test.js - full-screen plan drawer on mobile; email/download after review.
        python3 -m http.server 8901   (from the repo root)
        npm i -D playwright-core && node bl-mobile.test.js */
 const {chromium}=require('playwright-core');
@@ -19,7 +19,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   ok(h0===h1, `page height stays the same while scrolling (${h0}px -> ${h1}px)`);
   ok(await p.evaluate(()=>{const b=document.querySelector('.bl-mini-bar');return !!b&&b.classList.contains('is-on');}),'slim settings bar shows once the plan header scrolls away');
 
-  console.log('\nMOBILE DRAWER — full width');
+  console.log('\nMOBILE DRAWER - full width');
   await p.evaluate(()=>document.getElementById('hl-view-full-summary').click());
   await p.waitForTimeout(500);
   const d=await p.evaluate(()=>{

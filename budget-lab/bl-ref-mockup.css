@@ -1,8 +1,8 @@
-/* Reference mockup layout — Loud! OOH brand tokens */
+/* Reference mockup layout - Loud! OOH brand tokens */
 
 :root {
   --bl-mock-sidebar: 392px;
-  /* Brand accent — Loud! OOH orange (replaces legacy purple mock tokens) */
+  /* Brand accent - Loud! OOH orange (replaces legacy purple mock tokens) */
   --bl-mock-purple: var(--orange);
   --bl-brand-accent: var(--orange);
   --bl-brand-accent-hover: var(--orange-hover);
@@ -195,7 +195,7 @@
     overflow: hidden;
   }
 
-  /* No sidebar scroll — collapsed fields must fit the viewport. */
+  /* No sidebar scroll - collapsed fields must fit the viewport. */
   .bl-sidebar-settings-fields {
     flex: 0 0 auto;
     min-height: 0;
@@ -247,12 +247,12 @@
     box-shadow: none;
   }
 
-  /* Hide settings header — saves vertical space; fields are self-explanatory. */
+  /* Hide settings header - saves vertical space; fields are self-explanatory. */
   .bl-ref-search-wrap .bl-sidebar-section-head {
     display: none;
   }
 
-  /* Compact sidebar density — everything visible without scrolling. */
+  /* Compact sidebar density - everything visible without scrolling. */
   .bl-ref-hero--sidebar .bl-ref-title {
     margin: 0 0 6px;
     font-size: 1.0625rem;
@@ -496,7 +496,7 @@
   margin-bottom: 4px;
 }
 
-/* Budget slider — visible on dark sidebar */
+/* Budget slider - visible on dark sidebar */
 .bl-sidebar-budget .bl-lab-range,
 .bl-sidebar-budget .bl-range {
   -webkit-appearance: none;
@@ -646,7 +646,7 @@
     z-index: 72;
   }
 
-  /* Inline accordion panels — expand beneath the active field */
+  /* Inline accordion panels - expand beneath the active field */
   .bl-ref-search-wrap .bl-campaign-accordion-item.is-expanded > .bl-campaign-panel.is-open {
     display: block !important;
     max-height: none !important;
@@ -747,7 +747,7 @@
     padding: 12px 14px !important;
   }
 
-  /* Accessible text — override light-theme ink from bl-campaign-control.css */
+  /* Accessible text - override light-theme ink from bl-campaign-control.css */
   .bl-ref-search-wrap .bl-campaign-option-name,
   .bl-ref-search-wrap .bl-campaign-obj-card strong,
   .bl-ref-search-wrap .bl-campaign-aud-row strong,
@@ -1224,7 +1224,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 
 .bl-sidebar-stats { display: none !important; }
 
-/* Campaign forecast panel — same shell as explore card */
+/* Campaign forecast panel - same shell as explore card */
 .bl-mock-forecast-card {
   display: flex;
   flex-direction: column;
@@ -1255,7 +1255,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   border: none;
 }
 
-/* Campaign forecast header — match comp (title + meta pills, no rule) */
+/* Campaign forecast header - match comp (title + meta pills, no rule) */
 .bl-mock-results-head--forecast .bl-mock-results-eyebrow {
   margin: 0 0 4px;
   font-size: 10px;
@@ -1287,7 +1287,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   color: #021234;
 }
 
-/* Unified metrics deck — KPI strip + campaign stats */
+/* Unified metrics deck - KPI strip + campaign stats */
 .bl-mock-metrics-deck {
   margin: 0 0 16px;
   padding: 16px;
@@ -1485,7 +1485,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   text-overflow: ellipsis;
 }
 
-/* KPI strip — forecast metric cards */
+/* KPI strip - forecast metric cards */
 .bl-lab-kpi-strip.bl-mock-kpi-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1758,7 +1758,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   }
 }
 
-/* Legacy — section head styles (also used inside explore card) */
+/* Legacy - section head styles (also used inside explore card) */
 .bl-explore-section-head {
   display: flex;
   flex-direction: column;
@@ -1875,7 +1875,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   min-height: 0;
 }
 
-/* Flat split — one card shell, no nested boxes */
+/* Flat split - one card shell, no nested boxes */
 .bl-lab-explore-list-pane {
   display: flex;
   flex-direction: column;
@@ -2187,7 +2187,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   border-top: 1px solid rgba(2, 18, 52, 0.07);
 }
 
-/* Scrollable list — flex:1 + min-height:0 + height:0 is the reliable scroll pattern */
+/* Scrollable list - flex:1 + min-height:0 + height:0 is the reliable scroll pattern */
 .bl-lab-explore-card .bl-lab-explore-list-pane .bl-lab-opp-list-lux {
   flex: 1 1 0;
   min-height: 0;
@@ -2446,7 +2446,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 }
 .bl-mock-map-preview-cta:hover { background: #5a3ff0; }
 
-/* Map bottom stack — preview + plan bar never overlap */
+/* Map bottom stack - preview + plan bar never overlap */
 .bl-map-bottom-stack {
   position: absolute;
   left: 10px;
@@ -2741,7 +2741,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   .bl-sidebar-budget, .bl-sidebar-ai, .bl-sidebar-stats { display: block !important; }
 }
 
-/* Sidebar campaign controls — iOS Settings grouped list */
+/* Sidebar campaign controls - iOS Settings grouped list */
 @media (min-width: 1025px) {
   .bl-ref-lab-wrap.wrap,
   .bl-ref-lab-wrap {
@@ -3057,7 +3057,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
     transition-delay: 0s;
   }
 
-  /* Right panel — align rhythm with sidebar gutter */
+  /* Right panel - align rhythm with sidebar gutter */
   .bl-mock-results-sticky {
     padding-top: 0;
   }
@@ -3069,7 +3069,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
   }
 }
 
-/* Sidebar brand + hero — always visible on desktop (never collapse on scroll) */
+/* Sidebar brand + hero - always visible on desktop (never collapse on scroll) */
 .bl-sidebar-brand {
   display: flex;
   align-items: center;
@@ -3214,7 +3214,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
     margin-top: 12px;
   }
 
-  /* Lab wrap already clears the fixed plan bar — no extra spacer inside the card */
+  /* Lab wrap already clears the fixed plan bar - no extra spacer inside the card */
   .bl-lab-explore-card .bl-explore-plan-foot-spacer {
     display: none;
     flex: 0 0 0;
@@ -3261,7 +3261,7 @@ body.bl-ai-preview-active .bl-lab-kpi-strip.is-previewing .bl-mock-kpi-card {
 }
 
 
-/* Rail scrollbar — slim and quiet on the dark surface (WebKit; Firefox uses
+/* Rail scrollbar - slim and quiet on the dark surface (WebKit; Firefox uses
    the scrollbar-width/color properties set on the element itself). */
 @media (min-width: 1025px) {
   .bl-ref-search-wrap::-webkit-scrollbar { width: 8px; }

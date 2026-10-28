@@ -1,4 +1,4 @@
-/* Budget Lab hero — live AI budget console + brief sync */
+/* Budget Lab hero - live AI budget console + brief sync */
 (function(){
 "use strict";
 
@@ -302,7 +302,7 @@ function update(){
   if(!est){
     ["hl-impacts"].forEach(function(id){
       var el = document.getElementById(id);
-      if(el) el.textContent = "—";
+      if(el) el.textContent = "-";
     });
     syncDownstream(null);
     return;

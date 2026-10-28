@@ -1,4 +1,4 @@
-/* bl-blueprint.test.js — conformance with the 2026 Master Blueprint and the
+/* bl-blueprint.test.js - conformance with the 2026 Master Blueprint and the
    Budget Lab spec, for the things that are checkable without the workbook to
    hand. Run from this folder:  node bl-blueprint.test.js
    Exits non-zero on failure. Pairs with bl-calc.test.js (the maths rules). */
@@ -31,7 +31,7 @@ const faqSchema = ld.find(o => o && o['@type'] === 'FAQPage');
 ok(!!faqSchema, 'FAQPage schema present (phase 2)');
 const faqCount = (engine.match(/\{q:"/g) || []).length;
 ok(faqSchema && faqSchema.mainEntity.length === faqCount,
-   `schema carries all ${faqCount} Q&As (has ${faqSchema ? faqSchema.mainEntity.length : 0}) — they are JS-injected, so an empty schema means crawlers see none`);
+   `schema carries all ${faqCount} Q&As (has ${faqSchema ? faqSchema.mainEntity.length : 0}) - they are JS-injected, so an empty schema means crawlers see none`);
 ok(faqSchema && faqSchema.mainEntity.every(q => q.name && q.acceptedAnswer && q.acceptedAnswer.text),
    'every schema Q&A has a question and an answer');
 ok(faqSchema && faqSchema.mainEntity.some(q => /impression/i.test(q.name)),
@@ -59,7 +59,7 @@ jsFiles.concat(['index.html']).forEach(f => {
     });
   });
 });
-ok(hits.length === 0, 'no un-sourced audience language in any file' + (hits.length ? ' — ' + hits.join(', ') : ''));
+ok(hits.length === 0, 'no un-sourced audience language in any file' + (hits.length ? ' - ' + hits.join(', ') : ''));
 
 console.log('\n§10 MANDATORY DISCLOSURES IN THE SUMMARY');
 [['ex-VAT', /ex-VAT/], ['availability caveat', /Availability is never guaranteed/],

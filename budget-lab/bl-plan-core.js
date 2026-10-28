@@ -1,4 +1,4 @@
-/* bl-plan-core.js — shared plan inputs and format scoring.
+/* bl-plan-core.js - shared plan inputs and format scoring.
    hero.js and engine.js MUST use this so the live calculator and the plan
    summary never diverge on basis, planning mode, audience or format pref. */
 (function(){
@@ -46,7 +46,7 @@ function techAdjustment(f, pref){
   return 0;
 }
 
-/* Canonical calc opts from store state — honours basis, planning mode, reserve. */
+/* Canonical calc opts from store state - honours basis, planning mode, reserve. */
 function calcOpts(state, over){
   state = state || {};
   over = over || {};

@@ -1,17 +1,17 @@
 /* ==========================================================================
-   bl-state.js — the Budget Lab's single source of truth.
+   bl-state.js - the Budget Lab's single source of truth.
    --------------------------------------------------------------------------
    There is exactly ONE budget, duration, objective, geography and audience.
    Before this module the live console and the step wizard each kept their own
    state object and talked to each other through four hidden <select> elements
-   used as a message bus — which is why they could drift apart, and why the
+   used as a message bus - which is why they could drift apart, and why the
    same control appeared on the page more than once.
 
    Everything now reads and writes here. The store also owns the vocabulary:
    the console used to speak in city keys ("manchester") and marketing goals
    ("launch", "footfall"), the wizard in planning terms ("named" + a city name,
-   "premium"). Those are reconciled on the way in, so downstream code — and
-   bl-calc.js in particular — only ever sees one set of values.
+   "premium"). Those are reconciled on the way in, so downstream code - and
+   bl-calc.js in particular - only ever sees one set of values.
    ========================================================================== */
 (function(){
 "use strict";

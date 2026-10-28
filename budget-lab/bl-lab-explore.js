@@ -104,7 +104,7 @@
       var meta = FORMAT_META[fmtKey] || FORMAT_META.billboards;
       var seg = segments[i % Math.max(segments.length, 1)];
       var alloc = seg ? Math.round(seg.spend / Math.max(3, sites.length)) : Math.round(budget / Math.max(sites.length, 1));
-      /* §9 — a site's share of the format's PUBLISHED impacts range, not a
+      /* §9 - a site's share of the format's PUBLISHED impacts range, not a
          number invented from its allocation. Null when the underlying format
          carries no impacts benchmark, so the card can say so. */
       var impacts = null;
@@ -114,7 +114,7 @@
         var unitsPerSite = Math.max(1, Math.round(seg.qty / Math.max(1, sites.length)));
         impacts = { low: perUnitLow * unitsPerSite, high: perUnitHigh * unitsPerSite };
       }
-      /* The old "visibility score" here was invented — part of it came from the
+      /* The old "visibility score" here was invented - part of it came from the
          card's index in the loop. The blueprint carries no site-level score, so
          we show what it does carry: cost per 1,000 impacts for this line, and
          the impact confidence published with the format. */
@@ -161,12 +161,12 @@
       ? compact(opp.impacts.low) + "–" + compact(opp.impacts.high)
       : "No benchmark";
     var impactsMid = opp.impacts ? Math.round((opp.impacts.low + opp.impacts.high) / 2) : 0;
-    var visLabel = opp.cpm != null ? "£" + opp.cpm.toFixed(2) : "—";
+    var visLabel = opp.cpm != null ? "£" + opp.cpm.toFixed(2) : "-";
     var tagLine = firstTag ? tagLabel(firstTag) : opp.formatLabel;
     var detailLine =
       (firstTag ? opp.formatLabel + " · " : "") +
       "Est. impacts " + impactsLabel +
-      (visLabel !== "—" ? " · " + visLabel + " per 1k" : "");
+      (visLabel !== "-" ? " · " + visLabel + " per 1k" : "");
     return (
       '<article class="bl-opp-card bl-opp-card-mock" role="listitem" data-site-id="' +
       opp.id +
@@ -241,12 +241,12 @@
 
   /* Sort the live opportunity cards. Cards already carry data-reach (mid
      impacts), data-tags and an est. allocation, so this reorders the DOM in
-     place rather than re-rendering — hover/selection state stays intact. */
+     place rather than re-rendering - hover/selection state stays intact. */
   function sortValue(card, key) {
     if (key === "reach") return parseInt(card.getAttribute("data-reach"), 10) || 0;
     if (key === "value") {
       /* "Value" = most reach per pound. data-vis-label holds £ CPM per 1k, so
-         lower is better — invert to sort descending on value. */
+         lower is better - invert to sort descending on value. */
       var vis = card.getAttribute("data-vis-label") || "";
       var cpm = parseFloat(vis.replace(/[^0-9.]/g, ""));
       return isFinite(cpm) && cpm > 0 ? 1 / cpm : 0;
@@ -435,7 +435,7 @@
   }
 
   /* The explore plan footer used to show hardcoded £23,800 / £26,200 / 53%
-     that no JS ever wrote to — confidently wrong numbers. Bind them to the
+     that no JS ever wrote to - confidently wrong numbers. Bind them to the
      engine's real planned spend against the user's budget instead. */
   function updatePlanFoot(est, state) {
     var budget = (state && state.budget) || 0;
@@ -599,7 +599,7 @@
         sidebarAi.textContent =
           "Previewing " +
           suggestion.altLabel +
-          ". Check KPIs on the right — apply to keep or cancel to revert.";
+          ". Check KPIs on the right - apply to keep or cancel to revert.";
         if (sidebarBadge) sidebarBadge.textContent = "✦ Preview · " + suggestion.altLabel;
         if (sidebarRoot) sidebarRoot.classList.add("is-previewing");
       } else {

@@ -1,4 +1,4 @@
-/* Campaign forecast KPIs — engine-backed numbers + optional Loud AI insight */
+/* Campaign forecast KPIs - engine-backed numbers + optional Loud AI insight */
 (function () {
   "use strict";
 
@@ -35,7 +35,7 @@
   };
 
   function compact(n) {
-    if (n == null || !isFinite(n)) return "—";
+    if (n == null || !isFinite(n)) return "-";
     if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
     if (n >= 1e3) return Math.round(n / 1e3) + "K";
     return Math.round(n).toString();
@@ -96,7 +96,7 @@
     ids.forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
-        el.textContent = "—";
+        el.textContent = "-";
         el.removeAttribute("data-v");
       }
     });
@@ -239,7 +239,7 @@
         "hl-stat-visibility",
       ]);
       var label = document.getElementById("hl-score-label");
-      if (label) label.textContent = "—";
+      if (label) label.textContent = "-";
       return;
     }
 

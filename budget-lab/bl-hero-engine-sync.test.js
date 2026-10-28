@@ -1,4 +1,4 @@
-/* bl-hero-engine-sync.test.js — hero live calculator vs engine summary must agree.
+/* bl-hero-engine-sync.test.js - hero live calculator vs engine summary must agree.
    Run: node bl-hero-engine-sync.test.js
    Uses the same vm harness as bl-calc.test.js; no browser required. */
 const fs = require("fs"), vm = require("vm");
@@ -79,7 +79,7 @@ const CASES = [
 let fails = 0;
 const ok = (c, m) => { console.log((c ? "  PASS  " : "  FAIL  ") + m); if(!c) fails++; };
 
-console.log("\nHERO vs ENGINE — same store, same numbers");
+console.log("\nHERO vs ENGINE - same store, same numbers");
 CASES.forEach(function(c){
   Store.set(Object.assign({basis: "all-in", audience: "broad", formatPref: "none", planningMode: "indicative"}, c), "test");
   var st = Store.get();

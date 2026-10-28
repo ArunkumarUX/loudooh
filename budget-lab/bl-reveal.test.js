@@ -1,4 +1,4 @@
-/* bl-reveal.test.js — plan drawer opens correctly; live updates propagate.
+/* bl-reveal.test.js - plan drawer opens correctly; live updates propagate.
        python3 -m http.server 8901   (from the repo root)
        npm i -D playwright-core && node bl-reveal.test.js */
 const {chromium}=require('playwright-core');
@@ -11,7 +11,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   await p.goto(URL,{waitUntil:'domcontentloaded'});
   await p.waitForTimeout(3200);
 
-  console.log('\nPLAN DATA ON LOAD — drawer closed');
+  console.log('\nPLAN DATA ON LOAD - drawer closed');
   ok(await p.evaluate(()=>!document.getElementById('hl-view-plan-summary')),'View Plan Summary gate is gone');
   ok(await p.evaluate(()=>!document.getElementById('bl-rev')),'no build log on landing');
   const onLoad=await p.evaluate(()=>{

@@ -10,16 +10,16 @@ var SCENARIOS = {
               tradeoff:"Fewer repeat impressions in any single location. If you'd rather own one area or build repetition, try Local Dominance or Frequency instead."},
   local:     {label:"Local Dominance", desc:"Own a defined area or catchment", effWeight:10, favouredRoles:["local-visibility","local-targeting","proximity"], anchorPct:.62, reinforcePct:.25,
               weights:{"Bus Stops":30,"Bus":22,"Billboards":16,"Taxi":14,"Digital AdVans":12,"Rail":8,"London Underground":6,"Airport":4},
-              tradeoff:"National reach is deliberately sacrificed. This plan won't build awareness outside the chosen area — that's the trade you're making for depth."},
+              tradeoff:"National reach is deliberately sacrificed. This plan won't build awareness outside the chosen area - that's the trade you're making for depth."},
   frequency: {label:"Frequency", desc:"Build repeated exposure", effWeight:12, favouredRoles:["frequency","commuter-reach"], anchorPct:.60, reinforcePct:.25,
               weights:{"Bus":28,"London Underground":26,"Rail":22,"Taxi":16,"Bus Stops":16,"Billboards":10,"Airport":6,"Digital AdVans":4},
               tradeoff:"Geographic breadth is limited in favour of repeat exposure. If broad awareness matters more than repetition, Reach will spread further."},
   premium:   {label:"Premium Impact", desc:"Stature, launch, fame or visual impact", effWeight:4, favouredRoles:["stature","premium-audience","dwell"], anchorPct:.72, reinforcePct:.14, allowSpecialist:true,
               weights:{"Airport":30,"London Underground":24,"Billboards":22,"Rail":14,"Digital AdVans":10,"Taxi":8,"Bus":6,"Bus Stops":6},
-              tradeoff:"Scale is traded for stature — fewer sites, bigger moments. Cost per impact is typically higher than a Reach or Balanced plan."},
+              tradeoff:"Scale is traded for stature - fewer sites, bigger moments. Cost per impact is typically higher than a Reach or Balanced plan."},
   balanced:  {label:"Balanced", desc:"Balanced reach and reinforcement", effWeight:14, favouredRoles:["reach","frequency"], anchorPct:.52, reinforcePct:.28,
               weights:{"Billboards":24,"Bus Stops":22,"Bus":20,"Rail":18,"London Underground":14,"Taxi":12,"Airport":10,"Digital AdVans":10},
-              tradeoff:"Neither pure breadth nor pure depth — a blend of both, which means it won't maximise either one on its own."}
+              tradeoff:"Neither pure breadth nor pure depth - a blend of both, which means it won't maximise either one on its own."}
 };
 var SCENARIO_ORDER = ["reach","local","frequency","premium","balanced"];
 var ALT_MAP = {reach:["balanced","frequency"], local:["frequency","balanced"], frequency:["local","reach"], premium:["balanced","reach"], balanced:["reach","local"]};
@@ -52,18 +52,18 @@ var PLANNING_MODES = [
 var TRANSPORT_CATS = ["Bus","Bus Stops","Rail","London Underground","Taxi"];
 
 var FAQS = [
-  {q:"What is the OOH Budget Lab™ actually trying to solve?", a:"We built the Budget Lab around a simple frustration: people are given a budget but aren't shown what it can realistically buy. A £5,000, £10,000 and £50,000 budget aren't just different sizes of the same campaign — they lead to different strategies, footprints, formats and frequency. So instead of another 'get a quote' form, the Budget Lab asks what you're trying to achieve and shows you a real planning answer: what you could buy, what it might deliver, and what you'd be trading off."},
-  {q:"Why shouldn't I just buy the cheapest OOH media available?", a:"Because cheap and efficient aren't the same thing. A £1,000 placement in a genuinely relevant location can outperform a £500 placement that barely touches your objective — and a premium format can be entirely justified if the goal is stature or fame. That's why the Budget Lab shows the trade-off between cost, scale, geography, audience relevance, frequency and format rather than just ranking by price."},
-  {q:"How should I think about a £5,000, £10,000 or £25,000 budget?", a:"We wouldn't start by saying '£10,000 buys this exact thing' — we'd start with the objective. At the lower end, concentration usually beats spreading thin: own one location, route or catchment. Around £10,000 it becomes a real trade-off between reach and concentration. At £25,000 and above, we start thinking in terms of a media system — combining formats so the campaign has both reach and reinforcement."},
-  {q:"Should the Budget Lab optimise for reach or frequency?", a:"Neither, by default — they solve different problems. Reach is the unique number of people who see your campaign; frequency is how often those people see it. A launch usually wants reach; owning a message or location usually wants frequency. The Budget Lab asks what you're trying to achieve first, then makes that trade-off visible rather than assuming one answer fits every brief."},
-  {q:"Why does the Budget Lab distinguish impressions from impacts?", a:"Because a screen playing an advert isn't the same as a person seeing it. Route measures OOH impacts based on the likelihood of an advert actually being seen — factoring in location, movement, visibility and time — which is a meaningfully different, more honest number than a raw digital 'impressions' count. Where we only have planning benchmarks rather than Route-measured data, we label them clearly as indicative ranges, not guaranteed delivery."},
-  {q:"Is DOOH automatically better than classic OOH?", a:"No — that's an easy trap. Digital OOH offers dynamic creative, scheduling and increasingly programmatic buying, and IAB UK expects DOOH to reach 76% of UK OOH spend by 2031. But a static 48-sheet in exactly the right spot can outperform a screen, and buses and rail work because of movement and dwell time. We treat format as a strategic decision, not a technology hierarchy."},
-  {q:"Does programmatic OOH make the Budget Lab more complicated?", a:"Technically, yes — the buying ecosystem behind OOH has become genuinely sophisticated. But from your side of the screen it should be simpler, not harder. The Budget Lab solves the strategy first — objective, audience, geography and budget — before the buying mechanism ever needs to come into it."},
-  {q:"How should production costs be treated in an OOH budget?", a:"Separately, always. 'Campaign cost' can quietly bundle media, print, installation, special builds and motion design into one number, which makes budgets hard to compare. The Budget Lab shows an indicative media allocation, then adds sensible production and installation allowances based on the formats you've actually selected — never hidden inside the headline rate."},
+  {q:"What is the OOH Budget Lab™ actually trying to solve?", a:"We built the Budget Lab around a simple frustration: people are given a budget but aren't shown what it can realistically buy. A £5,000, £10,000 and £50,000 budget aren't just different sizes of the same campaign - they lead to different strategies, footprints, formats and frequency. So instead of another 'get a quote' form, the Budget Lab asks what you're trying to achieve and shows you a real planning answer: what you could buy, what it might deliver, and what you'd be trading off."},
+  {q:"Why shouldn't I just buy the cheapest OOH media available?", a:"Because cheap and efficient aren't the same thing. A £1,000 placement in a genuinely relevant location can outperform a £500 placement that barely touches your objective - and a premium format can be entirely justified if the goal is stature or fame. That's why the Budget Lab shows the trade-off between cost, scale, geography, audience relevance, frequency and format rather than just ranking by price."},
+  {q:"How should I think about a £5,000, £10,000 or £25,000 budget?", a:"We wouldn't start by saying '£10,000 buys this exact thing' - we'd start with the objective. At the lower end, concentration usually beats spreading thin: own one location, route or catchment. Around £10,000 it becomes a real trade-off between reach and concentration. At £25,000 and above, we start thinking in terms of a media system - combining formats so the campaign has both reach and reinforcement."},
+  {q:"Should the Budget Lab optimise for reach or frequency?", a:"Neither, by default - they solve different problems. Reach is the unique number of people who see your campaign; frequency is how often those people see it. A launch usually wants reach; owning a message or location usually wants frequency. The Budget Lab asks what you're trying to achieve first, then makes that trade-off visible rather than assuming one answer fits every brief."},
+  {q:"Why does the Budget Lab distinguish impressions from impacts?", a:"Because a screen playing an advert isn't the same as a person seeing it. Route measures OOH impacts based on the likelihood of an advert actually being seen - factoring in location, movement, visibility and time - which is a meaningfully different, more honest number than a raw digital 'impressions' count. Where we only have planning benchmarks rather than Route-measured data, we label them clearly as indicative ranges, not guaranteed delivery."},
+  {q:"Is DOOH automatically better than classic OOH?", a:"No - that's an easy trap. Digital OOH offers dynamic creative, scheduling and increasingly programmatic buying, and IAB UK expects DOOH to reach 76% of UK OOH spend by 2031. But a static 48-sheet in exactly the right spot can outperform a screen, and buses and rail work because of movement and dwell time. We treat format as a strategic decision, not a technology hierarchy."},
+  {q:"Does programmatic OOH make the Budget Lab more complicated?", a:"Technically, yes - the buying ecosystem behind OOH has become genuinely sophisticated. But from your side of the screen it should be simpler, not harder. The Budget Lab solves the strategy first - objective, audience, geography and budget - before the buying mechanism ever needs to come into it."},
+  {q:"How should production costs be treated in an OOH budget?", a:"Separately, always. 'Campaign cost' can quietly bundle media, print, installation, special builds and motion design into one number, which makes budgets hard to compare. The Budget Lab shows an indicative media allocation, then adds sensible production and installation allowances based on the formats you've actually selected - never hidden inside the headline rate."},
   {q:"What makes a good OOH budget allocation?", a:"Balance. Not spread so thin that nothing has real presence, and not so concentrated that a campaign needing genuine reach ends up in one spectacular site. We weigh three things: where the audience actually moves, what job each format is doing, and what the creative needs from the media. The Budget Lab explains why a recommendation was made rather than just listing sites."},
-  {q:"How do I decide whether OOH is actually working?", a:"Decide what 'working' means before the campaign goes live. For awareness, look at reach, frequency and recall; for driving people somewhere, look at footfall; for demand generation, search behaviour alongside other signals. Impacts tell you about delivery — they don't, by themselves, tell you the business objective was hit. A strong plan starts with the outcome and works backwards to the media."},
-  {q:"Can a relatively small OOH budget still have a big impact?", a:"Yes — but 'big impact' needs to mean something specific, not national reach on a local budget. A modest budget can dominate one town, postcode area or commuter route rather than being diluted across a huge geography, and sharp creative can make a small footprint feel much bigger. That's why the Budget Lab shows different scenarios for the same budget rather than one 'correct' answer."},
-  {q:"What's the biggest mistake the Budget Lab is built to stop?", a:"Starting with the format. 'How much is a billboard?' is a fair question, but it's the second one. The first is: what are you actually trying to achieve? Once that's answered, audience, geography, reach, frequency, format and creative all follow logically — and the recommendation should never simply be whichever format has the biggest headline reach number."}
+  {q:"How do I decide whether OOH is actually working?", a:"Decide what 'working' means before the campaign goes live. For awareness, look at reach, frequency and recall; for driving people somewhere, look at footfall; for demand generation, search behaviour alongside other signals. Impacts tell you about delivery - they don't, by themselves, tell you the business objective was hit. A strong plan starts with the outcome and works backwards to the media."},
+  {q:"Can a relatively small OOH budget still have a big impact?", a:"Yes - but 'big impact' needs to mean something specific, not national reach on a local budget. A modest budget can dominate one town, postcode area or commuter route rather than being diluted across a huge geography, and sharp creative can make a small footprint feel much bigger. That's why the Budget Lab shows different scenarios for the same budget rather than one 'correct' answer."},
+  {q:"What's the biggest mistake the Budget Lab is built to stop?", a:"Starting with the format. 'How much is a billboard?' is a fair question, but it's the second one. The first is: what are you actually trying to achieve? Once that's answered, audience, geography, reach, frequency, format and creative all follow logically - and the recommendation should never simply be whichever format has the biggest headline reach number."}
 ];
 
 var METHOD_STEPS = [
@@ -87,7 +87,7 @@ function track(name, payload){
 
 /* ---------- engine ----------
    Pricing, cycles, geography, minimum buy, volume discounts and the
-   contingency reserve all come from bl-calc.js — the same module hero.js
+   contingency reserve all come from bl-calc.js - the same module hero.js
    uses, so the two can no longer produce different answers. */
 var C = window.BLCalc;
 var P = window.BLPlanCore;
@@ -100,7 +100,7 @@ function scoreCandidate(f, q, scenarioKey, state){
   return P.scoreFormat(f, q, scenarioKey, state, SCENARIOS);
 }
 
-/* §10 — geography, POA status, cycle compatibility and minimum-buy
+/* §10 - geography, POA status, cycle compatibility and minimum-buy
    affordability are all enforced here, not just displayed. */
 function eligibleCandidates(state){
   var opts = calcOpts(state);
@@ -111,7 +111,7 @@ function eligibleCandidates(state){
 function runScenario(scenarioKey, state){
   var opts = calcOpts(state);
   var sc = SCENARIOS[scenarioKey];
-  /* Identical allocator to the live console — see BLCalc.buildPlan. */
+  /* Identical allocator to the live console - see BLCalc.buildPlan. */
   var plan = C.buildPlan(DATA, opts, sc, function(f, q){
     return scoreCandidate(f, q, scenarioKey, state);
   });
@@ -160,7 +160,7 @@ function runScenario(scenarioKey, state){
   result.remaining = state.budget - result.spend - plan.reserve;
   result.unallocated = Math.max(0, result.remaining);
 
-  /* §9 — impacts only, as a range, with confidence carried through. */
+  /* §9 - impacts only, as a range, with confidence carried through. */
   result.audienceLow  = plan.impacts ? plan.impacts.low  : null;
   result.audienceHigh = plan.impacts ? plan.impacts.high : null;
   result.confidence   = plan.impacts ? plan.impacts.confidence : null;
@@ -178,7 +178,7 @@ function runScenario(scenarioKey, state){
 /* ---------- state ---------- */
 /* Same pattern as hero.js: `state` is a live view onto the one store, so the
    wizard and the console can no longer hold different answers. `step` is the
-   only genuinely local value — it is which panel is on screen, not a plan input. */
+   only genuinely local value - it is which panel is on screen, not a plan input. */
 var Store = window.BLState;
 var state = {step: 1};
 ["budget","basis","objective","geo","named","audience","durationDays",
@@ -193,7 +193,7 @@ var state = {step: 1};
 /* Re-render when the plan changes from anywhere else on the page. */
 var renderTimer = null;
 /* The fields that actually change the plan. `started` and `completed` are
-   flags about where the reader is, not inputs to the calculation — re-rendering
+   flags about where the reader is, not inputs to the calculation - re-rendering
    the whole summary for those was doing real damage: a second full render 140ms
    after every "View Plan Summary" click, which threw away anything transient in
    the container and cost a rebuild for a plan that had not changed. */
@@ -220,7 +220,7 @@ Store.subscribe(function(snapshot, changed, source){
 /* ---------- UI: build static pieces ---------- */
 /* Two panels, not five. Budget, objective, audience, geography and duration
    are set once in the planner rail; what is left here genuinely is fine-tuning. */
-var STEP_LABELS = [];   /* no steps — nothing renders these any more */
+var STEP_LABELS = [];   /* no steps - nothing renders these any more */
 var RESULTS_STEP = 5;   /* kept at 5 so existing goToStep(5) callers still work */
 /* The step tracker is gone. There is no wizard: the plan is live from the
    first paint, and the advanced settings sit in the rail beside every other
@@ -229,7 +229,7 @@ function renderSteps(){}
 
 /* Renders using the same row component as the audience picker in the rail:
    title, one line of explanation, and a circular check. Consistency matters
-   more than novelty here — a setting should look like every other setting. */
+   more than novelty here - a setting should look like every other setting. */
 function syncRadioRow(btn, on){
   btn.classList.toggle("is-on", on);
   btn.setAttribute("aria-checked", on ? "true" : "false");
@@ -350,7 +350,7 @@ function goToStep(n, skipScroll){
 function wireNav(){}
 
 /* "Advanced settings" from anywhere on the page opens the rail's disclosure
-   and puts it in front of the reader — one destination, one name. */
+   and puts it in front of the reader - one destination, one name. */
 window.blGoToStep = function(){
   if(window.innerWidth <= 1024 && window.__BL_OPEN_CAMPAIGN_SHEET__){
     window.__BL_OPEN_CAMPAIGN_SHEET__("advanced");
@@ -402,9 +402,9 @@ function actionPanelMarkup(result){
       foot = '<div class="bl-act-foot">' +
         '<button type="button" class="bl-act-cta" data-act="' + i + '" aria-label="Preview: ' + a.cta + '">See what changes' +
         '<i aria-hidden="true">\u2192</i></button>' +
-        '<span class="bl-act-hint">Preview first — nothing changes until you apply it</span></div>' +
+        '<span class="bl-act-hint">Preview first - nothing changes until you apply it</span></div>' +
         '<div class="bl-act-preview" id="bl-act-prev-' + i + '" hidden>' +
-          '<p class="bl-act-preview-head">If you apply this — <b>' + a.cta + '</b></p>' +
+          '<p class="bl-act-preview-head">If you apply this - <b>' + a.cta + '</b></p>' +
           '<dl class="bl-act-delta">' + a.preview.rows.map(function(r){
             return '<div class="is-' + r.dir + '"><dt>' + r.label + '</dt>' +
                    '<dd><s>' + r.from + '</s><i aria-hidden="true">\u2192</i><b>' + r.to + '</b></dd></div>';
@@ -465,7 +465,7 @@ function wireActionPanelIn(root){
       var open = panel.hidden;
       panel.hidden = !open;
       card.classList.toggle("is-previewing", open);
-      /* Bring the revealed preview into view — expanding below the fold is
+      /* Bring the revealed preview into view - expanding below the fold is
          why a single click read as "nothing happened". */
       if(open){
         panel.scrollIntoView({behavior:"smooth", block:"nearest"});
@@ -511,7 +511,7 @@ function renderResults(){
     var infeasHtml = loudAIMarkup(result) + '<div class="bl-infeasible"><h3>This budget doesn’t yet cover a feasible plan</h3>' +
       '<p>' + (result.minFormat ?
         'The smallest realistic buy we could find for this geography and campaign length is ' + result.minQty + ' × ' +
-        result.minFormat.category + ' — ' + result.minFormat.format + ', at roughly ' + gbp(result.minBudget) + '. ' +
+        result.minFormat.category + ' - ' + result.minFormat.format + ', at roughly ' + gbp(result.minBudget) + '. ' +
         'Media owners will not sell below that quantity, so we would rather tell you than return a plan nobody can book. ' +
         'Increase your budget, shorten the campaign length, or widen the geography and try again.' :
         'We couldn’t find a compatible format for the campaign length and geography selected. Try a different duration or area.') +
@@ -534,11 +534,11 @@ function renderResults(){
 
   var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Your city") : "UK-wide";
   /* Describe the plan that was actually costed, not the one the scenario
-     intended — a reinforcement that couldn't reach its minimum buy is not
+     intended - a reinforcement that couldn't reach its minimum buy is not
      claimed in the copy. */
   var anchorShare = Math.round((result.anchorLine.total / Math.max(1, result.spend)) * 100);
   var recSentence = "We’ve put " + anchorShare + "% of planned spend into " + result.anchor.f.category.toLowerCase() +
-    " (" + result.anchorLine.qty + " × " + result.anchor.f.format + ") because " + result.scenario.desc.toLowerCase() + " — " + result.anchor.f.strength.toLowerCase() + "." +
+    " (" + result.anchorLine.qty + " × " + result.anchor.f.format + ") because " + result.scenario.desc.toLowerCase() + " - " + result.anchor.f.strength.toLowerCase() + "." +
     (result.reinforceLine
       ? " Reinforcement sits in " + result.reinforcement.f.category.toLowerCase() + " (" + result.reinforceLine.qty + " × " + result.reinforcement.f.format + ") to add " + result.reinforcement.f.strength.toLowerCase() + "."
       : " There is no second format in this plan: nothing else reaches a realistic minimum buy at this budget, so concentrating is the honest answer.");
@@ -582,7 +582,7 @@ function renderResults(){
   html += '<div class="bl-sum-stats">' +
     statCard(gbp(state.budget), "Total budget", durationLabel(state.durationDays) + " · " + geoLabel) +
     statCard(gbp(result.spend), "Planned spend",
-      result.mediaOnly ? "Media only — " + gbp(result.extraCost) + " production on top" : "Media, production and installation", "accent") +
+      result.mediaOnly ? "Media only - " + gbp(result.extraCost) + " production on top" : "Media, production and installation", "accent") +
     statCard(String(result.sites), "Sites booked",
       result.lines.length + " format" + (result.lines.length === 1 ? "" : "s") + " in the mix") +
     (result.cpm ? statCard("£" + result.cpm.mid.toFixed(2), "Per 1,000 impacts",
@@ -627,14 +627,14 @@ function renderResults(){
       '</div>' +
       '<div class="bl-sum-format-prices">' +
         priceRow("Media", gbp(line.media), "accent") +
-        priceRow("Production", line.production ? gbp(line.production) : "£0 — no print") +
-        priceRow("Installation", line.installation ? gbp(line.installation) : "£0 — none") +
+        priceRow("Production", line.production ? gbp(line.production) : "£0 - no print") +
+        priceRow("Installation", line.installation ? gbp(line.installation) : "£0 - none") +
         priceRow("Booking", f.campaignBasis + (line.cycles > 1 ? " × " + line.cycles + " cycles" : "")) +
         (line.discountRate > 0 ? priceRow("Volume discount", "−" + Math.round(line.discountRate * 100) + "% (" + line.discountLabel + ")", "good") : "") +
         priceRow("Line total", gbp(line.total), "total") +
       '</div>' +
       (line.taperNote || f.costStatus === "Planning range"
-        ? '<p class="bl-sum-format-flag">' + (line.taperNote || "Priced from a planning range rather than a published rate — treat as indicative.") + '</p>'
+        ? '<p class="bl-sum-format-flag">' + (line.taperNote || "Priced from a planning range rather than a published rate - treat as indicative.") + '</p>'
         : '') +
     '</article>';
   }).join("") + '</div>';
@@ -659,7 +659,7 @@ function renderResults(){
         '<div class="bl-sum-audience-figure">' +
           '<b>' + Math.round(result.audienceLow).toLocaleString("en-GB") + ' – ' + Math.round(result.audienceHigh).toLocaleString("en-GB") + '</b>' +
           '<span class="bl-sum-caption">Indicative total campaign impacts</span>' +
-          '<p>Total exposures under OOH planning methodology — not people reached.</p>' +
+          '<p>Total exposures under OOH planning methodology - not people reached.</p>' +
           '<span class="bl-sum-tag">Confidence: ' + (result.confidence || "Medium") + '</span>' +
         '</div>' +
         (result.cpm ? '<div class="bl-sum-audience-side">' +
@@ -668,8 +668,8 @@ function renderResults(){
           priceRow("If impacts land at the high end", "£" + result.cpm.low.toFixed(2), "good") +
         '</div>' : '') +
       '</div>' +
-      '<p class="bl-sum-note"><strong>We do not model reach or frequency.</strong> Unique people reached, and how often, require Route or site-level operator data that sits outside this planning tool. We will not manufacture them from an impacts range — speak to a planner for Route-measured figures.</p>'
-    : '<p class="bl-sum-note">No reliable audience benchmark exists for this combination — we’d rather say so than invent one.</p>';
+      '<p class="bl-sum-note"><strong>We do not model reach or frequency.</strong> Unique people reached, and how often, require Route or site-level operator data that sits outside this planning tool. We will not manufacture them from an impacts range - speak to a planner for Route-measured figures.</p>'
+    : '<p class="bl-sum-note">No reliable audience benchmark exists for this combination - we’d rather say so than invent one.</p>';
 
   html += section("02", "What it should deliver", "Impacts only, as a range, with the confidence attached.", audBody);
 
@@ -678,7 +678,7 @@ function renderResults(){
     "Every plan gives something up. Here is what this one costs you.",
     '<div class="bl-sum-tradeoff"><p>' + result.scenario.tradeoff + '</p></div>' +
     '<div class="bl-sum-geo">' + priceRow("Geographic footprint", geoLabel) +
-      (state.geo === "named" ? '<p class="bl-sum-note">Named-city inventory is priced against regional bands — confirm exact site availability for ' + (state.named || "this city") + '.</p>' : '') +
+      (state.geo === "named" ? '<p class="bl-sum-note">Named-city inventory is priced against regional bands - confirm exact site availability for ' + (state.named || "this city") + '.</p>' : '') +
     '</div>');
 
   /* ---- 04 alternatives ---- */
@@ -701,8 +701,8 @@ function renderResults(){
           '<td>' + r.sites + '</td>' +
           '<td>' + r.lines.map(function(l){ return l.f.category; }).join(", ") + '</td>' +
           '<td>' + impRange(r) + '</td>' +
-          '<td>' + (r.cpm ? "£" + r.cpm.mid.toFixed(2) : "—") + '</td>' +
-          '<td>' + (r.score ? '<b>' + r.score.total + '</b> ' + r.score.label : "—") + '</td></tr>';
+          '<td>' + (r.cpm ? "£" + r.cpm.mid.toFixed(2) : "-") + '</td>' +
+          '<td>' + (r.score ? '<b>' + r.score.total + '</b> ' + r.score.label : "-") + '</td></tr>';
       }).join("") + '</tbody></table></div>' +
       '<ul class="bl-sum-compare-notes">' + [result].concat(alts).map(function(r){
         return '<li><b>' + r.scenario.label + ':</b> ' + r.scenario.tradeoff + '</li>';
@@ -727,10 +727,10 @@ function renderResults(){
 
   /* ---- 05 exclusions ---- */
   if(result.exclusions && result.exclusions.length){
-    html += section("05", "Formats we left out — and why",
+    html += section("05", "Formats we left out - and why",
       "These sit in the pricing matrix but can’t be planned automatically for this brief. Each is still available; it just needs a conversation rather than a calculation.",
       '<ul class="bl-exclusion-list">' + result.exclusions.map(function(x){
-        return '<li><b>' + x.category + ' — ' + x.format + '</b><span>' + x.reason +
+        return '<li><b>' + x.category + ' - ' + x.format + '</b><span>' + x.reason +
           (x.alternative ? ' Closest planned alternative: <em>' + x.alternative + '</em>.' : '') + '</span></li>';
       }).join("") + '</ul>');
   }
@@ -744,7 +744,7 @@ function renderResults(){
     '<li><b>Availability is never guaranteed by a rate.</b> Confirm live inventory with a planner before booking.</li>' +
     '<li><b>Nothing is force-spent.</b> A ' + Math.round((result.reserve / Math.max(1, state.budget)) * 100) + '% contingency is held before anything is allocated, and any remainder is shown as unallocated rather than pushed into a marginal extra unit.</li>' +
     '<li><b>Minimum buys are respected.</b> Every format is planned at a realistic minimum quantity. Where a budget cannot reach one, we say so rather than returning a quantity no media owner would sell.</li>' +
-    '<li><b>Volume discounts are assumed, not guaranteed.</b> 5% at 25–49 units, 10% at 50–99, 15% at 100+, applied to media only — production and installation never discount.</li>' +
+    '<li><b>Volume discounts are assumed, not guaranteed.</b> 5% at 25–49 units, 10% at 50–99, 15% at 100+, applied to media only - production and installation never discount.</li>' +
     '<li><b>Long runs are not extrapolated linearly.</b> Taxi and multi-cycle campaigns are quoted below a straight multiple of the rate card. Confirm the negotiated rate before booking.</li>' +
     '</ul>', "is-quiet");
 
@@ -1076,7 +1076,7 @@ function applyBrief(parsed){
   state.started = true;
   syncFormFromState();
   renderStateTags();
-  /* No outbound push needed — the console subscribes to the same store. */
+  /* No outbound push needed - the console subscribes to the same store. */
 }
 
 function renderStateTags(){
@@ -1108,7 +1108,7 @@ function renderBriefTags(parsed){
   var hl = document.getElementById("hl-plan-summary");
   if(hl && summary) hl.textContent = summary;
   var pl = document.getElementById("bl-planner-live");
-  if(pl && summary) pl.textContent = summary + " — optional cost basis & format settings";
+  if(pl && summary) pl.textContent = summary + " - optional cost basis & format settings";
   var el = document.getElementById("bl-ai-tags");
   if(!el) return;
   el.hidden = true;
@@ -1138,13 +1138,13 @@ function loudVerdict(result){
     return { tone:"tight", title:"This budget is too thin for UK-wide", body:"Spread nationally and nothing has presence. Concentrate on "+(state.named||"one city")+" and you can actually own a corridor." };
   }
   if(state.geo === "london" && b < 10000){
-    return { tone:"tight", title:"London is expensive at "+gbp(b), body:"You can still make a sharp burst — fewer sites, tighter geography. A Loud! planner can confirm which sites are actually live." };
+    return { tone:"tight", title:"London is expensive at "+gbp(b), body:"You can still make a sharp burst - fewer sites, tighter geography. A Loud! planner can confirm which sites are actually live." };
   }
   if((state.geo === "named" || state.geo === "regional") && b >= 10000){
     return { tone:"own", title:"This budget can own "+place, body:"Keep the mix concentrated. The plan below is a media system for "+place+", not a thin national sprinkle." };
   }
   if(b >= 50000){
-    return { tone:"own", title:"This is a real media system", body:"Enough budget for reach and reinforcement. Next step is live availability — not another planning pass." };
+    return { tone:"own", title:"This is a real media system", body:"Enough budget for reach and reinforcement. Next step is live availability - not another planning pass." };
   }
   if(b < 5000){
     return { tone:"burst", title:"A sharp burst, not a campaign system", body:"At "+gbp(b)+" the honest play is one format in one place. Depth beats a handful of leftover panels." };
@@ -1186,7 +1186,7 @@ function planSnapshot(result){
     if(result.reinforcement && result.reinforceQty) lines.push("Reinforcement: "+result.reinforceQty+" × "+result.reinforcement.f.format);
     lines.push("Planned spend: "+gbp(result.spend));
   }
-  lines.push("Indicative only — confirm live inventory.");
+  lines.push("Indicative only - confirm live inventory.");
   return lines.join("\n");
 }
 
@@ -1194,7 +1194,7 @@ function planFullExport(result){
   if(result.infeasible) return planSnapshot(result);
   var geoLabel = state.geo === "london" ? "London" : state.geo === "regional" ? "Regional UK" : state.geo === "named" ? (state.named || "Your city") : "UK-wide";
   var lines = [
-    "LOUD! OOH — BUDGET LAB PLAN EXPORT",
+    "LOUD! OOH - BUDGET LAB PLAN EXPORT",
     "Generated: " + new Date().toISOString(),
     "",
     "BRIEF",
@@ -1350,7 +1350,7 @@ function wireLoudAI(result){
       return;
     }
     err.hidden = true;
-    var subject = "Budget Lab mix — "+gbp(state.budget)+" — "+placeLabel();
+    var subject = "Budget Lab mix - "+gbp(state.budget)+" - "+placeLabel();
     var body = (name ? "From: "+name+" <"+email+">\n" : "From: "+email+"\n") + "\n" + planSnapshot(result);
     var href = "mailto:hello@loudooh.co.uk?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
     track("lead_cta_clicked", {source:"loud_ai", budget:state.budget, geo:state.geo});
@@ -1371,7 +1371,7 @@ function wireBriefBar(){
     var parsed = parseBrief(text);
     if(parsed.hits < 1){
       err.hidden = false;
-      err.textContent = "Add a budget or a city — for example £25k, 2 weeks, Leeds.";
+      err.textContent = "Add a budget or a city - for example £25k, 2 weeks, Leeds.";
       input.focus();
       return false;
     }
@@ -1413,10 +1413,10 @@ window.blFocusLoudAI = function(){
 };
 
 window.blParseBrief = parseBrief;
-/* Price a hypothetical change without touching live state — this is what lets
+/* Price a hypothetical change without touching live state - this is what lets
    the summary show a real before/after instead of a vague promise. */
 window.blReplan = function(overrides, scenarioKey){
-  /* A plain snapshot, never the live view — pricing a hypothetical must not
+  /* A plain snapshot, never the live view - pricing a hypothetical must not
      touch the store or notify anybody. */
   var trial = Store.get();
   trial.step = state.step;
@@ -1429,7 +1429,7 @@ window.blApplyChange = function(overrides){
   syncFormFromState();
   renderResults();
 };
-/* blGoToStep is defined once, up in the navigation block — it opens the rail's
+/* blGoToStep is defined once, up in the navigation block - it opens the rail's
    Advanced settings. This second definition used to shadow it. */
 
 /* Runs the plan and renders it. It deliberately does NOT scroll: the caller

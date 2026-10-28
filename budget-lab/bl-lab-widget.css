@@ -1,4 +1,4 @@
-/* Reference layout — Loud! OOH brand (navy / orange / eggshell) */
+/* Reference layout - Loud! OOH brand (navy / orange / eggshell) */
 
 .visually-hidden {
   position: absolute;
@@ -20,7 +20,7 @@
   color: var(--ink);
 }
 
-/* Hero split — navy band */
+/* Hero split - navy band */
 .bl-ref-hero-band {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 55%, #021234 100%);
   padding: clamp(36px, 5vw, 56px) 0 clamp(32px, 4vw, 48px);
@@ -154,7 +154,7 @@
   color: var(--muted);
 }
 
-/* Search bar — sits on navy hero */
+/* Search bar - sits on navy hero */
 .bl-ref-search-wrap {
   position: relative;
   z-index: 5;
@@ -197,7 +197,7 @@
   transform: none;
 }
 
-/* Calculator — results card below hero */
+/* Calculator - results card below hero */
 .bl-ref-lab-wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -248,7 +248,7 @@
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
 
-/* Budget Lab split — right panel is flat white */
+/* Budget Lab split - right panel is flat white */
 .bl-ref-lab-wrap > .bl-lab-widget,
 .bl-ref-lab-wrap > #lab {
   background: #fff !important;
@@ -444,7 +444,7 @@
   animation: blRefPulse 1.5s ease infinite;
 }
 
-/* Results body — airy luxury grid */
+/* Results body - airy luxury grid */
 .bl-lab-kpis {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -754,7 +754,7 @@
   text-decoration: underline;
 }
 
-/* Budget slider — compact luxury */
+/* Budget slider - compact luxury */
 .bl-lab-field-budget .bl-range-ends {
   margin-top: 6px;
   font-size: 9px;
@@ -770,7 +770,7 @@
   border-width: 2px;
 }
 
-/* Donut — luxury ring */
+/* Donut - luxury ring */
 .bl-lab-donut-row .bl-donut-wrap,
 .bl-donut-wrap-lux {
   position: relative;
@@ -864,7 +864,7 @@
   to { opacity: 1; transform: none; }
 }
 
-/* Map — interactive Leaflet */
+/* Map - interactive Leaflet */
 .bl-lab-map {
   position: relative;
   height: 280px;
@@ -1064,7 +1064,7 @@
   text-decoration: none;
 }
 
-/* Planner — transparent on page background */
+/* Planner - transparent on page background */
 .bl-planner {
   padding: 40px 0 32px;
   background: transparent;

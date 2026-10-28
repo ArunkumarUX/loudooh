@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-actions.css — "Your next moves"
+   bl-actions.css - "Your next moves"
    The summary's decision surface. Cards are quiet until you engage with one,
    then the previewed card lifts and the rest recede, so there is only ever
    one question on screen at a time.
@@ -224,7 +224,7 @@
 }
 
 /* ==========================================================================
-   Advanced settings — the last block in the planner rail.
+   Advanced settings - the last block in the planner rail.
    The rail is a dark surface and already styles .bl-campaign-aud-row for it,
    including the selected state. So this only draws the disclosure shell and
    then gets out of the way: the pickers inside are the rail's own component,
@@ -290,7 +290,7 @@
   font-size:12px; font-weight:700; line-height:1.35;
   letter-spacing:.01em; color:#FFFFFF;
 }
-/* the pickers themselves inherit .bl-campaign-aud-row from the rail — the only
+/* the pickers themselves inherit .bl-campaign-aud-row from the rail - the only
    adjustment is letting a two-line description breathe */
 .bl-adv .bl-campaign-aud-row{ align-items:flex-start !important; }
 .bl-adv .bl-campaign-aud-row .bl-campaign-aud-check{ margin-top:2px; }

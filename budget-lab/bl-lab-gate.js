@@ -1,4 +1,4 @@
-/* bl-lab-gate.js — landing overview ↔ live calculator */
+/* bl-lab-gate.js - landing overview ↔ live calculator */
 (function () {
   "use strict";
 
@@ -42,7 +42,7 @@
 
     var impacts = document.getElementById("hl-impacts");
     var previewReach = document.getElementById("bl-landing-preview-reach");
-    if (impacts && previewReach && impacts.textContent && impacts.textContent !== "—") {
+    if (impacts && previewReach && impacts.textContent && impacts.textContent !== "-") {
       var reachText = impacts.textContent.split(/[–—-]/)[0].trim();
       previewReach.innerHTML = reachText + ' <small>people</small>';
     }

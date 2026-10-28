@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-summary.css — the plan summary, built on the Loud! OOH insight-guide
+   bl-summary.css - the plan summary, built on the Loud! OOH insight-guide
    design system so a plan reads like the guides rather than like a form
    response: Montserrat 900 uppercase headings, navy and orange, tag pills,
    numbered sections, label/value price rows and a navy pull quote.
@@ -208,7 +208,7 @@
   font-weight:900; line-height:1.05; letter-spacing:-.02em;
   color:var(--sum-navy); font-variant-numeric:tabular-nums;
 }
-/* the caption only — must not also catch the confidence pill below it */
+/* the caption only - must not also catch the confidence pill below it */
 .bl-sum-audience-figure > .bl-sum-caption{
   display:block; margin-top:7px;
   font-size:.6875rem; font-weight:600;
@@ -310,11 +310,11 @@
 #bl-results{ scroll-margin-top: calc(var(--lo-chrome-h, 72px) + 20px); }
 
 /* ==========================================================================
-   Take this plan with you — the single send block, last in the summary.
+   Take this plan with you - the single send block, last in the summary.
    One email form on the page: you read the plan, act on it, then take it.
    ========================================================================== */
 .bl-sum-send{
-  /* anchored from the "Send this plan to a planner" CTA — clear the sticky nav */
+  /* anchored from the "Send this plan to a planner" CTA - clear the sticky nav */
   scroll-margin-top:calc(var(--lo-chrome-h, 72px) + 20px);
   margin:30px 0 0;
   padding:clamp(20px,3vw,28px);

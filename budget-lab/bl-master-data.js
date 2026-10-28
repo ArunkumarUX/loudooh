@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-master-data.js — Loud! OOH Budget Lab | Master Data Integration Layer
+   bl-master-data.js - Loud! OOH Budget Lab | Master Data Integration Layer
    --------------------------------------------------------------------------
    Source: data/master-data-v1.json (Master Data & Planning Engine v1.0)
    Last Updated: 1 September 2026
@@ -26,7 +26,7 @@
    Source: Format Rate Benchmarks sheet (master-data-v1.json)
    ----------------------------------------------------------------------- */
 var RATES = {
-  /* Roadside — Billboards */
+  /* Roadside - Billboards */
   "billboards-6-sheet-static":          {lo:400, ty:650, hi:900,  min:325, rlo:null,rty:null, rhi:null, rmin:null},
   "billboards-48-sheet-static":         {lo:650, ty:825, hi:1000, min:325, rlo:325, rty:475,  rhi:600,  rmin:325},
   "billboards-6-sheet-digital":         {lo:500, ty:650, hi:800,  min:500, rlo:400, rty:500,  rhi:600,  rmin:400},
@@ -39,7 +39,7 @@ var RATES = {
   "london-underground-16-sheet-cross-track":    {lo:1000,ty:1800,hi:2800,min:1000,rlo:null,rty:null,rhi:null,rmin:null},
   "london-underground-48-sheet-cross-track":    {lo:1500,ty:3000,hi:5000,min:1500,rlo:null,rty:null,rhi:null,rmin:null},
   "london-underground-digital-escalator-ribbon":{lo:15750,ty:20000,hi:40000,min:15750,rlo:null,rty:null,rhi:null,rmin:null},
-  /* Rail — Regional basis shown; London termini are roughly 2× */
+  /* Rail - Regional basis shown; London termini are roughly 2× */
   "rail-4-6-sheet-station-poster":      {lo:750, ty:1100,hi:1500, min:250, rlo:250, rty:500,  rhi:750,  rmin:250},
   "rail-digital-6-sheet-station":       {lo:1200,ty:1700,hi:2200, min:450, rlo:450, rty:800,  rhi:1200, rmin:450},
   "rail-48-sheet-station":              {lo:2000,ty:3250,hi:4500, min:750, rlo:750, rty:1250, rhi:2000, rmin:750},
@@ -52,16 +52,16 @@ var RATES = {
   "bus-superside":                      {lo:300, ty:400, hi:500,  min:300, rlo:130, rty:200,  rhi:275,  rmin:130},
   "bus-t-side":                         {lo:500, ty:700, hi:900,  min:500, rlo:250, rty:375,  rhi:500,  rmin:250},
   "bus-streetliner":                    {lo:180, ty:340, hi:500,  min:180, rlo:180, rty:340,  rhi:500,  rmin:180},
-  /* Airport — planner review; rates are campaign packages */
+  /* Airport - planner review; rates are campaign packages */
   "airport-regional-6-sheet-static":    {lo:500, ty:750, hi:1200, min:500, rlo:500, rty:750,  rhi:1200, rmin:500},
   "airport-digital-6-sheet":            {lo:500, ty:750, hi:1200, min:500, rlo:500, rty:750,  rhi:1200, rmin:500},
   "airport-large-format-digital":       {lo:2500,ty:7500,hi:25000,min:2500,rlo:2500,rty:7500, rhi:25000,rmin:2500},
   "airport-48-sheet-approach-road":     {lo:500, ty:750, hi:1200, min:500, rlo:500, rty:750,  rhi:1200, rmin:500},
-  /* Taxi — planner review */
+  /* Taxi - planner review */
   "taxi-superside-panel":               {lo:500, ty:1000,hi:2000, min:500, rlo:500, rty:1000, rhi:2000, rmin:500},
   "taxi-tip-seats-interior":            {lo:500, ty:1000,hi:2000, min:500, rlo:500, rty:1000, rhi:2000, rmin:500},
   "taxi-digital-tops":                  {lo:500, ty:1000,hi:2000, min:500, rlo:500, rty:1000, rhi:2000, rmin:500},
-  /* Digital AdVans — per day basis */
+  /* Digital AdVans - per day basis */
   "digital-advans-digital-advan-1-day": {lo:999, ty:1250,hi:2000, min:999, rlo:999, rty:1250, rhi:2000, rmin:999},
   "digital-advans-digital-advan-3-days":{lo:999, ty:1250,hi:2000, min:999, rlo:999, rty:1250, rhi:2000, rmin:999},
   "digital-advans-digital-advan-5-days":{lo:999, ty:1250,hi:2000, min:999, rlo:999, rty:1250, rhi:2000, rmin:999},
@@ -70,7 +70,7 @@ var RATES = {
 };
 
 /* -----------------------------------------------------------------------
-   AVAILABILITY — formats requiring planner review rather than auto-plan
+   AVAILABILITY - formats requiring planner review rather than auto-plan
    Source: Availability Matrix sheet
    ----------------------------------------------------------------------- */
 var PLANNER_REVIEW_CATEGORIES = {
@@ -80,7 +80,7 @@ var PLANNER_REVIEW_CATEGORIES = {
 
 /* -----------------------------------------------------------------------
    PRODUCTION COST MIDPOINTS (£) per unit
-   Derived from Production Costs sheet — midpoint of planning range.
+   Derived from Production Costs sheet - midpoint of planning range.
    Used for all-in budget deductions. Static = print/post + mid; DOOH = 0.
    Source: Production Costs sheet
    ----------------------------------------------------------------------- */
@@ -106,7 +106,7 @@ var PRODUCTION_MIDS = {
   "airport-48-sheet-approach-road":     575,
   "taxi-superside-panel":               475,   /* £150–800 */
   "taxi-tip-seats-interior":            150,
-  /* DOOH — no print cost */
+  /* DOOH - no print cost */
   "billboards-6-sheet-digital":         0,
   "billboards-48-sheet-digital":        0,
   "bus-stops-6-sheet-digital":          0,
@@ -125,7 +125,7 @@ var PRODUCTION_MIDS = {
 
 /* -----------------------------------------------------------------------
    OBJECTIVE RULES WEIGHTS
-   Source: Objective Rules sheet — maps engine scenario keys to weights.
+   Source: Objective Rules sheet - maps engine scenario keys to weights.
    weights: {reach, freqLocal, impact} summing to 100.
    ----------------------------------------------------------------------- */
 var OBJECTIVE_WEIGHTS = {
@@ -294,7 +294,7 @@ function patchData(DATA){
     var pm = PRODUCTION_MIDS[f.id];
     if(pm != null){
       f.production = pm;
-      /* installation stays from DATA — master data doesn't split it out */
+      /* installation stays from DATA - master data doesn't split it out */
     }
     /* Flag planner-review formats */
     if(PLANNER_REVIEW_CATEGORIES[f.category]){

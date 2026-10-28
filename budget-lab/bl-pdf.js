@@ -1,4 +1,4 @@
-/* bl-pdf.js — download plan as PDF without window.print (safe in embedded browsers) */
+/* bl-pdf.js - download plan as PDF without window.print (safe in embedded browsers) */
 (function () {
   "use strict";
 

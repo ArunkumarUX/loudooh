@@ -1,4 +1,4 @@
-/* Loud! OOH — Budget Lab brand alignment
+/* Loud! OOH - Budget Lab brand alignment
    Tokens: navy #021234 · orange #FD4406 · sand #EDEBE8
    Type: Montserrat headings · Inter body */
 
@@ -7,7 +7,7 @@
   color: var(--ink);
 }
 
-/* Primary actions — match site chrome (sharp corners, orange fill) */
+/* Primary actions - match site chrome (sharp corners, orange fill) */
 .bl-sidebar-ai-apply,
 .bl-lab-ai-preview,
 .bl-mock-view-more.is-primary,
@@ -50,7 +50,7 @@
   background: rgba(253, 68, 6, 0.14) !important;
 }
 
-/* Sidebar AI insight — flat on navy panel */
+/* Sidebar AI insight - flat on navy panel */
 .bl-sidebar-ai-card {
   background: none !important;
   border: none !important;
@@ -85,12 +85,12 @@
   color: var(--orange) !important;
 }
 
-/* KPI deltas — brand orange for positive */
+/* KPI deltas - brand orange for positive */
 .bl-mock-delta-up {
   color: var(--orange) !important;
 }
 
-/* Selection states on dark sidebar — orange not purple */
+/* Selection states on dark sidebar - orange not purple */
 .bl-ref-search-wrap .bl-campaign-seg.is-active .bl-campaign-seg-label,
 .bl-ref-search-wrap .bl-campaign-seg[aria-expanded="true"] .bl-campaign-seg-label {
   color: rgba(255, 196, 168, 0.95) !important;
@@ -100,7 +100,7 @@
   border-color: rgba(255, 196, 168, 0.85) !important;
 }
 
-/* Objective cards — readable selected state (white on orange tint) */
+/* Objective cards - readable selected state (white on orange tint) */
 .bl-ref-search-wrap .bl-campaign-obj-card {
   background: rgba(255, 255, 255, 0.06) !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
@@ -129,14 +129,14 @@
   color: #FFFFFF !important;
 }
 
-/* Opportunity cards — insights guide-list parity */
+/* Opportunity cards - insights guide-list parity */
 .bl-opp-card.bl-opp-card-mock .bl-opp-add-mock[aria-pressed="true"],
 .bl-opp-card.bl-opp-card-mock .bl-opp-add-mock.is-added {
   color: var(--navy) !important;
   background: none !important;
 }
 
-/* FAQ — align with formats / pricing sections */
+/* FAQ - align with formats / pricing sections */
 .lo-faqs {
   background: #fff;
   padding: clamp(2.5rem, 4vw, 5rem) 0;
@@ -235,7 +235,7 @@
   }
 }
 
-/* Plan summary — insights-hub white page */
+/* Plan summary - insights-hub white page */
 .bl-planner {
   padding: 0;
 }
@@ -275,7 +275,7 @@
   margin-bottom: 12px;
 }
 
-/* Pricing matrix — insights/pricing page parity */
+/* Pricing matrix - insights/pricing page parity */
 .lo-pricing-section,
 .bl-matrix {
   background: #fff;

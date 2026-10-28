@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-calc.js — Budget Lab shared calculation module
+   bl-calc.js - Budget Lab shared calculation module
    --------------------------------------------------------------------------
    SINGLE SOURCE OF TRUTH for every number the Budget Lab shows.
    hero.js (live console) and engine.js (step wizard) both consume this so the
@@ -23,7 +23,7 @@
 /* ---------- campaign cycles ---------- */
 var BASIS_DAYS = {"1 day":1,"3 days":3,"5 days":5,"1 week":7,"2 weeks":14,"4 weeks":28};
 
-/* §7 — formats bought on long cycles are negotiated, not multiplied.
+/* §7 - formats bought on long cycles are negotiated, not multiplied.
    Beyond the first cycle each additional cycle is taken at MULTI_CYCLE_TAPER
    of rate card, and the quote is flagged so the UI must say so. */
 var NON_LINEAR_BASIS = {"4 weeks":true};
@@ -34,7 +34,7 @@ var MULTI_CYCLE_TAPER = 0.9;
    stay linear (the spec is explicit that 28 days on a 2-week basis is 2 full
    cycles, £450 → £900); beyond LINEAR_CYCLE_LIMIT the marginal cycle is taken
    at LONG_RUN_TAPER and the quote is flagged.
-   BUSINESS RULE — both values need commercial sign-off. */
+   BUSINESS RULE - both values need commercial sign-off. */
 var LINEAR_CYCLE_LIMIT = 4;
 var LONG_RUN_TAPER = 0.85;
 
@@ -44,7 +44,7 @@ var LONG_RUN_TAPER = 0.85;
 var LONDON_ONLY_CATEGORIES = ["London Underground"];
 var LONDON_NAMED = {"london":1,"greater london":1,"city of london":1};
 
-/* ---------- §10 minimum buy (BUSINESS RULE — confirm with media owners) ----
+/* ---------- §10 minimum buy (BUSINESS RULE - confirm with media owners) ----
    A plan below these quantities is not a buy a media owner would sell. */
 var MINIMUM_BUY = {
   "billboards-6-sheet-static":5,   "billboards-6-sheet-digital":5,
@@ -91,13 +91,13 @@ function basisDays(basis){ return BASIS_DAYS[basis] || null; }
 function isMultipliable(f){ return basisDays(f.campaignBasis) !== null; }
 function isPOA(f){ return f.costStatus === "POA" || !f.mid; }
 
-/* §10 — a 28-day run on a 2-week basis is 2 cycles, never a pro-rata week. */
+/* §10 - a 28-day run on a 2-week basis is 2 cycles, never a pro-rata week. */
 function cycles(f, days){
   var bd = basisDays(f.campaignBasis);
   if(bd === null) return null;
   return Math.max(1, Math.ceil(days / bd));
 }
-/* §7 — the billable factor, which is NOT always the cycle count. */
+/* §7 - the billable factor, which is NOT always the cycle count. */
 function cycleFactor(f, days){
   var n = cycles(f, days);
   if(n === null) return null;
@@ -113,7 +113,7 @@ function cycleFactor(f, days){
 
 /* The hero passes city keys (manchester, leeds, glasgow…) as well as the
    wizard's london/regional/named/uk. Anything that is not London and not a
-   UK-wide plan is priced against the regional band — never against a widened
+   UK-wide plan is priced against the regional band - never against a widened
    London+regional band, which would overstate a regional city. */
 function normaliseGeo(geo, named){
   if(geo === "uk") return "uk";
@@ -148,7 +148,7 @@ function unitMediaPrice(f, geo, mode, named){
   return g === "uk" ? f.mid : (band.lo + band.hi) / 2;
 }
 
-/* Planning Low / High uncertainty range for display — master data sourced. */
+/* Planning Low / High uncertainty range for display - master data sourced. */
 function unitPriceRange(f, geo, named){
   var g = normaliseGeo(geo, named);
   var MD = window.BLMasterData;
@@ -167,7 +167,7 @@ function isLondonGeo(geo, named){
   if(geo === "named") return !!LONDON_NAMED[String(named || "").toLowerCase()];
   return false;
 }
-/* §10 — geography is enforced, not decorative. */
+/* §10 - geography is enforced, not decorative. */
 function isGeoEligible(f, geo, named){
   if(LONDON_ONLY_CATEGORIES.indexOf(f.category) === -1) return true;
   if(geo === "uk") return true;                 // national plan may include London
@@ -213,8 +213,8 @@ function quote(f, opts){
     tapered: cf.tapered,
     taperNote: cf.tapered
       ? (cf.reason === "long-run"
-          ? "A " + cf.cycles + "-cycle run is a long-term commitment, not " + cf.cycles + " separate bookings — it is quoted below a straight multiple of the " + f.campaignBasis + " rate card. Confirm the long-run rate before booking."
-          : f.campaignBasis + " is bought as a negotiated cycle — additional cycles are quoted below a straight multiple, not extrapolated linearly. Confirm the multi-cycle rate before booking.")
+          ? "A " + cf.cycles + "-cycle run is a long-term commitment, not " + cf.cycles + " separate bookings - it is quoted below a straight multiple of the " + f.campaignBasis + " rate card. Confirm the long-run rate before booking."
+          : f.campaignBasis + " is bought as a negotiated cycle - additional cycles are quoted below a straight multiple, not extrapolated linearly. Confirm the multi-cycle rate before booking.")
       : null,
     mediaUnit: mediaUnit,
     mediaUnitLo: prRange.lo * cf.factor,
@@ -292,7 +292,7 @@ function exclusions(data, opts){
     var reason = null;
     var isPR = !!(MD && MD.needsPlannerReview(f));
     if(isPOA(f)){
-      reason = "Priced on application — convoy size, routes and duration set the cost, so it can't be auto-planned.";
+      reason = "Priced on application - convoy size, routes and duration set the cost, so it can't be auto-planned.";
     } else if(!isMultipliable(f)){
       reason = "Sold as a " + f.campaignBasis + " commitment rather than in repeatable cycles, so it can't be scaled to a " +
                opts.days + "-day plan without a bespoke quote.";
@@ -306,15 +306,15 @@ function exclusions(data, opts){
       }
     }
     if(isPR && !reason){
-      /* Not excluded — but needs a planner call before booking */
+      /* Not excluded - but needs a planner call before booking */
       plannerReview.push({format: f.format, category: f.category,
-        note: f.category + " pricing varies significantly by location, season and campaign duration — confirm availability and final cost with a planner before committing."});
+        note: f.category + " pricing varies significantly by location, season and campaign duration - confirm availability and final cost with a planner before committing."});
     }
     if(reason){
       var alt = alternativeFor(f);
       out.push({
         format: f.format, category: f.category, reason: reason, plannerReview: isPR,
-        alternative: alt && alt.id !== f.id ? (alt.category + " — " + alt.format) : null
+        alternative: alt && alt.id !== f.id ? (alt.category + " - " + alt.format) : null
       });
     }
   });
@@ -339,7 +339,7 @@ function impactsRange(lines){
     confidence: conf.indexOf("Low-Medium") > -1 ? "Low-Medium" : (conf[0] || null)
   };
 }
-/* Cost per 1,000 impacts — derived from data, not invented. */
+/* Cost per 1,000 impacts - derived from data, not invented. */
 function costPerThousand(spend, impacts){
   if(!impacts || !impacts.mid || !impacts.low || !impacts.high) return null;
   if(impacts.low <= 0 || impacts.mid <= 0 || impacts.high <= 0) return null;
@@ -398,7 +398,7 @@ function buildPlan(data, opts, sc, score){
   picks.forEach(function(p){
     var qty = maxAffordableQty(p.c.q, usable * p.pct, opts);
     if(qty < p.c.q.minQty){
-      /* The share alone can't reach a buyable quantity — take exactly the
+      /* The share alone can't reach a buyable quantity - take exactly the
          minimum if the rest of the budget still covers it, rather than
          dropping the format silently. */
       var minLine = line(p.c.q, p.c.q.minQty, opts);
@@ -420,7 +420,7 @@ function buildPlan(data, opts, sc, score){
 
   /* Top up with the cheapest marginal unit available anywhere in the mix.
      Crossing a volume band can make MORE units cost less, which is what this
-     finds. It stops the moment nothing else fits — nothing force-spent, and
+     finds. It stops the moment nothing else fits - nothing force-spent, and
      nothing quietly left on the table. */
   var guard = 0;
   while(guard++ < 4000){

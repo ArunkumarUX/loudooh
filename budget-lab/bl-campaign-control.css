@@ -1,4 +1,4 @@
-/* Loud AI campaign control — Airbnb-style search interaction */
+/* Loud AI campaign control - Airbnb-style search interaction */
 
 :root {
   --lai-purple: #FD4406;
@@ -93,7 +93,7 @@
 .bl-campaign-seg:last-of-type::after { display: none; }
 .bl-campaign-seg:hover:not(.is-active) { background: rgba(255, 255, 255, 0.45); }
 
-/* Active segment — white elevated pill inside shell */
+/* Active segment - white elevated pill inside shell */
 .bl-campaign-seg.is-active {
   background: var(--lai-surface);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.12);
@@ -235,7 +235,7 @@
   color: var(--lai-purple);
 }
 
-/* Location — Airbnb list rows */
+/* Location - Airbnb list rows */
 .bl-campaign-loc-search {
   width: 100%;
   padding: 16px 18px;
@@ -366,7 +366,7 @@
   line-height: 1.4;
 }
 
-/* Audience — guest-style rows */
+/* Audience - guest-style rows */
 .bl-campaign-audience-list { display: flex; flex-direction: column; }
 .bl-campaign-aud-row {
   display: flex;

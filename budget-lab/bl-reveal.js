@@ -1,4 +1,4 @@
-/* bl-reveal.js — how the plan arrives.
+/* bl-reveal.js - how the plan arrives.
    ------------------------------------------------------------------
    The plan is computed synchronously in a few milliseconds and it lives in
    one place on the page. So this is deliberately NOT a loading animation and
@@ -7,7 +7,7 @@
 
    What it is: the plan's own blocks arriving in reading order, with a short
    build log above them stating what the calculator actually did to produce
-   them — formats priced, formats ruled out, minimum buys cleared, volume band
+   them - formats priced, formats ruled out, minimum buys cleared, volume band
    applied, contingency held. Every line carries a real number taken from the
    result object. Nothing here is invented and nothing is a fake percentage.
 
@@ -108,7 +108,7 @@
     timers = [];
   }
 
-  /* Whatever happens — finished, interrupted, or never started — the panel
+  /* Whatever happens - finished, interrupted, or never started - the panel
      ends in exactly one state: the whole plan, plainly visible. */
   function finish(el) {
     clearTimers();
@@ -182,7 +182,7 @@
 
      That is also why the log is back on phones. It used to be skipped there
      because the mobile campaign control is a drawer that comes down over the
-     page whenever you scroll up — but nothing scrolls the page any more.
+     page whenever you scroll up - but nothing scrolls the page any more.
 
      Returns true if it played. */
   function reveal(result, opts){
@@ -220,13 +220,13 @@
   }
 
   /* Runs the log and the stagger. The markup is already in the container and
-     the page is already where it needs to be — this only animates. */
+     the page is already where it needs to be - this only animates. */
   function tick(el, steps) {
     el.classList.add("is-revealing");
     stagger(el);
     arm();
 
-    /* No log — the phone case. The blocks arriving IS the reveal. */
+    /* No log - the phone case. The blocks arriving IS the reveal. */
     if (!steps.length) {
       timers.push(setTimeout(function () { finish(el); }, STAGGER_CAP * STAGGER_MS + 420));
       return;

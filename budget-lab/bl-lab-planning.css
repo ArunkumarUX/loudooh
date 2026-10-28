@@ -42,7 +42,7 @@ body.is-planning .bl-ref-hero-band.is-compact {
   padding-bottom: 8px;
 }
 
-/* Sidebar segment layout — bl-lab-explore.css */
+/* Sidebar segment layout - bl-lab-explore.css */
 
 /* Loud AI action button */
 .bl-campaign-lai {
@@ -91,7 +91,7 @@ body.is-planning .bl-ref-hero-band.is-compact {
   background: rgba(253, 68, 6, 0.1);
 }
 
-/* White premium search pill — mobile/stacked only (not dark sidebar) */
+/* White premium search pill - mobile/stacked only (not dark sidebar) */
 @media (max-width: 1024px) {
   .bl-ref-hero-band .bl-campaign-bar-shell {
     display: flex;
@@ -203,7 +203,7 @@ body.is-planning .bl-ref-hero-band.is-compact {
   border: 2px solid #fff;
 }
 
-/* Popover panels — mobile / tablet only; desktop uses inline accordion */
+/* Popover panels - mobile / tablet only; desktop uses inline accordion */
 @media (max-width: 1024px) {
   .bl-campaign-panels {
     position: absolute;
@@ -279,7 +279,7 @@ body.is-planning .bl-ref-hero-band.is-compact {
   padding-top: 0;
 }
 
-/* Split layout: search rail left — see bl-lab-explore.css */
+/* Split layout: search rail left - see bl-lab-explore.css */
 
 body.is-planning .bl-campaign-backdrop {
   pointer-events: auto !important;
@@ -311,7 +311,7 @@ body.is-planning .bl-lab-opp-list {
   max-height: min(62vh, 640px);
 }
 
-/* Hero image removed — hide live pill in planning mode (replaces .bl-ref-hero-visual) */
+/* Hero image removed - hide live pill in planning mode (replaces .bl-ref-hero-visual) */
 body.is-planning .bl-ref-hero-live {
   opacity: 0;
   overflow: hidden;

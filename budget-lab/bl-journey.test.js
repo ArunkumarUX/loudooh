@@ -1,4 +1,4 @@
-/* bl-journey.test.js — complete user journey with right-side plan drawer.
+/* bl-journey.test.js - complete user journey with right-side plan drawer.
        python3 -m http.server 8901   (from the repo root)
        npm i -D playwright-core && node bl-journey.test.js */
 const {chromium}=require('playwright-core');
@@ -17,11 +17,11 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   await p.goto(URL,{waitUntil:'domcontentloaded'});
   await p.waitForTimeout(3200);
 
-  console.log('\n1. LAND — plan data exists before opening drawer');
+  console.log('\n1. LAND - plan data exists before opening drawer');
   let s=await drawerPlan();
   ok(s.len>2000 || s.html.length>2000, `plan HTML rendered (${Math.max(s.len,s.html.length)} chars)`);
 
-  console.log('\n2. CHANGE A CONTROL — plan follows');
+  console.log('\n2. CHANGE A CONTROL - plan follows');
   const before=await p.evaluate(()=>window.blReplan({}).sites);
   await p.evaluate(()=>document.querySelector('#hl-budget-presets [data-budget="25000"]').click());
   await p.waitForTimeout(900);
@@ -31,7 +31,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   ok(await p.evaluate(()=>(window.__BL_PLAN_HTML__||'').includes('25,000')||(window.__BL_PLAN_HTML__||'').includes('25000')),
      'plan HTML updates with new budget');
 
-  console.log('\n3. VIEW FULL SUMMARY — right-side drawer');
+  console.log('\n3. VIEW FULL SUMMARY - right-side drawer');
   await p.evaluate(()=>document.getElementById('hl-view-full-summary').click());
   await p.waitForTimeout(500);
   s=await p.evaluate(()=>{
@@ -44,7 +44,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   ok(s.open && s.len>800, `drawer open with full plan (${s.len} chars)`);
   ok(s.hasBudget,'drawer shows updated £25,000 budget');
 
-  console.log('\n4. NEXT MOVES — preview, then apply (inside drawer)');
+  console.log('\n4. NEXT MOVES - preview, then apply (inside drawer)');
   const act=await p.evaluate(()=>{const c=document.querySelector('#hl-drawer-plan-content .bl-act-cta[data-act]');
     return c?{text:c.textContent.replace('→','').trim(), i:c.dataset.act}:null;});
   ok(!!act, 'action offered in drawer: "'+(act?act.text:'none')+'"');

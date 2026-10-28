@@ -120,7 +120,7 @@
   display: block;
 }
 
-/* Full-bleed strategy quote — use full drawer width, not the 46rem summary cap */
+/* Full-bleed strategy quote - use full drawer width, not the 46rem summary cap */
 #hl-drawer-plan-content .bl-sum-quote {
   max-width: none;
   width: calc(100% + 48px);
@@ -138,7 +138,7 @@
   }
 }
 
-/* Drawer cards — uniform border, no left accent stroke */
+/* Drawer cards - uniform border, no left accent stroke */
 #hl-drawer-plan-content .bl-exclusion-list li {
   border-left: 1px solid rgba(2, 18, 52, 0.1);
 }
@@ -298,7 +298,7 @@ body.bl-plan-drawer-open {
   overflow: hidden;
 }
 
-/* Download PDF — print the drawer plan + email appendix (Save as PDF in dialog) */
+/* Download PDF - print the drawer plan + email appendix (Save as PDF in dialog) */
 #bl-print {
   display: none;
 }

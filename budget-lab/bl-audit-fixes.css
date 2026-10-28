@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════
-   bl-audit-fixes.css — 2026-08-31 Design + QC audit fixes
+   bl-audit-fixes.css - 2026-08-31 Design + QC audit fixes
    Applied on top of existing sheets; each rule references the finding.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* P1 (Design): global keyboard focus baseline — no interactive element
+/* P1 (Design): global keyboard focus baseline - no interactive element
    should ever lose its focus indicator. */
 :where(a[href], button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--orange, #FD4406);
@@ -40,7 +40,7 @@ body.is-planning .bl-filter-chip.is-on,
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   Responsive pass — measured at 2560 / 1920 / 1680 / 1440 / 1366 /
+   Responsive pass - measured at 2560 / 1920 / 1680 / 1440 / 1366 /
    1280 / 1024 / 834 / 768 / 430 / 414 / 390 / 375 / 320.
    Result of that sweep: no horizontal overflow at any width, no broken
    grids, no clipped controls. The four items below are what it did find.
@@ -49,7 +49,7 @@ body.is-planning .bl-filter-chip.is-on,
 /* P2 (Responsive): the hero title is clamped at 2.35rem (37.6px), so it
    stops growing at ~1170px and reads small on a 1920 or 2560 monitor
    while the stage behind it keeps expanding. Raise the ceiling only on
-   very large screens — every width up to 1600 is untouched. */
+   very large screens - every width up to 1600 is untouched. */
 @media (min-width: 1600px) {
   .bl-lab-landing-title {
     font-size: clamp(2.35rem, 2.6vw, 3.25rem);
@@ -67,7 +67,7 @@ body.is-planning .bl-filter-chip.is-on,
 }
 
 /* P2 (Touch target): the FAQ / format-accordion headers measure 24px
-   tall — at the WCAG 2.2 AA floor, under the 44px comfort target the
+   tall - at the WCAG 2.2 AA floor, under the 44px comfort target the
    brief asks for. The row is full width, so this costs nothing. */
 .lo-faq-q,
 .bl-cat-head {

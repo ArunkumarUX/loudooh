@@ -1,4 +1,4 @@
-/* Planning mode: hide nav when exploring results — layout is CSS-only on desktop */
+/* Planning mode: hide nav when exploring results - layout is CSS-only on desktop */
 (function () {
   "use strict";
 
@@ -72,7 +72,7 @@
     var desktop = window.innerWidth > 1024;
 
     if (desktop) {
-      /* Desktop split layout — keep nav clearance; sidebar is always visible */
+      /* Desktop split layout - keep nav clearance; sidebar is always visible */
       if (planning) setPlanning(false);
       if (labWrap) labWrap.classList.add("is-explore");
       var nav = navEl();

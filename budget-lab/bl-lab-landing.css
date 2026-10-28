@@ -1,4 +1,4 @@
-/* Budget Lab — landing (Loud! OOH brand) */
+/* Budget Lab - landing (Loud! OOH brand) */
 
 body.bl-lab-asleep {
   background: var(--bg, #edebe8);
@@ -41,7 +41,7 @@ body.bl-lab-asleep .bl-ref-lab-wrap {
 }
 
 @media (hover: none) {
-  /* Touch devices have no hover — don't leave a stuck lifted state. */
+  /* Touch devices have no hover - don't leave a stuck lifted state. */
   .bl-lab-landing-preview[data-bl-lab-wake]:hover { transform: none; box-shadow: none; }
 }
 
@@ -433,7 +433,7 @@ body.bl-lab-awake .bl-lab-marketing {
   }
 }
 
-/* Trademark mark — superscript, brand orange */
+/* Trademark mark - superscript, brand orange */
 .bl-tm {
   color: var(--orange, #FD4406);
   font-size: 0.55em;

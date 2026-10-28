@@ -1,4 +1,4 @@
-/* Live OOH map — Leaflet + clustering + card sync */
+/* Live OOH map - Leaflet + clustering + card sync */
 (function () {
   "use strict";
 
@@ -218,7 +218,7 @@
     var container = map.getContainer();
     var laidOut = container && container.clientWidth > 0 && container.clientHeight > 0;
     if (!laidOut) {
-      // Canvas not laid out yet — Leaflet's flyTo math produces NaN on a
+      // Canvas not laid out yet - Leaflet's flyTo math produces NaN on a
       // zero-size map. Defer until the next frame; give up after 30 tries.
       if ((_attempt || 0) < 30) {
         requestAnimationFrame(function () { flyToGeo(geoKey, animate, (_attempt || 0) + 1); });

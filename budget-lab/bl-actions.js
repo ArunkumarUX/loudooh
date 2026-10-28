@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-actions.js — turns a costed plan into decisions the user can act on.
+   bl-actions.js - turns a costed plan into decisions the user can act on.
    --------------------------------------------------------------------------
    Every item here is derived from the plan that bl-calc.js already produced.
    Nothing is invented: if we can't quantify the consequence of an action, we
@@ -91,7 +91,7 @@ function build(ctx){
   /* ---------- 1. money that isn't working ----------
      Both of these are verified by replanning, never by arithmetic. The
      contingency scales with the budget, so "the cost of one more unit" is
-     always slightly short of what actually buys one — and an action that
+     always slightly short of what actually buys one - and an action that
      promises a unit it doesn't deliver is worse than no action at all. */
   var marginal = cheapestMarginalUnit(r, opts);
 
@@ -113,7 +113,7 @@ function build(ctx){
       out.push(withPreview({
         kind:"money", tone:"neutral", id:"top-up-one-more",
         title:gbp(top.delta) + " more buys " + plural(top.plan.sites - r.sites, "additional site"),
-        detail:"Only " + gbp(r.unallocated) + " is unallocated — genuinely not enough for another whole unit, and the " +
+        detail:"Only " + gbp(r.unallocated) + " is unallocated - genuinely not enough for another whole unit, and the " +
                Math.round((r.reserve / st.budget) * 100) + "% contingency grows with the budget too. " +
                gbp(top.delta) + " is the smallest increase that actually adds inventory rather than just sitting there.",
         cta:"Add " + gbp(top.delta) + " to the budget",
@@ -140,7 +140,7 @@ function build(ctx){
       detail:"At " + band.threshold + " units the media rate drops " + Math.round(band.rate * 100) +
              "% on " + band.format + ". Those " + plural(band.need, "extra " + band.unit) +
              " add " + gbp(band.extraCost) + " of spend but save " + gbp(band.saving) +
-             " against rate card — an effective " + gbp(band.effectivePerUnit) + " each.",
+             " against rate card - an effective " + gbp(band.effectivePerUnit) + " each.",
       cta:"Add " + gbp(band.budgetDelta) + " to reach " + band.threshold,
       apply:{budget: st.budget + band.budgetDelta},
       note:"Volume bands are a planning assumption, not a guaranteed rate. Confirm before booking."
@@ -229,7 +229,7 @@ function geographyUnlock(ctx, out){
   out.push(withPreview({
     kind:"unlock", tone:"neutral", id:"unlock-london",
     title:"Planning London instead unlocks " + plural(blocked.length, "Underground format"),
-    detail:"London Underground inventory doesn't exist outside London, so it's excluded here rather than quietly priced against regional bands. London pricing is higher — this is a trade, not a free upgrade.",
+    detail:"London Underground inventory doesn't exist outside London, so it's excluded here rather than quietly priced against regional bands. London pricing is higher - this is a trade, not a free upgrade.",
     cta:"Price this in London",
     apply:{geo:"london"}
   }, r, ctx.replan));
@@ -251,7 +251,7 @@ function durationLever(ctx, out){
     kind:"unlock", tone:"positive", id:"duration-lever",
     title:"A " + best.days + "-day run buys impacts " + Math.abs(Math.round(best.delta * 100)) + "% more efficiently",
     detail:"Cost per 1,000 impacts falls from £" + r.cpm.mid.toFixed(2) + " to £" + best.cpm.toFixed(2) +
-           ". Shorter runs concentrate the same money into fewer cycles — worth it when the moment matters more than the duration.",
+           ". Shorter runs concentrate the same money into fewer cycles - worth it when the moment matters more than the duration.",
     cta:"Try " + best.days + " days",
     apply:{durationDays: best.days}
   }, r, replan));
@@ -266,7 +266,7 @@ function budgetUnlock(ctx, out){
     var m = x.reason.match(/about £([\d,]+)/);
     if(!m) return;
     var cost = parseInt(m[1].replace(/,/g, ""), 10);
-    if(!cheapest || cost < cheapest.cost) cheapest = {cost: cost, label: x.category + " — " + x.format};
+    if(!cheapest || cost < cheapest.cost) cheapest = {cost: cost, label: x.category + " - " + x.format};
   });
   if(!cheapest) return;
   var delta = Math.ceil((cheapest.cost - r.unallocated) / 100) * 100;

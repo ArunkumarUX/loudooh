@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-polish.css — the refinement layer. Loaded last, on purpose.
+   bl-polish.css - the refinement layer. Loaded last, on purpose.
    ------------------------------------------------------------------
    This file does not restyle the product. It corrects three specific,
    measured things across every breakpoint from 320 to 1440:
@@ -12,7 +12,7 @@
         rhythm is consistent rather than nearly consistent.
      3. The panel's breakpoint. It docks beside the controls only while there
         is room for both; the site stacks at 1024, so that is where the panel
-        goes full-screen — not 900, which left it covering a rail it claimed
+        goes full-screen - not 900, which left it covering a rail it claimed
         to sit beside.
 
    Every number here was read off the rendered page, not guessed.
@@ -55,7 +55,7 @@
   min-height:var(--tap);
 }
 
-/* A chip can be short as well as thin — "All" measured 41px wide. */
+/* A chip can be short as well as thin - "All" measured 41px wide. */
 .bl-filter-chip{ min-width:var(--tap); }
 
 /* Square icon controls: height alone leaves them 36px wide. */
@@ -116,7 +116,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. SPACING — snapped to the grid
+   2. SPACING - snapped to the grid
    -------------------------------------------------------------------------- */
 .bl-sum-section{
   margin-top:var(--sp-6);

@@ -1,10 +1,10 @@
-/* bl-plan-pdf.js — builds the printed plan.
+/* bl-plan-pdf.js - builds the printed plan.
    ------------------------------------------------------------------
    The download used to print the screen with its furniture switched off: it
    opened cold on the verdict box with no title or date, and appended the email
-   as a bare <pre>. This builds the three parts a document needs — a cover with
+   as a bare <pre>. This builds the three parts a document needs - a cover with
    the brand and the headline figures, the plan itself (the real markup, so the
-   PDF can never disagree with the screen), and the email as an appendix — then
+   PDF can never disagree with the screen), and the email as an appendix - then
    prints, then removes them again.
 
    Everything here is read from the same result object the plan is rendered
@@ -23,14 +23,14 @@
       .toLocaleString("en-GB", {minimumFractionDigits:2, maximumFractionDigits:2});
   }
   function millions(n){
-    if(n == null) return "—";
+    if(n == null) return "-";
     if(n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/,"") + "M";
     if(n >= 1e3) return Math.round(n / 1e3) + "K";
     return String(Math.round(n));
   }
   function plural(n, w){ return n + " " + w + (n === 1 ? "" : "s"); }
   function durationLabel(d){
-    if(!d) return "—";
+    if(!d) return "-";
     return d % 7 === 0 ? plural(d / 7, "week") : plural(d, "day");
   }
   function placeLabel(st){
@@ -45,7 +45,7 @@
     return new Date().toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric"});
   }
 
-  /* Append only — never insert at the front. Putting the cover first shifted
+  /* Append only - never insert at the front. Putting the cover first shifted
      every body > *:nth-child() rule on the page, and if the print then died
      (an embedded browser where window.print throws, for instance) the page was
      left rearranged. Print order is set with flex `order` in the stylesheet,
@@ -96,7 +96,7 @@
       {b: gbp(st.budget), s: "Total budget", i: durationLabel(st.durationDays) + " · " + placeLabel(st)},
       {b: gbp(r.spend), s: "Planned spend", i: "Media, production and installation", lead: true},
       {b: String(r.sites), s: "Sites booked", i: plural(r.lines ? r.lines.length : 0, "format") + " in the mix"},
-      {b: r.cpm ? gbp2(r.cpm.mid) : "—", s: "Per 1,000 impacts",
+      {b: r.cpm ? gbp2(r.cpm.mid) : "-", s: "Per 1,000 impacts",
        i: r.cpm ? gbp2(r.cpm.low) + "–" + gbp2(r.cpm.high) + " across the range" : ""},
       {b: millions(r.audienceLow) + "–" + millions(r.audienceHigh), s: "Estimated impacts",
        i: "Exposures, not people reached"},
@@ -124,7 +124,7 @@
     if(sEl) subject = sEl.value || "";
     if(bEl) body = bEl.value || "";
     if(!body && typeof window.blEmailBodyText === "function"){
-      /* (result, name, from) — it needs the plan, not an empty call */
+      /* (result, name, from) - it needs the plan, not an empty call */
       var nameEl = el("bl-plan-drawer-email-name") || el("bl-mail-name");
       var fromEl = el("bl-plan-drawer-email-from") || el("bl-mail-from");
       try{
@@ -246,8 +246,8 @@
     }
   };
 
-  /* If a previous print died before it could clean up — a browser that throws
-     on window.print, a tab closed mid-dialog — the page must not load in the
+  /* If a previous print died before it could clean up - a browser that throws
+     on window.print, a tab closed mid-dialog - the page must not load in the
      printing state. */
   if(document.body && document.body.classList.contains("bl-printing")){
     document.body.classList.remove("bl-printing");

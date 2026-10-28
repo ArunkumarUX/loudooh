@@ -1,4 +1,4 @@
-/* bl-single-path.test.js — one plan, one path via the right-side drawer.
+/* bl-single-path.test.js - one plan, one path via the right-side drawer.
    Guards: drawer opens from Review plan CTA, email/download come after review,
    no duplicate email forms. Needs a local server and playwright:
        python3 -m http.server 8901   (from the repo root)
@@ -57,7 +57,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   ok(open.len>2000,'drawer shows full plan ('+open.len+' chars)');
   ok(open.scrollH>600,'drawer content is scrollable ('+open.scrollH+'px)');
 
-  console.log('\nEMAIL AFTER REVIEW — not immediate send');
+  console.log('\nEMAIL AFTER REVIEW - not immediate send');
   ok(await p.evaluate(()=>document.getElementById('bl-plan-drawer-foot').dataset.stage==='review'),
      'review actions shown first (Email + Download)');
   ok(await p.evaluate(()=>document.getElementById('bl-plan-drawer-send-btn').hidden===true),
@@ -75,7 +75,7 @@ const URL = process.env.BL_URL || 'http://localhost:8901/budget-lab/index.html#p
   ok(email.sendVisible,'Send email action appears after email preview step');
   ok(email.footCount===1,'exactly one drawer footer');
 
-  console.log('\nBUDGET CONSISTENCY — calculator = drawer = export');
+  console.log('\nBUDGET CONSISTENCY - calculator = drawer = export');
   const bud=await p.evaluate(()=>{
     const budget=window.BLState.get().budget;
     const gbp=window.blGbp(budget);

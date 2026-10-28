@@ -1,11 +1,11 @@
 /* ==========================================================================
-   bl-plan-pdf.css — the plan, on paper.
+   bl-plan-pdf.css - the plan, on paper.
    ------------------------------------------------------------------
    The PDF used to be the screen with the furniture switched off: it opened
    cold on the verdict box with no title, left a half-empty page wherever a
    card would not fit, split the totals table across a page break, and printed
-   the on-screen controls — "See the effect before it changes anything",
-   empty checkboxes, Apply/Cancel — none of which mean anything on paper.
+   the on-screen controls - "See the effect before it changes anything",
+   empty checkboxes, Apply/Cancel - none of which mean anything on paper.
 
    This makes it a document: a cover with the brand and the headline figures,
    the plan in its own visual language (navy, orange, Montserrat, the same
@@ -15,7 +15,7 @@
 
 /* These blocks exist only for the printed document. Scoped to screen so the
    print rules below are not overridden by a later declaration of equal weight
-   — which is exactly why the cover page failed to appear the first time. */
+   - which is exactly why the cover page failed to appear the first time. */
 @media screen {
   #bl-plan-cover, #bl-plan-appendix, #bl-plan-footline{ display: none !important; }
 }
@@ -42,8 +42,8 @@
   }
 
   /* ---------- what prints ---------- */
-  /* The three printed blocks are appended in place — the DOM is never
-     reordered — so the reading order is set here instead: cover, plan, email.
+  /* The three printed blocks are appended in place - the DOM is never
+     reordered - so the reading order is set here instead: cover, plan, email.
      Nothing about this can outlive the print. */
   body.bl-printing{
     display: flex !important;

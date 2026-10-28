@@ -83,7 +83,7 @@ async function handleLaiInsight(body) {
     "Write concise planner copy grounded ONLY in the supplied numbers.",
     "Never invent reach, average frequency, or guaranteed availability.",
     "Only reference estimated impacts ranges, cost per 1,000 impacts, format mix, budget, duration, and geography.",
-    "If worthPreview is false, confirm the current goal is a good fit — do not push an alternative.",
+    "If worthPreview is false, confirm the current goal is a good fit - do not push an alternative.",
     'Respond with strict JSON: {"copy":"one or two short sentences","cta":"Try …"}',
   ].join(" ");
 
@@ -198,5 +198,5 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Loud OOH dev server http://127.0.0.1:${PORT}/budget-lab/`);
-  console.log(`LAI proxy: POST /api/lai-insight (${runtimeKey ? "key loaded" : "no API key — fallback only"})`);
+  console.log(`LAI proxy: POST /api/lai-insight (${runtimeKey ? "key loaded" : "no API key - fallback only"})`);
 });

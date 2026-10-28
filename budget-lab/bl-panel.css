@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-panel.css — the plan summary, as a right-hand panel.
+   bl-panel.css - the plan summary, as a right-hand panel.
    It slides in from the right, holds the whole plan and the email that goes
    with it, and scrolls inside itself. On a desktop it deliberately does NOT
    dim or block the page behind it: the controls are on the left, the plan is
@@ -49,7 +49,7 @@
 }
 .bl-drawer.is-open{ transform:none; }
 
-/* Hidden means hidden — [hidden] alone loses to display:flex. */
+/* Hidden means hidden - [hidden] alone loses to display:flex. */
 .bl-drawer[hidden]{ display:none; }
 .bl-drawer-scrim[hidden]{ display:none; }
 
@@ -64,7 +64,7 @@
   align-items:center;
   justify-content:space-between;
   gap:16px;
-  flex-wrap:nowrap;          /* one row, always — a wrapped bar reads as a bug */
+  flex-wrap:nowrap;          /* one row, always - a wrapped bar reads as a bug */
   padding:10px 14px;
   border-bottom:1px solid var(--pan-border);
   background:linear-gradient(180deg,#fff,#fbfcfd);
@@ -156,7 +156,7 @@
   scroll-behavior:smooth;
 }
 /* The panel takes focus when it opens so the keyboard lands inside it, but a
-   ring around a whole 700px surface is noise — the controls inside show their
+   ring around a whole 700px surface is noise - the controls inside show their
    own. The scrolling pane keeps its ring only when tabbed to directly. */
 .bl-drawer:focus{ outline:none; }
 .bl-drawer-body:focus{ outline:none; }

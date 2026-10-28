@@ -1,4 +1,4 @@
-/* Loud AI — Airbnb-style campaign control interactions */
+/* Loud AI - Airbnb-style campaign control interactions */
 (function(){
 "use strict";
 

@@ -1,4 +1,4 @@
-/* bl-qc-cases.test.js — the spec's §14 QC budgets, driven end to end against
+/* bl-qc-cases.test.js - the spec's §14 QC budgets, driven end to end against
    the rendered page in a real browser.
    Needs a local server and playwright:
        npx serve .. -l 8080      (or: python3 -m http.server 8080 from the repo root)

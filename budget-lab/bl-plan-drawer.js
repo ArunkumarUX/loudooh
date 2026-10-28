@@ -1,4 +1,4 @@
-/* bl-plan-drawer.js — right-side full plan preview drawer */
+/* bl-plan-drawer.js - right-side full plan preview drawer */
 (function(){
 "use strict";
 
@@ -60,7 +60,7 @@ function syncEmailPreview(result){
   var s = window.BLState.get();
   var gbpFn = window.blGbp || function(n){ return "£" + Math.round(n).toLocaleString("en-GB"); };
   var geo = window.BLState.geoLabel(s);
-  if(emailSubject) emailSubject.value = "Budget Lab mix — " + gbpFn(s.budget) + " — " + geo;
+  if(emailSubject) emailSubject.value = "Budget Lab mix - " + gbpFn(s.budget) + " - " + geo;
   var nameEl = document.getElementById("bl-plan-drawer-email-name");
   var fromEl = document.getElementById("bl-plan-drawer-email-from");
   var fromEmail = fromEl && fromEl.value ? fromEl.value : (emailTo && emailTo.value);
@@ -88,7 +88,7 @@ function buildPdfAppendixHtml(r, s, subject, body){
   var gbpFn = window.blGbp || function(n){ return "£" + Math.round(n).toLocaleString("en-GB"); };
   var geo = window.BLState.geoLabel(s);
   if(!subject){
-    subject = "Budget Lab mix — " + gbpFn(s.budget) + " — " + geo;
+    subject = "Budget Lab mix - " + gbpFn(s.budget) + " - " + geo;
   }
   return (
     '<h1 class="bl-print-title">Your OOH plan for ' + escHtml(gbpFn(s.budget)) + '</h1>' +
@@ -121,7 +121,7 @@ function downloadPdf(){
     body = window.blEmailBodyText(r, nameEl && nameEl.value, fromEmail);
   }
   if(!subject){
-    subject = "Budget Lab mix — " + gbpFn(s.budget) + " — " + geo;
+    subject = "Budget Lab mix - " + gbpFn(s.budget) + " - " + geo;
   }
 
   var btn = dlBtn;

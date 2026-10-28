@@ -1,4 +1,4 @@
-/* Loud AI — explore mode: opportunities + map split */
+/* Loud AI - explore mode: opportunities + map split */
 
 .bl-lab-kpi-strip {
   display: grid;
@@ -466,7 +466,7 @@ body.is-planning .bl-filter-chip.is-on {
   .bl-lab-opp-list-lux { max-height: none; }
 }
 
-/* Opportunity list — scroll + interaction fixes */
+/* Opportunity list - scroll + interaction fixes */
 .bl-lab-opp-list-lux {
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -507,7 +507,7 @@ body.is-planning .bl-filter-chip.is-on {
   color: var(--orange);
 }
 
-/* Hero without image — left-aligned, compact */
+/* Hero without image - left-aligned, compact */
 .bl-ref-hero-band {
   padding: clamp(20px, 2.5vw, 28px) 0 clamp(16px, 2vw, 24px);
 }
@@ -724,7 +724,7 @@ body.is-planning .bl-ref-hero-meta {
   }
 }
 
-/* Opportunities column — match map card shell */
+/* Opportunities column - match map card shell */
 .bl-lab-opp-col-lux {
   display: flex;
   flex-direction: column;
@@ -808,7 +808,7 @@ body.is-planning .bl-lab-opp-col .bl-lab-card-opp {
   }
 }
 
-/* Loud AI — single action row */
+/* Loud AI - single action row */
 .bl-lab-ai-cta {
   margin-top: 8px;
 }
@@ -885,7 +885,7 @@ body.is-planning .bl-lab-opp-col .bl-lab-card-opp {
   opacity: 0.92;
 }
 
-/* Explore mode — inline planner removed; plan lives in drawer */
+/* Explore mode - inline planner removed; plan lives in drawer */
 body.is-planning #bl-results-sink {
   display: none;
 }
@@ -894,7 +894,7 @@ body.is-planning .bl-ref-below {
   display: none;
 }
 
-/* Stable AI panel — prevent CTA jumping when copy/stats update */
+/* Stable AI panel - prevent CTA jumping when copy/stats update */
 .bl-lab-plan-hub #hl-ai-tip-text {
   min-height: 2.75em;
   line-height: 1.45;
@@ -1316,7 +1316,7 @@ body.is-planning .bl-ref-below {
   margin-bottom: 0;
 }
 
-/* Plan hub — donut + legend alignment */
+/* Plan hub - donut + legend alignment */
 .bl-lab-plan-hub .bl-lab-donut-row {
   display: flex;
   align-items: center;
@@ -1423,7 +1423,7 @@ body.is-planning .bl-ref-below {
     z-index: 30;
   }
 
-  /* Hide mobile hero duplicate on desktop — sidebar hero stays visible */
+  /* Hide mobile hero duplicate on desktop - sidebar hero stays visible */
   .bl-ref-hero--mobile {
     display: none;
   }
@@ -1517,7 +1517,7 @@ body.is-planning .bl-ref-below {
     gap: var(--bl-sidebar-field-gap, 12px);
   }
 
-  /* Sidebar uses bl-ref-mockup.css for field spacing — do not zero gap here. */
+  /* Sidebar uses bl-ref-mockup.css for field spacing - do not zero gap here. */
   .bl-ref-search-wrap .bl-campaign-bar {
     flex-direction: column;
     width: 100%;
@@ -1657,7 +1657,7 @@ body.is-planning .bl-ref-below {
     display: none;
   }
 
-  /* Inline accordion panels — legacy card layout only (ref mockup uses flyouts) */
+  /* Inline accordion panels - legacy card layout only (ref mockup uses flyouts) */
   .bl-sidebar-card ~ .bl-campaign-panels,
   .bl-sidebar-card .bl-campaign-panels {
     position: static !important;

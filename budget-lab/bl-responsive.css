@@ -1,10 +1,10 @@
 /* ==========================================================================
-   bl-responsive.css — loaded LAST so it settles the cascade.
+   bl-responsive.css - loaded LAST so it settles the cascade.
    --------------------------------------------------------------------------
    The explore card (list + map) had no mobile layout: its split stayed two
    470px columns at every width, so the card measured 982px on a 375px phone
    and pushed the whole document sideways. Everything else that "overflowed"
-   — the fixed nav, the report overlay — was only sizing to that widened
+   - the fixed nav, the report overlay - was only sizing to that widened
    document, not broken itself.
    ========================================================================== */
 
@@ -75,7 +75,7 @@
   .bl-explore-section-head { flex-wrap: wrap; gap: 6px; }
   .bl-mock-results-title { font-size: clamp(19px, 5.2vw, 24px); }
   /* filter chips and the sort control scroll horizontally instead of wrapping
-     into a tall stack — the row is the one place sideways scroll is right */
+     into a tall stack - the row is the one place sideways scroll is right */
   .bl-explore-filters, .bl-lab-opp-filters {
     display: flex; flex-wrap: nowrap;
     overflow-x: auto; overscroll-behavior-x: contain;
@@ -99,7 +99,7 @@
     display: flex;
     align-items: center;
   }
-  /* the budget slider's hit area — the track is deliberately thin, so grow
+  /* the budget slider's hit area - the track is deliberately thin, so grow
      the invisible target rather than the visual */
   #hl-budget { padding: 14px 0; background-clip: content-box; }
   #hl-budget::-webkit-slider-thumb { width: 26px; height: 26px; }
@@ -119,7 +119,7 @@
 
 /* ---------- 7. the last two overflow sources ---------- */
 
-/* The pricing matrix table scrolls inside its card — not the whole section. */
+/* The pricing matrix table scrolls inside its card - not the whole section. */
 .bl-table-scroll,
 .bl-matrix-body {
   max-width: 100%;
@@ -238,7 +238,7 @@
 
 /* ---------- 10. chip rows scroll sideways instead of widening the page ----
    A row of filter chips or sheet tabs is the one place horizontal scroll is
-   the right answer — wrapping them into a tall stack pushes the content the
+   the right answer - wrapping them into a tall stack pushes the content the
    user came for off the screen. */
 @media (max-width: 1024px) {
   .bl-filter-bar, #hl-filter-bar,
@@ -388,7 +388,7 @@
   }
 }
 
-/* ---------- 15. stacked/tablet campaign UX — pill + sheet (source rail hidden) */
+/* ---------- 15. stacked/tablet campaign UX - pill + sheet (source rail hidden) */
 @media (max-width: 1024px) {
   .bl-ref-hero-band {
     padding: 0 !important;
@@ -623,7 +623,7 @@
   }
 }
 
-/* Plan hub: format mix only — Loud AI stays in the desktop sidebar */
+/* Plan hub: format mix only - Loud AI stays in the desktop sidebar */
 #hl-ai-experiment {
   display: none !important;
 }
@@ -724,7 +724,7 @@
   }
 }
 
-/* ---------- 11. Explore card mobile/tablet — list/map toggle + scroll ---------- */
+/* ---------- 11. Explore card mobile/tablet - list/map toggle + scroll ---------- */
 @media (max-width: 1024px) {
   #hl-explore-card,
   .bl-ref-lab-wrap .bl-lab-explore-card,

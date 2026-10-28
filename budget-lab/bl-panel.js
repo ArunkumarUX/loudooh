@@ -1,4 +1,4 @@
-/* bl-panel.js — the plan panel: tabs, the email that actually gets sent, and
+/* bl-panel.js - the plan panel: tabs, the email that actually gets sent, and
    the PDF.
    ------------------------------------------------------------------
    Three things were wrong before this file existed:
@@ -7,7 +7,7 @@
       already calculated should not ask permission to show its answer.
    2. The email was a black box. You typed an address and hoped. Now the exact
       subject and body are on screen, editable, and what is sent is what you
-      read — there is no second version of the text hiding in the code.
+      read - there is no second version of the text hiding in the code.
    3. There was no way to take the plan anywhere except that email. There is
       now a PDF containing the whole plan and the email text with it.
 
@@ -35,14 +35,14 @@
       .replace(/"/g, "&quot;");
   }
   function millions(n){
-    if(n == null) return "—";
+    if(n == null) return "-";
     if(n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
     if(n >= 1e3) return Math.round(n / 1e3) + "K";
     return String(Math.round(n));
   }
   function plural(n, w){ return n + " " + w + (n === 1 ? "" : "s"); }
   function durationLabel(d){
-    if(!d) return "—";
+    if(!d) return "-";
     return d % 7 === 0 ? plural(d / 7, "week") : plural(d, "day");
   }
   function placeLabel(st){
@@ -64,8 +64,8 @@
   }
 
   /* ---------- the email ---------- *
-     Kept deliberately tight. A mailto: URL is not a document — some mail
-     clients truncate long ones — so the email is the shape of the plan and the
+     Kept deliberately tight. A mailto: URL is not a document - some mail
+     clients truncate long ones - so the email is the shape of the plan and the
      numbers that matter, and the PDF carries the full detail. */
   function emailFor(r){
     var st = stateOf(r);
@@ -74,13 +74,13 @@
 
     if(!r || r.infeasible){
       return {
-        subject: "OOH plan enquiry — " + gbp(st.budget) + ", " + place,
+        subject: "OOH plan enquiry - " + gbp(st.budget) + ", " + place,
         body: [
           "Hi,",
           "",
           "I was planning " + gbp(st.budget) + " across " + place + " over " + dur +
             ", and the Budget Lab could not build a bookable plan at that size" +
-            (r && r.minBudget ? " — the smallest realistic buy it found was about " + gbp(r.minBudget) + "." : "."),
+            (r && r.minBudget ? " - the smallest realistic buy it found was about " + gbp(r.minBudget) + "." : "."),
           "",
           "Could you tell me what is achievable at this budget, or what it would take to make it work?",
           "",
@@ -90,17 +90,17 @@
     }
 
     var mix = r.lines.map(function(l){
-      return "  " + l.qty + " × " + l.f.format + " (" + l.f.category + ") — " + gbp(l.total);
+      return "  " + l.qty + " × " + l.f.format + " (" + l.f.category + ") - " + gbp(l.total);
     }).join("\n");
 
     var confirm = [];
     if(r.discount > 0){
-      confirm.push("  · " + gbp(r.discount) + " of the saving comes from assumed volume bands — confirm the real rate.");
+      confirm.push("  · " + gbp(r.discount) + " of the saving comes from assumed volume bands - confirm the real rate.");
     }
     if(r.taperNotes && r.taperNotes.length){
       confirm.push("  · Multi-cycle rates are quoted below a straight multiple; confirm the long-run rate.");
     }
-    confirm.push("  · Planning rates never guarantee availability — sites have to be confirmed live.");
+    confirm.push("  · Planning rates never guarantee availability - sites have to be confirmed live.");
 
     var body = [
       "Hi,",
@@ -114,7 +114,7 @@
         (r.unallocated > 0 ? " · " + gbp(r.unallocated) + " unallocated" : ""),
       "  Sites booked       " + r.sites + " across " + plural(r.lines.length, "format"),
       "  Estimated impacts  " + millions(r.audienceLow) + "–" + millions(r.audienceHigh),
-      "  Cost per 1,000     " + (r.cpm ? gbp2(r.cpm.mid) : "—") +
+      "  Cost per 1,000     " + (r.cpm ? gbp2(r.cpm.mid) : "-") +
         (r.cpm ? " (" + gbp2(r.cpm.low) + "–" + gbp2(r.cpm.high) + " across the range)" : ""),
       "",
       "THE MIX",
@@ -123,7 +123,7 @@
       "TO CONFIRM BEFORE BOOKING",
       confirm.join("\n"),
       "",
-      "All figures are ex-VAT and indicative — impacts are a range, not a promise,",
+      "All figures are ex-VAT and indicative - impacts are a range, not a promise,",
       "and this is a planning estimate rather than a quote.",
       "",
       "Could you come back with live availability and a firm price?",
@@ -132,7 +132,7 @@
     ].join("\n");
 
     return {
-      subject: "OOH plan — " + place + ", " + gbp(st.budget) + ", " + dur,
+      subject: "OOH plan - " + place + ", " + gbp(st.budget) + ", " + dur,
       body: body
     };
   }
@@ -140,7 +140,7 @@
   /* ---------- the email pane ---------- */
   function emailPaneMarkup(mail){
     var h = '<div class="bl-mail">';
-    h += '<p class="bl-mail-lead">This is the email that will be sent. Edit anything you like — ' +
+    h += '<p class="bl-mail-lead">This is the email that will be sent. Edit anything you like - ' +
          'what you see here is exactly what goes out.</p>';
 
     h += '<div class="bl-mail-fields">';
@@ -169,7 +169,7 @@
     h += '<button type="button" class="bl-btn bl-btn-ghost" id="bl-mail-copy">Copy the text</button>';
     h += '<button type="button" class="bl-btn bl-btn-ghost" id="bl-mail-pdf">Download PDF</button>';
     h += "</div>";
-    h += '<p class="bl-mail-note">“Send” opens your own mail app with this message in it — nothing is sent ' +
+    h += '<p class="bl-mail-note">“Send” opens your own mail app with this message in it - nothing is sent ' +
          'from this page, and nothing is stored here. If your mail app trims a long message, use ' +
          '“Copy the text” or send the PDF instead.</p>';
     h += '<p class="bl-mail-done" id="bl-mail-done" hidden>Your mail app should be open with this message ' +
@@ -193,7 +193,7 @@
     }
 
     /* The plan changed. If the reader has written their own words, those are
-       theirs to keep — say the text is out of date and offer to rewrite it,
+       theirs to keep - say the text is out of date and offer to rewrite it,
        rather than deleting what they typed. */
     if(sig !== lastSignature || force){
       if(edited && !force){
@@ -258,8 +258,8 @@
   }
 
   /* The mailto the Send button will open, built from exactly what is on screen.
-     Split out from the click handler so that what gets sent is inspectable —
-     by a test, and by anyone reading this — rather than assembled inside an
+     Split out from the click handler so that what gets sent is inspectable -
+     by a test, and by anyone reading this - rather than assembled inside an
      event and immediately navigated away from. Returns null and shows the
      error when the address is not usable. */
   function mailtoHref(){
@@ -280,7 +280,7 @@
     var to = (el("bl-mail-to").value || "hello@loudooh.co.uk").trim();
     var subject = el("bl-mail-subject").value || "";
     var text = (el("bl-mail-body").value || "") +
-      "\n\n— " + (name ? name + " <" + from + ">" : from);
+      "\n\n- " + (name ? name + " <" + from + ">" : from);
     return "mailto:" + encodeURIComponent(to) +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(text);
@@ -318,7 +318,7 @@
     pan.focus({preventScroll:true});
     syncMeta();
     /* Opening it IS the moment the plan arrives, so this is where the reveal
-       belongs — inside a container that is already on screen. */
+       belongs - inside a container that is already on screen. */
     if(window.BLReveal && window.BLReveal.reveal && window.__BL_LAST_RESULT__){
       window.BLReveal.reveal(window.__BL_LAST_RESULT__, {force:true});
     }
@@ -439,7 +439,7 @@
     if(!el(PANEL)) return;
     var tp = el("bl-tab-plan"), te = el("bl-tab-email");
     /* detail === 0 means the click came from the keyboard (Enter/Space), not
-       from a pointer — the standard way to tell them apart. */
+       from a pointer - the standard way to tell them apart. */
     if(tp) tp.addEventListener("click", function(e){ showTab("plan", e.detail === 0); });
     if(te) te.addEventListener("click", function(e){ showTab("email", e.detail === 0); });
 

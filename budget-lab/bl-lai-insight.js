@@ -1,4 +1,4 @@
-/* Loud AI — live insight via DashScope (proxied). Falls back to calculator copy. */
+/* Loud AI - live insight via DashScope (proxied). Falls back to calculator copy. */
 (function () {
   "use strict";
 
@@ -8,7 +8,7 @@
   var apiBase = window.__BL_LAI_API__ || "";
 
   function compact(n) {
-    if (!n || !isFinite(n)) return "—";
+    if (!n || !isFinite(n)) return "-";
     if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
     if (n >= 1e3) return Math.round(n / 1e3) + "K";
     return Math.round(n).toString();

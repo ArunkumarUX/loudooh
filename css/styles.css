@@ -3701,3 +3701,15 @@ body.case-study .stat-cards {
     min-height: 44px;
   }
 }
+
+/* Two-column audience cards for guides with 4-5 audiences (premium, AI/crypto/fintech
+   insights): wider cards and more air than the 3-across grid. */
+@media (min-width: 720px) {
+  .audience-cards--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .audience-cards--two .audience-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+.audience-cards--two .audience-card { padding: 26px 26px 24px; }
+.audience-cards--two .audience-card-value { margin-bottom: 10px; }
+.audience-cards--two .audience-card-title { margin-bottom: 6px; }
+.audience-cards--two .audience-card-meta { margin-bottom: 12px; }
+.audience-cards--two .audience-card-text { line-height: 1.55; }

@@ -1,4 +1,4 @@
-/* bl-calc.test.js — spec conformance checks for the Budget Lab calculation layer.
+/* bl-calc.test.js - spec conformance checks for the Budget Lab calculation layer.
    Run from this folder with:  node bl-calc.test.js
    Exits non-zero on any failure, so it can go straight into CI.
    Covers: §7 non-linear long cycles, §9 impacts-only audience, §10 cycle

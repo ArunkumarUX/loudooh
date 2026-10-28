@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bl-reveal.css — the plan arriving.
+   bl-reveal.css - the plan arriving.
    A build log above the plan and a short stagger on the plan's own blocks.
    No overlay, no scrim, no spinner: nothing here covers the page, so if the
    script never runs or the motion is switched off, the plan is simply there.
@@ -142,7 +142,7 @@
 }
 
 /* The reader asked for less motion: nothing moves, nothing is hidden, and the
-   script does not run this at all — this is the belt to that braces. */
+   script does not run this at all - this is the belt to that braces. */
 @media (prefers-reduced-motion:reduce){
   .bl-rev,
   .bl-rev.is-leaving,
