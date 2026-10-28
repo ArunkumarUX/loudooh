@@ -1437,6 +1437,8 @@ a.guide-list-item:hover {
 #back-to-top.is-visible {
   opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
 }
+/* The shared chrome arrow must not sit on top of a page that already has one. */
+body:has(#back-to-top) .lo-top { display: none !important; }
 #back-to-top:hover {
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 10px 28px rgba(253, 68, 6, 0.38);

@@ -30,6 +30,8 @@
   btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
 
   function mount() {
+    /* Insight and case-study pages already have their own arrow. */
+    if (document.getElementById("back-to-top")) return;
     document.body.appendChild(btn);
     function sync() { btn.classList.toggle("is-on", (window.scrollY || 0) > window.innerHeight * 0.8); }
     sync();

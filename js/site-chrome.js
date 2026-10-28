@@ -456,7 +456,7 @@
 
 /* Shared header auto-hide (hides while scrolling, returns when scrolling stops). */
 (function () {
-  ["/js/nav-autohide.js?v=4", "/js/back-to-top.js?v=3"].forEach(function (src) {
+  ["/js/nav-autohide.js?v=4", "/js/back-to-top.js?v=4"].forEach(function (src) {
     if (document.querySelector('script[src*="' + src.split("?")[0].split("/").pop() + '"]')) return;
     var s = document.createElement("script");
     s.src = src;
