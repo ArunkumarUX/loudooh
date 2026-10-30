@@ -1610,11 +1610,6 @@ html.js:not(.motion-off) .hero--wordmark .hero-subject.is-driven { opacity: 1; a
 @supports not (-webkit-text-stroke: 1px #000) { #main .dlu-title:not(#lo-nocaps) { color: #FFFFFF; -webkit-text-fill-color: #FFFFFF; } }
 @media (max-width: 600px) { #main .dlu-title:not(#lo-nocaps) { -webkit-text-stroke-width: 1.5px; } }
 /* Outline title pops off the photo: a soft shadow around the strokes (filter, so the
-   hollow letters stay clear), plus phone spacing. */
+   hollow letters stay clear). Font sizes are the homepage's existing ones. */
 #main .dlu-title:not(#lo-nocaps) { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55)) drop-shadow(0 8px 24px rgba(0, 0, 0, 0.6)); }
 #main .dlu-sub { margin-top: clamp(14px, 2vw, 24px); }
-@media (max-width: 600px) {
-  #main .dlu-title:not(#lo-nocaps) { font-size: clamp(2.75rem, 13.5vw, 4rem); line-height: 0.95; }
-  #main .dlu-sub { font-size: 1.25rem; line-height: 1.25; }
-  #main .dlu-body { font-size: 1rem; }
-}
