@@ -325,8 +325,9 @@ select:disabled { background: var(--mist); color: var(--soft); }
   body.ls-show .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
   body.ls-show .lab-faq { padding-bottom: 120px; }
   .results-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .results-summary { position: static; }
+  /* phones/tablets: breakdown first, then the total with its next steps last */
   .results-main { order: 1; }
+  .results-summary { order: 2; position: static; }
 }
 @media (max-width: 560px) {
   .cat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
