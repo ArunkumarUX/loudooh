@@ -101,8 +101,9 @@
     $("cat-list").innerHTML = D.categories.map(function (c) {
       var on = state.cats.indexOf(c.id) > -1;
       return '<label class="cat' + (on ? " is-on" : "") + '"><input type="checkbox" value="' + c.id + '"' + (on ? " checked" : "") + '>' +
-        '<span>' + esc(c.name) + '</span>' + (fits.indexOf(c.id) > -1 ? '<em class="fit">Good fit</em>' : "") + '</label>';
+        '<span>' + esc(c.name) + '</span>' + (fits.indexOf(c.id) > -1 ? '<em class="fit-dot" title="Good fit for your audience"><span class="sr-only">Good fit for your audience</span></em>' : "") + '</label>';
     }).join("");
+    $("fit-key").hidden = !fits.length;
   }
 
   function renderLocationSelect() {

@@ -219,6 +219,14 @@ select:disabled { background: var(--mist); color: var(--soft); }
 .cat:hover { border-color: rgba(255, 255, 255, 0.32); }
 .cat.is-on { border-color: var(--orange); background: rgba(255, 74, 0, 0.12); color: #fff; }
 .fit { background: rgba(123, 224, 168, 0.14); color: #7be0a8; }
+/* checklist marker: a small dot instead of a pill, so it never squeezes the format name */
+.cat { position: relative; }
+.cat input { flex: none; }
+.cat > span { min-width: 0; }
+.fit-dot { position: absolute; top: 7px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: #7be0a8; box-shadow: 0 0 0 3px rgba(123, 224, 168, 0.2); }
+.fit-key { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 0.75rem; font-weight: 600; color: #7be0a8; }
+.fit-key i { width: 8px; height: 8px; border-radius: 50%; background: #7be0a8; box-shadow: 0 0 0 3px rgba(123, 224, 168, 0.2); }
+.fit-key[hidden] { display: none; }
 .calc select { background: rgba(255, 255, 255, 0.04) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%23c3cede' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 14px center / 12px no-repeat;
   -webkit-appearance: none; appearance: none; padding-right: 36px; border-color: rgba(255, 255, 255, 0.16); color: #fff; }
 .calc select:focus { border-color: var(--orange); outline: 0; box-shadow: 0 0 0 4px rgba(255, 74, 0, 0.2); }
@@ -263,7 +271,7 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
 .chip:active, .btn:active, .fcard-add:active, .stepper button:active, .toast-act:active { transform: scale(0.96); }
 .btn, .chip, .stepper button { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
 .cat { transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease; }
-.cat:hover { transform: translateX(3px); }
+@media (hover: hover) { .cat:hover { transform: translateX(3px); } }
 .cat input { transition: transform 0.2s ease; }
 .cat input:checked { animation: lab-check 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .step { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -354,6 +362,7 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .results-summary { order: 2; position: static; }
 }
 @media (max-width: 560px) {
+  .cat > span { padding-right: 6px; }
   .cat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cat { min-height: 48px; padding: 8px 10px; gap: 8px; font-size: 0.875rem; line-height: 1.25; }
   .fcard-img { aspect-ratio: 2 / 1; }
@@ -372,6 +381,8 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .lines table { font-size: 0.75rem; }
   .lines th:nth-child(3), .lines td:nth-child(3) { display: none; }
 }
+/* very narrow phones: one format per row so long names like "London Underground" never clip */
+@media (max-width: 360px) { .cat-list { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 
 /* print: the estimate only */
