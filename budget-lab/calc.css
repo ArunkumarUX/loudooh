@@ -21,7 +21,7 @@ a { color: inherit; }
 .lab-hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .lab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6, 13, 31, 0.7) 0%, rgba(6, 13, 31, 0.68) 45%, rgba(6, 13, 31, 0.92) 100%); }
 .lab-hero-inner { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 32px); }
-.lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.5); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.72); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; }
 .lab-title { margin-top: 26px; white-space: nowrap; font: 900 clamp(1.5rem, 7vw, 6.5rem)/1 var(--font); letter-spacing: -0.045em; }
 .lt-solid, .lt-outline, .lab-title .tm { display: inline-block; }
 .lt-solid { color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
@@ -32,9 +32,9 @@ a { color: inherit; }
 .lab-hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
 .lab-hero-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 999px; border: 1px solid transparent; background: var(--orange); color: #fff; font-weight: 700; font-size: 1.0625rem; text-decoration: none; box-shadow: 0 16px 34px -14px rgba(255, 74, 0, 0.85); transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
 .lab-hero-cta:hover { transform: translateY(-2px); background: #e64300; }
-.lab-hero-ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.35); box-shadow: none; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.lab-hero-ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.35); box-shadow: none; }
 .lab-hero-ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; }
-.lab-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1040px; margin: clamp(40px, 7vh, 64px) auto 0; padding: 0; list-style: none; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; background: rgba(6, 13, 31, 0.55); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); overflow: hidden; }
+.lab-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1040px; margin: clamp(40px, 7vh, 64px) auto 0; padding: 0; list-style: none; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; background: rgba(6, 13, 31, 0.78); overflow: hidden; }
 .lab-stats li { display: grid; gap: 2px; padding: 18px 14px; font-size: 0.875rem; color: #dbe2ec; }
 .lab-stats li + li { border-left: 1px solid rgba(255, 255, 255, 0.12); }
 .lab-stats strong { font: 900 clamp(1.75rem, 2.4vw, 2.5rem)/1 var(--font); letter-spacing: -0.03em; color: var(--orange-on-navy); }
@@ -200,7 +200,7 @@ select:disabled { background: var(--mist); color: var(--soft); }
   background: radial-gradient(40rem 24rem at 100% 0%, rgba(46, 92, 255, 0.16), transparent 60%), linear-gradient(180deg, #13244a, #0b1730);
   border: 1px solid rgba(14, 30, 60, 0.9);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 30px 60px -30px rgba(11, 23, 48, 0.55); }
-.calc-controls { border-radius: 20px; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) transparent; }
+.calc-controls { border-radius: 20px; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) transparent; }
 .calc-controls::-webkit-scrollbar { width: 6px; }
 .calc-controls::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(255, 255, 255, 0.25); }
 .cat { min-height: 40px; padding: 6px 12px; }
@@ -231,11 +231,11 @@ select:disabled { background: var(--mist); color: var(--soft); }
 .fcat-head::before { background: linear-gradient(90deg, rgba(6, 13, 31, 0.94), rgba(6, 13, 31, 0.45)); }
 .fcard { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); border-radius: 16px; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .is-entering .fcard:nth-child(2) { animation-delay: 0.06s; } .is-entering .fcard:nth-child(3) { animation-delay: 0.12s; } .is-entering .fcard:nth-child(4) { animation-delay: 0.18s; } .is-entering .fcard:nth-child(n+5) { animation-delay: 0.24s; }
-.fcard:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.24); box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8); }
+html:not(.lab-scrolling) .fcard:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.24); box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8); }
 .fcard.is-on { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange), 0 24px 60px -28px rgba(255, 74, 0, 0.55); }
 .fcard-img { overflow: hidden; background: #0b1730; }
 .fcard-img img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
-.fcard:hover .fcard-img img { transform: scale(1.05); }
+html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
 .fcard h4, .fcard-price strong, .fcard-min, .fcard-line { color: #fff; }
 .fcard-price { color: #c3cede; }
 .fcard-meta, .fcard-note { color: #aab6c8; }
@@ -269,8 +269,6 @@ select:disabled { background: var(--mist); color: var(--soft); }
 .step { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .ctl:hover .step, .ctl:focus-within .step { transform: scale(1.12); }
 .budget-input input { transition: letter-spacing 0.2s ease; }
-.fcat-head { background-size: 105%; transition: background-size 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
-.fcat:hover .fcat-head { background-size: 112%; }
 .fcard.just-added { animation: lab-added 0.7s ease-out; }
 .fcard-ctl input.bump { animation: lab-qty 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .ls-cta span, .lab-hero-cta span { display: inline-block; transition: transform 0.25s ease; }

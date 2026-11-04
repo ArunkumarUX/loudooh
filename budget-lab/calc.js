@@ -350,6 +350,14 @@
     var again = document.querySelector('.fcard[data-id="' + id + '"] [data-k="' + k + '"]'); if (again) again.focus();
   });
 
+  /* ---------- scrolling flag: hover effects pause mid-scroll so cards sliding under the cursor don't repaint ---------- */
+  var scrollTimer, root = document.documentElement;
+  window.addEventListener("scroll", function () {
+    if (!root.classList.contains("lab-scrolling")) root.classList.add("lab-scrolling");
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () { root.classList.remove("lab-scrolling"); }, 160);
+  }, { passive: true });
+
   /* ---------- reset (with undo) ---------- */
   function snapshot() {
     return JSON.parse(JSON.stringify({ budget: state.budget, cats: state.cats, weeks: state.weeks, location: state.location, audience: state.audience, lines: state.lines }));
