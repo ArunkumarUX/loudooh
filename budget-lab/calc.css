@@ -18,7 +18,7 @@ a { color: inherit; }
 
 /* ---------- Hero ---------- */
 .lab-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 150px 0 clamp(48px, 8vh, 88px); color: #fff; background: var(--night); text-align: center; }
-.lab-hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; animation: lab-kenburns 16s ease-out both; }
+.lab-hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .lab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6, 13, 31, 0.7) 0%, rgba(6, 13, 31, 0.68) 45%, rgba(6, 13, 31, 0.92) 100%); }
 .lab-hero-inner { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 32px); }
 .lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.5); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
