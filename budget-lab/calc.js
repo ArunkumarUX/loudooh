@@ -241,6 +241,8 @@
     lsb.textContent = !priced.length ? "Budget " + gbp(state.budget) : over ? gbp(t.total - state.budget) + " over your " + gbp(state.budget) + " budget" : gbp(state.budget - t.total) + " left of " + gbp(state.budget);
     lsb.className = "ls-budget" + (!priced.length ? "" : over ? " is-over" : " is-ok");
     $("live-sum").classList.toggle("has-plan", lines.length > 0);
+    /* with nothing picked yet the button takes people to the format list (the site's smooth scroll follows the href) */
+    $("ls-cta").setAttribute("href", lines.length ? "#results" : "#cat-list");
     $("results").classList.toggle("has-plan", lines.length > 0);
     state._totals = t;
     state._lines = lines;
@@ -369,7 +371,11 @@
   });
 
   /* ---------- live summary ---------- */
-  $("ls-cta").addEventListener("click", function () { track("bl_see_estimate", { total: Math.round((state._totals || {}).total || 0) }); });
+  $("ls-cta").addEventListener("click", function (e) {
+    /* nothing to show yet: take people to the format list instead of an empty estimate */
+    if (!state._lines || !state._lines.length) { toast("Pick a format to start your estimate."); return; }
+    track("bl_see_estimate", { total: Math.round((state._totals || {}).total || 0) });
+  });
   /* phone bar: show while the calculator is on screen, hide once the full results are visible */
   if ("IntersectionObserver" in window) {
     var seen = { calc: false, results: false };
