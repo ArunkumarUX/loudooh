@@ -40,7 +40,7 @@ window.LO_CALC = {
     { id: "liverpool", name: "Liverpool" }, { id: "bristol", name: "Bristol" },
     { id: "edinburgh", name: "Edinburgh" }, { id: "newcastle", name: "Newcastle" },
     { id: "sheffield", name: "Sheffield" }, { id: "nottingham", name: "Nottingham" },
-    { id: "uk", name: "Other UK / nationwide" }
+    { id: "uk", name: "Rest of UK" }
   ],
   airports: [
     { id: "heathrow", name: "Heathrow", tier: "hub" }, { id: "gatwick", name: "Gatwick", tier: "hub" },
@@ -52,13 +52,13 @@ window.LO_CALC = {
   taxiCities: ["london", "manchester", "birmingham", "leeds", "glasgow", "liverpool", "bristol", "edinburgh", "newcastle"],
 
   audiences: [
-    { id: "general", name: "Everyone / mass reach", fits: [] },
+    { id: "general", name: "Everyone", fits: [] },
     { id: "commuters", name: "Commuters", fits: ["underground", "rail", "busstops", "bus"] },
     { id: "drivers", name: "Drivers", fits: ["billboards", "bus"] },
-    { id: "shoppers", name: "Shoppers & high streets", fits: ["busstops", "bus", "advans"] },
-    { id: "business", name: "Business decision makers", fits: ["airports", "taxis", "underground"] },
-    { id: "travellers", name: "Travellers & tourists", fits: ["airports", "taxis", "rail"] },
-    { id: "local", name: "A local area or event", fits: ["advans", "billboards", "busstops"] }
+    { id: "shoppers", name: "Shoppers", fits: ["busstops", "bus", "advans"] },
+    { id: "business", name: "Business leaders", fits: ["airports", "taxis", "underground"] },
+    { id: "travellers", name: "Travellers", fits: ["airports", "taxis", "rail"] },
+    { id: "local", name: "Local area / event", fits: ["advans", "billboards", "busstops"] }
   ],
 
   formats: [

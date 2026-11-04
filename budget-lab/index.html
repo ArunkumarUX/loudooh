@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site-chrome.css?v=nocaps-2-lc2-pn6">
-<link rel="stylesheet" href="calc.css?v=23">
+<link rel="stylesheet" href="calc.css?v=26">
 <link rel="preload" as="image" href="../images/hero/piccadilly-circus-dooh.jpg" fetchpriority="high">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"The OOH Budget Lab™","applicationCategory":"BusinessApplication","operatingSystem":"Any browser","url":"https://www.loudooh.co.uk/budget-lab/","description":"Plan and price a UK outdoor advertising campaign. Choose UK OOH formats and quantities to estimate impressions, media, printing and production costs from Loud! OOH's published 2026 rates.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Loud! OOH","url":"https://www.loudooh.co.uk/"}}
@@ -94,28 +94,28 @@
           <div class="cat-list" id="cat-list"></div>
         </fieldset>
 
-        <div class="ctl">
+        <div class="ctl ctl-inline">
           <label class="ctl-label" for="duration"><span class="step">2</span> Duration</label>
-          <select id="duration">
-            <option value="2" selected>2 weeks</option>
+          <select id="duration" aria-describedby="duration-help">
+            <option value="2" selected>2 weeks (min.)</option>
             <option value="4">4 weeks</option>
             <option value="6">6 weeks</option>
             <option value="8">8 weeks</option>
             <option value="12">12 weeks</option>
           </select>
-          <p class="ctl-help">Campaigns run for a minimum of 2 weeks. This fills in every format below, and you can change any of them.</p>
+          <p class="ctl-help" id="duration-help">Campaigns run for a minimum of 2 weeks. This fills in every format below, and you can change any of them.</p>
         </div>
 
-        <div class="ctl">
+        <div class="ctl ctl-inline">
           <label class="ctl-label" for="location"><span class="step">3</span> Location</label>
-          <select id="location"></select>
+          <select id="location" aria-describedby="location-help"></select>
           <p class="ctl-help" id="location-help">London uses London rates. Other cities use regional rates.</p>
         </div>
 
-        <div class="ctl">
+        <div class="ctl ctl-inline">
           <label class="ctl-label" for="audience"><span class="step">4</span> Audience</label>
-          <select id="audience"></select>
-          <p class="ctl-help">We highlight the formats that fit best.</p>
+          <select id="audience" aria-describedby="audience-help"></select>
+          <p class="ctl-help" id="audience-help">We highlight the formats that fit best.</p>
         </div>
 
         <!-- Live estimate: pinned to the bottom of the panel on desktop, a bottom bar on phones -->
@@ -194,7 +194,7 @@
 
 <script src="/js/site-chrome.js?v=pn8"></script>
 <script src="vendor/jspdf.umd.min.js"></script>
-<script src="calc-data.js?v=4"></script>
-<script src="calc.js?v=13"></script>
+<script src="calc-data.js?v=5"></script>
+<script src="calc.js?v=14"></script>
 </body>
 </html>

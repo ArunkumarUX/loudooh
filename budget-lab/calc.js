@@ -188,6 +188,9 @@
       return;
     }
     var fits = (D.audiences.filter(function (a) { return a.id === state.audience; })[0] || {}).fits || [];
+    /* keep already-decoded card photos across re-renders so nothing flashes */
+    var keep = {};
+    host.querySelectorAll(".fcard").forEach(function (el) { var im = el.querySelector(".fcard-img img"); if (im && im.complete && im.naturalWidth) keep[el.dataset.id] = im; });
     host.innerHTML = state.cats.map(function (cid) {
       var c = catById[cid];
       return '<section class="fcat" aria-labelledby="fcat-' + cid + '">' +
@@ -198,6 +201,10 @@
         '<div class="fcards">' + D.formats.filter(function (f) { return f.cat === cid; }).map(card).join("") + "</div>" +
       "</section>";
     }).join("");
+    host.querySelectorAll(".fcard").forEach(function (el) {
+      var old = keep[el.dataset.id], fresh = el.querySelector(".fcard-img img");
+      if (old && fresh && old.getAttribute("src") === fresh.getAttribute("src")) fresh.replaceWith(old);
+    });
   }
 
   /* ---------- results ---------- */
@@ -349,6 +356,16 @@
     renderFormats(); renderResults();
     var again = document.querySelector('.fcard[data-id="' + id + '"] [data-k="' + k + '"]'); if (again) again.focus();
   });
+
+  /* ---------- desktop: pin the settings panel; if it is taller than the screen, pin it by its bottom edge ---------- */
+  var panel = document.querySelector(".calc-controls");
+  function fitPanel() {
+    if (window.innerWidth <= 980) { panel.style.top = ""; return; }
+    panel.style.top = Math.min(88, window.innerHeight - panel.offsetHeight - 16) + "px";
+  }
+  window.addEventListener("resize", fitPanel, { passive: true });
+  if ("ResizeObserver" in window) new ResizeObserver(fitPanel).observe(panel);
+  fitPanel();
 
   /* ---------- scrolling flag: hover effects pause mid-scroll so cards sliding under the cursor don't repaint ---------- */
   var scrollTimer, root = document.documentElement;
