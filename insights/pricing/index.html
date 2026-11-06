@@ -682,6 +682,30 @@
     .format-cell-title{ font-size: 13px; }
     .format-cell-desc{ font-size: 11.5px; }
   }
+  /* Hero matched to the live pricing page (Nov 2026): solid navy, Inter 900 capitals,
+     thin orange outline on the second line. Capitals use !important + #top to beat the
+     site-wide no-caps rule in site-chrome.css. */
+  #top.pricing-hero { background: #1b3466; }
+  #top.pricing-hero::before, #top.pricing-hero::after { display: none; }
+  #top .pricing-hero-top { padding: 11px 22px; border: 1px solid rgba(255, 171, 149, 0.42); background: rgba(2, 18, 52, 0.18); color: rgba(255, 171, 149, 0.96); font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase !important; }
+  #top .pricing-title, #top .pricing-title span { font-weight: 900 !important; }
+  #top .pricing-title { font-weight: 900; font-size: clamp(54px, 7vw, 74px); line-height: 76px; letter-spacing: 0; }
+  #top .pricing-title-solid { color: #FFFFFF; letter-spacing: 0; text-transform: uppercase !important; text-shadow: none; }
+  #top .pricing-title-outline { margin-top: 0; color: transparent; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px rgb(255, 90, 54); letter-spacing: -2px; text-transform: uppercase !important; }
+  #top .pricing-subtitle { margin: 0 auto 26px; max-width: 640px; font-size: 20.45px; line-height: 24px; font-weight: 500; color: rgba(220, 228, 240, 0.94); text-shadow: none; }
+  #top .pricing-meta { margin: 0 auto 0; max-width: 640px; font-size: 11px; line-height: 13px; font-weight: 500; color: rgb(178, 193, 215); }
+  #top .pricing-updated { margin: 18px auto 30px; font-size: 11px; line-height: 1.2; font-weight: 500; color: rgb(178, 193, 215); }
+  #top .pricing-btn { letter-spacing: 2px; text-transform: uppercase !important; padding: 16px 25px; }
+  #top .pricing-btn-secondary { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.34); }
+  #top .pricing-stat { background: rgba(2, 18, 52, 0.42); }
+  #top .pricing-stats { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.14); }
+  #top .pricing-stat-value { font-weight: 900; font-size: 34px; line-height: 45px; color: rgb(255, 74, 0); }
+  #top .pricing-stat-label { font-size: 13px; line-height: 20px; font-weight: 500; color: rgba(236, 241, 250, 0.92); margin-top: 0; }
+  @media (max-width: 720px) {
+    #top .pricing-title { font-size: clamp(36px, 9.6vw, 56px); line-height: 1.04; }
+    #top .pricing-subtitle { font-size: 18px; line-height: 1.35; }
+    #top .pricing-meta br { display: none; }
+  }
 </style>
 <script src="../../js/dc/image-slot.js?v=20260715"></script>
 </helmet>
@@ -720,13 +744,14 @@
   <!-- HERO -->
   <section id="top" class="pricing-hero" style="{{ heroStyle }}">
     <div class="pricing-hero-inner" id="main-content">
-      <div class="pricing-hero-top">UK Out-of-Home - Competitive Rate Card 2026</div>
+      <div class="pricing-hero-top">UK Out-of-Home — Competitive Rate Card 2026</div>
       <h1 class="pricing-title">
-        <span class="pricing-title-solid">OOH Advertising Costs.</span>
-        <span class="pricing-title-outline">Out in the Open.</span>
+        <span class="pricing-title-solid">Big Brand Exposure.</span>
+        <span class="pricing-title-outline">Not Big Agency Fees.</span>
       </h1>
-      <p class="pricing-subtitle">What will your budget actually buy? Real UK OOH pricing, no guesswork.</p>
-      <p class="pricing-meta">Media cost only (excl. VAT) · Standard 2-week cycle unless stated · Source: compiled market rate data 2026</p>
+      <p class="pricing-subtitle">What will your budget actually buy?<br>Real UK OOH pricing, no guesswork.</p>
+      <p class="pricing-meta">Media cost only (excl. VAT) · Standard 2-week cycle unless stated · <br>Market data sourced from Outsmart, Route, Talon OOH, Mordor Intelligence and AA/WARC 2025/2026.</p>
+      <p class="pricing-updated">Last Updated August : 2026</p>
       <div class="pricing-actions">
         <a href="#cta" class="pricing-btn pricing-btn-primary">Get a free media plan</a>
         <a href="#billboard" class="pricing-btn pricing-btn-secondary">Browse pricing ↓</a>
@@ -1071,9 +1096,9 @@ class Component extends DCLogic {
   renderVals() {
     const narrow = this.state.narrow;
     const stats = [
-      { v: '£1.49bn', l: 'UK OOH revenue 2025 record' },
+      { v: '£1.44bn', l: 'UK OOH revenue 2025 record' },
       { v: '67%', l: 'DOOH share of all OOH' },
-      { v: '£1.80', l: 'OOH ROI per £1 spent' },
+      { v: '£1.60', l: 'OOH ROI per £1 spent' },
       { v: '79%', l: 'Ad recall at 30 days' },
     ];
 
