@@ -22,9 +22,10 @@ a { color: inherit; }
 .lab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6, 13, 31, 0.7) 0%, rgba(6, 13, 31, 0.68) 45%, rgba(6, 13, 31, 0.92) 100%); }
 .lab-hero-inner { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 32px); }
 .lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.72); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; }
-.lab-title { margin-top: 26px; white-space: nowrap; font: 900 clamp(1.5rem, 7vw, 6.5rem)/1 var(--font); letter-spacing: -0.045em; }
+/* same type as the pricing page title: Inter 800, up to 74px, -0.01em (the coloured half -0.02em) */
+.lab-title { margin-top: 26px; white-space: nowrap; font: 800 clamp(1.5rem, 7vw, 74px)/1.02 var(--font); letter-spacing: -0.01em; }
 .lt-solid, .lt-fill, .lab-title .tm { display: inline-block; }
-.lt-solid { color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
+.lt-solid { color: #fff; letter-spacing: -0.01em; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
 /* "Budget Lab": the filled orange version, in the pricing page's title type, with a soft glow that breathes.
    The glow is its own layer animated by opacity and scale only, so it costs nothing while scrolling. */
 .lt-fill { position: relative; isolation: isolate; color: var(--orange); letter-spacing: -0.02em; }
