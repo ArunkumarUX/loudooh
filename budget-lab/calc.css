@@ -19,37 +19,51 @@ a { color: inherit; }
 /* ---------- Hero ---------- */
 .lab-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 150px 0 clamp(48px, 8vh, 88px); color: #fff; background: var(--night); text-align: center; }
 .lab-hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
-.lab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6, 13, 31, 0.7) 0%, rgba(6, 13, 31, 0.68) 45%, rgba(6, 13, 31, 0.92) 100%); }
+/* Hero copy mirrors the pricing page hero (insights/pricing): same overlay, pill, title type, subtitle, meta line and buttons. */
+.lab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(2, 18, 52, 0.66) 0%, rgba(2, 18, 52, 0.74) 40%, rgba(2, 18, 52, 0.84) 100%); }
 .lab-hero-inner { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 32px); }
-.lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.72); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; }
-/* same type as the pricing page title: Inter 800, up to 74px, -0.01em (the coloured half -0.02em) */
-.lab-title { margin-top: 26px; white-space: nowrap; font: 800 clamp(1.5rem, 7vw, 74px)/1.02 var(--font); letter-spacing: -0.01em; }
+.lab-eyebrow { display: inline-flex; align-items: center; justify-content: center; margin: 0 0 30px; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.28); background: rgba(2, 18, 52, 0.42); color: #FD4406; font-size: 11px; font-weight: 800; letter-spacing: 0.13em; line-height: 1; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04); }
+.lab-title { margin: 0 0 26px; white-space: nowrap; font: 800 clamp(1.5rem, 7vw, 74px)/1.02 'Inter', system-ui, sans-serif; letter-spacing: -1px; }
 .lt-solid, .lt-fill, .lab-title .tm { display: inline-block; }
-.lt-solid { color: #fff; letter-spacing: -0.01em; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
-/* "Budget Lab": the filled orange version, in the pricing page's title type, with a soft glow that breathes.
-   The glow is its own layer animated by opacity and scale only, so it costs nothing while scrolling. */
-.lt-fill { position: relative; isolation: isolate; color: var(--orange); letter-spacing: -0.02em; }
-.lt-fill::before { content: ""; position: absolute; inset: -18% -6%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 74, 0, 0.42), rgba(255, 74, 0, 0) 100%); opacity: 0.55; transform: scale(0.94); animation: lab-glow 4.5s ease-in-out 1.2s infinite; pointer-events: none; }
-@keyframes lab-glow { 0%, 100% { opacity: 0.45; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.04); } }
+.lt-solid { color: #FFFFFF; letter-spacing: -0.01em; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45); }
+/* "Budget Lab" in the pricing page's second-line treatment (the orange outline of "Out in the Open."),
+   with a soft glow that breathes behind it. The glow is its own layer animated by opacity and scale only. */
+.lt-fill { position: relative; isolation: isolate; color: transparent; -webkit-text-stroke: 2px rgba(253, 68, 6, 0.92); letter-spacing: -0.02em; }
+.lt-fill::before { content: ""; position: absolute; inset: -18% -6%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(253, 68, 6, 0.34), rgba(253, 68, 6, 0) 100%); opacity: 0.5; transform: scale(0.94); animation: lab-glow 4.5s ease-in-out 1.2s infinite; pointer-events: none; }
+@keyframes lab-glow { 0%, 100% { opacity: 0.4; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.04); } }
 .lt-fill.lh-in { animation-delay: 0.28s; }
+.lab-title .tm { font-size: 0.3em; vertical-align: 1.9em; margin-left: 4px; color: #FD4406; }
+.lab-lead { max-width: 640px; margin: 0 auto 20px; font-size: clamp(18px, 1.85vw, 24px); line-height: 1.36; font-weight: 500; color: #FFFFFF; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4); text-wrap: balance; }
+.lab-meta { max-width: 620px; margin: 0 auto 30px; font-size: 11px; line-height: 1.5; letter-spacing: 0.01em; color: #FFFFFF; }
+.lab-hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.lab-hero-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 24px; border-radius: 999px; border: 1px solid #FD4406; background: #FD4406; color: #FFFFFF; font-weight: 800; font-size: 12.5px; letter-spacing: 0.08em; text-decoration: none; box-shadow: 0 14px 34px rgba(253, 68, 6, 0.26); transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
+.lab-hero-cta:hover { transform: translateY(-1px); box-shadow: 0 18px 44px rgba(253, 68, 6, 0.32); color: #FFFFFF; }
+.lab-hero-ghost { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.22); box-shadow: none; }
+.lab-hero-ghost:hover { border-color: rgba(255, 255, 255, 0.35); box-shadow: none; }
 /* the same punchy bullets as the homepage hero */
-.lab-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px; margin: clamp(32px, 5vh, 48px) 0 0; padding: 0; list-style: none; }
+.lab-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px; margin: clamp(36px, 6vh, 56px) 0 0; padding: 0; list-style: none; }
 .lab-points li { display: flex; align-items: center; gap: 10px; font: 800 clamp(1rem, 0.5vw + 0.9rem, 1.25rem)/1.2 var(--font); letter-spacing: -0.01em; color: #fff; text-shadow: 0 2px 22px rgba(0, 0, 0, 0.55); }
 .lab-points li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--orange); }
 .lab-points.lh-in { animation-delay: 0.7s; }
-.lab-title .tm { font-size: 0.3em; vertical-align: 1.9em; margin-left: 4px; color: var(--orange); }
-.lab-lead { max-width: 40rem; margin: 22px auto 0; font-size: clamp(1.0625rem, 0.5vw + 1rem, 1.375rem); line-height: 1.45; font-weight: 500; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4); text-wrap: balance; }
-.lab-hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
-.lab-hero-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 999px; border: 1px solid transparent; background: var(--orange); color: #fff; font-weight: 700; font-size: 1.0625rem; text-decoration: none; box-shadow: 0 16px 34px -14px rgba(255, 74, 0, 0.85); transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
-.lab-hero-cta:hover { transform: translateY(-2px); background: #e64300; }
-.lab-hero-ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.35); box-shadow: none; }
-.lab-hero-ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; }
+/* Live pricing page treatment (loudooh.co.uk/insights/pricing, Nov 2026): Inter 900 capitals, the second
+   half as a thin 1px orange outline at -2px tracking, peach pill, letter-spaced capital buttons.
+   #lab-title / .lab-hero + !important are needed to beat the site-wide no-caps rule in site-chrome.css. */
+#lab-title, #lab-title .lt-solid, #lab-title .lt-fill { font-weight: 900 !important; text-transform: uppercase !important; }
+#lab-title { line-height: 76px; }
+#lab-title .lt-solid { letter-spacing: 0; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45); }
+#lab-title .lt-fill { color: transparent; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px rgb(255, 90, 54); letter-spacing: -2px; }
+#main .lab-hero .lab-eyebrow { padding: 11px 22px; border-color: rgba(255, 171, 149, 0.42); background: rgba(2, 18, 52, 0.42); color: rgba(255, 171, 149, 0.96); letter-spacing: 1px; text-transform: uppercase !important; }
+.lab-hero .lab-lead { font-size: 20.45px; line-height: 24px; color: rgba(220, 228, 240, 0.94); }
+.lab-hero .lab-meta { line-height: 13px; font-weight: 500; color: rgb(178, 193, 215); }
+#main .lab-hero .lab-hero-cta { padding: 16px 25px; letter-spacing: 2px; text-transform: uppercase !important; }
+.lab-hero .lab-hero-ghost { border-color: rgba(255, 255, 255, 0.34); }
+
 /* staggered entrance */
 .lh-in { animation: lab-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .lab-eyebrow.lh-in { animation-delay: 0.05s; }
 .lt-solid.lh-in { animation-delay: 0.15s; }
 .lab-title .tm.lh-in { animation-delay: 0.4s; }
-.lab-lead.lh-in { animation-delay: 0.45s; }
+.lab-lead.lh-in, .lab-meta.lh-in { animation-delay: 0.45s; }
 .lab-hero-actions.lh-in { animation-delay: 0.58s; }
 @keyframes lab-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 
@@ -368,6 +382,14 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .results-summary { order: 2; position: static; }
 }
 @media (max-width: 560px) {
+  /* phones: stack like the pricing page title, at its phone size */
+  .lab-title, #lab-title { white-space: normal; font-size: clamp(36px, 9.6vw, 56px); line-height: 1.04; letter-spacing: 0; }
+  .lab-hero .lab-lead { font-size: 18px; line-height: 1.35; }
+  .lt-solid { display: block; }
+  .lt-fill { margin-top: 4px; }
+  .lab-lead { margin-bottom: 16px; font-size: clamp(18px, 5vw, 24px); }
+  .lab-meta { margin-bottom: 24px; line-height: 1.45; }
+  .lab-hero-actions { gap: 10px; }
   .lab-points { flex-direction: column; align-items: center; gap: 12px; }
   .cat > span { padding-right: 6px; }
   .cat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -377,7 +399,6 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .fcat-head h3 { font-size: 1.3125rem; }
   .ls-total { font-size: 1.375rem; }
   .ls-cta { padding: 10px 16px; font-size: 0.9375rem; }
-  .lab-hero-actions .lab-hero-cta { width: 100%; justify-content: center; }
   .results-summary { padding: 20px; }
   .stat { padding: 14px; }
   .fcards { grid-template-columns: minmax(0, 1fr); padding: 12px; }
