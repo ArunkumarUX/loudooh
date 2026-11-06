@@ -23,10 +23,19 @@ a { color: inherit; }
 .lab-hero-inner { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 32px); }
 .lab-eyebrow { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255, 138, 112, 0.32); background: rgba(2, 18, 52, 0.72); color: var(--orange-on-navy); font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; }
 .lab-title { margin-top: 26px; white-space: nowrap; font: 900 clamp(1.5rem, 7vw, 6.5rem)/1 var(--font); letter-spacing: -0.045em; }
-.lt-solid, .lt-outline, .lab-title .tm { display: inline-block; }
+.lt-solid, .lt-fill, .lab-title .tm { display: inline-block; }
 .lt-solid { color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
-.lt-outline { color: transparent; -webkit-text-stroke: 2.5px var(--orange); paint-order: stroke fill; filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.55)); transition: color 0.5s ease; }
-.lab-title:hover .lt-outline { color: var(--orange); }
+/* "Budget Lab": the filled orange version, in the pricing page's title type, with a soft glow that breathes.
+   The glow is its own layer animated by opacity and scale only, so it costs nothing while scrolling. */
+.lt-fill { position: relative; isolation: isolate; color: var(--orange); letter-spacing: -0.02em; }
+.lt-fill::before { content: ""; position: absolute; inset: -18% -6%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 74, 0, 0.42), rgba(255, 74, 0, 0) 100%); opacity: 0.55; transform: scale(0.94); animation: lab-glow 4.5s ease-in-out 1.2s infinite; pointer-events: none; }
+@keyframes lab-glow { 0%, 100% { opacity: 0.45; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.04); } }
+.lt-fill.lh-in { animation-delay: 0.28s; }
+/* the same punchy bullets as the homepage hero */
+.lab-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px; margin: clamp(32px, 5vh, 48px) 0 0; padding: 0; list-style: none; }
+.lab-points li { display: flex; align-items: center; gap: 10px; font: 800 clamp(1rem, 0.5vw + 0.9rem, 1.25rem)/1.2 var(--font); letter-spacing: -0.01em; color: #fff; text-shadow: 0 2px 22px rgba(0, 0, 0, 0.55); }
+.lab-points li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--orange); }
+.lab-points.lh-in { animation-delay: 0.7s; }
 .lab-title .tm { font-size: 0.3em; vertical-align: 1.9em; margin-left: 4px; color: var(--orange); }
 .lab-lead { max-width: 40rem; margin: 22px auto 0; font-size: clamp(1.0625rem, 0.5vw + 1rem, 1.375rem); line-height: 1.45; font-weight: 500; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4); text-wrap: balance; }
 .lab-hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
@@ -34,19 +43,13 @@ a { color: inherit; }
 .lab-hero-cta:hover { transform: translateY(-2px); background: #e64300; }
 .lab-hero-ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.35); box-shadow: none; }
 .lab-hero-ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; }
-.lab-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1040px; margin: clamp(40px, 7vh, 64px) auto 0; padding: 0; list-style: none; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; background: rgba(6, 13, 31, 0.78); overflow: hidden; }
-.lab-stats li { display: grid; gap: 2px; padding: 18px 14px; font-size: 0.875rem; color: #dbe2ec; }
-.lab-stats li + li { border-left: 1px solid rgba(255, 255, 255, 0.12); }
-.lab-stats strong { font: 900 clamp(1.75rem, 2.4vw, 2.5rem)/1 var(--font); letter-spacing: -0.03em; color: var(--orange-on-navy); }
 /* staggered entrance */
 .lh-in { animation: lab-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .lab-eyebrow.lh-in { animation-delay: 0.05s; }
 .lt-solid.lh-in { animation-delay: 0.15s; }
-.lt-outline.lh-in { animation-delay: 0.28s; }
 .lab-title .tm.lh-in { animation-delay: 0.4s; }
 .lab-lead.lh-in { animation-delay: 0.45s; }
 .lab-hero-actions.lh-in { animation-delay: 0.58s; }
-.lab-stats.lh-in { animation-delay: 0.7s; }
 @keyframes lab-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 
 /* header over the full-screen hero: same navy glass as the homepage */
@@ -57,7 +60,9 @@ html.lob-hero-top body.lab .lo-amenu.lo-on-light:not(.is-scrolled):not(.is-open)
 }
 
 /* breadcrumb sits over the hero instead of pushing it down */
-body.lab .lo-breadcrumb { position: absolute; top: 92px; left: 50%; z-index: 5; width: 100%; max-width: 1280px; margin: 0; padding-inline: clamp(16px, 3vw, 32px); transform: translateX(-50%); }
+body.lab .lo-breadcrumb { position: absolute; top: 92px; left: 50%; z-index: 5; width: 100%; max-width: 1280px; margin: 0; padding-inline: clamp(16px, 3vw, 32px); transform: translateX(-50%); text-align: left; }
+body.lab .lo-breadcrumb .lo-breadcrumb-list { justify-content: flex-start; }
+body.lab .lo-breadcrumb .lo-breadcrumb-list li { flex: none; }
 body.lab .lo-breadcrumb .lo-breadcrumb-list, body.lab .lo-breadcrumb .lo-breadcrumb-list * { color: rgba(255, 255, 255, 0.85) !important; }
 body.lab .lo-breadcrumb .lo-breadcrumb-list a:hover { color: #fff; }
 
@@ -362,6 +367,7 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .results-summary { order: 2; position: static; }
 }
 @media (max-width: 560px) {
+  .lab-points { flex-direction: column; align-items: center; gap: 12px; }
   .cat > span { padding-right: 6px; }
   .cat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cat { min-height: 48px; padding: 8px 10px; gap: 8px; font-size: 0.875rem; line-height: 1.25; }
@@ -370,11 +376,7 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .fcat-head h3 { font-size: 1.3125rem; }
   .ls-total { font-size: 1.375rem; }
   .ls-cta { padding: 10px 16px; font-size: 0.9375rem; }
-  .lab-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lab-stats li:nth-child(3) { border-left: 0; }
-  .lab-stats li:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.12); }
   .lab-hero-actions .lab-hero-cta { width: 100%; justify-content: center; }
-  .lt-outline { color: var(--orange); -webkit-text-stroke-width: 0; }
   .results-summary { padding: 20px; }
   .stat { padding: 14px; }
   .fcards { grid-template-columns: minmax(0, 1fr); padding: 12px; }

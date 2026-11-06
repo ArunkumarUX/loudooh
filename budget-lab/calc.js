@@ -14,6 +14,11 @@
   var catById = {}; D.categories.forEach(function (c) { catById[c.id] = c; });
   var cityById = {}; D.cities.forEach(function (c) { cityById[c.id] = c; });
   var aptById = {}; D.airports.forEach(function (a) { aptById[a.id] = a; });
+  var stationById = {};
+  D.tubeStations.forEach(function (s) { stationById[s.id] = { id: s.id, name: s.name, city: "london" }; });
+  D.railStations.forEach(function (s) { stationById[s.id] = s; });
+  var PLURAL = { bus: "buses" };
+  var plural = function (per) { return PLURAL[per] || per + "s"; };
   var fmtById = {}; D.formats.forEach(function (f) { fmtById[f.id] = f; });
 
   var UNIT_WEEKS = { "1wk": 1, "2wk": 2, "4wk": 4 };
@@ -48,23 +53,34 @@
 
   /* ---------- location helpers ---------- */
   function aptForCity(cityId) {
-    return { london: "heathrow", manchester: "manchester-apt", birmingham: "birmingham-apt", edinburgh: "edinburgh-apt" }[cityId] || "regional-apt";
+    return { london: "heathrow", manchester: "manchester-apt", birmingham: "birmingham-apt", edinburgh: "edinburgh-apt",
+      leeds: "leeds-bradford", glasgow: "glasgow-apt", bristol: "bristol-apt", liverpool: "liverpool-apt", newcastle: "newcastle-apt" }[cityId] || "regional-apt";
+  }
+  /* rail: the main station in the chosen city, or "Other UK station" */
+  function railForCity(cityId) {
+    for (var i = 0; i < D.railStations.length; i++) if (D.railStations[i].city === cityId) return D.railStations[i].id;
+    return "rail-other";
   }
   function locOptions(f) {
-    if (f.cat === "underground") return [cityById.london];
+    if (f.cat === "underground") return D.tubeStations;
+    if (f.cat === "rail") return D.railStations;
     if (f.cat === "airports") return D.airports;
     if (f.cat === "taxis") return D.taxiCities.map(function (id) { return cityById[id]; });
     return D.cities;
   }
   function defaultLoc(f) {
-    if (f.cat === "underground") return "london";
+    if (f.cat === "underground") return "tube-network";
+    if (f.cat === "rail") return railForCity(cityById[state.location] ? state.location : "london");
     if (f.cat === "airports") return aptById[state.location] ? state.location : aptForCity(state.location);
     if (f.cat === "taxis") return D.taxiCities.indexOf(state.location) > -1 ? state.location : "london";
     return cityById[state.location] ? state.location : "london";
   }
-  function locName(id) { return (cityById[id] || aptById[id] || {}).name || id; }
+  function locName(id) { return (cityById[id] || aptById[id] || stationById[id] || {}).name || id; }
+  /* the per-card field is a Station for the Tube and rail, an Airport for airports */
+  function locLabel(f) { return f.cat === "underground" || f.cat === "rail" ? "Station" : f.cat === "airports" ? "Airport" : "Location"; }
   function regionKey(f, loc) {
     if (f.cat === "airports") return (aptById[loc] || {}).tier || "regional";
+    if (stationById[loc]) return stationById[loc].city === "london" ? "london" : "regional";
     return (cityById[loc] && cityById[loc].london) ? "london" : "regional";
   }
   function unitFor(f, rk) { return typeof f.unit === "string" ? f.unit : (f.unit[rk] || f.unit.regional || f.unit.london); }
@@ -155,7 +171,7 @@
         '<p class="fcard-price">' + priceText(f, loc) + "</p>" +
         '<p class="fcard-meta">≈ ' + (unitFor(f, rk) === "day" ? num(f.impWk) + " impressions per day" : num(f.impWk * 2) + " impressions per 2 weeks") + " each <span>(lower estimate)</span></p>" +
         '<p class="fcard-note">' + esc(f.note) + "</p>" +
-        (min > 1 ? '<p class="fcard-min">Minimum ' + num(min) + " " + f.per + "s</p>" : "") +
+        (min > 1 ? '<p class="fcard-min">Minimum ' + num(min) + " " + plural(f.per) + "</p>" : "") +
         (f.warn ? '<p class="fcard-warn">' + esc(f.warn) + "</p>" : "");
     if (!line) {
       html += '<button type="button" class="fcard-add" data-act="add">Add to plan</button>';
@@ -167,7 +183,7 @@
           '<input type="number" min="' + min + '" step="1" data-k="qty" value="' + line.qty + '" aria-label="Quantity of ' + esc(f.name) + '">' +
           '<button type="button" data-act="inc" aria-label="More">+</button></span></label>' +
         durationControl(f, line) +
-        '<label>Location<select data-k="loc"' + (locs.length < 2 ? " disabled" : "") + ">" + locs.map(function (o) {
+        '<label>' + locLabel(f) + '<select data-k="loc"' + (locs.length < 2 ? " disabled" : "") + ">" + locs.map(function (o) {
           return '<option value="' + o.id + '"' + (o.id === line.loc ? " selected" : "") + ">" + esc(o.name) + "</option>";
         }).join("") + "</select></label>" +
       "</div>";
@@ -312,7 +328,7 @@
     state.location = e.target.value;
     Object.keys(state.lines).forEach(function (id) {
       var f = fmtById[id], l = state.lines[id];
-      l.loc = defaultLoc(f);
+      if (f.cat !== "underground") l.loc = defaultLoc(f);
       var min = minFor(f, regionKey(f, l.loc)); if (l.qty < min) l.qty = min;
     });
     renderFormats(); renderResults();
@@ -332,7 +348,7 @@
     else {
       var l = state.lines[id], min = minFor(f, regionKey(f, l.loc));
       l.qty = Math.max(min, l.qty + (act === "inc" ? 1 : -1));
-      if (act === "dec" && l.qty === min && min > 1) toast("Minimum " + num(min) + " " + f.per + "s for " + f.name + ".");
+      if (act === "dec" && l.qty === min && min > 1) toast("Minimum " + num(min) + " " + plural(f.per) + " for " + f.name + ".");
     }
     renderFormats(); renderResults();
     var card = document.querySelector('.fcard[data-id="' + id + '"]');
@@ -353,7 +369,7 @@
     if (k === "days") l.days = Math.max(1, Math.min(60, parseInt(e.target.value, 10) || 1));
     if (k === "qty") l.qty = parseInt(e.target.value, 10) || 0;
     var min = minFor(f, regionKey(f, l.loc));
-    if (l.qty < min) { l.qty = min; toast("Minimum " + num(min) + " " + f.per + "s for " + f.name + " in " + locName(l.loc) + "."); }
+    if (l.qty < min) { l.qty = min; toast("Minimum " + num(min) + " " + plural(f.per) + " for " + f.name + " in " + locName(l.loc) + "."); }
     renderFormats(); renderResults();
     var again = document.querySelector('.fcard[data-id="' + id + '"] [data-k="' + k + '"]'); if (again) again.focus();
   });
@@ -414,6 +430,14 @@
   }
 
   /* ---------- next steps ---------- */
+  /* logo for the PDF, loaded once in the background (the PDF still works without it) */
+  var pdfLogo = null;
+  if (window.fetch && window.FileReader) {
+    fetch("/images/loud-ooh-logo-light.png").then(function (r) { return r.ok ? r.blob() : null; }).then(function (b) {
+      if (!b) return;
+      var fr = new FileReader(); fr.onload = function () { pdfLogo = fr.result; }; fr.readAsDataURL(b);
+    }).catch(function () {});
+  }
   $("print").addEventListener("click", function () { track("bl_print"); window.print(); });
 
   $("dl-pdf").addEventListener("click", function () {
@@ -423,6 +447,7 @@
     track("bl_pdf_download", { total: Math.round(t.total) });
     var doc = new window.jspdf.jsPDF({ unit: "pt", format: "a4" });
     var x = 48, y = 64, W = 499;
+    if (pdfLogo) doc.addImage(pdfLogo, "PNG", x + W - 112, 36, 112, 35, "loud-logo", "FAST");
     doc.setFont("helvetica", "bold"); doc.setFontSize(20); doc.setTextColor(14, 30, 60);
     doc.text("Loud! OOH Budget Lab estimate", x, y); y += 22;
     doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(77, 89, 105);

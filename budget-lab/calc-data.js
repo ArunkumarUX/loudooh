@@ -42,11 +42,45 @@ window.LO_CALC = {
     { id: "sheffield", name: "Sheffield" }, { id: "nottingham", name: "Nottingham" },
     { id: "uk", name: "Rest of UK" }
   ],
+  /* Airports, in the tiers the Insights airport guide uses:
+     Tier 1 hub · Tier 2 mid · Tier 3 regional. */
   airports: [
     { id: "heathrow", name: "Heathrow", tier: "hub" }, { id: "gatwick", name: "Gatwick", tier: "hub" },
     { id: "manchester-apt", name: "Manchester Airport", tier: "mid" }, { id: "stansted", name: "Stansted", tier: "mid" },
-    { id: "birmingham-apt", name: "Birmingham Airport", tier: "mid" }, { id: "edinburgh-apt", name: "Edinburgh Airport", tier: "mid" },
+    { id: "luton", name: "Luton", tier: "mid" }, { id: "edinburgh-apt", name: "Edinburgh Airport", tier: "mid" },
+    { id: "birmingham-apt", name: "Birmingham Airport", tier: "regional" }, { id: "bristol-apt", name: "Bristol Airport", tier: "regional" },
+    { id: "glasgow-apt", name: "Glasgow Airport", tier: "regional" }, { id: "belfast-apt", name: "Belfast International", tier: "regional" },
+    { id: "liverpool-apt", name: "Liverpool John Lennon", tier: "regional" }, { id: "newcastle-apt", name: "Newcastle Airport", tier: "regional" },
+    { id: "leeds-bradford", name: "Leeds Bradford", tier: "regional" },
     { id: "regional-apt", name: "Other regional airport", tier: "regional" }
+  ],
+  /* London Underground: the 20 busiest / most-booked stations. All London rates. */
+  tubeStations: [
+    { id: "tube-network", name: "Across the network" },
+    { id: "tube-kings-cross", name: "King's Cross St. Pancras" }, { id: "tube-oxford-circus", name: "Oxford Circus" },
+    { id: "tube-waterloo", name: "Waterloo" }, { id: "tube-victoria", name: "Victoria" },
+    { id: "tube-london-bridge", name: "London Bridge" }, { id: "tube-liverpool-street", name: "Liverpool Street" },
+    { id: "tube-stratford", name: "Stratford" }, { id: "tube-bank", name: "Bank & Monument" },
+    { id: "tube-paddington", name: "Paddington" }, { id: "tube-euston", name: "Euston" },
+    { id: "tube-leicester-square", name: "Leicester Square" }, { id: "tube-piccadilly", name: "Piccadilly Circus" },
+    { id: "tube-bond-street", name: "Bond Street" }, { id: "tube-tottenham-court-road", name: "Tottenham Court Road" },
+    { id: "tube-canary-wharf", name: "Canary Wharf" }, { id: "tube-green-park", name: "Green Park" },
+    { id: "tube-westminster", name: "Westminster" }, { id: "tube-holborn", name: "Holborn" },
+    { id: "tube-baker-street", name: "Baker Street" }, { id: "tube-south-kensington", name: "South Kensington" }
+  ],
+  /* Rail stations. "city" sets the rate (London stations use London rates). */
+  railStations: [
+    { id: "rail-waterloo", name: "London Waterloo", city: "london" }, { id: "rail-kings-cross", name: "London King's Cross", city: "london" },
+    { id: "rail-st-pancras", name: "St Pancras International", city: "london" }, { id: "rail-euston", name: "London Euston", city: "london" },
+    { id: "rail-paddington", name: "London Paddington", city: "london" }, { id: "rail-liverpool-street", name: "London Liverpool Street", city: "london" },
+    { id: "rail-victoria", name: "London Victoria", city: "london" }, { id: "rail-london-bridge", name: "London Bridge", city: "london" },
+    { id: "rail-birmingham", name: "Birmingham New Street", city: "birmingham" }, { id: "rail-manchester", name: "Manchester Piccadilly", city: "manchester" },
+    { id: "rail-leeds", name: "Leeds", city: "leeds" }, { id: "rail-glasgow", name: "Glasgow Central", city: "glasgow" },
+    { id: "rail-edinburgh", name: "Edinburgh Waverley", city: "edinburgh" }, { id: "rail-liverpool", name: "Liverpool Lime Street", city: "liverpool" },
+    { id: "rail-bristol", name: "Bristol Temple Meads", city: "bristol" }, { id: "rail-newcastle", name: "Newcastle", city: "newcastle" },
+    { id: "rail-sheffield", name: "Sheffield", city: "sheffield" }, { id: "rail-nottingham", name: "Nottingham", city: "nottingham" },
+    { id: "rail-reading", name: "Reading", city: "uk" }, { id: "rail-york", name: "York", city: "uk" },
+    { id: "rail-other", name: "Other UK station", city: "uk" }
   ],
   /* Cities where taxi formats are sold. */
   taxiCities: ["london", "manchester", "birmingham", "leeds", "glasgow", "liverpool", "bristol", "edinburgh", "newcastle"],
@@ -81,8 +115,8 @@ window.LO_CALC = {
 
     /* Buses — /insights/bus-advertising-guide/ */
     { id: "bus-rear", cat: "bus", name: "Bus Rears / Headliners", per: "bus", unit: { london: "1wk", regional: "2wk" }, price: { london: 400, regional: 75 }, impWk: 15000, print: 60, prod: 40, note: "Seen by drivers behind the bus." },
-    { id: "bus-ss", cat: "bus", name: "Supersides", unit: "2wk", per: "bus", price: { london: 400, regional: 203 }, impWk: 20000, print: 90, prod: 50, min: { regional: 10 },
-      note: "Street-level, pedestrians and traffic. Regional minimum around 10 buses." },
+    { id: "bus-ss", cat: "bus", name: "Supersides", unit: "2wk", per: "bus", price: { london: 400, regional: 203 }, impWk: 20000, print: 90, prod: 50, min: 10,
+      note: "Street-level, pedestrians and traffic. Sold in a minimum order of 10 buses." },
     { id: "bus-ts", cat: "bus", name: "T-Sides", unit: "2wk", per: "bus", price: { london: 700, regional: 375 }, impWk: 25000, print: 120, prod: 60, note: "Side and roof panel in a T shape." },
     { id: "bus-sl", cat: "bus", name: "Streetliners", unit: "2wk", per: "bus", price: { london: null, regional: 340 }, impWk: 15000, print: 100, prod: 60, note: "Suburban high streets. London on request." },
     { id: "bus-wrap", cat: "bus", name: "Full Bus Wraps", unit: "4wk", per: "bus", price: { london: 20000, regional: null }, impWk: 40000, print: 1250, prod: 900, note: "The whole bus. Regional wraps are sold annually: ask us." },
