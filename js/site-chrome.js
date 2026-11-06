@@ -49,7 +49,12 @@
           '<li class="lo-amenu-item"><a' + linkClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
           '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-footer">Contact</a></li>' +
         "</ul>" +
-        '<a class="lo-amenu-badge" href="https://www.prolificnorth.co.uk/news/new-leeds-ooh-agency-turns-to-ooh-unsurprisingly-for-launch-campaign/" target="_blank" rel="noopener"><img src="/images/press/prolific-north-marketing-awards-2026.webp" alt="Prolific North Marketing Awards 2026" width="247" height="132" decoding="async"></a>' +
+        '<a class="lo-amenu-lab' + (onLab ? ' is-current' : '') + '" href="' + (onLab ? '#calc' : '/budget-lab/') + '"' + (onLab ? ' aria-current="page"' : '') + ' aria-label="' + (onLab ? 'Go to the Budget Lab calculator' : 'Open the OOH Budget Lab, free') + '">' +
+          '<svg class="lo-lab-ico" viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="2.5" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="6" y="5" width="8" height="3" rx=".8" fill="currentColor"/><circle cx="7" cy="11.2" r="1" fill="currentColor"/><circle cx="10" cy="11.2" r="1" fill="currentColor"/><circle cx="13" cy="11.2" r="1" fill="currentColor"/><circle cx="7" cy="14.4" r="1" fill="currentColor"/><circle cx="10" cy="14.4" r="1" fill="currentColor"/><circle cx="13" cy="14.4" r="1" fill="currentColor"/></svg>' +
+          '<span class="lo-lab-txt">Budget Lab</span>' +
+          '<span class="lo-lab-tag">Free</span>' +
+          '<svg class="lo-lab-arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</a>' +
         '<button type="button" class="lo-amenu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
     "</div>" +
