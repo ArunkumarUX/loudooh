@@ -240,9 +240,14 @@ html body :is(h1, h2, h3, h4, h5, h6) { letter-spacing: -0.02em !important; }
 .lo-amenu-lab:hover .lo-lab-arr{transform:translateX(3px)}
 .lo-amenu-lab.is-current .lo-lab-arr{transform:rotate(90deg)}
 .lo-amenu-lab.is-current:hover .lo-lab-arr{transform:rotate(90deg) translateX(3px)}
+.lo-amenu-lab.is-up .lo-lab-arr{transform:rotate(-90deg)}
+.lo-amenu-lab.is-up:hover .lo-lab-arr{transform:rotate(-90deg) translateX(3px)}
+.lo-amenu-lab .lo-lab-tag{font-variant-numeric:tabular-nums}
+.lo-amenu .lo-amenu-lab.lo-lab-pop{animation:lo-lab-pop .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes lo-lab-pop{40%{transform:scale(1.05)}}
 .lo-amenu-lab .lo-lab-tag{display:inline-block;padding:4px 7px;border-radius:999px;background:#fff;color:#D83A05;font-size:11px;font-weight:800;line-height:1;letter-spacing:.02em}
 @keyframes lo-lab-sheen{to{transform:translateX(120%)}}
-@media (prefers-reduced-motion:reduce){.lo-amenu .lo-amenu-lab,.lo-amenu-lab .lo-lab-arr{transition:none}.lo-amenu .lo-amenu-lab::after{animation:none!important;display:none}}
+@media (prefers-reduced-motion:reduce){.lo-amenu .lo-amenu-lab.lo-lab-pop{animation:none}.lo-amenu .lo-amenu-lab,.lo-amenu-lab .lo-lab-arr{transition:none}.lo-amenu .lo-amenu-lab::after{animation:none!important;display:none}}
 @media (max-width:900px){.lo-amenu .lo-amenu-lab{height:40px;gap:7px;padding:0 10px 0 13px;font-size:14px}.lo-amenu-lab .lo-lab-ico{width:16px;height:16px}}
 @media (max-width:420px){.lo-amenu-lab .lo-lab-tag{display:none}.lo-amenu .lo-amenu-lab{padding:0 11px 0 12px}}
 @media (max-width:340px){.lo-amenu-lab .lo-lab-ico{display:none}}

@@ -45,7 +45,6 @@
           '<li class="lo-amenu-item" data-has-dropdown="1"><a class="lo-amenu-link" href="/#services">Services ' + chevron + "</a>" + ddPanel() + "</li>" +
           '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-intro">Why Loud?</a></li>' +
           '<li class="lo-amenu-item"><a' + linkClass(onPricing) + ' href="/insights/pricing/">Pricing</a></li>' +
-          '<li class="lo-amenu-item"><a' + linkClass(onLab) + ' href="/budget-lab/">Budget Lab</a></li>' +
           '<li class="lo-amenu-item"><a' + linkClass(onInsights && !onPricing) + ' href="/insights/">Insights</a></li>' +
           '<li class="lo-amenu-item"><a class="lo-amenu-link" href="/#lo-footer">Contact</a></li>' +
         "</ul>" +

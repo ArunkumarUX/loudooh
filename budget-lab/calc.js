@@ -270,7 +270,36 @@
     $("results").classList.toggle("has-plan", lines.length > 0);
     state._totals = t;
     state._lines = lines;
+    syncNav();
   }
+
+  /* header Budget Lab button follows the visitor through the page:
+     no plan yet → Start planning (to the formats); plan built → See estimate with the total (to the results);
+     results on screen → Edit plan (back up to the formats) */
+  var navAtResults = false;
+  function syncNav() {
+    var a = document.querySelector(".lo-amenu-lab");
+    if (!a) return;
+    var has = !!(state._lines && state._lines.length);
+    var mode = !has ? "start" : navAtResults ? "edit" : "see";
+    var tot = has ? gbp(Math.round(((state._totals || {}).total) || 0)) : "";
+    var key = mode + tot;
+    if (a.getAttribute("data-mode-key") === key) return;
+    a.setAttribute("data-mode-key", key);
+    a.setAttribute("data-mode", mode);
+    a.setAttribute("href", mode === "see" ? "#results" : "#cat-list");
+    var txt = a.querySelector(".lo-lab-txt"), tag = a.querySelector(".lo-lab-tag");
+    txt.textContent = mode === "start" ? "Start planning" : mode === "see" ? "See estimate" : "Edit plan";
+    tag.textContent = mode === "start" ? "Free" : tot;
+    a.classList.toggle("is-up", mode === "edit");
+    a.setAttribute("aria-label", mode === "start" ? "Start planning: choose your formats" : mode === "see" ? "See your estimate, " + tot : "Edit your plan");
+    a.classList.remove("lo-lab-pop"); void a.offsetWidth; a.classList.add("lo-lab-pop");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", syncNav); else setTimeout(syncNav, 0);
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".lo-amenu-lab");
+    if (a) track("bl_header_button", { mode: a.getAttribute("data-mode") || "start" });
+  });
 
   /* number roll for the live total (skipped when the visitor prefers reduced motion) */
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -426,7 +455,7 @@
       es.forEach(function (e) { seen[e.target.id === "results" ? "results" : "calc"] = e.isIntersecting; });
       syncBar();
     }, { rootMargin: "0px 0px -80px 0px" }).observe($("calc-grid-anchor") || document.querySelector(".calc-grid"));
-    new IntersectionObserver(function (es) { seen.results = es[0].isIntersecting; syncBar(); }, { threshold: 0.15 }).observe($("results"));
+    new IntersectionObserver(function (es) { seen.results = es[0].isIntersecting; navAtResults = seen.results; syncBar(); syncNav(); }, { threshold: 0.15 }).observe($("results"));
   }
 
   /* ---------- next steps ---------- */
