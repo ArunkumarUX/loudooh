@@ -23,16 +23,26 @@
   <link rel="stylesheet" href="/css/site-chrome.css?v=labnav-2-lc2-pn6">
 <link rel="stylesheet" href="/css/ashii-type.css?v=9">
   <style>
+    /* Hero heading: three lines across the hero on desktop and tablet; normal wrapping on phones. */
+    @media (min-width: 900px) {
+      .hero-content:has(.ikea-h1) { max-width: none; }
+      .hero .ikea-h1 { font-size: clamp(2.25rem, 3.5vw, 3.125rem); line-height: 1.06; }
+      .hero .ikea-h1 span { display: block; white-space: nowrap; }
+      .hero-content:has(.ikea-h1) .hero-lead { max-width: 40rem; }
+    }
+    @media (max-width: 899px) { .hero .ikea-h1 { text-wrap: balance; } }
+    /* Keep the case-study hero capitals on the line spans (the site-wide no-caps rule reaches child elements). */
+    body[data-hero-caps] .hero .ikea-h1 span:not(#lo-nocaps) { text-transform: uppercase !important; }
     /* IKEA Croydon: square campaign shots crop to the panel and the flags in the 4:3 photo cards. */
     .cs-photo-imgwrap .ikea-angle { object-position: center 18%; }
     .cs-photo-imgwrap .ikea-flags { object-position: center 42%; }
     /* The three lines of creative, set out as the panel reads them. */
     .ikea-hooks { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 12px; }
-    .ikea-hooks li { display: grid; grid-template-columns: 30px 1fr; gap: 14px; align-items: start; padding: 16px 18px; background: #fff; border: 1px solid var(--color-border); border-left: 4px solid #FFDA1A; border-radius: var(--radius-card); box-shadow: var(--shadow-subtle); }
+    .ikea-hooks li { display: grid; grid-template-columns: 30px 1fr; gap: 14px; align-items: start; padding: 16px 18px; background: #fff; border: 1px solid var(--color-border); border-left: 4px solid var(--color-orange); border-radius: var(--radius-card); box-shadow: var(--shadow-subtle); }
     .ikea-hooks .ikea-hook-num { font-family: var(--font-heading); font-weight: 900; color: var(--color-orange); font-size: 0.9375rem; line-height: 1.5; }
     .ikea-hooks strong { display: block; color: var(--color-navy); margin-bottom: 2px; }
     .ikea-hooks p { margin: 0; }
-    .ikea-summary { margin: 28px 0 0; padding: 20px 22px; background: #FFF8D6; border-left: 4px solid #FFDA1A; border-radius: var(--radius-card); font-weight: 700; color: #021234; line-height: 1.5; }
+    .ikea-summary { margin: 28px 0 0; padding: 20px 22px; background: #fff8f5; border-left: 4px solid var(--color-orange); border-radius: var(--radius-card); font-weight: 700; color: #021234; line-height: 1.5; }
     /* Closing band uses the store flags photograph, darkened behind the type (as on Novomins). */
     .cs-main { padding-bottom: 56px; }
     .cta--photo { position: relative; isolation: isolate; overflow: hidden; background: #021234; margin-top: 0; padding: 40px var(--gutter) 36px; }
@@ -98,7 +108,7 @@
     <div class="hero-shell">
       <div class="hero-content" id="main-content">
         <p class="hero-eyebrow">Case study · IKEA Croydon · South London · Tram</p>
-        <h1>Hyper-Local Croydon Tram Advertising: Driving Retail Footfall for IKEA Croydon</h1>
+        <h1 class="ikea-h1"><span>Hyper-Local Croydon Tram</span> <span>Advertising: Driving Retail</span> <span>Footfall for IKEA Croydon</span></h1>
         <p class="hero-lead">An 8-week Croydon Tram interior panel campaign used 10 to 15 minutes of captive dwell time to deliver 2.3 million impacts across South London and send shoppers to one store.</p>
         <a href="#objective" class="hero-btn hero-btn-primary">Read the story</a>
       </div>
