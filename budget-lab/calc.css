@@ -423,3 +423,20 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .results-summary { margin-top: 16px; }
   .budget-meter { display: none; }
 }
+
+/* "As featured in" press strip under the hero: same look and motion as the homepage ticker. */
+.lab-press { background: #fff; border-bottom: 1px solid rgba(2, 18, 52, 0.08); padding-block: clamp(18px, 2.4vw, 28px); text-align: center; }
+.lab-press-label { margin: 0 0 14px; font: 600 0.8125rem/1.2 Inter, system-ui, sans-serif; color: #6b7280; }
+.lab-press-viewport { position: relative; overflow: hidden; width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.lab-press-track { display: flex; width: max-content; align-items: center; gap: clamp(40px, 6vw, 88px); margin: 0; padding: 0; list-style: none; white-space: nowrap; animation: lab-press-marquee 45s linear infinite; }
+.lab-press-track li { flex: 0 0 auto; display: flex; align-items: center; }
+.lab-press-track img { height: 30px; width: auto; object-fit: contain; opacity: 0.6; filter: grayscale(1); transition: opacity 0.3s ease, filter 0.3s ease; }
+.lab-press-track img:hover { opacity: 1; filter: none; }
+.lab-press-viewport:hover .lab-press-track { animation-play-state: paused; }
+@keyframes lab-press-marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .lab-press-track { animation: none; flex-wrap: wrap; justify-content: center; white-space: normal; gap: clamp(24px, 4vw, 48px); }
+  .lab-press-viewport { -webkit-mask-image: none; mask-image: none; }
+}
