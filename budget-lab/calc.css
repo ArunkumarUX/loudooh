@@ -444,7 +444,7 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
 /* Brand-logo variant (Jamie, 25 Nov): "Trusted by brands" client logos in FULL COLOUR —
    Jamie's feedback 24 Nov: brands must NOT be black-and-white. Bigger marks than the
    press strip, wider spacing, slightly slower loop, like the homepage brand ticker. */
-.lab-press--brands .lab-press-track { gap: clamp(48px, 7vw, 104px); animation-duration: 55s; }
+.lab-press--brands .lab-press-track { gap: clamp(48px, 7vw, 104px); animation-duration: 80s; }
 /* Uniform visual size (Jamie, 25 Nov): same 40px height for all, but cap the very
    wide marks (Sainsbury's 5.3:1, Jet2 6:1, Police Now 3.6:1, Mulberry 2.6:1) so they
    sit in the same footprint as adidas / Flood Re (~67-70px wide) instead of
