@@ -440,3 +440,10 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
   .lab-press-track { animation: none; flex-wrap: wrap; justify-content: center; white-space: normal; gap: clamp(24px, 4vw, 48px); }
   .lab-press-viewport { -webkit-mask-image: none; mask-image: none; }
 }
+
+/* Brand-logo variant (Jamie, 25 Nov): "Trusted by brands" client logos in FULL COLOUR —
+   Jamie's feedback 24 Nov: brands must NOT be black-and-white. Bigger marks than the
+   press strip, wider spacing, slightly slower loop, like the homepage brand ticker. */
+.lab-press--brands .lab-press-track { gap: clamp(48px, 7vw, 104px); animation-duration: 55s; }
+.lab-press--brands .lab-press-track img { height: 40px; opacity: 0.95; filter: none; }
+.lab-press--brands .lab-press-track img:hover { opacity: 1; }
