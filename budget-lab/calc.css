@@ -445,5 +445,9 @@ html:not(.lab-scrolling) .fcard:hover .fcard-img img { transform: scale(1.05); }
    Jamie's feedback 24 Nov: brands must NOT be black-and-white. Bigger marks than the
    press strip, wider spacing, slightly slower loop, like the homepage brand ticker. */
 .lab-press--brands .lab-press-track { gap: clamp(48px, 7vw, 104px); animation-duration: 55s; }
-.lab-press--brands .lab-press-track img { height: 40px; opacity: 0.95; filter: none; }
+/* Uniform visual size (Jamie, 25 Nov): same 40px height for all, but cap the very
+   wide marks (Sainsbury's 5.3:1, Jet2 6:1, Police Now 3.6:1, Mulberry 2.6:1) so they
+   sit in the same footprint as adidas / Flood Re (~67-70px wide) instead of
+   dominating the row. object-fit: contain keeps the capped ones undistorted. */
+.lab-press--brands .lab-press-track img { height: 40px; max-width: 96px; width: auto; object-fit: contain; opacity: 0.95; filter: none; }
 .lab-press--brands .lab-press-track img:hover { opacity: 1; }
